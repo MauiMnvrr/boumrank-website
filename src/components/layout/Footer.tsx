@@ -3,7 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { MapPin, Mail } from 'lucide-react';
 import { useDarkMode } from '@/components/ui/DarkModeProvider';
+import { COMPANY } from '@/lib/constants';
 
 const TwitterIcon = ({ className }: { className?: string }) => (
   <svg
@@ -54,89 +56,157 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+type LinkColumn = {
+  title: string;
+  links: { label: string; href: string; external?: boolean; badge?: string }[];
+};
+
+const columns: LinkColumn[] = [
+  {
+    title: 'Produit',
+    links: [
+      { label: 'Comment ça marche', href: '/comment-ca-marche' },
+      { label: 'Tarifs', href: '/tarifs' },
+      { label: 'Calculateur ROI', href: '/#calculateur', badge: 'Nouveau' },
+      { label: 'Démo en ligne', href: '/experience' },
+      { label: 'Technologie', href: '/technologie' },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { label: 'Restaurants & bars', href: '/#pour-qui' },
+      { label: 'Salons & beauté', href: '/#pour-qui' },
+      { label: 'Boutiques & retail', href: '/#pour-qui' },
+      { label: 'Multi-sites', href: '/contact' },
+      { label: 'Le réseau (vision)', href: '/#vision', badge: 'Bientôt' },
+    ],
+  },
+  {
+    title: 'Ressources',
+    links: [
+      { label: 'Blog', href: '/blog' },
+      { label: 'FAQ', href: '/#faq' },
+      { label: 'Guide : 50 avis Google en 30 j', href: '/#lead-magnet', badge: 'PDF' },
+      { label: 'Générateur de QR de démo', href: '/generateur-qr-demo', badge: 'Gratuit' },
+      { label: 'À propos', href: '/a-propos' },
+    ],
+  },
+  {
+    title: 'Légal',
+    links: [
+      { label: 'Mentions légales', href: '/mentions-legales' },
+      { label: 'CGV', href: '/conditions-generales' },
+      { label: 'Confidentialité', href: '/politique-de-confidentialite' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+];
+
 export const Footer: React.FC = () => {
   const { isDark } = useDarkMode();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--bg-primary)] dark:bg-[var(--bg-primary)] py-12">
+    <footer className="bg-[var(--bg-primary)] pt-16 pb-8">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          <div className="col-span-1 md:col-span-2">
-            <div className="mb-4">
+        {/* Top row: brand + 4 link columns */}
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+          {/* Brand block (col-span-2 on desktop) */}
+          <div className="col-span-2 md:col-span-2 flex flex-col gap-5">
+            <Link href="/" className="inline-block">
               <Image
-                src={isDark ? "/logos/logo-horizontal-blanc.png" : "/logos/logo-horizontal-violet-cyan-gradient.png"}
+                src={
+                  isDark
+                    ? '/logos/logo-horizontal-blanc.png'
+                    : '/logos/logo-horizontal-violet-cyan-gradient.png'
+                }
                 alt="BoumRank"
-                width={200}
-                height={52}
-                className="h-12 w-auto"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
               />
-            </div>
-            <p className="text-[var(--text-muted)] text-sm max-w-xs">
-              La plateforme de gamification ultime pour les commerces locaux. Transformez les avis clients en jeux et recompenses.
+            </Link>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed max-w-xs">
+              Le marketing local qui se joue. Plus d&apos;avis Google, plus de followers,
+              plus de clients qui reviennent. Setup en 5 minutes.
             </p>
+            <div className="flex flex-col gap-2 text-xs text-[var(--text-muted)]">
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className="text-[var(--primary-teal)]" />
+                <span>Conçu à Marseille · Soutenu par Pépite Aix-Marseille</span>
+              </div>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="flex items-center gap-2 hover:text-[var(--primary-blue)] transition-colors"
+              >
+                <Mail size={14} className="text-[var(--primary-teal)]" />
+                <span>{COMPANY.email}</span>
+              </a>
+            </div>
           </div>
 
-          <div>
-            <h4 className="text-[var(--text-primary)] font-bold uppercase mb-4 text-sm">Produit</h4>
-            <ul className="space-y-2 text-[var(--text-muted)] text-sm">
-              <li>
-                <Link href="/experience" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  L&apos;Exp&eacute;rience
-                </Link>
-              </li>
-              <li>
-                <Link href="/technologie" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  Technologie
-                </Link>
-              </li>
-              <li>
-                <Link href="/tarifs" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  Tarifs
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/a-propos" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  &Agrave; propos
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-[var(--text-primary)] font-bold uppercase mb-4 text-sm">Legal</h4>
-            <ul className="space-y-2 text-[var(--text-muted)] text-sm">
-              <li>
-                <Link href="/politique-de-confidentialite" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  Confidentialite
-                </Link>
-              </li>
-              <li>
-                <Link href="/conditions-generales" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#1B6FC2] cursor-pointer transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* 4 link columns */}
+          {columns.map((col) => (
+            <div key={col.title} className="col-span-1">
+              <h4 className="font-display font-bold uppercase text-xs tracking-widest text-[var(--text-primary)] mb-4">
+                {col.title}
+              </h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-[var(--text-secondary)] text-sm hover:text-[var(--primary-blue)] transition-colors flex items-center gap-2 leading-snug"
+                    >
+                      <span>{link.label}</span>
+                      {link.badge && (
+                        <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] text-white whitespace-nowrap">
+                          {link.badge}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[var(--border-default)]">
-          <p className="text-[var(--text-muted)] text-xs uppercase font-bold">
-            &copy; 2026 BoumRank. Tous droits reserves.
+        {/* Bottom row: copyright + socials */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[var(--border-default)]">
+          <p className="text-[var(--text-muted)] text-xs uppercase font-display font-bold tracking-wider text-center md:text-left">
+            © {year} BoumRank — Tous droits réservés ·{' '}
+            <span className="text-[var(--text-secondary)]">SAS en cours de création</span>
           </p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <TwitterIcon className="text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer w-5 h-5 transition-colors" />
-            <LinkedinIcon className="text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer w-5 h-5 transition-colors" />
-            <InstagramIcon className="text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer w-5 h-5 transition-colors" />
+          <div className="flex items-center gap-3">
+            <a
+              href="https://twitter.com/boumrank"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
+            >
+              <TwitterIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://linkedin.com/company/boumrank"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://instagram.com/boumrank"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
