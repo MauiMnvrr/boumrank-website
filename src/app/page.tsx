@@ -2,9 +2,10 @@ import { Hero } from '@/components/home/Hero';
 import { Problem } from '@/components/home/Problem';
 import { Solution } from '@/components/home/Solution';
 import { DemoWheel } from '@/components/home/DemoWheel';
-import { ActionShowcase } from '@/components/home/ActionShowcase';
-import { CompetitiveAdvantages } from '@/components/home/CompetitiveAdvantages';
 import { HowItWorks } from '@/components/home/HowItWorks';
+import { RoiCalculator } from '@/components/home/RoiCalculator';
+import { Sectors } from '@/components/home/Sectors';
+import { Differentiators } from '@/components/home/Differentiators';
 import { CTA } from '@/components/home/CTA';
 import {
   SchemaOrg,
@@ -63,8 +64,9 @@ export default function HomePage() {
       <Solution />
       <DemoWheel />
       <HowItWorks />
-      <ActionShowcase />
-      <CompetitiveAdvantages />
+      <RoiCalculator />
+      <Sectors />
+      <Differentiators />
       <CTA />
     </>
   );
