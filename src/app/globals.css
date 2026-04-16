@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Tailwind v4: dark mode via class strategy */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Register custom theme values for Tailwind v4 */
+@theme {
+  --font-plus-jakarta: var(--font-plus-jakarta-sans);
+  --font-inter: var(--font-inter);
+  --font-space-grotesk: var(--font-space-grotesk);
+
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+/* BoumRank Design System — Light mode default, dark mode via .dark class */
+
+:root {
+  /* Primary */
+  --primary-blue: #1B6FC2;
+  --primary-blue-dark: #144F8C;
+  --primary-blue-light: #3A8FE0;
+  --primary-teal: #1E9DAA;
+  --primary-green: #2EAE6D;
+  --primary-green-dark: #1E8A52;
+  --primary-green-light: #4CC98A;
+
+  /* Secondary */
+  --secondary-orange: #F28C28;
+  --secondary-orange-dark: #D47318;
+  --secondary-orange-light: #FBAB5C;
+
+  /* Accent */
+  --accent-purple: #7C5CFC;
+  --accent-pink: #E84393;
+  --accent-cyan: #00CEC9;
+
+  /* Semantic */
+  --success: #27AE60;
+  --warning: #F39C12;
+  --error: #E74C3C;
+  --info: #3498DB;
+
+  /* Light mode surfaces */
+  --bg-primary: #F8FAFB;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F0F3F5;
+  --border-default: #E2E8ED;
+  --border-highlight: rgba(27, 111, 194, 0.2);
+  --text-primary: #1A202C;
+  --text-body: #4A5568;
+  --text-secondary: #6B7B8D;
+  --text-muted: #9AA8B8;
+
+  /* Glassmorphism — Light */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-blur: blur(16px);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #1B6FC2 0%, #1E9DAA 40%, #2EAE6D 100%);
+  --gradient-primary-hover: linear-gradient(135deg, #144F8C 0%, #177A85 40%, #1E8A52 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(27,111,194,0.08) 0%, rgba(46,174,109,0.08) 100%);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+/* Dark mode overrides */
+.dark {
+  --bg-primary: #0D1117;
+  --bg-surface: #161B22;
+  --bg-elevated: #1C2333;
+  --border-default: #30363D;
+  --border-highlight: rgba(27, 111, 194, 0.4);
+  --text-primary: #E6EDF3;
+  --text-body: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #6B7B8D;
+
+  --glass-bg: rgba(22, 27, 34, 0.7);
+  --glass-border: rgba(48, 54, 61, 0.5);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+/* Gradient glow effect */
+.gradient-glow {
+  box-shadow: 0 0 20px rgba(27, 111, 194, 0.4), 0 0 40px rgba(46, 174, 109, 0.2);
+}
+
+.gradient-glow-subtle {
+  box-shadow: 0 0 10px rgba(27, 111, 194, 0.3);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(27, 111, 194, 0.5);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 20px rgba(27, 111, 194, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: var(--gradient-primary-hover);
+  box-shadow: 0 0 30px rgba(27, 111, 194, 0.6);
+  transform: scale(1.05);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(27, 111, 194, 0.3);
+  color: var(--text-primary);
+}
+
+/* Space Grotesk for data */
+.font-data {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+}
