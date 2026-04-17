@@ -5,13 +5,16 @@ import { OnboardingProvider } from '@/components/ui/OnboardingProvider';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { DarkModeScript } from '@/components/ui/DarkModeScript';
+import { CookieBanner } from '@/components/ui/CookieBanner';
+import { ConsentBoot } from '@/components/analytics/ConsentBoot';
+import { AnalyticsScripts } from '@/components/analytics/AnalyticsScripts';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/constants';
 import './globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-plus-jakarta-sans',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
@@ -25,7 +28,7 @@ const inter = Inter({
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
-  weight: ['400', '500', '600', '700'],
+  weight: ['500', '700'],
   display: 'swap',
 });
 
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: '%s | BoumRank',
-    default: 'BoumRank | Transformez vos avis clients en jeux et récompenses',
+    default: 'BoumRank | Plus d\u2019avis Google gr\u00e2ce au jeu',
   },
   description: SITE_DESCRIPTION,
   openGraph: {
@@ -68,6 +71,7 @@ export default function RootLayout({
     >
       <head>
         <DarkModeScript />
+        <ConsentBoot />
       </head>
       <body
         className="min-h-screen flex flex-col antialiased"
@@ -80,8 +84,10 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <CookieBanner />
           </OnboardingProvider>
         </DarkModeProvider>
+        <AnalyticsScripts />
       </body>
     </html>
   );

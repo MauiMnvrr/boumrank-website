@@ -36,6 +36,58 @@ export function organizationSchema() {
       contactType: 'customer service',
       availableLanguage: 'French',
     },
+    sameAs: [
+      'https://twitter.com/boumrank',
+      'https://linkedin.com/company/boumrank',
+      'https://instagram.com/boumrank',
+    ],
+  };
+}
+
+/** LocalBusiness schema — for the /a-propos page. Based in Marseille. */
+export function localBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/#localbusiness`,
+    name: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logos/logo-horizontal-violet-cyan-gradient.png`,
+    image: `${SITE_URL}/og-image.png`,
+    email: COMPANY.email,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Marseille',
+      addressRegion: 'Provence-Alpes-Côte d\u2019Azur',
+      addressCountry: 'FR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 43.2965,
+      longitude: 5.3698,
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'France',
+    },
+    priceRange: '€€',
+  };
+}
+
+/** BreadcrumbList for any page. Pass {name, url} pairs top-down. */
+export function breadcrumbSchema(
+  items: Array<{ name: string; url?: string }>
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      ...(item.url ? { item: item.url } : {}),
+    })),
   };
 }
 

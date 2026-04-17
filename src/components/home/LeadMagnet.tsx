@@ -39,17 +39,39 @@ export const LeadMagnet = () => {
     trackEvent('lead_magnet_submitted', { source: 'home_lead_magnet' });
 
     try {
-      // TODO Jour 7 : wire real POST to /api/lead-magnet (Resend + Vercel Blob PDF)
-      // For now, simulate submit with 800ms delay
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const res = await fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+
+      if (!res.ok || !data?.ok) {
+        throw new Error(data?.error ?? 'Envoi impossible.');
+      }
 
       setState('success');
       trackEvent('lead_magnet_download', {
         source: 'home_lead_magnet',
         magnet: '50-lots-qui-font-revenir',
       });
-    } catch {
-      setError("Une erreur est survenue. Réessayez dans un instant.");
+      // Fire Meta Pixel Lead event (consent-gated inside the wrapper)
+      if (typeof window !== 'undefined') {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const w = window as any;
+        if (typeof w.fbq === 'function') {
+          w.fbq('track', 'Lead', {
+            content_name: 'Playbook BoumRank',
+            content_category: 'lead-magnet',
+          });
+        }
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Une erreur est survenue.';
+      setError(msg);
       setState('error');
     }
   };

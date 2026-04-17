@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
-import { SchemaOrg, organizationSchema } from '@/components/seo/SchemaOrg';
+import {
+  SchemaOrg,
+  organizationSchema,
+  localBusinessSchema,
+  breadcrumbSchema,
+} from '@/components/seo/SchemaOrg';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { AProposHero } from '@/components/a-propos/AProposHero';
 import { AProposStory } from '@/components/a-propos/AProposStory';
@@ -20,7 +25,16 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <>
-      <SchemaOrg schemas={[organizationSchema()]} />
+      <SchemaOrg
+        schemas={[
+          organizationSchema(),
+          localBusinessSchema(),
+          breadcrumbSchema([
+            { name: 'Accueil', url: `${SITE_URL}/` },
+            { name: 'À propos', url: `${SITE_URL}/a-propos` },
+          ]),
+        ]}
+      />
       <AProposHero />
       <AProposStory />
       <AProposTeam />
