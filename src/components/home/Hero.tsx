@@ -279,16 +279,19 @@ export const Hero = () => {
           >
             {/* H1 — punchline avec mots-clés en gradient */}
             <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
-              Vos clients laissent un{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-                avis Google
+              Ils{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
+                scannent
               </span>
-              .
+              ,{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
+                jouent
+              </span>
+              ,
               <br />
-              Ils repartent avec un{' '}
               <span className="relative inline-block">
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
-                  lot à venir gagner
+                  TU gagnes
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-30" />
               </span>
