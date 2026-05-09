@@ -2,7 +2,7 @@
 
 import { useState, useEffect, createElement } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, MapPin, Sparkles, Zap } from 'lucide-react';
+import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, MapPin, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
@@ -249,16 +249,6 @@ export const Hero = () => {
     return () => clearInterval(timer);
   }, [screens.length]);
 
-  const scrollToDemo = () => {
-    const target = document.getElementById('demo-roue');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      // Fallback : scroll to next section if demo-roue not yet built
-      window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="relative min-h-screen pt-24 pb-12 overflow-hidden flex items-center bg-[var(--bg-primary)]">
       {/* Background : radial gradient + emoji rain */}
@@ -307,15 +297,11 @@ export const Hero = () => {
               </span>
             </p>
 
-            {/* Double CTA */}
+            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={openModal} variant="gradient" size="lg">
                 <Sparkles size={18} />
                 Lancer ma démo gratuite
-              </Button>
-              <Button onClick={scrollToDemo} variant="subtle" size="lg">
-                <Zap size={18} />
-                Voir la roue en action
               </Button>
             </div>
 
