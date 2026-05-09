@@ -240,22 +240,9 @@ export const Hero = () => {
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 500], [0, 50]);
   const [currentScreen, setCurrentScreen] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const screens = [ScreenHome, ScreenActions, ScreenSlots, ScreenWheel];
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 1023px)');
-    const update = () => setIsMobile(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
-
-  const screens = isMobile
-    ? [ScreenHome, ScreenActions, ScreenSlots, ScreenWheel]
-    : [ScreenHome, ScreenActions, ScreenSlots, ScreenWheel, ScreenWin];
-
-  useEffect(() => {
-    setCurrentScreen((prev) => (prev >= screens.length ? 0 : prev));
     const timer = setInterval(() => {
       setCurrentScreen((prev) => (prev + 1) % screens.length);
     }, 4500);
