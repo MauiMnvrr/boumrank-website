@@ -301,7 +301,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={openModal} variant="gradient" size="lg">
                 <Sparkles size={18} />
-                Lancer ma démo gratuite
+                Testez 2 semaines gratuitement
               </Button>
             </div>
 
