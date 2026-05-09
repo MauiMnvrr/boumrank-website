@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { FonctionnalitesHero } from '@/components/fonctionnalites/FonctionnalitesHero';
 import { Section1Menu } from '@/components/fonctionnalites/Section1Menu';
 import { Section2Mecanique } from '@/components/fonctionnalites/Section2Mecanique';
 import { Section3Pilotage } from '@/components/fonctionnalites/Section3Pilotage';
@@ -20,7 +19,6 @@ export default function FonctionnalitesPage() {
   return (
     <>
       <SchemaOrg schemas={[organizationSchema()]} />
-      <FonctionnalitesHero />
       <Section1Menu />
       <Section2Mecanique />
       <Section3Pilotage />
