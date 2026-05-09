@@ -2,6 +2,7 @@ import { Hero } from '@/components/home/Hero';
 import { Problem } from '@/components/home/Problem';
 import { DemoWheel } from '@/components/home/DemoWheel';
 import { HowItWorks } from '@/components/home/HowItWorks';
+import { Activate } from '@/components/home/Activate';
 import { RoiCalculator } from '@/components/home/RoiCalculator';
 import { Sectors } from '@/components/home/Sectors';
 import { Differentiators } from '@/components/home/Differentiators';
@@ -34,6 +35,7 @@ export default function HomePage() {
       <Problem />
       <DemoWheel />
       <HowItWorks />
+      <Activate />
       <RoiCalculator />
       <Sectors />
       <Differentiators />
