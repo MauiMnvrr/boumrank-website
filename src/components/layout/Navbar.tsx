@@ -47,7 +47,7 @@ type MenuItem = {
 };
 
 const menuItems: MenuItem[] = [
-  { name: 'Comment ça marche', href: '/comment-ca-marche' },
+  { name: 'Fonctionnalités', href: '/fonctionnalites' },
   { name: 'Tarifs', href: '/tarifs' },
   { name: 'Pour qui', dropdown: sectorItems },
   { name: 'Blog', href: '/blog' },

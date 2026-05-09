@@ -65,7 +65,7 @@ const columns: LinkColumn[] = [
   {
     title: 'Produit',
     links: [
-      { label: 'Comment ça marche', href: '/comment-ca-marche' },
+      { label: 'Fonctionnalités', href: '/fonctionnalites' },
       { label: 'Tarifs', href: '/tarifs' },
       { label: 'Calculateur ROI', href: '/#calculateur', badge: 'Nouveau' },
       { label: 'Démo en ligne', href: '/experience' },

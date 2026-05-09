@@ -6,7 +6,6 @@ import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizon
 import Image from 'next/image';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { DEMO_URL } from '@/lib/constants';
 
 // =====================================================
@@ -278,11 +277,6 @@ export const Hero = () => {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="text-left"
           >
-            {/* Eyebrow gradient orange (gamification accent) */}
-            <Eyebrow variant="orange" size="md" withDot className="mb-6">
-              Plus d&apos;avis Google grâce au jeu
-            </Eyebrow>
-
             {/* H1 — punchline avec mots-clés en gradient */}
             <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
               Vos clients laissent un{' '}

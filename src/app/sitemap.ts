@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/comment-ca-marche`,
+      url: `${SITE_URL}/fonctionnalites`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

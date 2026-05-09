@@ -8,7 +8,7 @@ BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, 
 ## Pages principales
 - [Accueil](https://www.boumrank.com) - Presentation de la plateforme
 - [Tarifs](https://www.boumrank.com/tarifs) - Plans a partir de 65 euros/mois
-- [Comment ca marche](https://www.boumrank.com/comment-ca-marche) - Guide etape par etape
+- [Fonctionnalités](https://www.boumrank.com/fonctionnalites) - Le menu, les jeux, les coupons et le dashboard
 - [A propos](https://www.boumrank.com/a-propos) - Mission et equipe
 - [Blog](https://www.boumrank.com/blog) - Articles sur la gamification et le marketing local
 - [Contact](https://www.boumrank.com/contact) - Formulaire de contact et demo

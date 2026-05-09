@@ -18,6 +18,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/comment-ca-marche',
+        destination: '/fonctionnalites',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
