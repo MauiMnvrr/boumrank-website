@@ -2,8 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Settings, QrCode, Gamepad2, Store } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Settings, QrCode, Gamepad2, Star, Store } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import Link from 'next/link';
@@ -23,7 +22,7 @@ const steps: Step[] = [
     title: 'Configurez',
     subtitle: 'Votre jeu en 2 minutes',
     description:
-      "Choisissez Roue, Slots ou Blackjack. Personnalisez les lots, les probabilités et le design aux couleurs de votre commerce.",
+      "Choisissez votre jeu, personnalisez les lots et leurs probabilités. Le tout aux couleurs de votre enseigne.",
     gradient: 'linear-gradient(135deg, #1B6FC2 0%, #144F8C 100%)',
     accent: '#1B6FC2',
   },
@@ -32,25 +31,34 @@ const steps: Step[] = [
     title: 'Affichez',
     subtitle: 'Le QR code prêt à poser',
     description:
-      "Sur la table, le comptoir, l'addition, la vitrine. Nous vous envoyons les supports imprimables : vous n'avez qu'à les poser.",
+      "Sur la table, le comptoir ou l'addition. On vous envoie les visuels, vous les imprimez et les posez.",
     gradient: 'linear-gradient(135deg, #1E9DAA 0%, #177A85 100%)',
     accent: '#1E9DAA',
   },
   {
     icon: Gamepad2,
-    title: 'Vos clients jouent',
+    title: 'Ils jouent',
     subtitle: 'Avis Google · Follow · Newsletter',
     description:
-      "Ils scannent, réalisent l'action marketing que vous avez choisie, puis lancent le jeu pour tenter de débloquer un lot.",
+      "Ils scannent, réalisent l'action marketing que vous avez choisie, puis jouent pour tenter de gagner un lot.",
     gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
     accent: '#2EAE6D',
   },
   {
+    icon: Star,
+    title: 'Vous récoltez',
+    subtitle: 'Google · Instagram · TripAdvisor · TikTok',
+    description:
+      'Gagnez des avis et abonnements : Google, Instagram, TripAdvisor, TikTok, et plus encore.',
+    gradient: 'linear-gradient(135deg, #00CEC9 0%, #00A8A3 100%)',
+    accent: '#00CEC9',
+  },
+  {
     icon: Store,
-    title: 'Ils reviennent gagner',
+    title: 'Ils reviennent',
     subtitle: 'Swipe caissier · Achat min · Fini',
     description:
-      "Le gagnant revient en boutique avec son coupon. Votre caissier vérifie le minimum d'achat et swipe le coupon : plus jamais utilisable, fraude impossible.",
+      "Ils reviennent, récupèrent leurs lots sous minimum d'achat. Vos bénéfices autofinancent la solution.",
     gradient: 'linear-gradient(135deg, #F28C28 0%, #D47318 100%)',
     accent: '#F28C28',
   },
@@ -86,14 +94,10 @@ export const HowItWorks = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            Comment ça marche
-          </Eyebrow>
-          <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Quatre étapes.
-            <br />
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-5 text-[var(--text-primary)]">
+            Parcours simple,{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-              Cinq minutes. Zéro friction.
+              zéro friction
             </span>
           </h2>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
@@ -108,17 +112,17 @@ export const HowItWorks = () => {
           {/* Connecting line progress animated */}
           <motion.div
             style={{ width: lineWidth }}
-            className="absolute top-16 left-[10%] h-[3px] rounded-full z-0 bg-[linear-gradient(90deg,#1B6FC2_0%,#1E9DAA_33%,#2EAE6D_66%,#F28C28_100%)] shadow-[0_0_15px_rgba(27,111,194,0.4)]"
+            className="absolute top-16 left-[10%] h-[3px] rounded-full z-0 bg-[linear-gradient(90deg,#1B6FC2_0%,#1E9DAA_25%,#2EAE6D_50%,#00CEC9_75%,#F28C28_100%)] shadow-[0_0_15px_rgba(27,111,194,0.4)]"
           />
 
-          <div className="grid grid-cols-4 gap-4 relative z-10">
+          <div className="grid grid-cols-5 gap-3 relative z-10">
             {steps.map((step, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
                 className="flex flex-col items-center text-center group"
               >
                 {/* Icon bubble */}
@@ -137,14 +141,14 @@ export const HowItWorks = () => {
 
                 {/* Title */}
                 <h3
-                  className="font-display font-extrabold uppercase text-lg mb-1"
+                  className="font-display font-extrabold text-lg mb-1"
                   style={{ color: step.accent }}
                 >
                   {step.title}
                 </h3>
 
                 {/* Subtitle */}
-                <div className="text-xs text-[var(--text-muted)] font-display font-semibold uppercase tracking-wider mb-3">
+                <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-3">
                   {step.subtitle}
                 </div>
 
@@ -164,7 +168,7 @@ export const HowItWorks = () => {
           {/* Vertical line progress */}
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute top-0 left-[23px] w-[3px] rounded-full bg-[linear-gradient(180deg,#1B6FC2_0%,#1E9DAA_33%,#2EAE6D_66%,#F28C28_100%)] shadow-[0_0_12px_rgba(27,111,194,0.4)]"
+            className="absolute top-0 left-[23px] w-[3px] rounded-full bg-[linear-gradient(180deg,#1B6FC2_0%,#1E9DAA_25%,#2EAE6D_50%,#00CEC9_75%,#F28C28_100%)] shadow-[0_0_12px_rgba(27,111,194,0.4)]"
           />
 
           <div className="flex flex-col gap-10">
@@ -189,13 +193,13 @@ export const HowItWorks = () => {
 
                 <div>
                   <h3
-                    className="font-display font-extrabold uppercase text-lg mb-1"
+                    className="font-display font-extrabold text-lg mb-1"
                     style={{ color: step.accent }}
                   >
                     <span className="text-xs text-[var(--text-muted)] mr-2">{i + 1}.</span>
                     {step.title}
                   </h3>
-                  <div className="text-xs text-[var(--text-muted)] font-display font-semibold uppercase tracking-wider mb-2">
+                  <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-2">
                     {step.subtitle}
                   </div>
                   <p className="text-sm text-[var(--text-body)] leading-relaxed">
@@ -215,12 +219,12 @@ export const HowItWorks = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button onClick={openModal} variant="gradient" size="lg">
+          <Button onClick={openModal} variant="gradient" size="lg" className="normal-case tracking-normal">
             Configurer mon commerce
           </Button>
           <Link
             href="/comment-ca-marche"
-            className="text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] font-display font-bold text-sm uppercase tracking-wider transition-colors underline underline-offset-4 decoration-2 decoration-[var(--primary-blue)]/30 hover:decoration-[var(--primary-blue)]"
+            className="text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] font-display font-bold text-sm transition-colors underline underline-offset-4 decoration-2 decoration-[var(--primary-blue)]/30 hover:decoration-[var(--primary-blue)]"
           >
             Voir le détail complet →
           </Link>
