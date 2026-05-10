@@ -1,6 +1,5 @@
 import { Hero } from '@/components/home/Hero';
 import { Problem } from '@/components/home/Problem';
-import { DemoWheel } from '@/components/home/DemoWheel';
 import { HowItWorks } from '@/components/home/HowItWorks';
 import { Activate } from '@/components/home/Activate';
 import { RoiCalculator } from '@/components/home/RoiCalculator';
@@ -33,7 +32,6 @@ export default function HomePage() {
       />
       <Hero />
       <Problem />
-      <DemoWheel />
       <HowItWorks />
       <Activate />
       <RoiCalculator />
