@@ -3,7 +3,6 @@ import { Problem } from '@/components/home/Problem';
 import { HowItWorks } from '@/components/home/HowItWorks';
 import { Activate } from '@/components/home/Activate';
 import { RoiCalculator } from '@/components/home/RoiCalculator';
-import { Sectors } from '@/components/home/Sectors';
 import { Differentiators } from '@/components/home/Differentiators';
 import { Vision } from '@/components/home/Vision';
 import { PricingTeaser } from '@/components/home/PricingTeaser';
@@ -35,7 +34,6 @@ export default function HomePage() {
       <HowItWorks />
       <Activate />
       <RoiCalculator />
-      <Sectors />
       <Differentiators />
       <Vision />
       <PricingTeaser />
