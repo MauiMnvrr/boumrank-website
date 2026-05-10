@@ -16,23 +16,23 @@ const frustrations: Frustration[] = [
   {
     icon: <MessageSquareOff size={24} />,
     emoji: '😩',
-    title: 'Zéro avis Google malgré 40 couverts par service',
+    title: 'L’avis « promis juré » qui n’arrive jamais',
     body: 'Vous le demandez, ils sourient, ils oublient dès la porte franchie.',
-    highlight: '40 couverts',
+    highlight: 'promis juré',
   },
   {
     icon: <TrendingDown size={24} />,
     emoji: '😤',
-    title: 'Vos réseaux stagnent à 200 abonnés depuis 18 mois',
-    body: 'Pendant que le resto d\'à côté dépasse les 5 000 sans rien faire de spécial.',
-    highlight: '5 000',
+    title: 'Commerçant le jour, community manager la nuit',
+    body: 'Vous n’avez pas le temps. Vos concurrents non plus. La différence, c’est nous.',
+    highlight: 'la différence',
   },
   {
     icon: <Wrench size={24} />,
     emoji: '🤯',
-    title: 'Vos outils marketing sont des usines à gaz',
-    body: 'Trois logins, une formation obligatoire, un devis qui traîne. Vous n\'avez pas le temps.',
-    highlight: '3 logins',
+    title: 'Le voisin a l’ancienneté, vous avez la qualité',
+    body: 'Il a les avis. Vous avez le talent. Devenez la référence comme vous le méritez.',
+    highlight: 'la référence',
   },
 ];
 
@@ -52,11 +52,9 @@ export const Problem = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Vos clients passent, mangent, partent.
-            <br />
-            Et vous n&apos;avez{' '}
+            On connaît la{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)]">
-              rien récupéré
+              chanson
             </span>
             .
           </h2>
