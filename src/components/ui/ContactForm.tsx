@@ -45,7 +45,7 @@ export function ContactForm() {
       `Nom: ${formData.name}\nEmail: ${formData.email}\nEntreprise: ${formData.company}\n\nMessage:\n${formData.message}`
     );
 
-    window.location.href = `mailto:contact@boumrank.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@boumrank.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
 
