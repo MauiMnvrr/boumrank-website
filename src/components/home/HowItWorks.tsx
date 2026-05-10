@@ -47,7 +47,7 @@ const steps: Step[] = [
   {
     icon: Star,
     title: 'Vous récoltez',
-    subtitle: 'Google · Instagram · TripAdvisor · TikTok',
+    subtitle: 'Multi-plateformes en 1 clic',
     description:
       'Gagnez des avis et abonnements : Google, Instagram, TripAdvisor, TikTok, et plus encore.',
     gradient: 'linear-gradient(135deg, #00CEC9 0%, #00A8A3 100%)',
