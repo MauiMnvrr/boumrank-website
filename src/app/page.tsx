@@ -5,8 +5,6 @@ import { Activate } from '@/components/home/Activate';
 import { RoiCalculator } from '@/components/home/RoiCalculator';
 import { Differentiators } from '@/components/home/Differentiators';
 import { Vision } from '@/components/home/Vision';
-import { PricingTeaser } from '@/components/home/PricingTeaser';
-import { LeadMagnet } from '@/components/home/LeadMagnet';
 import { FAQ } from '@/components/home/FAQ';
 import { HOME_FAQS } from '@/data/home-faqs';
 import { FinalCTA } from '@/components/home/FinalCTA';
@@ -36,8 +34,6 @@ export default function HomePage() {
       <RoiCalculator />
       <Differentiators />
       <Vision />
-      <PricingTeaser />
-      <LeadMagnet />
       <FAQ />
       <FinalCTA />
     </>

@@ -2,10 +2,9 @@
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Star, Users, TrendingUp, Euro, ArrowRight } from 'lucide-react';
+import { Star, Users, TrendingUp, Euro, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { cn } from '@/lib/utils';
 
@@ -121,10 +120,6 @@ export const RoiCalculator = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <Eyebrow variant="gradient" size="md" className="mb-5">
-            <Calculator size={14} />
-            Calculateur ROI · Sans inscription
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Combien d&apos;avis Google{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">

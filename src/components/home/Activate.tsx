@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 const GoogleLogo = () => (
   <svg viewBox="0 0 48 48" className="w-9 h-9" aria-hidden="true">
@@ -100,9 +99,6 @@ export const Activate = () => {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
             className="lg:col-span-9"
           >
-            <Eyebrow variant="gradient" size="md" className="mb-5">
-              Étape 2 · Action client
-            </Eyebrow>
             <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
               Activez-
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">

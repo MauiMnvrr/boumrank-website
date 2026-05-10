@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { MessageSquareOff, TrendingDown, Wrench } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type Frustration = {
   icon: React.ReactNode;
@@ -52,9 +51,6 @@ export const Problem = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            Le constat brutal
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Vos clients passent, mangent, partent.
             <br />
