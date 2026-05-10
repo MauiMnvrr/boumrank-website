@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { QrCode, Sparkles, Megaphone, ChevronRight } from 'lucide-react';
+import { QrCode, Sparkles, Megaphone } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type Benefit = {
   icon: React.ReactNode;
@@ -14,18 +13,18 @@ type Benefit = {
 const benefits: Benefit[] = [
   {
     icon: <QrCode size={22} />,
-    title: 'Le QR code remplace votre carte papier',
-    body: 'Plus de menus tachés, plus de mises à jour à réimprimer. Un seul QR sur table, vos clients consultent leur menu — et tombent sur le jeu sans le chercher.',
+    title: 'QR-code',
+    body: 'Plus de menus tachés, plus de mises à jour à réimprimer. Un seul QR sur table, vos clients consultent leur menu — et tombent sur le jeu.',
   },
   {
     icon: <Sparkles size={22} />,
-    title: 'Le jeu apparaît naturellement',
-    body: 'Pas de pop-up agressif ni de bannière qui plombe l\'expérience. Une simple invitation en bas du menu : « Tentez votre chance ». Le client clique parce qu\'il a envie, pas parce qu\'on l\'oblige.',
+    title: 'Aucune explication nécessaire',
+    body: 'Une simple invitation en bas du menu : « Tentez votre chance ». Le client clique parce qu\'il a envie, pas parce qu\'on l\'oblige.',
   },
   {
     icon: <Megaphone size={22} />,
-    title: '1 client sur 2 déclenche une action marketing',
-    body: 'Avis Google, abonnement Insta, opt-in newsletter, parrainage. Chaque partie commence par une action que vous avez choisie — vous transformez un repas en levier d\'acquisition.',
+    title: '1 client sur 3 déclenche une action marketing',
+    body: 'Avis Google, abonnement Insta, newsletter. Chaque partie commence par une action que vous avez choisie — chaque repas en boost pour votre visibilité.',
   },
 ];
 
@@ -48,13 +47,10 @@ export const Section1Menu = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            Section 1 · Le menu digital
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Le menu, votre{' '}
+            Votre menu digitalisé,{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
-              cheval de Troie
+              LE Cheval de Troie
             </span>{' '}
             marketing.
           </h2>
@@ -124,27 +120,6 @@ export const Section1Menu = () => {
                     ))}
                   </div>
 
-                  {/* Game CTA banner */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="mx-3 mb-4 rounded-2xl p-3 bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)] shadow-[0_8px_24px_rgba(27,111,194,0.4)]"
-                  >
-                    <div className="flex items-center gap-2 text-white">
-                      <span className="text-base">🎰</span>
-                      <div className="flex-1">
-                        <div className="font-display font-extrabold text-[10px] uppercase tracking-wide">
-                          Tentez votre chance
-                        </div>
-                        <div className="text-[9px] opacity-90">
-                          1 partie offerte aujourd&apos;hui
-                        </div>
-                      </div>
-                      <ChevronRight size={14} />
-                    </div>
-                  </motion.div>
                 </div>
               </div>
             </div>
