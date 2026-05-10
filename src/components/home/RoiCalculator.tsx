@@ -15,10 +15,6 @@ import { cn } from '@/lib/utils';
 // since we don't yet have enough beta data to publish hard numbers.
 
 const ASSUMPTIONS = {
-  /** % of customers who scan the QR code */
-  scanRate: 0.35, // 35% default
-  /** % of scanners who complete the marketing action (review / follow / etc.) */
-  conversionToAction: 0.55, // 55%
   /** % of winners who actually come back to redeem the coupon */
   returnRate: 0.45, // 45%
   /** avg €/client uplift from a returning customer (compared to a 1-shot) */
@@ -82,9 +78,8 @@ export const RoiCalculator = () => {
     returningCustomers,
     extraRevenue,
   } = useMemo(() => {
-    const monthlyCustomers = customersPerDay * 30;
-    const scanners = monthlyCustomers * ASSUMPTIONS.scanRate;
-    const reviews = scanners * ASSUMPTIONS.conversionToAction;
+    // Nouveaux avis/mois = (clients/jour ÷ 3) × 24 jours d'ouverture
+    const reviews = (customersPerDay / 3) * 24;
     const returners = reviews * ASSUMPTIONS.returnRate;
     const revenue = returners * avgTicket * ASSUMPTIONS.uplift;
 
