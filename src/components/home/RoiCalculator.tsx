@@ -8,19 +8,6 @@ import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { cn } from '@/lib/utils';
 
-// =====================================================
-// Assumptions used in formulas (tunable)
-// =====================================================
-// These ratios are realistic baseline estimates — disclaimer shown in UI
-// since we don't yet have enough beta data to publish hard numbers.
-
-const ASSUMPTIONS = {
-  /** % of winners who actually come back to redeem the coupon */
-  returnRate: 0.45, // 45%
-  /** avg €/client uplift from a returning customer (compared to a 1-shot) */
-  uplift: 1.25, // 25% uplift when they return
-};
-
 const formatEUR = (n: number) =>
   new Intl.NumberFormat('fr-FR', {
     style: 'currency',
@@ -80,8 +67,10 @@ export const RoiCalculator = () => {
   } = useMemo(() => {
     // Nouveaux avis/mois = (clients/jour ÷ 3) × 24 jours d'ouverture
     const reviews = (customersPerDay / 3) * 24;
-    const returners = reviews * ASSUMPTIONS.returnRate;
-    const revenue = returners * avgTicket * ASSUMPTIONS.uplift;
+    // 1 coupon sur 10 est effectivement utilisé en boutique
+    const returners = reviews / 10;
+    // CA additionnel = retours × ticket moyen
+    const revenue = returners * avgTicket;
 
     return {
       newReviewsPerMonth: Math.round(reviews),
