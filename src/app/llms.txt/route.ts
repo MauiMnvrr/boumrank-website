@@ -30,7 +30,7 @@ BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, 
 ## Contact
 - Site : https://www.boumrank.com
 - App : https://app.boumrank.com
-- Email : contact@boumrank.com
+- Email : support@boumrank.com
 `;
 
   return new Response(content, {

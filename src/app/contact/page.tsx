@@ -62,10 +62,10 @@ export default function ContactPage() {
                         Email
                       </h3>
                       <a
-                        href="mailto:contact@boumrank.com"
+                        href="mailto:support@boumrank.com"
                         className="text-[#1B6FC2] font-bold hover:underline"
                       >
-                        contact@boumrank.com
+                        support@boumrank.com
                       </a>
                       <p className="text-sm text-[var(--text-secondary)] mt-1">
                         R&eacute;ponse sous 24h, du lundi au vendredi.

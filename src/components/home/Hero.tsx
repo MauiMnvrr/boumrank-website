@@ -2,7 +2,7 @@
 
 import { useState, useEffect, createElement } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, MapPin, Sparkles } from 'lucide-react';
+import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
@@ -305,24 +305,6 @@ export const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust strip */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[var(--text-muted)] font-display font-semibold uppercase tracking-wider">
-              <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-[var(--primary-teal)]" />
-                <span>Conçu à Marseille</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                <span>Soutenu par Pépite Aix-Marseille</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[var(--primary-green)] animate-pulse" />
-                  Beta active depuis Janvier 2026
-                </span>
-              </div>
-            </div>
           </motion.div>
 
           {/* RIGHT — Mockup smartphone (CONSERVÉ TEL QUEL — chef d'œuvre) */}
