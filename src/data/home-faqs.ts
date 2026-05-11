@@ -23,9 +23,9 @@ export const HOME_FAQS: FaqItem[] = [
       "C'est justement le point. Le jeu n'est pas pour les gamers — c'est pour tout le monde. Une roue qui tourne, ça parle à votre grand-mère comme à l'ado de 14 ans. 89 % des scans aboutissent à une partie lancée sur nos données beta.",
   },
   {
-    question: "Je peux configurer le minimum d'achat pour que le coupon soit valable ?",
+    question: "Est-ce que peux configurer le minimum d'achat pour la récupération des lots ?",
     answer:
-      "Oui, c'est même obligatoire pour activer un lot. Vous définissez le seuil (ex : 5 €, 15 €, 30 €) selon la valeur du lot. Le caissier voit le minimum affiché à l'écran au moment du swipe et valide en 2 secondes.",
+      "Oui, vous fixez un seuil unique pour l'ensemble de vos lots. Que ce soit 0 €, 5 € ou 10 €, vous définissez le montant minimum de commande nécessaire pour qu'un client puisse repartir avec son lot.",
   },
   {
     question: 'Est-ce que je peux personnaliser le jeu aux couleurs de mon commerce ?',
