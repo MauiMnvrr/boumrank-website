@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Check } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type Visual = 'wheel' | 'actions' | 'probabilities' | 'coupon';
 
@@ -284,9 +283,6 @@ export const Section2Mecanique = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            Section 2 · La mécanique
-          </Eyebrow>
           <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-5 text-[var(--text-primary)]">
             Vous configurez. Vos clients jouent.{' '}
             <span className="text-gradient">Vous récoltez.</span>

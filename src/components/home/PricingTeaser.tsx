@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Check, Star, Crown, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { cn } from '@/lib/utils';
 
@@ -100,9 +99,6 @@ export const PricingTeaser = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            Tarifs
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Un prix clair.{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">

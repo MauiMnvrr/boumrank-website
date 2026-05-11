@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const AProposHero = () => {
   return (
@@ -16,10 +15,6 @@ export const AProposHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Eyebrow variant="orange" size="md" withDot className="mb-6">
-            <MapPin size={14} />
-            Marseille · Fondée en 2026
-          </Eyebrow>
 
           <h1 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8 text-[var(--text-primary)]">
             On a construit BoumRank parce qu&apos;on en avait marre de voir{' '}

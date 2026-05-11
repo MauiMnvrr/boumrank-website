@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Download, Mail, Check, BookOpen, Sparkles, AlertCircle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { cn } from '@/lib/utils';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
@@ -151,10 +150,6 @@ export const LeadMagnet = () => {
 
               {/* RIGHT : Copy + form */}
               <div className="flex flex-col">
-                <Eyebrow variant="subtle" size="sm" className="mb-4 self-start">
-                  <Download size={12} />
-                  Lead magnet · Gratuit
-                </Eyebrow>
 
                 <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl leading-[1.1] mb-4 text-[var(--text-primary)]">
                   Le <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#7C5CFC_0%,#1B6FC2_100%)]">Playbook BoumRank</span> :

@@ -10,7 +10,6 @@ import {
   Zap,
 } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type Advantage = {
   icon: React.ReactNode;
@@ -71,9 +70,6 @@ export const Section3Pilotage = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            Section 3 · Pilotez & capitalisez
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Un dashboard.{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#2EAE6D_0%,#F28C28_100%)]">
@@ -237,10 +233,6 @@ export const Section3Pilotage = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <Eyebrow variant="gradient" size="md" className="mb-5">
-              <Trophy size={14} />
-              Avantage concurrentiel
-            </Eyebrow>
             <h3 className="font-display font-extrabold uppercase text-2xl md:text-3xl lg:text-4xl text-[var(--text-primary)] leading-tight">
               Trois choses que{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_50%,#F28C28_100%)]">

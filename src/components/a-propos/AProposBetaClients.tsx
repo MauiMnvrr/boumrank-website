@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Utensils, MapPin, TrendingUp } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type BetaClient = {
   name: string;
@@ -66,10 +65,6 @@ export const AProposBetaClients = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <Eyebrow variant="orange" size="md" className="mb-5">
-            <Utensils size={14} />
-            Nos clients beta
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
             4 restaurants. 4 villes.{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)]">

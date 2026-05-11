@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { XCircle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 const noExtras = [
   'Zéro frais de setup',
@@ -25,9 +24,6 @@ export const TarifsNoExtras = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-10">
-            <Eyebrow variant="subtle" size="md" className="mb-5">
-              Transparence tarifaire
-            </Eyebrow>
             <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
               Ce qu&apos;on ne facture{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#2EAE6D_100%)]">

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Rocket, Network } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const AProposVision = () => {
   return (
@@ -19,10 +18,6 @@ export const AProposVision = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <Eyebrow variant="gradient" size="md" className="mb-5">
-            <Rocket size={14} />
-            La vision 2030
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
             Demain, BoumRank fera parler{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#7C5CFC_0%,#1B6FC2_50%,#2EAE6D_100%)]">

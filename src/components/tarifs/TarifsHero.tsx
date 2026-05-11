@@ -2,13 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const TarifsHero = () => {
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden bg-[var(--bg-primary)]">
       {/* Background decorative */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(27,111,194,0.08),transparent_60%)]" />
       <div className="absolute top-10 right-10 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(46,174,109,0.1),transparent_70%)] rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
@@ -17,10 +15,6 @@ export const TarifsHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Eyebrow variant="orange" size="md" withDot className="mb-6">
-            <Sparkles size={14} />
-            Tarifs 2026
-          </Eyebrow>
 
           <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
             Un prix. Un clic.{' '}

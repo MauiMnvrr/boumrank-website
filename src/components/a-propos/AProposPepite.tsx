@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Award } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const AProposPepite = () => {
   return (
@@ -38,9 +37,6 @@ export const AProposPepite = () => {
               </div>
 
               <div>
-                <Eyebrow variant="subtle" size="sm" className="mb-3">
-                  Soutenu par
-                </Eyebrow>
                 <h2 className="font-display font-extrabold uppercase text-2xl md:text-3xl text-[var(--text-primary)] mb-2 leading-tight">
                   Pépite Aix-Marseille Université
                 </h2>

@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Utensils, Scissors, ShoppingBag, ArrowRight, Star, TrendingUp, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type Sector = {
   id: string;
@@ -95,9 +94,6 @@ export const Sectors = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <Eyebrow variant="orange" size="md" className="mb-5">
-            Pour qui c&apos;est fait
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Pensé pour les commerces{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)]">

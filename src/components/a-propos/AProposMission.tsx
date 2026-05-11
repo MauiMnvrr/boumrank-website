@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Target } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const AProposMission = () => {
   return (
@@ -18,10 +17,6 @@ export const AProposMission = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <Eyebrow variant="gradient" size="md" className="mb-5">
-            <Target size={14} />
-            Notre mission
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
             Transformer le marketing local en jeu.{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
