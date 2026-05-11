@@ -115,7 +115,7 @@ export const HowItWorks = () => {
             className="absolute top-16 left-[10%] h-[3px] rounded-full z-0 bg-[linear-gradient(90deg,#1B6FC2_0%,#1E9DAA_25%,#2EAE6D_50%,#00CEC9_75%,#F28C28_100%)] shadow-[0_0_15px_rgba(27,111,194,0.4)]"
           />
 
-          <div className="grid grid-cols-5 gap-1 relative z-10">
+          <div className="grid grid-cols-5 gap-4 relative z-10">
             {steps.map((step, i) => (
               <motion.div
                 key={i}
@@ -153,7 +153,7 @@ export const HowItWorks = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-[13px] text-[var(--text-body)] leading-snug px-0 -mx-2">
+                <p className="text-[13px] text-[var(--text-body)] leading-snug px-0">
                   {step.description}
                 </p>
               </motion.div>
