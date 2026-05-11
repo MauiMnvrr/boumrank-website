@@ -34,7 +34,7 @@ const advantages: Advantage[] = [
   {
     icon: <Coins size={24} />,
     badge: 'L\'auto-financement',
-    title: 'La seule solution qui s\'auto-finance',
+    title: 'La solution qui s\'auto-finance',
     body: 'Fixez un minimum d\'achat. Le client revient, consomme et la solution s\'auto-finance. Max d\'avis, aucune sortie !',
     highlight: 'Panier moyen +32% sur les retours coupon',
     gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
