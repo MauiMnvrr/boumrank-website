@@ -290,11 +290,7 @@ export const Hero = () => {
 
             {/* Sub-headline */}
             <p className="text-[var(--text-body)] text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
-              Un QR code, un mini-jeu de casino, un coupon à dégainer en caisse.
-              Vous décuplez vos avis, vos abonnés et vos retours client —{' '}
-              <span className="text-[var(--text-primary)] font-semibold">
-                sans app, sans compétence technique, setup en 5 minutes.
-              </span>
+              Devenez le commerce que tout le monde choisit. Offrez une expérience ludique, récoltez massivement des avis et surclassez vos concurrents.
             </p>
 
             {/* CTA */}
