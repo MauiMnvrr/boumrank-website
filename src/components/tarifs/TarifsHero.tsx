@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 
 export const TarifsHero = () => {
   return (
@@ -15,19 +14,19 @@ export const TarifsHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-
           <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
-            Un prix. Un clic.{' '}
+            Un service.{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-              Zéro devis
-            </span>{' '}
-            à rallonge.
+              Trois engagements.
+            </span>
+            <br />
+            À partir de 59€/mois.
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto">
-            Trois plans pour trois ambitions.{' '}
+            Le même service, débloqué entièrement dès le jour 1.{' '}
             <span className="text-[var(--text-primary)] font-semibold">
-              Essai gratuit 14 jours, résiliation en un clic, aucune mauvaise surprise.
+              Vous choisissez juste combien de temps vous voulez rester.
             </span>
           </p>
         </motion.div>

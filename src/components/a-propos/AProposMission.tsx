@@ -52,7 +52,7 @@ export const AProposMission = () => {
                 mécaniques de gamification sophistiquées, du branding 100% custom, des analytics de
                 pro — mais accessible à{' '}
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] font-extrabold">
-                  65€/mois
+                  partir de 59€/mois
                 </span>
                 , activable en 5 minutes, utilisable par quelqu&apos;un qui n&apos;a jamais ouvert une
                 plateforme marketing de sa vie.

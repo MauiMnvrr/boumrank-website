@@ -1,50 +1,41 @@
 import { Metadata } from 'next';
 import { SchemaOrg, faqPageSchema, productSchema } from '@/components/seo/SchemaOrg';
-import { PricingTeaser } from '@/components/home/PricingTeaser';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { TarifsHero } from '@/components/tarifs/TarifsHero';
+import { TarifsFeaturesCentral } from '@/components/tarifs/TarifsFeaturesCentral';
 import { TarifsPlansDetail } from '@/components/tarifs/TarifsPlansDetail';
-import { TarifsNoExtras } from '@/components/tarifs/TarifsNoExtras';
+import { TarifsMultiBanner } from '@/components/tarifs/TarifsMultiBanner';
 import { TarifsFaq } from '@/components/tarifs/TarifsFaq';
 import { TARIFS_FAQS } from '@/data/tarifs-faqs';
-import { TarifsPayment } from '@/components/tarifs/TarifsPayment';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, PRICING_OFFERS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Tarifs — Un prix clair, zéro devis, zéro engagement',
+  title: 'Tarifs — Un service, trois engagements, à partir de 59€/mois',
   description:
-    "Découvrez les 3 plans BoumRank : Essentiel 65€/mois, Performance 79€/mois, Enterprise sur devis. Essai gratuit 14 jours, résiliation en 1 clic, sans mauvaise surprise.",
+    "Un seul service BoumRank, toutes les features incluses. Trois offres : sans engagement à 79€/mois, 6 mois à 69€/mois, 1 an à 59€/mois. Essai gratuit 14 jours sans CB.",
   alternates: { canonical: `${SITE_URL}/tarifs` },
 };
 
-const plansForSchema = [
-  {
-    name: 'Essentiel',
-    price: '65',
-    description: "L'arme de base pour démarrer fort avec 1 jeu + branding aux couleurs + support FR.",
-  },
-  {
-    name: 'Performance',
-    price: '79',
-    description: 'Le combo complet avec les 3 jeux, branding 100% custom, analytics avancés et support prioritaire.',
-  },
-  {
-    name: 'Enterprise',
-    price: 'Sur devis',
-    description: "Multi-établissements, API, account manager dédié et SLA — fait pour les enseignes qui jouent dans la cour des grands.",
-  },
-];
+const plansForSchema = PRICING_OFFERS.map((offer) => ({
+  name: offer.label,
+  price: String(offer.price),
+  description:
+    offer.id === 'yearly'
+      ? `Service complet BoumRank avec engagement 12 mois (économisez ${offer.yearlySaving}€/an), notre meilleur deal.`
+      : offer.id === 'six-months'
+        ? `Service complet BoumRank avec engagement 6 mois (économisez ${offer.yearlySaving}€/an).`
+        : 'Service complet BoumRank, sans engagement, résiliable à tout moment.',
+}));
 
 export default function TarifsPage() {
   return (
     <>
       <SchemaOrg schemas={[faqPageSchema(TARIFS_FAQS), productSchema(plansForSchema)]} />
       <TarifsHero />
-      <PricingTeaser />
+      <TarifsFeaturesCentral />
       <TarifsPlansDetail />
-      <TarifsNoExtras />
+      <TarifsMultiBanner />
       <TarifsFaq />
-      <TarifsPayment />
       <FinalCTA />
     </>
   );

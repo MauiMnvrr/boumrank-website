@@ -7,7 +7,7 @@ BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, 
 
 ## Pages principales
 - [Accueil](https://www.boumrank.com) - Presentation de la plateforme
-- [Tarifs](https://www.boumrank.com/tarifs) - Plans a partir de 65 euros/mois
+- [Tarifs](https://www.boumrank.com/tarifs) - Un service, trois engagements, a partir de 59 euros/mois
 - [Fonctionnalités](https://www.boumrank.com/fonctionnalites) - Le menu, les jeux, les coupons et le dashboard
 - [A propos](https://www.boumrank.com/a-propos) - Mission et equipe
 - [Blog](https://www.boumrank.com/blog) - Articles sur la gamification et le marketing local
@@ -23,9 +23,13 @@ BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, 
 - Collecte de donnees marketing (RGPD)
 
 ## Tarification
-- L'Essentiel : 65 euros/mois - Scans illimites, 1 jeu, dashboard
-- Performance : 79 euros/mois - Tous les jeux, IA, branding complet, support 24/7
-- Enterprise : Sur mesure - Multi-comptes, white-label, API custom
+Service unique BoumRank, toutes les features incluses des le jour 1 (les 3 jeux, branding 100% custom, dashboard Performance, campagnes sequentielles, export CSV, Zapier, support FR prioritaire).
+3 offres au choix, qui ne different que par la duree d'engagement :
+- Sans engagement : 79 euros/mois HT, resiliable a tout moment en 1 clic
+- 6 mois : 69 euros/mois HT (economisez 120 euros/an)
+- 1 an : 59 euros/mois HT (economisez 240 euros/an), recommande, meilleur deal
+
+Essai gratuit 14 jours sur les 3 offres, sans carte bancaire a l'inscription. Paiement mensuel recurrent via Stripe, facture PDF mensuelle, hebergement europeen RGPD. Pour multi-etablissements, franchises, chaines : devis sur-mesure via /contact (API, account manager dedie, SLA).
 
 ## Contact
 - Site : https://www.boumrank.com

@@ -1,137 +1,117 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Check, Zap, Crown, Star, MessageCircle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
+import { PRICING_OFFERS, type PricingOffer } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-type DetailedPlan = {
-  id: string;
-  name: string;
-  price: string;
-  priceUnit: string;
-  tagline: string;
-  forWho: string;
-  features: { label: string; highlight?: boolean }[];
-  cta: string;
-  ctaAction: 'modal' | 'link';
-  ctaHref?: string;
-  icon: React.ReactNode;
-  gradient: string;
-  accent: string;
-  highlighted: boolean;
+type OfferCardProps = {
+  offer: PricingOffer;
+  index: number;
+  onCtaClick: () => void;
 };
 
-const plans: DetailedPlan[] = [
-  {
-    id: 'essentiel',
-    name: 'Essentiel',
-    price: '65',
-    priceUnit: '€ / mois HT',
-    tagline: "L'arme de base pour démarrer fort.",
-    forWho:
-      'Les commerces qui testent le terrain et veulent décupler leurs avis Google sans se ruiner.',
-    features: [
-      { label: '1 jeu au choix (Roue, Slots ou Blackjack)' },
-      { label: '1 établissement' },
-      { label: 'QR code imprimable fourni' },
-      { label: 'Branding aux couleurs de votre commerce (logo + 3 couleurs)' },
-      { label: 'Coupon physique anti-fraude (swipe caissier illimité)' },
-      { label: 'Dashboard analytics basique' },
-      { label: 'Export CSV des gagnants' },
-      { label: 'Support chat en français (réponse sous 24h)' },
-    ],
-    cta: 'Lancer en Essentiel',
-    ctaAction: 'modal',
-    icon: <Star size={22} />,
-    gradient: 'linear-gradient(135deg, #1E9DAA 0%, #2EAE6D 100%)',
-    accent: '#1E9DAA',
-    highlighted: false,
-  },
-  {
-    id: 'performance',
-    name: 'Performance',
-    price: '79',
-    priceUnit: '€ / mois HT',
-    tagline: 'Le combo complet pour faire exploser vos retours.',
-    forWho:
-      'Les commerces qui veulent activer toutes les mécaniques et piloter leur croissance au cordeau.',
-    features: [
-      { label: 'Les 3 jeux débloqués (Roue, Slots, Blackjack)', highlight: true },
-      { label: '1 établissement' },
-      { label: 'QR code imprimable fourni (×3 formats)' },
-      {
-        label: 'Branding 100% custom : 13 templates + palette illimitée + illustrations',
-        highlight: true,
-      },
-      { label: 'Coupon physique anti-fraude (swipe caissier illimité)' },
-      {
-        label: 'Dashboard Performance : taux de scan, conversion, retour en caisse, temps moyen',
-        highlight: true,
-      },
-      { label: 'Export CSV + intégration Zapier' },
-      {
-        label: 'Campagnes séquentielles : lot spécial week-end, happy hour, anniversaire',
-        highlight: true,
-      },
-      { label: 'Support chat prioritaire en français (réponse sous 2h)' },
-      { label: 'Accès anticipé à la marketplace cross-promo 2026', highlight: true },
-    ],
-    cta: 'Booster avec Performance',
-    ctaAction: 'modal',
-    icon: <Crown size={22} />,
-    gradient: 'linear-gradient(135deg, #1B6FC2 0%, #2EAE6D 100%)',
-    accent: '#1B6FC2',
-    highlighted: true,
-  },
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
-    price: 'Sur devis',
-    priceUnit: '',
-    tagline: 'Fait pour les enseignes qui jouent dans la cour des grands.',
-    forWho:
-      'Chaînes, franchises, groupes multi-établissements et marques qui veulent un partenariat stratégique.',
-    features: [
-      { label: 'Tout le plan Performance, multiplié par N établissements' },
-      {
-        label: 'API BoumRank pour brancher votre CRM, POS ou loyalty existant',
-        highlight: true,
-      },
-      { label: 'Dashboard groupe + dashboards par établissement' },
-      { label: 'SSO, permissions avancées, rôles managers' },
-      {
-        label: 'Account manager dédié + revue trimestrielle de perf',
-        highlight: true,
-      },
-      {
-        label: 'Onboarding sur-mesure (formation équipes sur site à Marseille et Paris)',
-      },
-      { label: 'SLA contractuel 99,9% + support 7j/7' },
-      { label: 'Intégration marketplace cross-promo prioritaire' },
-    ],
-    cta: 'Parler à Liam (fondateur)',
-    ctaAction: 'link',
-    ctaHref: '/contact',
-    icon: <Zap size={22} />,
-    gradient: 'linear-gradient(135deg, #7C5CFC 0%, #E84393 100%)',
-    accent: '#7C5CFC',
-    highlighted: false,
-  },
-];
+const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
+  const isFeatured = offer.highlighted;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className={cn('h-full', isFeatured && 'md:-translate-y-3')}
+    >
+      <Card
+        variant="solid"
+        padding="lg"
+        className={cn(
+          'h-full flex flex-col relative overflow-visible',
+          isFeatured
+            ? 'border-2 shadow-[0_20px_50px_rgba(27,111,194,0.12)]'
+            : 'border border-[var(--border-default)]'
+        )}
+        style={
+          isFeatured
+            ? {
+                borderColor: 'var(--primary-blue)',
+                background:
+                  'linear-gradient(180deg, rgba(27,111,194,0.04) 0%, rgba(46,174,109,0.04) 100%)',
+              }
+            : undefined
+        }
+      >
+        {isFeatured && (
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)] text-white text-[10px] font-display font-extrabold uppercase tracking-[0.12em] px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_8px_20px_rgba(242,140,40,0.3)]">
+              ⭐ Le meilleur deal
+            </div>
+          </div>
+        )}
+
+        <div className="mb-3 min-h-[26px]">
+          {offer.yearlySaving > 0 ? (
+            <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.1em] px-3 py-1 rounded-full bg-[rgba(46,174,109,0.12)] text-[var(--primary-green)]">
+              Économisez {offer.yearlySaving}€/an
+            </span>
+          ) : (
+            <span className="inline-block invisible">.</span>
+          )}
+        </div>
+
+        <h3
+          className={cn(
+            'font-display font-extrabold uppercase text-base tracking-[0.08em] mb-4',
+            isFeatured
+              ? 'text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]'
+              : 'text-[var(--text-primary)]'
+          )}
+        >
+          {offer.label}
+        </h3>
+
+        <div className="flex items-baseline gap-1.5 mb-1">
+          <span className="font-display font-extrabold text-5xl text-[var(--text-primary)] leading-none">
+            {offer.price}€
+          </span>
+          <span className="text-xs font-display font-semibold text-[var(--text-muted)]">
+            /mois HT
+          </span>
+        </div>
+        <div className="text-xs text-[var(--text-muted)] mb-5">{offer.totalLabel}</div>
+
+        <div className="mb-6 text-xs text-[var(--text-body)] bg-[var(--bg-elevated)] rounded-lg px-3 py-2.5 leading-relaxed">
+          {offer.commitNote}
+        </div>
+
+        <div className="flex-1" />
+
+        <Button
+          onClick={onCtaClick}
+          variant={isFeatured ? 'gradient' : 'subtle'}
+          size="md"
+          className="w-full"
+        >
+          Démarrer 14j gratuits
+        </Button>
+        <div className="text-[11px] text-[var(--text-muted)] text-center mt-2">
+          Sans carte bancaire
+        </div>
+      </Card>
+    </motion.div>
+  );
+};
 
 export const TarifsPlansDetail = () => {
   const { openModal } = useOnboarding();
 
   return (
     <section className="relative py-20 md:py-24 bg-[var(--bg-elevated)] overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(124,92,252,0.06),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(27,111,194,0.06),transparent_60%)]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,150 +119,24 @@ export const TarifsPlansDetail = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Choisissez votre{' '}
+          <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.15em] text-[var(--primary-blue)] bg-[rgba(27,111,194,0.08)] px-3 py-1.5 rounded-full mb-3">
+            Le prix
+          </span>
+          <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
+            Plus vous vous engagez.{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              combo gagnant
+              Moins vous payez.
             </span>
-            .
           </h2>
-          <p className="text-lg text-[var(--text-secondary)]">
-            Tous les plans incluent le support en français, l&apos;hébergement RGPD en Europe et
-            les mises à jour à vie.
+          <p className="text-base md:text-lg text-[var(--text-secondary)]">
+            Le même service. Trois durées d&apos;engagement. C&apos;est tout.
           </p>
         </motion.div>
 
-        {/* Plans detail grid */}
-        <div className="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {plans.map((plan, i) => {
-            const CTA = plan.ctaAction === 'modal' ? (
-              <Button
-                onClick={openModal}
-                variant={plan.highlighted ? 'gradient' : 'subtle'}
-                size="lg"
-                className="w-full"
-              >
-                {plan.cta}
-              </Button>
-            ) : (
-              <Link href={plan.ctaHref ?? '/contact'} className="block">
-                <Button variant={plan.highlighted ? 'gradient' : 'subtle'} size="lg" className="w-full">
-                  <MessageCircle size={16} />
-                  {plan.cta}
-                </Button>
-              </Link>
-            );
-
-            return (
-              <motion.div
-                key={plan.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <Card
-                  variant="solid"
-                  padding="lg"
-                  className={cn(
-                    'h-full flex flex-col relative overflow-hidden',
-                    plan.highlighted
-                      ? 'border-2 shadow-[0_24px_64px_rgba(27,111,194,0.15)]'
-                      : 'border border-[var(--border-default)]'
-                  )}
-                  style={plan.highlighted ? { borderColor: plan.accent } : {}}
-                >
-                  {/* Top accent bar */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1"
-                    style={{ background: plan.gradient }}
-                  />
-
-                  {plan.highlighted && (
-                    <div className="absolute top-0 right-6 translate-y-[-50%]">
-                      <div className="bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)] text-white text-[10px] font-display font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-[0_8px_20px_rgba(242,140,40,0.3)]">
-                        ⭐ Recommandé
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Icon + name */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
-                      style={{ background: plan.gradient }}
-                    >
-                      {plan.icon}
-                    </div>
-                    <h3 className="font-display font-extrabold uppercase text-2xl text-[var(--text-primary)]">
-                      {plan.name}
-                    </h3>
-                  </div>
-
-                  {/* Tagline */}
-                  <p
-                    className="text-sm italic font-display font-semibold mb-5 leading-snug"
-                    style={{ color: plan.accent }}
-                  >
-                    {plan.tagline}
-                  </p>
-
-                  {/* Price */}
-                  <div className="mb-5 pb-5 border-b border-[var(--border-default)]">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display font-extrabold text-5xl text-[var(--text-primary)]">
-                        {plan.price.startsWith('Sur') ? plan.price : `${plan.price}€`}
-                      </span>
-                      {plan.priceUnit && (
-                        <span className="text-sm text-[var(--text-muted)] font-display font-semibold">
-                          {plan.priceUnit.replace('€', '')}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* For who */}
-                  <div className="mb-5">
-                    <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-display font-bold mb-2">
-                      Pour qui
-                    </div>
-                    <p className="text-sm text-[var(--text-body)] leading-relaxed">
-                      {plan.forWho}
-                    </p>
-                  </div>
-
-                  {/* Features */}
-                  <div className="mb-6 flex-1">
-                    <div className="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-display font-bold mb-3">
-                      Inclus
-                    </div>
-                    <ul className="space-y-2.5">
-                      {plan.features.map((feature, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm leading-snug">
-                          <Check
-                            size={15}
-                            className="flex-shrink-0 mt-0.5"
-                            style={{ color: feature.highlight ? plan.accent : 'var(--primary-green)' }}
-                          />
-                          <span
-                            className={cn(
-                              feature.highlight
-                                ? 'text-[var(--text-primary)] font-semibold'
-                                : 'text-[var(--text-body)]'
-                            )}
-                          >
-                            {feature.label}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {CTA}
-                </Card>
-              </motion.div>
-            );
-          })}
+        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto items-stretch">
+          {PRICING_OFFERS.map((offer, i) => (
+            <OfferCard key={offer.id} offer={offer} index={i} onCtaClick={openModal} />
+          ))}
         </div>
       </div>
     </section>

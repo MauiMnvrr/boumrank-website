@@ -105,8 +105,8 @@ export default function ContactPage() {
                         Support
                       </h3>
                       <p className="text-sm text-[var(--text-secondary)]">
-                        Nos clients Performance et Enterprise b&eacute;n&eacute;ficient
-                        d&apos;un support prioritaire 24/7.
+                        Tous nos clients b&eacute;n&eacute;ficient d&apos;un support
+                        prioritaire en fran&ccedil;ais, peu importe l&apos;offre choisie.
                       </p>
                     </div>
                   </div>

@@ -108,7 +108,7 @@ export const competitors: Competitor[] = [
       language: 'FR',
     },
     strategicNote:
-      'Positionnement quasi-jumeau de BoumRank Essentiel/Performance (mêmes prix 59-79 €, sans engagement). Menace n°1. Sortir par la richesse des jeux (slot/blackjack) et l\'expérience client.',
+      'Positionnement quasi-jumeau de BoumRank (mêmes prix 59-79 €, gamme d\'engagements similaire). Menace n°1. Sortir par la richesse des jeux (slot/blackjack) et l\'expérience client.',
     sources: ['https://www.dokaa.app/tarifs', 'https://www.dokaa.app/booster-davis-clients'],
   },
   {
@@ -313,7 +313,7 @@ export const competitors: Competitor[] = [
       language: 'FR',
     },
     strategicNote:
-      'Pricing très agressif (29 €/mois entry) mais jeux verrouillés à 89 €. BoumRank Essentiel 65 € avec jeux inclus = meilleur rapport qualité/prix.',
+      'Pricing très agressif (29 €/mois entry) mais jeux verrouillés à 89 €. BoumRank à partir de 59 €/mois avec tous les jeux inclus = meilleur rapport qualité/prix.',
     sources: [
       'https://up-review.co/fr',
       'https://up-review.co/fr/articles/meilleurs-outils-booster-avis-google',
