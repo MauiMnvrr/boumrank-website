@@ -85,7 +85,7 @@ export const HowItWorks = () => {
       {/* Decorative background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(27,111,194,0.06),transparent_60%)]" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-2 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -106,7 +106,7 @@ export const HowItWorks = () => {
         </motion.div>
 
         {/* Desktop frise horizontale */}
-        <div className="hidden md:block relative max-w-6xl mx-auto">
+        <div className="hidden md:block relative max-w-7xl mx-auto">
           {/* Connecting line background */}
           <div className="absolute top-16 left-[10%] right-[10%] h-[3px] bg-[var(--border-default)] rounded-full z-0" />
           {/* Connecting line progress animated */}
