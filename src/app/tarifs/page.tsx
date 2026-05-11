@@ -32,8 +32,8 @@ export default function TarifsPage() {
     <>
       <SchemaOrg schemas={[faqPageSchema(TARIFS_FAQS), productSchema(plansForSchema)]} />
       <TarifsHero />
-      <TarifsFeaturesCentral />
       <TarifsPlansDetail />
+      <TarifsFeaturesCentral />
       <TarifsMultiBanner />
       <TarifsFaq />
       <FinalCTA />
