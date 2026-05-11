@@ -47,7 +47,7 @@ export const FAQ = () => {
         </motion.div>
 
         {/* FAQ items */}
-        <div className="max-w-3xl mx-auto flex flex-col gap-3">
+        <div className="max-w-5xl mx-auto flex flex-col gap-3">
           {HOME_FAQS.map((item, i) => {
             const isOpen = openIndex === i;
             return (
