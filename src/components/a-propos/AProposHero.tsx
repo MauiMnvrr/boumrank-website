@@ -1,39 +1,55 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
-export const AProposHero = () => {
+export function AProposHero() {
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden bg-[var(--bg-primary)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(242,140,40,0.08),transparent_60%)]" />
-      <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(124,92,252,0.1),transparent_70%)] rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden bg-[var(--bg-primary)]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-30"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(27,111,194,0.18), rgba(30,157,170,0.12) 35%, rgba(46,174,109,0.08) 65%, transparent 80%)',
+        }}
+      />
 
-      <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
-        <motion.div
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 py-32 text-center md:py-40">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-4xl font-bold leading-tight text-[var(--text-primary)] md:text-6xl"
+        >
+          Deux amis, une obsession :{' '}
+          <span className="text-gradient">
+            que les commerçants restent concentrés sur leur passion.
+          </span>
+        </motion.h1>
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-8 max-w-2xl text-lg text-[var(--text-secondary)] md:text-xl"
         >
+          BoumRank est né d&apos;un constat simple. Voici notre histoire.
+        </motion.p>
 
-          <h1 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-8 text-[var(--text-primary)]">
-            On a construit BoumRank parce qu&apos;on en avait marre de voir{' '}
-            <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)]">
-              les commerces locaux perdre
-            </span>{' '}
-            la bataille marketing.
-          </h1>
-
-          <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-3xl mx-auto">
-            Notre mission : redonner aux commerces de quartier des outils marketing qui claquent
-            autant que ceux des grandes chaînes — sans la complexité, sans le jargon, sans le devis
-            qui traîne.{' '}
-            <span className="text-[var(--text-primary)] font-semibold">
-              Le jeu, c&apos;est le levier. Le commerce local, c&apos;est le terrain.
-            </span>
-          </p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 8, 0] }}
+          transition={{
+            opacity: { duration: 0.6, delay: 0.5 },
+            y: { duration: 2, delay: 1, repeat: Infinity, ease: 'easeInOut' },
+          }}
+          className="mt-16 text-[var(--text-secondary)]"
+          aria-hidden
+        >
+          <ChevronDown className="h-6 w-6" />
         </motion.div>
       </div>
     </section>
   );
-};
+}

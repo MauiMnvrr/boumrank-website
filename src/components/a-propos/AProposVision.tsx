@@ -1,107 +1,96 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Rocket, Network } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
 
-export const AProposVision = () => {
+export function AProposVision() {
   return (
-    <section className="relative py-20 md:py-24 bg-[var(--bg-primary)] overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(124,92,252,0.08),transparent_60%)]" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(46,174,109,0.1),transparent_70%)] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+    <section className="bg-[var(--bg-elevated)] py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="font-data text-sm font-bold uppercase tracking-widest text-gradient">
+              Vision 2030
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-[var(--text-primary)] md:text-5xl">
+              Une marketplace entre{' '}
+              <span className="text-gradient">commerces locaux</span>.
+            </h2>
+            <p className="mt-8 text-lg leading-relaxed text-[var(--text-body)]">
+              Demain, BoumRank ne sera plus seulement votre outil d&apos;avis et
+              de fidélisation. Ce sera la marketplace qui connecte les commerces
+              de votre quartier entre eux : le restaurateur qui envoie ses
+              clients chez le coiffeur d&apos;à côté, le salon qui partage ses
+              meilleurs clients avec la boutique du coin. Une économie locale
+              qui se renforce, pas qui se subit.
+            </p>
+          </motion.div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
-            Demain, BoumRank fera parler{' '}
-            <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#7C5CFC_0%,#1B6FC2_50%,#2EAE6D_100%)]">
-              tous les commerces du quartier
-            </span>{' '}
-            entre eux.
-          </h2>
-          <p className="text-lg text-[var(--text-secondary)] italic">
-            La marketplace cross-promo : notre horizon.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
-        >
-          <Card variant="glass" padding="xl">
-            <div className="space-y-5 text-[var(--text-body)] leading-relaxed">
-              <p>
-                Aujourd&apos;hui, chaque commerçant BoumRank gère son propre jeu, ses propres lots, ses
-                propres clients. C&apos;est déjà un game-changer.{' '}
-                <span className="font-semibold text-[var(--text-primary)]">Mais on vise plus grand.</span>
-              </p>
-
-              <div className="my-6 pl-5 border-l-4 border-[var(--primary-blue)] py-2 bg-[var(--bg-elevated)]/50 rounded-r-xl">
-                <p className="text-[var(--text-primary)] font-display font-semibold">
-                  Imaginez 2027 : votre client joue chez vous, gagne un café offert. La semaine
-                  suivante, le caviste d&apos;à côté met son propre lot sur votre Roue, et envoie ses
-                  clients chez vous via son jeu à lui.
-                </p>
-                <p className="text-[var(--text-body)] mt-3">
-                  Vous devenez{' '}
-                  <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] font-bold">
-                    partenaires de croissance
-                  </span>{' '}
-                  plutôt que concurrents silencieux. Le quartier tout entier devient une boucle
-                  gamifiée de clients qui circulent, découvrent, reviennent.
-                </p>
-              </div>
-
-              <p>
-                En 2030, BoumRank aura tissé la{' '}
-                <span className="font-semibold text-[var(--text-primary)]">
-                  plus grande marketplace cross-promo entre commerces locaux de France
-                </span>
-                . Des quartiers entiers connectés. Des milliers de commerçants qui ne perdent plus
-                leurs clients au profit d&apos;Uber Eats ou d&apos;Amazon — mais les échangent entre eux.
-              </p>
-
-              <p>
-                C&apos;est pour ça qu&apos;on se lève le matin. Et c&apos;est pour ça qu&apos;on vous veut à bord
-                dès maintenant :{' '}
-                <span className="font-semibold text-[var(--primary-green)]">
-                  les premiers clients BoumRank auront la place de choix dans la marketplace de
-                  demain.
-                </span>
-              </p>
-            </div>
-
-            {/* Network visualization */}
-            <div className="mt-8 pt-6 border-t border-[var(--border-default)] flex items-center justify-center gap-3 md:gap-5 flex-wrap">
-              {[
-                '🍔 Restaurant',
-                '🍷 Caviste',
-                '💇 Salon',
-                '🛍️ Boutique',
-                '☕ Café',
-              ].map((label, i, arr) => (
-                <div key={i} className="flex items-center gap-2 md:gap-3">
-                  <div className="px-3 py-1.5 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-default)] font-display font-semibold text-xs md:text-sm text-[var(--text-primary)]">
-                    {label}
-                  </div>
-                  {i < arr.length - 1 && (
-                    <Network size={14} className="text-[var(--primary-blue)]" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </Card>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <NetworkSVG />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
-};
+}
+
+function NetworkSVG() {
+  return (
+    <svg
+      viewBox="0 0 320 320"
+      className="h-auto w-full max-w-sm"
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id="netGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#1B6FC2" />
+          <stop offset="40%" stopColor="#1E9DAA" />
+          <stop offset="100%" stopColor="#2EAE6D" />
+        </linearGradient>
+        <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#1E9DAA" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#1E9DAA" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      <g stroke="url(#netGrad)" strokeWidth="2" fill="none" opacity="0.7">
+        <line x1="80" y1="80" x2="240" y2="80" />
+        <line x1="80" y1="80" x2="80" y2="240" />
+        <line x1="240" y1="80" x2="240" y2="240" />
+        <line x1="80" y1="240" x2="240" y2="240" />
+        <line x1="80" y1="80" x2="240" y2="240" />
+        <line x1="240" y1="80" x2="80" y2="240" />
+      </g>
+
+      {[
+        [80, 80],
+        [240, 80],
+        [80, 240],
+        [240, 240],
+      ].map(([cx, cy], i) => (
+        <g key={i}>
+          <circle cx={cx} cy={cy} r="32" fill="url(#nodeGrad)" />
+          <circle
+            cx={cx}
+            cy={cy}
+            r="14"
+            fill="white"
+            stroke="url(#netGrad)"
+            strokeWidth="3"
+          />
+        </g>
+      ))}
+    </svg>
+  );
+}

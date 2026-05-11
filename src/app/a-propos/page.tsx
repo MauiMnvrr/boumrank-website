@@ -5,20 +5,20 @@ import {
   localBusinessSchema,
   breadcrumbSchema,
 } from '@/components/seo/SchemaOrg';
-import { FinalCTA } from '@/components/home/FinalCTA';
 import { AProposHero } from '@/components/a-propos/AProposHero';
 import { AProposStory } from '@/components/a-propos/AProposStory';
 import { AProposTeam } from '@/components/a-propos/AProposTeam';
-import { AProposMission } from '@/components/a-propos/AProposMission';
 import { AProposPepite } from '@/components/a-propos/AProposPepite';
 import { AProposBetaClients } from '@/components/a-propos/AProposBetaClients';
+import { AProposMission } from '@/components/a-propos/AProposMission';
 import { AProposVision } from '@/components/a-propos/AProposVision';
+import { AProposCTA } from '@/components/a-propos/AProposCTA';
 import { SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'À propos — Maui & Liam, deux fondateurs marseillais',
+  title: 'À propos — Liam & Maui, deux amis qui ont trouvé une pépite',
   description:
-    "BoumRank est né du pivot de Feednback en mars 2026. L'équipe, la mission, les clients beta, et la vision 2030 de la marketplace cross-promo entre commerces locaux.",
+    "L'histoire de BoumRank : deux amis qui en avaient assez de voir leurs proches commerçants se noyer dans le marketing. La pépite, les résultats, la vision 2030.",
   alternates: { canonical: `${SITE_URL}/a-propos` },
 };
 
@@ -38,11 +38,11 @@ export default function AProposPage() {
       <AProposHero />
       <AProposStory />
       <AProposTeam />
-      <AProposMission />
       <AProposPepite />
       <AProposBetaClients />
+      <AProposMission />
       <AProposVision />
-      <FinalCTA />
+      <AProposCTA />
     </>
   );
 }

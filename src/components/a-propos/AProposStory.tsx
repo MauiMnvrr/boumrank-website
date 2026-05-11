@@ -1,85 +1,92 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Lightbulb } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
+import { MessageSquareWarning, EyeOff, Clock4 } from 'lucide-react';
 
-export const AProposStory = () => {
+const PAIN_POINTS = [
+  {
+    icon: MessageSquareWarning,
+    title: "Demander un avis, c'est gênant.",
+    body: "On hésite à le faire en personne, par peur de paraître insistant.",
+  },
+  {
+    icon: EyeOff,
+    title: "Le SEO local, c'est opaque.",
+    body: "Trop d'outils, trop de jargon, jamais le temps de s'y mettre vraiment.",
+  },
+  {
+    icon: Clock4,
+    title: "Le marketing, c'est chronophage.",
+    body: "Chaque heure passée à automatiser, c'est une heure de moins avec vos clients.",
+  },
+];
+
+export function AProposStory() {
   return (
-    <section className="relative py-20 md:py-24 bg-[var(--bg-elevated)] overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
-            De Feednback à BoumRank :{' '}
-            <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              le pivot qui a tout changé
-            </span>
-            .
-          </h2>
-          <p className="text-lg text-[var(--text-secondary)] italic">
-            Marseille, mars 2026. L&apos;instant où l&apos;évidence nous a sauté à la gueule.
-          </p>
-        </motion.div>
-
-        <motion.div
+    <section className="bg-[var(--bg-primary)] py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-3xl font-bold leading-tight text-[var(--text-primary)] md:text-5xl"
         >
-          <Card variant="glass" padding="xl">
-            <div className="space-y-5 text-[var(--text-body)] leading-relaxed">
-              <p>
-                Au départ, on s&apos;appelait <span className="font-semibold text-[var(--text-primary)]">Feednback</span>.
-                On aidait les commerçants à collecter des retours clients via un formulaire stylé.
-                On a lancé, on a signé quelques clients, on a écouté. Et le retour était toujours le
-                même :
-              </p>
+          Vous êtes commerçant, pas community manager.
+        </motion.h2>
 
-              <blockquote className="pl-5 border-l-4 border-[var(--primary-blue)] italic text-[var(--text-primary)] font-medium text-lg">
-                « C&apos;est cool votre truc, mais ce que je veux vraiment, c&apos;est plus d&apos;avis Google
-                — et mes clients s&apos;en foutent de remplir un formulaire. »
-              </blockquote>
+        <div className="mt-10 space-y-6 text-lg text-[var(--text-body)] md:text-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Vous ouvrez à 7h. Vous fermez à 22h. Entre les deux, vous cuisinez,
+            vous coupez, vous coiffez, vous accueillez. Vous donnez tout ce que
+            vous avez à votre métier. Le référencement Google, les avis clients,
+            les relances, les programmes de fidélité, vous savez que c&apos;est
+            important. Mais vous n&apos;avez ni le temps, ni l&apos;envie, ni
+            l&apos;énergie de devenir spécialiste en marketing digital.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-medium text-[var(--text-primary)]"
+          >
+            Pendant ce temps, vos concurrents qui maîtrisent ces outils prennent
+            votre place sur Google.
+          </motion.p>
+        </div>
 
-              <p>
-                On a compris qu&apos;on s&apos;y prenait à l&apos;envers.{' '}
-                <span className="font-semibold text-[var(--text-primary)]">
-                  Personne ne veut remplir un formulaire. Tout le monde veut jouer.
-                </span>{' '}
-                En mars 2026, on a pivoté à 180 degrés : exit le formulaire, place au jackpot.
-                BoumRank était né.
-              </p>
-
-              <p>
-                Basés à Marseille, entourés par l&apos;écosystème de Pépite Aix-Marseille Université,
-                on a rebuild le produit en 6 semaines avec une obsession : rendre le marketing local
-                aussi fun qu&apos;une partie de casino, aussi simple qu&apos;un QR code collé sur la table.
-              </p>
-            </div>
-
-            {/* Timeline visual */}
-            <div className="mt-8 pt-6 border-t border-[var(--border-default)]">
-              <div className="flex items-center gap-3 text-sm font-display font-bold uppercase tracking-widest">
-                <div className="flex-shrink-0 px-3 py-1.5 rounded-full bg-[var(--bg-elevated)] text-[var(--text-muted)]">
-                  Feednback
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {PAIN_POINTS.map((point, i) => {
+            const Icon = point.icon;
+            return (
+              <motion.div
+                key={point.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-xl border border-[var(--border-default)] bg-[var(--bg-surface)] p-6"
+              >
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--bg-elevated)] text-[var(--primary-blue)]">
+                  <Icon className="h-5 w-5" />
                 </div>
-                <ArrowRight size={16} className="text-[var(--primary-blue)]" />
-                <div className="flex-shrink-0 px-3 py-1.5 rounded-full bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] text-white shadow-[0_4px_12px_rgba(27,111,194,0.3)]">
-                  BoumRank
-                </div>
-                <div className="text-xs text-[var(--text-muted)] ml-auto">Mars 2026</div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
+                <h3 className="font-display text-lg font-semibold text-[var(--text-primary)]">
+                  {point.title}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  {point.body}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
-};
+}
