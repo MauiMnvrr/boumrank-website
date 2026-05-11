@@ -65,9 +65,9 @@ export const Navbar: React.FC = () => {
                 : '/logos/logo-horizontal-violet-cyan-gradient.png'
             }
             alt="BoumRank"
-            width={320}
-            height={80}
-            className="h-16 md:h-20 w-auto transition-transform group-hover:scale-105"
+            width={825}
+            height={134}
+            className="h-9 md:h-11 w-auto transition-transform group-hover:scale-105"
             priority
           />
         </Link>
