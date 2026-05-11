@@ -16,7 +16,6 @@ type Advantage = {
   badge: string;
   title: string;
   body: string;
-  highlight: string;
   gradient: string;
   accent: string;
 };
@@ -27,7 +26,6 @@ const advantages: Advantage[] = [
     badge: 'Le menu intégré',
     title: 'Le menu, qui fait la différence',
     body: 'Nous sommes les seuls à inclure votre menu digitalisé sans surcoût. C\'est pour nous, c\'est cadeau, et ça nous fait vraiment plaisir',
-    highlight: '+47% d\'avis déposés vs solutions standalone',
     gradient: 'linear-gradient(135deg, #1B6FC2 0%, #144F8C 100%)',
     accent: '#1B6FC2',
   },
@@ -36,7 +34,6 @@ const advantages: Advantage[] = [
     badge: 'L\'auto-financement',
     title: 'La solution qui s\'auto-finance',
     body: 'Fixez un minimum d\'achat. Le client revient, consomme et la solution s\'auto-finance. Max d\'avis, aucune sortie !',
-    highlight: 'Panier moyen +32% sur les retours coupon',
     gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
     accent: '#2EAE6D',
   },
@@ -45,7 +42,6 @@ const advantages: Advantage[] = [
     badge: 'Setup 2 minutes',
     title: 'Plus de scans, plus de fans',
     body: 'Fini le QR code isolé de nos concurrents. Notre intégration fait jouer 1 client sur 3 au lieu de 1 sur 5. Résultat : plus de joueurs, plus d\'avis.',
-    highlight: '0 ligne de code · 0 app · 0 formation',
     gradient: 'linear-gradient(135deg, #F28C28 0%, #D47318 100%)',
     accent: '#F28C28',
   },
@@ -284,21 +280,9 @@ export const Section3Pilotage = () => {
                       {a.title}
                     </h4>
 
-                    <p className="text-sm md:text-base text-[var(--text-body)] leading-relaxed mb-5">
+                    <p className="text-sm md:text-base text-[var(--text-body)] leading-relaxed">
                       {a.body}
                     </p>
-
-                    <div
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-display font-bold"
-                      style={{
-                        background: `${a.accent}12`,
-                        border: `1px solid ${a.accent}30`,
-                        color: a.accent,
-                      }}
-                    >
-                      <TrendingUp size={12} />
-                      {a.highlight}
-                    </div>
                   </div>
                 </Card>
               </motion.div>
