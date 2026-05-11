@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "/Users/mauimanavarere/Desktop/Boumrank/boumrank-next"],
       "port": 3000
+    },
+    {
+      "name": "phone-mockup-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/mauimanavarere/Desktop/Boumrank/phone-mockup"],
+      "port": 5173
     }
   ]
 }

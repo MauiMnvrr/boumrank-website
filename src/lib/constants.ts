@@ -12,7 +12,7 @@ export const DEMO_URL = `${APP_URL}/c/default`;
 export const COMPANY = {
   name: 'BoumRank',
   foundingYear: 2024,
-  email: 'contact@boumrank.com',
+  email: 'support@boumrank.com',
   socials: {
     twitter: '',
     linkedin: '',

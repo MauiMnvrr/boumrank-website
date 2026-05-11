@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Network, Sparkles, ArrowRight } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Network, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 
@@ -63,20 +62,6 @@ export const Vision = () => {
 
           {/* Content */}
           <div className="relative z-10 py-16 md:py-20 px-8 md:px-16 text-center">
-            {/* Top : "Bientôt" badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-2 rounded-full mb-6"
-            >
-              <Sparkles size={14} className="text-[#F28C28]" />
-              <span className="text-white text-xs font-display font-bold uppercase tracking-widest">
-                Roadmap 2026 · En cours de build
-              </span>
-            </motion.div>
-
             {/* H2 */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

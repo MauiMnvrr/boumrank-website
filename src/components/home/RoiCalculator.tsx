@@ -2,29 +2,11 @@
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Star, Users, TrendingUp, Euro, ArrowRight } from 'lucide-react';
+import { Star, Users, TrendingUp, Euro, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { cn } from '@/lib/utils';
-
-// =====================================================
-// Assumptions used in formulas (tunable)
-// =====================================================
-// These ratios are realistic baseline estimates — disclaimer shown in UI
-// since we don't yet have enough beta data to publish hard numbers.
-
-const ASSUMPTIONS = {
-  /** % of customers who scan the QR code */
-  scanRate: 0.35, // 35% default
-  /** % of scanners who complete the marketing action (review / follow / etc.) */
-  conversionToAction: 0.55, // 55%
-  /** % of winners who actually come back to redeem the coupon */
-  returnRate: 0.45, // 45%
-  /** avg €/client uplift from a returning customer (compared to a 1-shot) */
-  uplift: 1.25, // 25% uplift when they return
-};
 
 const formatEUR = (n: number) =>
   new Intl.NumberFormat('fr-FR', {
@@ -76,32 +58,26 @@ export const RoiCalculator = () => {
   const { openModal } = useOnboarding();
   const [customersPerDay, setCustomersPerDay] = useState(60);
   const [avgTicket, setAvgTicket] = useState(18);
-  const [currentReviews, setCurrentReviews] = useState(24);
 
   // Computed outputs
   const {
     newReviewsPerMonth,
     returningCustomers,
     extraRevenue,
-    monthsToReach100,
-    // boumrankCost kept as a reference baseline (not displayed)
   } = useMemo(() => {
-    const monthlyCustomers = customersPerDay * 30;
-    const scanners = monthlyCustomers * ASSUMPTIONS.scanRate;
-    const reviews = scanners * ASSUMPTIONS.conversionToAction;
-    const returners = reviews * ASSUMPTIONS.returnRate;
-    const revenue = returners * avgTicket * ASSUMPTIONS.uplift;
-
-    const reviewsNeeded = Math.max(0, 100 - currentReviews);
-    const months = reviews > 0 ? reviewsNeeded / reviews : 99;
+    // Nouveaux avis/mois = (clients/jour ÷ 3) × 24 jours d'ouverture
+    const reviews = (customersPerDay / 3) * 24;
+    // 1 coupon sur 10 est effectivement utilisé en boutique
+    const returners = reviews / 10;
+    // CA additionnel = retours × ticket moyen
+    const revenue = returners * avgTicket;
 
     return {
       newReviewsPerMonth: Math.round(reviews),
       returningCustomers: Math.round(returners),
       extraRevenue: revenue,
-      monthsToReach100: months,
     };
-  }, [customersPerDay, avgTicket, currentReviews]);
+  }, [customersPerDay, avgTicket]);
 
   return (
     <section
@@ -121,10 +97,6 @@ export const RoiCalculator = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <Eyebrow variant="gradient" size="md" className="mb-5">
-            <Calculator size={14} />
-            Calculateur ROI · Sans inscription
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Combien d&apos;avis Google{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
@@ -178,18 +150,6 @@ export const RoiCalculator = () => {
                 icon={<Euro size={18} />}
               />
 
-              <SliderInput
-                label="Avis Google actuels"
-                value={currentReviews}
-                setValue={setCurrentReviews}
-                min={0}
-                max={500}
-                step={1}
-                suffix=" avis"
-                accent="#2EAE6D"
-                icon={<Star size={18} />}
-              />
-
               <p className="text-xs text-[var(--text-muted)] leading-relaxed italic pt-2 border-t border-[var(--border-default)]">
                 Estimations basées sur des ratios observés chez nos clients beta : 35 % de taux de scan, 55 % de taux de conversion en avis, 45 % de retour en boutique. Chaque commerce est différent — ces chiffres sont des ordres de grandeur.
               </p>
@@ -215,13 +175,7 @@ export const RoiCalculator = () => {
                     +<AnimatedCounter value={newReviewsPerMonth} />
                   </div>
                   <p className="text-sm text-[var(--text-secondary)]">
-                    De quoi passer de{' '}
-                    <span className="font-semibold text-[var(--text-primary)]">{currentReviews}</span>{' '}
-                    à{' '}
-                    <span className="font-semibold text-[var(--text-primary)]">
-                      {currentReviews + newReviewsPerMonth}
-                    </span>{' '}
-                    avis dès le premier mois.
+                    De nouveaux avis Google encaissés dès le premier mois.
                   </p>
                 </div>
                 <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/70 backdrop-blur-sm border border-[var(--border-highlight)] flex items-center justify-center text-[var(--primary-blue)]">
@@ -268,27 +222,6 @@ export const RoiCalculator = () => {
                 </p>
               </Card>
             </div>
-
-            {/* Time-to-100 estimator */}
-            {currentReviews < 100 && newReviewsPerMonth > 0 && (
-              <Card variant="outline" padding="md" className="bg-white/40 backdrop-blur-sm">
-                <div className="flex items-center justify-between gap-4 flex-wrap">
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold mb-1">
-                      Temps pour atteindre 100 avis
-                    </div>
-                    <div className="font-display font-bold text-lg text-[var(--text-primary)]">
-                      {monthsToReach100 < 1
-                        ? 'Moins d\'un mois'
-                        : monthsToReach100 < 2
-                          ? `Environ ${monthsToReach100.toFixed(1)} mois`
-                          : `Environ ${Math.ceil(monthsToReach100)} mois`}
-                    </div>
-                  </div>
-                  <div className="text-2xl">🎯</div>
-                </div>
-              </Card>
-            )}
 
             {/* CTA */}
             <Button onClick={openModal} variant="gradient" size="lg" className="w-full mt-2">

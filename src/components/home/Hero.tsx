@@ -2,11 +2,10 @@
 
 import { useState, useEffect, createElement } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, MapPin, Sparkles, Zap } from 'lucide-react';
+import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { DEMO_URL } from '@/lib/constants';
 
 // =====================================================
@@ -241,7 +240,7 @@ export const Hero = () => {
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 500], [0, 50]);
   const [currentScreen, setCurrentScreen] = useState(0);
-  const screens = [ScreenHome, ScreenActions, ScreenSlots, ScreenWheel, ScreenWin];
+  const screens = [ScreenHome, ScreenActions, ScreenSlots, ScreenWheel];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -249,16 +248,6 @@ export const Hero = () => {
     }, 4500);
     return () => clearInterval(timer);
   }, [screens.length]);
-
-  const scrollToDemo = () => {
-    const target = document.getElementById('demo-roue');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      // Fallback : scroll to next section if demo-roue not yet built
-      window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-    }
-  };
 
   return (
     <section className="relative min-h-screen pt-24 pb-12 overflow-hidden flex items-center bg-[var(--bg-primary)]">
@@ -278,23 +267,21 @@ export const Hero = () => {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="text-left"
           >
-            {/* Eyebrow gradient orange (gamification accent) */}
-            <Eyebrow variant="orange" size="md" withDot className="mb-6">
-              Plus d&apos;avis Google grâce au jeu
-            </Eyebrow>
-
             {/* H1 — punchline avec mots-clés en gradient */}
             <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
-              Vos clients laissent un{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-                avis Google
+              Ils{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
+                scannent
               </span>
-              .
+              ,{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
+                jouent
+              </span>
+              ,
               <br />
-              Ils repartent avec un{' '}
               <span className="relative inline-block">
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
-                  lot à venir gagner
+                  TU gagnes
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-30" />
               </span>
@@ -310,36 +297,14 @@ export const Hero = () => {
               </span>
             </p>
 
-            {/* Double CTA */}
+            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={openModal} variant="gradient" size="lg">
                 <Sparkles size={18} />
-                Lancer ma démo gratuite
-              </Button>
-              <Button onClick={scrollToDemo} variant="subtle" size="lg">
-                <Zap size={18} />
-                Voir la roue en action
+                Testez 2 semaines gratuitement
               </Button>
             </div>
 
-            {/* Trust strip */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[var(--text-muted)] font-display font-semibold uppercase tracking-wider">
-              <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-[var(--primary-teal)]" />
-                <span>Conçu à Marseille</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                <span>Soutenu par Pépite Aix-Marseille</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-[var(--text-muted)]" />
-                <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[var(--primary-green)] animate-pulse" />
-                  Beta active depuis Janvier 2026
-                </span>
-              </div>
-            </div>
           </motion.div>
 
           {/* RIGHT — Mockup smartphone (CONSERVÉ TEL QUEL — chef d'œuvre) */}

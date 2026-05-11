@@ -1,14 +1,8 @@
 import { Hero } from '@/components/home/Hero';
 import { Problem } from '@/components/home/Problem';
-import { Solution } from '@/components/home/Solution';
-import { DemoWheel } from '@/components/home/DemoWheel';
 import { HowItWorks } from '@/components/home/HowItWorks';
+import { Activate } from '@/components/home/Activate';
 import { RoiCalculator } from '@/components/home/RoiCalculator';
-import { Sectors } from '@/components/home/Sectors';
-import { Differentiators } from '@/components/home/Differentiators';
-import { Vision } from '@/components/home/Vision';
-import { PricingTeaser } from '@/components/home/PricingTeaser';
-import { LeadMagnet } from '@/components/home/LeadMagnet';
 import { FAQ } from '@/components/home/FAQ';
 import { HOME_FAQS } from '@/data/home-faqs';
 import { FinalCTA } from '@/components/home/FinalCTA';
@@ -33,15 +27,9 @@ export default function HomePage() {
       />
       <Hero />
       <Problem />
-      <Solution />
-      <DemoWheel />
       <HowItWorks />
+      <Activate />
       <RoiCalculator />
-      <Sectors />
-      <Differentiators />
-      <Vision />
-      <PricingTeaser />
-      <LeadMagnet />
       <FAQ />
       <FinalCTA />
     </>

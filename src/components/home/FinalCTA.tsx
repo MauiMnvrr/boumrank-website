@@ -5,7 +5,6 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { Rocket, Calendar, Zap, Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 
 export const FinalCTA = () => {
@@ -42,11 +41,6 @@ export const FinalCTA = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          {/* Eyebrow */}
-          <Eyebrow variant="orange" size="md" withDot className="mb-6">
-            Dernière étape avant le jackpot
-          </Eyebrow>
-
           {/* H2 — huge punchline */}
           <h2 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
             Prêt à{' '}

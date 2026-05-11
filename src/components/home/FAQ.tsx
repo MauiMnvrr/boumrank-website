@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Plus, MessageCircle } from 'lucide-react';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { HOME_FAQS } from '@/data/home-faqs';
 import { cn } from '@/lib/utils';
 
@@ -32,9 +31,6 @@ export const FAQ = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <Eyebrow variant="subtle" size="md" className="mb-5">
-            FAQ · {HOME_FAQS.length} questions
-          </Eyebrow>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
             Les {HOME_FAQS.length} questions qu&apos;on nous pose{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
