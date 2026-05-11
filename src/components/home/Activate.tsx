@@ -84,7 +84,7 @@ export const Activate = () => {
             className="lg:col-span-12"
           >
             <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-              Une petite action pour eux, un grand pas pour{' '}
+              Une petite action pour eux,<br />un grand pas pour{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
                 vous
               </span>
