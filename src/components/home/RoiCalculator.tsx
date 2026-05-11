@@ -65,8 +65,8 @@ export const RoiCalculator = () => {
     returningCustomers,
     extraRevenue,
   } = useMemo(() => {
-    // Nouveaux avis/mois = (clients/jour ÷ 3) × 24 jours d'ouverture
-    const reviews = (customersPerDay / 3) * 24;
+    // Nouveaux avis/mois = (clients/jour ÷ 5) × 24 jours d'ouverture
+    const reviews = (customersPerDay / 5) * 24;
     // 1 coupon sur 10 est effectivement utilisé en boutique
     const returners = reviews / 10;
     // CA additionnel = retours × ticket moyen
