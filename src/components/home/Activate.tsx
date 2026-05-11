@@ -83,14 +83,18 @@ export const Activate = () => {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
             className="lg:col-span-12"
           >
-            <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-              Une petite action pour eux,<br />un grand pas pour{' '}
+            <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)] text-center">
+              Une petite action pour{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
+                eux
+              </span>
+              ,<br />un grand pas pour{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
                 vous
               </span>
               .
             </h2>
-            <p className="text-lg md:text-xl text-[var(--text-body)] leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-[var(--text-body)] leading-relaxed max-w-2xl mx-auto text-center">
               Pour jouer, vos clients réalisent une action gagnante pour votre enseigne.
             </p>
           </motion.div>
