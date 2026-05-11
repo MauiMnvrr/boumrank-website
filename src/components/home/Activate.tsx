@@ -75,29 +75,13 @@ export const Activate = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header — gros 2 + titre */}
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center mb-16">
-          {/* Gros 2 stylisé en gradient brand */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="lg:col-span-3 flex justify-center lg:justify-start"
-          >
-            <span
-              aria-hidden="true"
-              className="font-display font-extrabold leading-none text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_45%,#2EAE6D_100%)] text-[10rem] md:text-[14rem] lg:text-[16rem] drop-shadow-[0_8px_24px_rgba(27,111,194,0.18)] select-none"
-            >
-              2
-            </span>
-          </motion.div>
-
           {/* Titre + sous-titre */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="lg:col-span-9"
+            className="lg:col-span-12"
           >
             <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
               Une petite action pour eux, un grand pas pour{' '}
