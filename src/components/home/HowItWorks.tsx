@@ -153,7 +153,7 @@ export const HowItWorks = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-[var(--text-body)] leading-relaxed px-0">
+                <p className="text-[13px] text-[var(--text-body)] leading-snug px-0 -mx-2">
                   {step.description}
                 </p>
               </motion.div>
