@@ -1,84 +1,62 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/constants';
+import { routing } from '@/i18n/routing';
+
+type LocalizedPath = keyof typeof routing.pathnames;
+
+const STATIC_PATHS: {
+  path: LocalizedPath;
+  priority: number;
+  changeFrequency: 'weekly' | 'monthly' | 'yearly';
+}[] = [
+  { path: '/', priority: 1.0, changeFrequency: 'weekly' },
+  { path: '/experience', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/technologie', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/tarifs', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/fonctionnalites', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/a-propos', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
+  { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/politique-de-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/conditions-generales', priority: 0.3, changeFrequency: 'yearly' },
+];
+
+function resolvePath(path: LocalizedPath, locale: 'fr' | 'en'): string {
+  const map = routing.pathnames[path];
+  const segment = typeof map === 'string' ? map : map[locale];
+  if (segment === '/') {
+    return locale === 'fr' ? SITE_URL : `${SITE_URL}/en`;
+  }
+  return locale === 'fr' ? `${SITE_URL}${segment}` : `${SITE_URL}/en${segment}`;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/experience`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/technologie`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/tarifs`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/fonctionnalites`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/a-propos`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/mentions-legales`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/politique-de-confidentialite`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/conditions-generales`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ];
+  const lastModified = new Date();
+  const entries: MetadataRoute.Sitemap = [];
 
-  // Blog posts from Notion will be added here once the API is configured
-  // const blogPosts = await getBlogPosts();
-  // const blogUrls = blogPosts.map(post => ({
-  //   url: `${SITE_URL}/blog/${post.slug}`,
-  //   lastModified: new Date(post.lastEdited),
-  //   changeFrequency: 'monthly' as const,
-  //   priority: 0.6,
-  // }));
+  for (const { path, priority, changeFrequency } of STATIC_PATHS) {
+    const frUrl = resolvePath(path, 'fr');
+    const enUrl = resolvePath(path, 'en');
+    const alternates = {
+      languages: { fr: frUrl, en: enUrl },
+    };
 
-  return [...staticPages];
+    entries.push({
+      url: frUrl,
+      lastModified,
+      changeFrequency,
+      priority,
+      alternates,
+    });
+    entries.push({
+      url: enUrl,
+      lastModified,
+      changeFrequency,
+      priority: priority * 0.9,
+      alternates,
+    });
+  }
+
+  return entries;
 }

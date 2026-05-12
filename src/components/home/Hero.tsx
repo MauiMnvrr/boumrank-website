@@ -4,6 +4,7 @@ import { useState, useEffect, createElement } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Star, Gift, ChevronLeft, Upload, Clock, LayoutGrid, Ticket, MoreHorizontal, Sparkles } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
 import { DEMO_URL } from '@/lib/constants';
@@ -62,85 +63,112 @@ const EmojiRain = () => {
   );
 };
 
-const BottomNav = () => (
-  <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#0D1117] border-t border-[#1B6FC2]/20 flex justify-around items-center px-4 z-20 backdrop-blur-md">
-    <div className="flex flex-col items-center gap-1 text-[#3A8FE0]">
-      <LayoutGrid size={20} className="drop-shadow-[0_0_5px_rgba(27,111,194,0.5)]" />
-      <span className="text-[10px] font-bold uppercase tracking-wide">Jouer</span>
+const BottomNav = () => {
+  const t = useTranslations('home.hero.mockup');
+  return (
+    <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#0D1117] border-t border-[#1B6FC2]/20 flex justify-around items-center px-4 z-20 backdrop-blur-md">
+      <div className="flex flex-col items-center gap-1 text-[#3A8FE0]">
+        <LayoutGrid size={20} className="drop-shadow-[0_0_5px_rgba(27,111,194,0.5)]" />
+        <span className="text-[10px] font-bold uppercase tracking-wide">{t('play')}</span>
+      </div>
+      <div className="flex flex-col items-center gap-1 text-gray-500">
+        <Ticket size={20} />
+        <span className="text-[10px] font-bold uppercase tracking-wide">{t('tickets')}</span>
+      </div>
+      <div className="flex flex-col items-center gap-1 text-gray-500">
+        <MoreHorizontal size={20} />
+        <span className="text-[10px] font-bold uppercase tracking-wide">{t('menu')}</span>
+      </div>
     </div>
-    <div className="flex flex-col items-center gap-1 text-gray-500">
-      <Ticket size={20} />
-      <span className="text-[10px] font-bold uppercase tracking-wide">Tickets</span>
-    </div>
-    <div className="flex flex-col items-center gap-1 text-gray-500">
-      <MoreHorizontal size={20} />
-      <span className="text-[10px] font-bold uppercase tracking-wide">Menu</span>
-    </div>
-  </div>
-);
+  );
+};
 
-const ScreenHome = () => (
-  <div className="flex flex-col h-full bg-[#0D1117] relative overflow-hidden font-sans">
-    <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-[#1B6FC2]/10 to-transparent"></div>
-    <div className="absolute top-10 right-10 w-20 h-20 bg-[#7C5CFC] rounded-full blur-[50px] opacity-40"></div>
-    <div className="flex-1 flex flex-col items-center justify-center p-6 text-center z-10">
-      <div className="w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(27,111,194,0.2)] overflow-hidden">
-        <Image src="/logos/logo-original-v2-transparent.png" alt="BoumRank" width={96} height={96} className="w-full h-full object-cover" />
+const ScreenHome = () => {
+  const t = useTranslations('home.hero.mockup');
+  const playWin = t('playWin');
+  const exclaim = playWin.split('&').slice(-1)[0]?.trim() ?? playWin;
+  const before = playWin.includes('&') ? playWin.split('&')[0].trim() + ' & ' : '';
+  return (
+    <div className="flex flex-col h-full bg-[#0D1117] relative overflow-hidden font-sans">
+      <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-[#1B6FC2]/10 to-transparent"></div>
+      <div className="absolute top-10 right-10 w-20 h-20 bg-[#7C5CFC] rounded-full blur-[50px] opacity-40"></div>
+      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center z-10">
+        <div className="w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(27,111,194,0.2)] overflow-hidden">
+          <Image src="/logos/logo-original-v2-transparent.png" alt="BoumRank" width={96} height={96} className="w-full h-full object-cover" />
+        </div>
+        <h3 className="text-white text-4xl font-extrabold uppercase mb-2 drop-shadow-lg">
+          {before}
+          <span className="text-[#3A8FE0] text-glow">{exclaim}</span>
+        </h3>
+        <p className="text-gray-400 font-medium mb-10 text-sm max-w-[200px] leading-relaxed">
+          {t('chooseChallenge')} <span className="text-[#3A8FE0]">⚡</span>
+        </p>
+        <div className="w-full space-y-3">
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm uppercase shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:scale-105 transition-transform cursor-pointer block no-underline">
+            <span>🎰</span> {t('slotMachine')}
+          </a>
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="w-full bg-[#161B22] border border-white/10 py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm hover:bg-[#161B22]/80 hover:scale-105 transition-all cursor-pointer block no-underline">
+            <span>🎡</span> {t('fortuneWheel')}
+          </a>
+        </div>
       </div>
-      <h3 className="text-white text-4xl font-extrabold uppercase mb-2 drop-shadow-lg">
-        Joue & <span className="text-[#3A8FE0] text-glow">Gagne !</span>
-      </h3>
-      <p className="text-gray-400 font-medium mb-10 text-sm max-w-[200px] leading-relaxed">
-        Choisis ton défi et remporte ton prochain repas <span className="text-[#3A8FE0]">⚡</span>
-      </p>
-      <div className="w-full space-y-3">
-        <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm uppercase shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:scale-105 transition-transform cursor-pointer block no-underline">
-          <span>🎰</span> Machine à Sous
-        </a>
-        <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="w-full bg-[#161B22] border border-white/10 py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm hover:bg-[#161B22]/80 hover:scale-105 transition-all cursor-pointer block no-underline">
-          <span>🎡</span> Roue Fortune
-        </a>
-      </div>
+      <BottomNav />
     </div>
-    <BottomNav />
-  </div>
-);
+  );
+};
 
-const ScreenActions = () => (
-  <div className="flex flex-col h-full bg-[#0D1117] font-sans">
-    <div className="p-4 flex items-center gap-2 text-white/70">
-      <ChevronLeft size={20} />
-      <span className="font-bold text-sm uppercase">Retour</span>
-    </div>
-    <div className="flex-1 px-6 flex flex-col items-center pt-8">
-      <div className="w-16 h-16 bg-[#161B22] border border-[#1B6FC2]/30 rounded-full flex items-center justify-center mb-4">
-        <span className="text-3xl">🚀</span>
+const ScreenActions = () => {
+  const t = useTranslations('home.hero.mockup');
+  const tCommon = useTranslations('common');
+  const actions: { key: 'googleReview' | 'instagram' | 'facebook'; icon: React.ReactNode }[] = [
+    { key: 'googleReview', icon: <Star size={18} className="text-[#3A8FE0]" /> },
+    { key: 'instagram', icon: <InstagramIcon size={18} /> },
+    { key: 'facebook', icon: <FacebookIcon size={18} /> },
+  ];
+  return (
+    <div className="flex flex-col h-full bg-[#0D1117] font-sans">
+      <div className="p-4 flex items-center gap-2 text-white/70">
+        <ChevronLeft size={20} />
+        <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
       </div>
-      <h3 className="text-white text-xl font-extrabold uppercase mb-1">Choisis une action</h3>
-      <p className="text-gray-400 text-xs mb-8">Prouve ton engagement ! 📸</p>
-      <div className="w-full space-y-3">
-        {['Avis Google', 'Instagram', 'Facebook'].map((action, i) => (
-          <div key={i} className="bg-[#161B22] p-4 rounded-xl border border-white/10 flex items-center gap-3 font-bold text-white shadow-lg">
-            {action === 'Avis Google' ? <Star size={18} className="text-[#3A8FE0]" /> : action === 'Instagram' ? <InstagramIcon size={18} /> : <FacebookIcon size={18} />}
-            {action}
-          </div>
-        ))}
+      <div className="flex-1 px-6 flex flex-col items-center pt-8">
+        <div className="w-16 h-16 bg-[#161B22] border border-[#1B6FC2]/30 rounded-full flex items-center justify-center mb-4">
+          <span className="text-3xl">🚀</span>
+        </div>
+        <h3 className="text-white text-xl font-extrabold uppercase mb-1">{t('chooseAction')}</h3>
+        <p className="text-gray-400 text-xs mb-8">{t('proveCommitment')} 📸</p>
+        <div className="w-full space-y-3">
+          {actions.map((a) => (
+            <div key={a.key} className="bg-[#161B22] p-4 rounded-xl border border-white/10 flex items-center gap-3 font-bold text-white shadow-lg">
+              {a.icon}
+              {t(a.key)}
+            </div>
+          ))}
+        </div>
       </div>
+      <BottomNav />
     </div>
-    <BottomNav />
-  </div>
-);
+  );
+};
 
-const ScreenSlots = () => (
-  <div className="flex flex-col h-full bg-[#0D1117] font-sans relative">
-    <div className="p-4 flex items-center gap-2 text-white/70 absolute top-0 left-0 z-20">
-      <ChevronLeft size={20} />
-      <span className="font-bold text-sm uppercase">Retour</span>
-    </div>
-    <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-      <h3 className="text-white text-xl font-extrabold uppercase mb-10">
-        Machine à <span className="text-[#3A8FE0] text-glow">Sous</span>
-      </h3>
+const ScreenSlots = () => {
+  const t = useTranslations('home.hero.mockup');
+  const tCommon = useTranslations('common');
+  const slots = t('slots');
+  // split on the last word for visual emphasis (matches FR "Machine à Sous" / EN "Slot Machine")
+  const tokens = slots.split(' ');
+  const last = tokens.pop() ?? slots;
+  const head = tokens.join(' ');
+  return (
+    <div className="flex flex-col h-full bg-[#0D1117] font-sans relative">
+      <div className="p-4 flex items-center gap-2 text-white/70 absolute top-0 left-0 z-20">
+        <ChevronLeft size={20} />
+        <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+        <h3 className="text-white text-xl font-extrabold uppercase mb-10">
+          {head} <span className="text-[#3A8FE0] text-glow">{last}</span>
+        </h3>
       <div className="relative w-full max-w-[240px] bg-[#4a2e00] border-[4px] border-[#a16207] rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
         <div className="relative bg-[#1a1a1a] rounded-lg border-2 border-black p-2.5 flex gap-2 h-28 overflow-hidden">
           {[0, 1, 2].map((i) => (
@@ -155,21 +183,25 @@ const ScreenSlots = () => (
         </div>
       </div>
       <button className="mt-12 bg-[#1B6FC2]/10 border-2 border-[#1B6FC2]/40 text-[#3A8FE0] w-4/5 py-3 rounded-xl font-bold uppercase text-[10px] animate-pulse">
-        En cours...
+        {t('loading')}
       </button>
     </div>
     <BottomNav />
   </div>
-);
+  );
+};
 
-const ScreenWheel = () => (
+const ScreenWheel = () => {
+  const t = useTranslations('home.hero.mockup');
+  const tCommon = useTranslations('common');
+  return (
   <div className="flex flex-col h-full bg-[#0D1117] relative overflow-hidden font-sans">
     <div className="p-4 flex items-center gap-2 text-white/70 absolute top-0 left-0 z-20">
       <ChevronLeft size={20} />
-      <span className="font-bold text-sm uppercase">Retour</span>
+      <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
     </div>
     <div className="flex-1 flex flex-col items-center justify-center mt-6">
-      <h3 className="text-white text-3xl font-extrabold uppercase mb-12 text-glow">Spin & Win</h3>
+      <h3 className="text-white text-3xl font-extrabold uppercase mb-12 text-glow">{t('spinWin')}</h3>
       <div className="relative w-64 h-64 flex items-center justify-center">
         <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-20">
           <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[20px] border-t-[#3A8FE0]"></div>
@@ -189,47 +221,52 @@ const ScreenWheel = () => (
         </div>
       </div>
       <button className="mt-16 bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] text-white w-4/5 py-4 rounded-xl font-bold text-lg uppercase shadow-[0_0_20px_rgba(27,111,194,0.5)]">
-        Lancer la roue
+        {t('spinWheel')}
       </button>
     </div>
   </div>
-);
+  );
+};
 
-const ScreenWin = () => (
-  <div className="flex flex-col h-full bg-[#0D1117] font-sans relative">
-    <div className="p-4 flex items-center gap-2 text-white/70">
-      <ChevronLeft size={20} />
-      <span className="font-bold text-sm uppercase">Retour</span>
-    </div>
-    <div className="px-6 pb-20 overflow-y-auto pt-4">
-      <h2 className="text-2xl font-extrabold text-[#3A8FE0] text-center mb-8 text-glow uppercase tracking-wide">
-        1 Cookie Gratuit
-      </h2>
-      <div className="bg-[#161B22] rounded-lg p-4 mb-8 border border-white/10">
-        <div className="flex justify-between text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">
-          <span className="flex items-center gap-2"><Clock size={12} /> EXPIRATION</span>
-          <span className="text-white">59:56</span>
-        </div>
-        <div className="w-full bg-[#1C2333] rounded-full h-1.5 overflow-hidden">
-          <div className="bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] h-full rounded-full w-[80%] shadow-[0_0_10px_rgba(27,111,194,0.5)]"></div>
-        </div>
+const ScreenWin = () => {
+  const t = useTranslations('home.hero.mockup');
+  const tCommon = useTranslations('common');
+  return (
+    <div className="flex flex-col h-full bg-[#0D1117] font-sans relative">
+      <div className="p-4 flex items-center gap-2 text-white/70">
+        <ChevronLeft size={20} />
+        <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
       </div>
-      <div className="space-y-6 mb-8">
-        <div>
-          <h4 className="font-bold text-white text-[10px] uppercase tracking-widest mb-3">Preuve Requise</h4>
-          <div className="bg-[#161B22]/30 border-2 border-dashed border-[#1B6FC2]/20 rounded-xl h-24 flex flex-col items-center justify-center text-center">
-            <Upload className="text-gray-500 mb-2 w-5 h-5" />
-            <p className="text-gray-500 text-[9px] font-bold uppercase">Upload ton screenshot</p>
+      <div className="px-6 pb-20 overflow-y-auto pt-4">
+        <h2 className="text-2xl font-extrabold text-[#3A8FE0] text-center mb-8 text-glow uppercase tracking-wide">
+          {t('freeCookie')}
+        </h2>
+        <div className="bg-[#161B22] rounded-lg p-4 mb-8 border border-white/10">
+          <div className="flex justify-between text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">
+            <span className="flex items-center gap-2"><Clock size={12} /> {t('expiration')}</span>
+            <span className="text-white">59:56</span>
+          </div>
+          <div className="w-full bg-[#1C2333] rounded-full h-1.5 overflow-hidden">
+            <div className="bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] h-full rounded-full w-[80%] shadow-[0_0_10px_rgba(27,111,194,0.5)]"></div>
           </div>
         </div>
+        <div className="space-y-6 mb-8">
+          <div>
+            <h4 className="font-bold text-white text-[10px] uppercase tracking-widest mb-3">{t('proofRequired')}</h4>
+            <div className="bg-[#161B22]/30 border-2 border-dashed border-[#1B6FC2]/20 rounded-xl h-24 flex flex-col items-center justify-center text-center">
+              <Upload className="text-gray-500 mb-2 w-5 h-5" />
+              <p className="text-gray-500 text-[9px] font-bold uppercase">{t('uploadScreenshot')}</p>
+            </div>
+          </div>
+        </div>
+        <button className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] text-white font-bold uppercase py-3.5 rounded-xl shadow-[0_0_25px_rgba(27,111,194,0.4)] text-sm tracking-wide">
+          {t('validateProof')}
+        </button>
       </div>
-      <button className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] text-white font-bold uppercase py-3.5 rounded-xl shadow-[0_0_25px_rgba(27,111,194,0.4)] text-sm tracking-wide">
-        Valider ma preuve
-      </button>
+      <BottomNav />
     </div>
-    <BottomNav />
-  </div>
-);
+  );
+};
 
 // =====================================================
 // HERO COMPONENT — Layout principal
@@ -241,6 +278,8 @@ export const Hero = () => {
   const yText = useTransform(scrollY, [0, 500], [0, 50]);
   const [currentScreen, setCurrentScreen] = useState(0);
   const screens = [ScreenHome, ScreenActions, ScreenSlots, ScreenWheel];
+  const t = useTranslations('home.hero');
+  const tCommon = useTranslations('common');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -269,19 +308,19 @@ export const Hero = () => {
           >
             {/* H1 — punchline avec mots-clés en gradient */}
             <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
-              Ils{' '}
+              {t('h1Part1')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
-                scannent
+                {t('h1Word1')}
               </span>
               ,{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
-                jouent
+                {t('h1Word2')}
               </span>
               ,
               <br />
               <span className="relative inline-block">
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
-                  TU gagnes
+                  {t('h1Final')}
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-30" />
               </span>
@@ -290,14 +329,14 @@ export const Hero = () => {
 
             {/* Sub-headline */}
             <p className="text-[var(--text-body)] text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
-              Devenez le commerce que tout le monde choisit. Offrez une expérience ludique, récoltez massivement des avis et surclassez vos concurrents.
+              {t('subhead')}
             </p>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={openModal} variant="gradient" size="lg">
                 <Sparkles size={18} />
-                Testez 2 semaines gratuitement
+                {tCommon('tryFreeFortnight')}
               </Button>
             </div>
 

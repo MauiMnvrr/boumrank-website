@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2, ExternalLink } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 import { SIGNUP_URL } from '@/lib/constants';
 
 interface OnboardingModalProps {
@@ -12,6 +13,9 @@ interface OnboardingModalProps {
 
 export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClose }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const locale = useLocale();
+  const tCommon = useTranslations('common');
+  const isEn = locale === 'en';
 
   useEffect(() => {
     if (isOpen) {
@@ -45,7 +49,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-[#3A8FE0] rounded-full animate-pulse shadow-[0_0_10px_rgba(27,111,194,0.6)]"></div>
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gray-400">
-                  Connexion sécurisée à BoumRank App
+                  {isEn ? 'Secure connection to BoumRank App' : 'Connexion sécurisée à BoumRank App'}
                 </span>
               </div>
               <div className="flex items-center gap-4">
@@ -54,7 +58,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-[#3A8FE0] transition-colors p-2"
-                  title="Ouvrir dans un nouvel onglet"
+                  title={tCommon('openInNewTab')}
                 >
                   <ExternalLink size={20} />
                 </a>
@@ -79,7 +83,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
                     <Loader2 size={48} className="text-[#3A8FE0]" />
                   </motion.div>
                   <p className="text-[#3A8FE0] font-extrabold uppercase tracking-widest text-sm animate-pulse">
-                    Préparation du terrain...
+                    {isEn ? 'Warming up the launchpad...' : 'Préparation du terrain...'}
                   </p>
                 </div>
               )}
@@ -96,7 +100,9 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onClos
             {/* Subtle Footer */}
             <div className="px-6 py-2 bg-[#161B22] border-t border-white/5 text-center">
               <p className="text-[9px] text-gray-600 font-bold uppercase tracking-widest">
-                Propulsé par l&apos;écosystème BoumRank &bull; HTTPS Sécurisé
+                {isEn
+                  ? "Powered by the BoumRank ecosystem · HTTPS secured"
+                  : "Propulsé par l'écosystème BoumRank · HTTPS Sécurisé"}
               </p>
             </div>
           </motion.div>

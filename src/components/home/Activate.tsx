@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const GoogleLogo = () => (
   <svg viewBox="0 0 48 48" className="w-9 h-9" aria-hidden="true">
@@ -56,26 +57,29 @@ const FacebookLogo = () => (
   </svg>
 );
 
-const ACTIONS = [
-  { logo: <GoogleLogo />, label: 'Avis Google', sub: '5★ qui vous remontent' },
-  { logo: <InstagramLogo />, label: 'Follow Instagram', sub: '+1 abonné qualifié' },
-  { logo: <TikTokLogo />, label: 'Follow TikTok', sub: 'Visibilité local Gen Z' },
-  { logo: <TripadvisorLogo />, label: 'Avis Tripadvisor', sub: 'Note moyenne en hausse' },
-  { logo: <FacebookLogo />, label: 'Like Facebook', sub: 'Communauté locale' },
-  { logo: <Mail size={36} className="text-[var(--primary-teal)]" strokeWidth={1.8} />, label: 'Newsletter', sub: 'Email collecté pour relancer' },
+const LOGOS: React.ReactNode[] = [
+  <GoogleLogo key="g" />,
+  <InstagramLogo key="i" />,
+  <TikTokLogo key="t" />,
+  <TripadvisorLogo key="tr" />,
+  <FacebookLogo key="f" />,
+  <Mail key="m" size={36} className="text-[var(--primary-teal)]" strokeWidth={1.8} />,
 ];
 
 export const Activate = () => {
+  const t = useTranslations('home.activate');
+  const actions = (t.raw('actions') as { label: string; sub: string }[]).map((a, i) => ({
+    ...a,
+    logo: LOGOS[i],
+  }));
+
   return (
     <section className="relative py-24 md:py-32 bg-[var(--bg-primary)] overflow-hidden">
-      {/* Background decor */}
       <div className="absolute top-1/3 -left-32 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(46,174,109,0.10),transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[480px] h-[480px] bg-[radial-gradient(circle,rgba(27,111,194,0.10),transparent_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header — gros 2 + titre */}
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center mb-16">
-          {/* Titre + sous-titre */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,27 +88,26 @@ export const Activate = () => {
             className="lg:col-span-12"
           >
             <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)] text-center">
-              Une petite action pour{' '}
+              {t('h2Part1')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-                eux
+                {t('h2Em1')}
               </span>
-              ,<br />un grand pas pour{' '}
+              {t('h2Part2')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-                vous
+                {t('h2Em2')}
               </span>
               .
             </h2>
             <p className="text-lg md:text-xl text-[var(--text-body)] leading-relaxed max-w-2xl mx-auto text-center">
-              Pour jouer, vos clients réalisent une action gagnante pour votre enseigne.
+              {t('lead')}
             </p>
           </motion.div>
         </div>
 
-        {/* Grille d'actions */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
-          {ACTIONS.map((action, i) => (
+          {actions.map((action, i) => (
             <motion.div
-              key={action.label}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
@@ -126,7 +129,6 @@ export const Activate = () => {
           ))}
         </div>
 
-        {/* Footer note */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -134,7 +136,7 @@ export const Activate = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-sm text-[var(--text-muted)] font-display uppercase tracking-widest mt-12"
         >
-          Vous choisissez les actions · vos clients jouent · les résultats remontent
+          {t('footnote')}
         </motion.p>
       </div>
     </section>

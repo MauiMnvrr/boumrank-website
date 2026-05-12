@@ -2,13 +2,21 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import { Plus, MessageCircle } from 'lucide-react';
-import { HOME_FAQS } from '@/data/home-faqs';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import { HOME_FAQ_COUNT } from '@/data/home-faqs';
 import { cn } from '@/lib/utils';
 
 export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const t = useTranslations('home.faq');
+  const tFaq = useTranslations('faqs');
+
+  const items = Array.from({ length: HOME_FAQ_COUNT }, (_, i) => ({
+    question: tFaq(`home.${i}.question`),
+    answer: tFaq(`home.${i}.answer`),
+  }));
 
   const toggle = (i: number) => {
     setOpenIndex(openIndex === i ? null : i);
@@ -19,11 +27,9 @@ export const FAQ = () => {
       id="faq"
       className="relative py-24 md:py-32 bg-[var(--bg-elevated)] overflow-hidden"
     >
-      {/* Background decorative */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(27,111,194,0.06),transparent_60%)]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,23 +38,22 @@ export const FAQ = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Les {HOME_FAQS.length} questions qu&apos;on nous pose{' '}
+            {t('h2', { count: items.length })}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              avant de se lancer
+              {t('h2Highlight')}
             </span>
             .
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-            Si vous pensez à autre chose,{' '}
+            {t('leadPart1')}{' '}
             <span className="text-[var(--text-primary)] font-semibold">
-              on répond en moins de 2 h en chat.
+              {t('leadStrong')}
             </span>
           </p>
         </motion.div>
 
-        {/* FAQ items */}
         <div className="max-w-5xl mx-auto flex flex-col gap-3">
-          {HOME_FAQS.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div
@@ -112,7 +117,6 @@ export const FAQ = () => {
           })}
         </div>
 
-        {/* Bottom : contact prompt */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -125,14 +129,14 @@ export const FAQ = () => {
               <MessageCircle size={16} />
             </div>
             <span className="text-sm text-[var(--text-body)]">
-              Autre question ?{' '}
+              {t('anotherQuestion')}{' '}
               <Link
                 href="/contact"
                 className="font-semibold text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] transition-colors underline underline-offset-2 decoration-[var(--primary-blue)]/30 hover:decoration-[var(--primary-blue)]"
               >
-                Écrivez-nous
-              </Link>{' '}
-              — on répond en moins de 2 h.
+                {t('writeUs')}
+              </Link>
+              {t('responseTime')}
             </span>
           </div>
         </motion.div>

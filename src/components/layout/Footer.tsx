@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { MapPin, Mail } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { useDarkMode } from '@/components/ui/DarkModeProvider';
 import { COMPANY } from '@/lib/constants';
 
@@ -56,63 +57,132 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-type LinkColumn = {
-  title: string;
-  links: { label: string; href: string; external?: boolean; badge?: string }[];
+type AnyHref =
+  | '/'
+  | '/fonctionnalites'
+  | '/tarifs'
+  | '/a-propos'
+  | '/contact'
+  | '/blog'
+  | '/experience'
+  | '/technologie'
+  | '/mentions-legales'
+  | '/conditions-generales'
+  | '/politique-de-confidentialite';
+
+type AnchorHref = `/#${string}` | `/generateur-qr-demo`;
+
+type FooterLink = {
+  labelKey: string;
+  href: AnyHref;
+  badgeKey?: string;
 };
 
-const columns: LinkColumn[] = [
-  {
-    title: 'Produit',
-    links: [
-      { label: 'Fonctionnalités', href: '/fonctionnalites' },
-      { label: 'Tarifs', href: '/tarifs' },
-      { label: 'Calculateur ROI', href: '/#calculateur', badge: 'Nouveau' },
-      { label: 'Démo en ligne', href: '/experience' },
-      { label: 'Technologie', href: '/technologie' },
-    ],
-  },
-  {
-    title: 'Solutions',
-    links: [
-      { label: 'Restaurants & bars', href: '/#pour-qui' },
-      { label: 'Salons & beauté', href: '/#pour-qui' },
-      { label: 'Boutiques & retail', href: '/#pour-qui' },
-      { label: 'Multi-sites', href: '/contact' },
-      { label: 'Le réseau (vision)', href: '/#vision', badge: 'Bientôt' },
-    ],
-  },
-  {
-    title: 'Ressources',
-    links: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'FAQ', href: '/#faq' },
-      { label: 'Guide : 50 avis Google en 30 j', href: '/#lead-magnet', badge: 'PDF' },
-      { label: 'Générateur de QR de démo', href: '/generateur-qr-demo', badge: 'Gratuit' },
-      { label: 'À propos', href: '/a-propos' },
-    ],
-  },
-  {
-    title: 'Légal',
-    links: [
-      { label: 'Mentions légales', href: '/mentions-legales' },
-      { label: 'CGV', href: '/conditions-generales' },
-      { label: 'Confidentialité', href: '/politique-de-confidentialite' },
-      { label: 'Contact', href: '/contact' },
-    ],
-  },
-];
+type AnchorFooterLink = {
+  labelKey: string;
+  href: AnchorHref;
+  badgeKey?: string;
+};
 
 export const Footer: React.FC = () => {
   const { isDark } = useDarkMode();
+  const t = useTranslations('footer');
   const year = new Date().getFullYear();
+
+  const productLinks: (FooterLink | AnchorFooterLink)[] = [
+    { labelKey: 'columns.product.features', href: '/fonctionnalites' },
+    { labelKey: 'columns.product.pricing', href: '/tarifs' },
+    {
+      labelKey: 'columns.product.roiCalculator',
+      href: '/#calculateur',
+      badgeKey: 'badges.new',
+    },
+    { labelKey: 'columns.product.demo', href: '/experience' },
+    { labelKey: 'columns.product.technology', href: '/technologie' },
+  ];
+
+  const solutionsLinks: (FooterLink | AnchorFooterLink)[] = [
+    { labelKey: 'columns.solutions.restaurants', href: '/#pour-qui' },
+    { labelKey: 'columns.solutions.salons', href: '/#pour-qui' },
+    { labelKey: 'columns.solutions.retail', href: '/#pour-qui' },
+    { labelKey: 'columns.solutions.multisite', href: '/contact' },
+    {
+      labelKey: 'columns.solutions.network',
+      href: '/#vision',
+      badgeKey: 'badges.soon',
+    },
+  ];
+
+  const resourcesLinks: (FooterLink | AnchorFooterLink)[] = [
+    { labelKey: 'columns.resources.blog', href: '/blog' },
+    { labelKey: 'columns.resources.faq', href: '/#faq' },
+    {
+      labelKey: 'columns.resources.guide',
+      href: '/#lead-magnet',
+      badgeKey: 'badges.pdf',
+    },
+    {
+      labelKey: 'columns.resources.qrGenerator',
+      href: '/generateur-qr-demo',
+      badgeKey: 'badges.free',
+    },
+    { labelKey: 'columns.resources.about', href: '/a-propos' },
+  ];
+
+  const legalLinks: FooterLink[] = [
+    { labelKey: 'columns.legal.legalNotice', href: '/mentions-legales' },
+    { labelKey: 'columns.legal.terms', href: '/conditions-generales' },
+    { labelKey: 'columns.legal.privacy', href: '/politique-de-confidentialite' },
+    { labelKey: 'columns.legal.contact', href: '/contact' },
+  ];
+
+  const columns = [
+    { titleKey: 'columns.product.title', links: productLinks },
+    { titleKey: 'columns.solutions.title', links: solutionsLinks },
+    { titleKey: 'columns.resources.title', links: resourcesLinks },
+    { titleKey: 'columns.legal.title', links: legalLinks },
+  ];
+
+  const renderLink = (link: FooterLink | AnchorFooterLink) => {
+    const label = t(link.labelKey);
+    const badge = link.badgeKey ? t(link.badgeKey) : null;
+    const isHash = link.href.startsWith('/#') || link.href.startsWith('/generateur');
+
+    const content = (
+      <>
+        <span>{label}</span>
+        {badge && (
+          <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] text-white whitespace-nowrap">
+            {badge}
+          </span>
+        )}
+      </>
+    );
+
+    const className =
+      'text-[var(--text-secondary)] text-sm hover:text-[var(--primary-blue)] transition-colors flex items-center gap-2 leading-snug';
+
+    if (isHash) {
+      return (
+        <a href={link.href} className={className}>
+          {content}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={link.href as AnyHref} className={className}>
+        {content}
+      </Link>
+    );
+  };
 
   return (
     <footer className="bg-[var(--bg-primary)] pt-16 pb-8">
       <div className="container mx-auto px-6">
         {/* Top row: brand + 4 link columns */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
-          {/* Brand block (col-span-2 on desktop) */}
+          {/* Brand block */}
           <div className="col-span-2 md:col-span-2 flex flex-col gap-5">
             <Link href="/" className="inline-block">
               <Image
@@ -128,13 +198,12 @@ export const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed max-w-xs">
-              Le marketing local qui se joue. Plus d&apos;avis Google, plus de followers,
-              plus de clients qui reviennent. Setup en 5 minutes.
+              {t('tagline')}
             </p>
             <div className="flex flex-col gap-2 text-xs text-[var(--text-muted)]">
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-[var(--primary-teal)]" />
-                <span>Conçu à Marseille · Soutenu par Pépite Aix-Marseille</span>
+                <span>{t('location')}</span>
               </div>
               <a
                 href={`mailto:${COMPANY.email}`}
@@ -148,36 +217,24 @@ export const Footer: React.FC = () => {
 
           {/* 4 link columns */}
           {columns.map((col) => (
-            <div key={col.title} className="col-span-1">
+            <div key={col.titleKey} className="col-span-1">
               <h4 className="font-display font-bold uppercase text-xs tracking-widest text-[var(--text-primary)] mb-4">
-                {col.title}
+                {t(col.titleKey)}
               </h4>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-[var(--text-secondary)] text-sm hover:text-[var(--primary-blue)] transition-colors flex items-center gap-2 leading-snug"
-                    >
-                      <span>{link.label}</span>
-                      {link.badge && (
-                        <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] text-white whitespace-nowrap">
-                          {link.badge}
-                        </span>
-                      )}
-                    </Link>
-                  </li>
+                  <li key={link.labelKey}>{renderLink(link)}</li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        {/* Bottom row: copyright + socials */}
+        {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[var(--border-default)]">
           <p className="text-[var(--text-muted)] text-xs uppercase font-display font-bold tracking-wider text-center md:text-left">
-            © {year} BoumRank — Tous droits réservés ·{' '}
-            <span className="text-[var(--text-secondary)]">SAS en cours de création</span>
+            {t('copyright', { year })}{' '}
+            <span className="text-[var(--text-secondary)]">{t('incorporation')}</span>
           </p>
           <div className="flex items-center gap-3">
             <a

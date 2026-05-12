@@ -1,0 +1,409 @@
+{
+  "common": {
+    "tryFree": "Try it free",
+    "tryFreeFortnight": "Try free for 2 weeks",
+    "bookDemo": "Book a demo (15 min)",
+    "startTrial": "Start my free trial",
+    "contactUs": "Get in touch",
+    "learnMore": "Learn more",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "back": "Back",
+    "menu": "Menu",
+    "clientPortal": "Client portal",
+    "toggleDarkMode": "Toggle dark mode",
+    "openInNewTab": "Open in new tab",
+    "configureMyStore": "Set up my store",
+    "seeFeatures": "See features",
+    "switchLanguage": "Switch language",
+    "language": "Language"
+  },
+  "navbar": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "footer": {
+    "tagline": "Local marketing that actually plays. More Google reviews, more followers, more repeat customers. Up and running in 5 minutes.",
+    "location": "Built in Marseille · Backed by Pépite Aix-Marseille",
+    "columns": {
+      "product": {
+        "title": "Product",
+        "features": "Features",
+        "pricing": "Pricing",
+        "roiCalculator": "ROI calculator",
+        "demo": "Live demo",
+        "technology": "Technology"
+      },
+      "solutions": {
+        "title": "Solutions",
+        "restaurants": "Restaurants & bars",
+        "salons": "Salons & beauty",
+        "retail": "Shops & retail",
+        "multisite": "Multi-location",
+        "network": "The network (vision)"
+      },
+      "resources": {
+        "title": "Resources",
+        "blog": "Blog",
+        "faq": "FAQ",
+        "guide": "Guide: 50 Google reviews in 30 days",
+        "qrGenerator": "Demo QR generator",
+        "about": "About"
+      },
+      "legal": {
+        "title": "Legal",
+        "legalNotice": "Legal notice",
+        "terms": "Terms",
+        "privacy": "Privacy policy",
+        "contact": "Contact"
+      }
+    },
+    "badges": {
+      "new": "New",
+      "soon": "Soon",
+      "pdf": "PDF",
+      "free": "Free"
+    },
+    "copyright": "© {year} BoumRank. All rights reserved ·",
+    "incorporation": "SAS in formation"
+  },
+  "home": {
+    "hero": {
+      "h1Part1": "They",
+      "h1Word1": "scan",
+      "h1Word2": "play",
+      "h1Final": "YOU win",
+      "subhead": "Become the local spot everyone picks. Turn each visit into a playful moment, stack up reviews, and outrank the competition.",
+      "mockup": {
+        "playWin": "Play & Win!",
+        "chooseChallenge": "Pick your challenge and win your next meal",
+        "slotMachine": "Slot Machine",
+        "fortuneWheel": "Fortune Wheel",
+        "play": "Play",
+        "tickets": "Tickets",
+        "menu": "Menu",
+        "chooseAction": "Pick an action",
+        "proveCommitment": "Show your love!",
+        "googleReview": "Google review",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "slots": "Slot Machine",
+        "loading": "Spinning...",
+        "spinWin": "Spin & Win",
+        "spinWheel": "Spin the wheel",
+        "freeCookie": "1 Free Cookie",
+        "expiration": "EXPIRES",
+        "proofRequired": "Proof required",
+        "uploadScreenshot": "Upload your screenshot",
+        "validateProof": "Submit my proof"
+      }
+    },
+    "problem": {
+      "h2Part1": "We know the",
+      "h2Highlight": "drill",
+      "lead": "Three frustrations every local business knows by heart.",
+      "items": [
+        {
+          "title": "The \"cross my heart\" review that never lands",
+          "body": "You ask, they smile, they forget the second they step outside."
+        },
+        {
+          "title": "Shopkeeper by day, community manager by night",
+          "body": "You have no time. Neither do your competitors. The difference? Us."
+        },
+        {
+          "title": "Your neighbor has seniority, you have the goods",
+          "body": "They have the reviews. You have the talent. Become the local benchmark you deserve to be."
+        }
+      ],
+      "outroPart1": "What if we turned that into a",
+      "outroHighlight": "winning combo",
+      "outroPart2": "?"
+    },
+    "howItWorks": {
+      "h2Part1": "Simple flow,",
+      "h2Highlight": "zero friction",
+      "lead": "From setup to your first Google review in the bag, here's the full ride.",
+      "steps": [
+        {
+          "title": "Set up",
+          "subtitle": "Your game in 2 minutes",
+          "description": "Pick your game, customize the prizes and their odds. All in your brand's colors."
+        },
+        {
+          "title": "Display",
+          "subtitle": "QR code ready to go",
+          "description": "On the table, the counter, the receipt. We send the visuals, you print and post them."
+        },
+        {
+          "title": "They play",
+          "subtitle": "Google review · Follow · Newsletter",
+          "description": "They scan, complete the marketing action you chose, then play to win a prize."
+        },
+        {
+          "title": "You collect",
+          "subtitle": "Multi-platform in one click",
+          "description": "Stack up reviews and follows: Google, Instagram, TripAdvisor, TikTok, and more."
+        },
+        {
+          "title": "They come back",
+          "subtitle": "Cashier swipe · Min purchase · Done",
+          "description": "They return, redeem their prize over a minimum purchase. Your extra revenue funds the whole thing."
+        }
+      ]
+    },
+    "activate": {
+      "h2Part1": "One small step for",
+      "h2Em1": "them",
+      "h2Part2": ", one giant leap for",
+      "h2Em2": "you",
+      "lead": "To play, your customers complete an action that pays off for your business.",
+      "actions": [
+        { "label": "Google review", "sub": "5★ that lift your ranking" },
+        { "label": "Instagram follow", "sub": "+1 qualified follower" },
+        { "label": "TikTok follow", "sub": "Gen Z local reach" },
+        { "label": "Tripadvisor review", "sub": "Average score on the rise" },
+        { "label": "Facebook like", "sub": "Local community" },
+        { "label": "Newsletter", "sub": "Email collected for relaunch" }
+      ],
+      "footnote": "You pick the actions · your customers play · results flow in"
+    },
+    "roi": {
+      "h2Part1": "How many Google reviews",
+      "h2Highlight": "will you unlock",
+      "h2Part2": "this month?",
+      "leadPart1": "Move the sliders.",
+      "leadStrong": "Numbers speak louder than a pitch.",
+      "yourStore": "Your store in 3 numbers",
+      "customersLabel": "Customers per day",
+      "customersSuffix": " customers/day",
+      "ticketLabel": "Average ticket",
+      "ticketSuffix": " €",
+      "disclaimer": "Estimates based on ratios observed with our beta clients: 35% scan rate, 55% review conversion rate, 45% return rate. Every business is different, these numbers are orders of magnitude.",
+      "newReviewsLabel": "New Google reviews / month",
+      "newReviewsCaption": "Fresh Google reviews banked from month one.",
+      "returnsLabel": "Store returns",
+      "returnsPerMonth": " / month",
+      "returnsCaption": "Customers coming back to redeem their coupon",
+      "revenueLabel": "Extra revenue",
+      "revenueCaption": "Revenue tied to customer returns",
+      "cta": "Unlock these reviews with BoumRank",
+      "currencyLocale": "en-US",
+      "currencyCode": "EUR"
+    },
+    "faq": {
+      "h2": "The {count} questions we get",
+      "h2Highlight": "before signing up",
+      "leadPart1": "Got something else in mind?",
+      "leadStrong": "We answer in under 2 hours via chat.",
+      "anotherQuestion": "Another question?",
+      "writeUs": "Drop us a line",
+      "responseTime": ". We answer in under 2 hours."
+    },
+    "finalCta": {
+      "h2Part1": "Ready to",
+      "h2Highlight": "10x your Google reviews",
+      "h2Part2": "?",
+      "subPart1": "5 minutes",
+      "subPart2": "to activate.",
+      "subPart3": "14 days",
+      "subPart4": "to test.",
+      "subPart5": "Zero reasons to wait.",
+      "badges": {
+        "setup": "5-min setup",
+        "noCard": "No credit card",
+        "noCommit": "No commitment",
+        "support": "French support",
+        "rgpd": "GDPR compliant"
+      },
+      "signature": "Built in Marseille · Powered by Pépite Aix-Marseille University · Beta January 2026"
+    }
+  },
+  "faqs": {
+    "home": [
+      {
+        "question": "Do you offer a free trial?",
+        "answer": "Yes, 14 days to put it through its paces in real conditions, no credit card needed upfront. You activate, you measure, you decide."
+      },
+      {
+        "question": "Will my customers actually play? They aren't gamers.",
+        "answer": "That's exactly the point. The game isn't for gamers, it's for everyone. A spinning wheel speaks to your grandma just as much as a 14-year-old. 89% of scans lead to a game launched, based on our beta data."
+      },
+      {
+        "question": "Can I set a minimum purchase to redeem prizes?",
+        "answer": "Yes, you set a single threshold across all your prizes. Whether it's $0, $5, or $10, you define the minimum order needed for a customer to walk away with their prize."
+      },
+      {
+        "question": "Can I brand the game with my store's colors?",
+        "answer": "It's our signature move. 13 starting templates, 100% custom color palette, your logo, your typography, your illustrations. Your customers play at your place, not at BoumRank's."
+      },
+      {
+        "question": "Who are you, really? French startup? Offshore team?",
+        "answer": "100% French team, based in Marseille, part of the Pépite Aix-Marseille University program. French support, French billing, founders reachable on WhatsApp. No hotline in Bangalore."
+      },
+      {
+        "question": "I'm terrible with tech. Can I really do this?",
+        "answer": "Yes, no sweat. Setup takes 5 minutes flat: pick your game from a list, drop in your logo, click 'Activate'. We email you the printable QR code. If you can post on Instagram, you can use BoumRank."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "lead": "Insights, field notes, and marketing tactics for local businesses.",
+    "readMore": "Read article",
+    "publishedOn": "Published on",
+    "readingTime": "{minutes} min read",
+    "comingSoon": {
+      "title": "Coming soon in English",
+      "lead": "Our articles will be translated into English shortly.",
+      "cta": "Read in French"
+    },
+    "noPosts": "No articles yet. Check back soon."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Question, demo, partnership? Drop us a line, we answer in under 2 hours.",
+    "form": {
+      "name": "Your name",
+      "namePlaceholder": "Jane Smith",
+      "email": "Your email",
+      "emailPlaceholder": "jane@restaurant.com",
+      "company": "Your business",
+      "companyPlaceholder": "The Sunny Café",
+      "message": "Your message",
+      "messagePlaceholder": "Hi, I run a 50-seat restaurant and I'd love to learn more...",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Message sent! We'll get back to you today.",
+      "error": "Something went wrong. Try again or email support@boumrank.com.",
+      "required": "Required field"
+    }
+  },
+  "about": {
+    "title": "About",
+    "lead": "The story of BoumRank, from idea to product."
+  },
+  "pricing": {
+    "title": "Pricing",
+    "lead": "One service, three commitments. You pick."
+  },
+  "features": {
+    "title": "Features",
+    "lead": "Everything BoumRank gives you to turn every scan into a review."
+  },
+  "howItWorksPage": {
+    "title": "How it works",
+    "lead": "From QR code to return visit, here's how BoumRank works."
+  },
+  "experience": {
+    "title": "Live demo",
+    "lead": "Test the BoumRank experience yourself."
+  },
+  "technology": {
+    "title": "Technology",
+    "lead": "The stack powering BoumRank."
+  },
+  "legalNotice": {
+    "title": "Legal notice"
+  },
+  "privacyPolicy": {
+    "title": "Privacy policy"
+  },
+  "terms": {
+    "title": "Terms of service"
+  },
+  "cookieBanner": {
+    "title": "Cookies & privacy",
+    "body": "We use cookies to measure site traffic (Vercel Analytics) and improve the experience. You stay in control.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "customize": "Customize",
+    "necessary": "Necessary",
+    "analytics": "Analytics",
+    "save": "Save my choices"
+  },
+  "onboarding": {
+    "title": "Get started in 60 seconds",
+    "step1": "Your first name",
+    "step2": "Your business name",
+    "step3": "Your email",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Create my account",
+    "submitting": "Creating...",
+    "skip": "Maybe later"
+  },
+  "seo": {
+    "home": {
+      "title": "BoumRank, more Google reviews through play",
+      "description": "BoumRank turns every visit into a Google review. Your customers scan a QR code, play a mini-game (wheel, slots, blackjack) and come back to claim their prize in-store. 5-minute setup, starting at €59/month."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "One service, three commitments. Starting at €59/month excl. VAT. 14-day free trial, no credit card."
+    },
+    "about": {
+      "title": "About",
+      "description": "The team behind BoumRank, based in Marseille, backed by Pépite Aix-Marseille University."
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "description": "From scan to return visit: see how BoumRank turns every customer into an ambassador."
+    },
+    "features": {
+      "title": "Features",
+      "description": "Mini-games, dashboard, multi-action, multi-platform. Everything you need to collect reviews and build loyalty."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Drop us a line: demo, partnership, question. Reply in under 2 hours."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Insights, field notes, and marketing tactics for local businesses."
+    },
+    "experience": {
+      "title": "Live demo",
+      "description": "Test the BoumRank experience yourself: scan, play, win."
+    },
+    "technology": {
+      "title": "Technology",
+      "description": "The stack powering BoumRank: Next.js, Supabase, Vercel."
+    },
+    "legalNotice": {
+      "title": "Legal notice",
+      "description": "Legal information about BoumRank."
+    },
+    "privacyPolicy": {
+      "title": "Privacy policy",
+      "description": "How BoumRank handles your personal data."
+    },
+    "terms": {
+      "title": "Terms of service",
+      "description": "BoumRank's terms of service."
+    }
+  },
+  "emails": {
+    "contact": {
+      "internal": {
+        "subject": "New message from {name}",
+        "intro": "You received a new message via the contact form at boumrank.com:"
+      },
+      "confirmation": {
+        "subject": "We received your message",
+        "greeting": "Hi {name},",
+        "body": "We got your message and we'll get back to you within 2 hours (business days). In the meantime, here are a few resources you might find useful:",
+        "resources": {
+          "demo": "Try the live demo",
+          "pricing": "Check out our pricing",
+          "howItWorks": "Learn how it works"
+        },
+        "signature": "The BoumRank team",
+        "ps": "PS: if it's urgent, email us directly at support@boumrank.com."
+      }
+    }
+  }
+}

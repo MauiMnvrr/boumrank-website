@@ -5,7 +5,15 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-const databaseId = process.env.NOTION_BLOG_DATABASE_ID || '';
+const DB_ID_FR = process.env.NOTION_BLOG_DATABASE_ID || '';
+const DB_ID_EN = process.env.NOTION_BLOG_DATABASE_ID_EN || '';
+
+export type BlogLocale = 'fr' | 'en';
+
+function resolveDatabaseId(locale: BlogLocale): string {
+  if (locale === 'en') return DB_ID_EN;
+  return DB_ID_FR;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function extractProperty(property: any, type: string): any {
@@ -51,7 +59,11 @@ export async function getBlogPosts(options?: {
   tag?: string;
   pageSize?: number;
   startCursor?: string;
+  locale?: BlogLocale;
 }): Promise<{ posts: BlogPost[]; hasMore: boolean; nextCursor: string | null }> {
+  const locale = options?.locale ?? 'fr';
+  const databaseId = resolveDatabaseId(locale);
+
   if (!databaseId) {
     return { posts: [], hasMore: false, nextCursor: null };
   }
@@ -94,7 +106,12 @@ export async function getBlogPosts(options?: {
   }
 }
 
-export async function getBlogPost(slug: string): Promise<BlogPost | null> {
+export async function getBlogPost(
+  slug: string,
+  options?: { locale?: BlogLocale },
+): Promise<BlogPost | null> {
+  const locale = options?.locale ?? 'fr';
+  const databaseId = resolveDatabaseId(locale);
   if (!databaseId) return null;
 
   try {
@@ -141,11 +158,12 @@ export async function getPageBlocks(pageId: string): Promise<NotionBlock[]> {
   }
 }
 
-export async function getAllTags(): Promise<string[]> {
+export async function getAllTags(locale: BlogLocale = 'fr'): Promise<string[]> {
+  const databaseId = resolveDatabaseId(locale);
   if (!databaseId) return [];
 
   try {
-    const { posts } = await getBlogPosts({ pageSize: 100 });
+    const { posts } = await getBlogPosts({ pageSize: 100, locale });
     const tagSet = new Set<string>();
     posts.forEach((post) => post.tags.forEach((tag) => tagSet.add(tag)));
     return Array.from(tagSet).sort();

@@ -3,70 +3,31 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Settings, QrCode, Gamepad2, Star, Store } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
-type Step = {
-  icon: React.ComponentType<{ className?: string; size?: number }>;
-  title: string;
-  subtitle: string;
-  description: string;
-  gradient: string;
-  accent: string;
-};
-
-const steps: Step[] = [
-  {
-    icon: Settings,
-    title: 'Configurez',
-    subtitle: 'Votre jeu en 2 minutes',
-    description:
-      "Choisissez votre jeu, personnalisez les lots et leurs probabilités. Le tout aux couleurs de votre enseigne.",
-    gradient: 'linear-gradient(135deg, #1B6FC2 0%, #144F8C 100%)',
-    accent: '#1B6FC2',
-  },
-  {
-    icon: QrCode,
-    title: 'Affichez',
-    subtitle: 'Le QR code prêt à poser',
-    description:
-      "Sur la table, le comptoir ou l'addition. On vous envoie les visuels, vous les imprimez et les posez.",
-    gradient: 'linear-gradient(135deg, #1E9DAA 0%, #177A85 100%)',
-    accent: '#1E9DAA',
-  },
-  {
-    icon: Gamepad2,
-    title: 'Ils jouent',
-    subtitle: 'Avis Google · Follow · Newsletter',
-    description:
-      "Ils scannent, réalisent l'action marketing que vous avez choisie, puis jouent pour tenter de gagner un lot.",
-    gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
-    accent: '#2EAE6D',
-  },
-  {
-    icon: Star,
-    title: 'Vous récoltez',
-    subtitle: 'Multi-plateformes en 1 clic',
-    description:
-      'Gagnez des avis et abonnements : Google, Instagram, TripAdvisor, TikTok, et plus encore.',
-    gradient: 'linear-gradient(135deg, #00CEC9 0%, #00A8A3 100%)',
-    accent: '#00CEC9',
-  },
-  {
-    icon: Store,
-    title: 'Ils reviennent',
-    subtitle: 'Swipe caissier · Achat min · Fini',
-    description:
-      "Ils reviennent, récupèrent leurs lots sous minimum d'achat. Vos bénéfices autofinancent la solution.",
-    gradient: 'linear-gradient(135deg, #F28C28 0%, #D47318 100%)',
-    accent: '#F28C28',
-  },
+const ICONS = [Settings, QrCode, Gamepad2, Star, Store];
+const GRADIENTS = [
+  { gradient: 'linear-gradient(135deg, #1B6FC2 0%, #144F8C 100%)', accent: '#1B6FC2' },
+  { gradient: 'linear-gradient(135deg, #1E9DAA 0%, #177A85 100%)', accent: '#1E9DAA' },
+  { gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)', accent: '#2EAE6D' },
+  { gradient: 'linear-gradient(135deg, #00CEC9 0%, #00A8A3 100%)', accent: '#00CEC9' },
+  { gradient: 'linear-gradient(135deg, #F28C28 0%, #D47318 100%)', accent: '#F28C28' },
 ];
 
 export const HowItWorks = () => {
   const containerRef = useRef<HTMLElement>(null);
   const { openModal } = useOnboarding();
+  const t = useTranslations('home.howItWorks');
+  const tCommon = useTranslations('common');
+
+  const steps = (t.raw('steps') as { title: string; subtitle: string; description: string }[]).map((s, i) => ({
+    ...s,
+    icon: ICONS[i],
+    ...GRADIENTS[i],
+  }));
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -82,11 +43,9 @@ export const HowItWorks = () => {
       id="comment-ca-marche"
       className="relative py-24 md:py-32 bg-[var(--bg-primary)] overflow-hidden"
     >
-      {/* Decorative background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(27,111,194,0.06),transparent_60%)]" />
 
       <div className="container mx-auto px-2 relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,21 +54,19 @@ export const HowItWorks = () => {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-5 text-[var(--text-primary)]">
-            Parcours simple,{' '}
+            {t('h2Part1')}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-              zéro friction
+              {t('h2Highlight')}
             </span>
           </h2>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
-            Du setup au premier avis Google encaissé, voici le parcours complet.
+            {t('lead')}
           </p>
         </motion.div>
 
-        {/* Desktop frise horizontale */}
+        {/* Desktop */}
         <div className="hidden md:block relative max-w-7xl mx-auto">
-          {/* Connecting line background */}
           <div className="absolute top-16 left-[10%] right-[10%] h-[3px] bg-[var(--border-default)] rounded-full z-0" />
-          {/* Connecting line progress animated */}
           <motion.div
             style={{ width: lineWidth }}
             className="absolute top-16 left-[10%] h-[3px] rounded-full z-0 bg-[linear-gradient(90deg,#1B6FC2_0%,#1E9DAA_25%,#2EAE6D_50%,#00CEC9_75%,#F28C28_100%)] shadow-[0_0_15px_rgba(27,111,194,0.4)]"
@@ -125,7 +82,6 @@ export const HowItWorks = () => {
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 className="flex flex-col items-center text-center group"
               >
-                {/* Icon bubble */}
                 <div className="relative mb-6">
                   <div
                     className="w-32 h-32 rounded-full flex items-center justify-center text-white shadow-[0_16px_40px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-300"
@@ -133,13 +89,11 @@ export const HowItWorks = () => {
                   >
                     <step.icon className="w-12 h-12" />
                   </div>
-                  {/* Number badge */}
                   <div className="absolute -top-1 -right-1 w-10 h-10 rounded-full bg-white border-4 border-[var(--bg-primary)] flex items-center justify-center font-display font-extrabold text-sm text-[var(--text-primary)] shadow-md">
                     {i + 1}
                   </div>
                 </div>
 
-                {/* Title */}
                 <h3
                   className="font-display font-extrabold text-lg mb-1"
                   style={{ color: step.accent }}
@@ -147,12 +101,10 @@ export const HowItWorks = () => {
                   {step.title}
                 </h3>
 
-                {/* Subtitle */}
                 <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-3">
                   {step.subtitle}
                 </div>
 
-                {/* Description */}
                 <p className="text-[13px] text-[var(--text-body)] leading-snug px-0">
                   {step.description}
                 </p>
@@ -161,11 +113,9 @@ export const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Mobile vertical timeline */}
+        {/* Mobile */}
         <div className="md:hidden relative pl-12">
-          {/* Vertical line background */}
           <div className="absolute top-0 bottom-0 left-[23px] w-[3px] bg-[var(--border-default)] rounded-full" />
-          {/* Vertical line progress */}
           <motion.div
             style={{ height: lineHeight }}
             className="absolute top-0 left-[23px] w-[3px] rounded-full bg-[linear-gradient(180deg,#1B6FC2_0%,#1E9DAA_25%,#2EAE6D_50%,#00CEC9_75%,#F28C28_100%)] shadow-[0_0_12px_rgba(27,111,194,0.4)]"
@@ -181,7 +131,6 @@ export const HowItWorks = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="relative"
               >
-                {/* Icon bubble (mobile) — positioned on the line */}
                 <div className="absolute -left-12 top-0">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] relative"
@@ -211,7 +160,6 @@ export const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -220,13 +168,13 @@ export const HowItWorks = () => {
           className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Button onClick={openModal} variant="gradient" size="lg" className="normal-case tracking-normal">
-            Configurer mon commerce
+            {tCommon('configureMyStore')}
           </Button>
           <Link
             href="/comment-ca-marche"
             className="text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] font-display font-bold text-sm transition-colors underline underline-offset-4 decoration-2 decoration-[var(--primary-blue)]/30 hover:decoration-[var(--primary-blue)]"
           >
-            Voir les fonctionnalités →
+            {tCommon('seeFeatures')} →
           </Link>
         </motion.div>
       </div>

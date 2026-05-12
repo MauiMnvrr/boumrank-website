@@ -1,9 +1,10 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { SITE_URL } from '@/lib/constants';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface BreadcrumbItem {
   label: string;
-  href?: string;
+  href?: any;
 }
 
 interface BreadcrumbsProps {

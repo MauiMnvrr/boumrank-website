@@ -4,24 +4,25 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ExternalLink, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/navigation';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { useDarkMode } from '@/components/ui/DarkModeProvider';
 import { Button } from '@/components/ui/Button';
+import { LanguageToggle } from '@/components/ui/LanguageToggle';
 import { cn } from '@/lib/utils';
 import { AUTH_URL } from '@/lib/constants';
 
 type MenuItem = {
-  name: string;
-  href: string;
+  key: 'features' | 'pricing' | 'blog' | 'about';
+  href: '/fonctionnalites' | '/tarifs' | '/blog' | '/a-propos';
 };
 
 const menuItems: MenuItem[] = [
-  { name: 'Fonctionnalités', href: '/fonctionnalites' },
-  { name: 'Tarifs', href: '/tarifs' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'À propos', href: '/a-propos' },
+  { key: 'features', href: '/fonctionnalites' },
+  { key: 'pricing', href: '/tarifs' },
+  { key: 'blog', href: '/blog' },
+  { key: 'about', href: '/a-propos' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -30,6 +31,8 @@ export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const { openModal } = useOnboarding();
   const { isDark, toggle: onToggleDark } = useDarkMode();
+  const tNav = useTranslations('navbar');
+  const tCommon = useTranslations('common');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -79,7 +82,7 @@ export const Navbar: React.FC = () => {
 
             return (
               <Link
-                key={item.name}
+                key={item.key}
                 href={item.href}
                 className={cn(
                   'text-[var(--text-secondary)] hover:text-[var(--primary-blue)]',
@@ -89,34 +92,36 @@ export const Navbar: React.FC = () => {
                   isActive && 'text-[var(--primary-blue)] after:w-full'
                 )}
               >
-                {item.name}
+                {tNav(item.key)}
               </Link>
             );
           })}
         </div>
 
-        {/* Right side: Espace Client + Dark mode + CTA */}
-        <div className="hidden lg:flex items-center gap-4">
+        {/* Right side: Espace Client + Dark mode + Lang toggle + CTA */}
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href={AUTH_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-display font-bold text-[13px] uppercase tracking-wider transition-colors flex items-center gap-1.5"
           >
-            Espace client
+            {tCommon('clientPortal')}
             <ExternalLink size={13} className="opacity-50" />
           </a>
+
+          <LanguageToggle />
 
           <button
             onClick={onToggleDark}
             className="p-2 rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-highlight)] transition-all"
-            aria-label="Basculer le mode sombre"
+            aria-label={tCommon('toggleDarkMode')}
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
           <Button onClick={openModal} variant="gradient" size="sm">
-            Essayer gratuitement
+            {tCommon('tryFree')}
           </Button>
         </div>
 
@@ -125,14 +130,14 @@ export const Navbar: React.FC = () => {
           <button
             onClick={onToggleDark}
             className="p-2 rounded-full border border-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
-            aria-label="Basculer le mode sombre"
+            aria-label={tCommon('toggleDarkMode')}
           >
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button
             className="text-[var(--text-primary)] p-2 hover:bg-[var(--bg-elevated)] rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
+            aria-label={tCommon('menu')}
           >
             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -152,7 +157,7 @@ export const Navbar: React.FC = () => {
             <div className="flex flex-col p-8 gap-6">
               {menuItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.key}
                   href={item.href}
                   className={cn(
                     'font-display font-extrabold text-2xl uppercase transition-colors',
@@ -162,7 +167,7 @@ export const Navbar: React.FC = () => {
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  {tNav(item.key)}
                 </Link>
               ))}
 
@@ -174,9 +179,11 @@ export const Navbar: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[var(--text-secondary)] font-display font-bold text-lg uppercase tracking-widest"
               >
-                Espace client
+                {tCommon('clientPortal')}
                 <ExternalLink size={16} />
               </a>
+
+              <LanguageToggle variant="full" />
 
               <Button
                 onClick={(e) => {
@@ -187,7 +194,7 @@ export const Navbar: React.FC = () => {
                 size="lg"
                 className="w-full"
               >
-                Essayer gratuitement
+                {tCommon('tryFree')}
               </Button>
             </div>
           </motion.div>

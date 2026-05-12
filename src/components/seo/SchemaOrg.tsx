@@ -34,7 +34,7 @@ export function organizationSchema() {
       '@type': 'ContactPoint',
       email: COMPANY.email,
       contactType: 'customer service',
-      availableLanguage: 'French',
+      availableLanguage: ['French', 'English'],
     },
     sameAs: [
       'https://twitter.com/boumrank',
@@ -115,14 +115,14 @@ export function softwareApplicationSchema() {
   };
 }
 
-export function websiteSchema() {
+export function websiteSchema(locale: string = 'fr', description?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
-    url: SITE_URL,
-    inLanguage: 'fr',
-    description: SITE_DESCRIPTION,
+    url: locale === 'en' ? `${SITE_URL}/en` : SITE_URL,
+    inLanguage: locale,
+    description: description ?? SITE_DESCRIPTION,
   };
 }
 
@@ -180,6 +180,7 @@ export function blogPostingSchema(post: {
   author: string;
   coverImage?: string;
   tags?: string[];
+  locale?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -214,6 +215,6 @@ export function blogPostingSchema(post: {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/blog/${post.slug}`,
     },
-    inLanguage: 'fr',
+    inLanguage: post.locale ?? 'fr',
   };
 }

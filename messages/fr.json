@@ -1,0 +1,409 @@
+{
+  "common": {
+    "tryFree": "Essayer gratuitement",
+    "tryFreeFortnight": "Testez 2 semaines gratuitement",
+    "bookDemo": "Réserver une démo (15 min)",
+    "startTrial": "Lancer mon essai gratuit",
+    "contactUs": "Écrivez-nous",
+    "learnMore": "En savoir plus",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "back": "Retour",
+    "menu": "Menu",
+    "clientPortal": "Espace client",
+    "toggleDarkMode": "Basculer le mode sombre",
+    "openInNewTab": "Ouvrir dans un nouvel onglet",
+    "configureMyStore": "Configurer mon commerce",
+    "seeFeatures": "Voir les fonctionnalités",
+    "switchLanguage": "Changer de langue",
+    "language": "Langue"
+  },
+  "navbar": {
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "about": "À propos"
+  },
+  "footer": {
+    "tagline": "Le marketing local qui se joue. Plus d'avis Google, plus de followers, plus de clients qui reviennent. Setup en 5 minutes.",
+    "location": "Conçu à Marseille · Soutenu par Pépite Aix-Marseille",
+    "columns": {
+      "product": {
+        "title": "Produit",
+        "features": "Fonctionnalités",
+        "pricing": "Tarifs",
+        "roiCalculator": "Calculateur ROI",
+        "demo": "Démo en ligne",
+        "technology": "Technologie"
+      },
+      "solutions": {
+        "title": "Solutions",
+        "restaurants": "Restaurants & bars",
+        "salons": "Salons & beauté",
+        "retail": "Boutiques & retail",
+        "multisite": "Multi-sites",
+        "network": "Le réseau (vision)"
+      },
+      "resources": {
+        "title": "Ressources",
+        "blog": "Blog",
+        "faq": "FAQ",
+        "guide": "Guide : 50 avis Google en 30 j",
+        "qrGenerator": "Générateur de QR de démo",
+        "about": "À propos"
+      },
+      "legal": {
+        "title": "Légal",
+        "legalNotice": "Mentions légales",
+        "terms": "CGV",
+        "privacy": "Confidentialité",
+        "contact": "Contact"
+      }
+    },
+    "badges": {
+      "new": "Nouveau",
+      "soon": "Bientôt",
+      "pdf": "PDF",
+      "free": "Gratuit"
+    },
+    "copyright": "© {year} BoumRank, Tous droits réservés ·",
+    "incorporation": "SAS en cours de création"
+  },
+  "home": {
+    "hero": {
+      "h1Part1": "Ils",
+      "h1Word1": "scannent",
+      "h1Word2": "jouent",
+      "h1Final": "TU gagnes",
+      "subhead": "Devenez le commerce que tout le monde choisit. Offrez une expérience ludique, récoltez massivement des avis et surclassez vos concurrents.",
+      "mockup": {
+        "playWin": "Joue & Gagne !",
+        "chooseChallenge": "Choisis ton défi et remporte ton prochain repas",
+        "slotMachine": "Machine à Sous",
+        "fortuneWheel": "Roue Fortune",
+        "play": "Jouer",
+        "tickets": "Tickets",
+        "menu": "Menu",
+        "chooseAction": "Choisis une action",
+        "proveCommitment": "Prouve ton engagement !",
+        "googleReview": "Avis Google",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "slots": "Machine à Sous",
+        "loading": "En cours...",
+        "spinWin": "Spin & Win",
+        "spinWheel": "Lancer la roue",
+        "freeCookie": "1 Cookie Gratuit",
+        "expiration": "EXPIRATION",
+        "proofRequired": "Preuve Requise",
+        "uploadScreenshot": "Upload ton screenshot",
+        "validateProof": "Valider ma preuve"
+      }
+    },
+    "problem": {
+      "h2Part1": "On connaît la",
+      "h2Highlight": "chanson",
+      "lead": "Trois frustrations que chaque commerçant local connaît par cœur.",
+      "items": [
+        {
+          "title": "L'avis « promis juré » qui n'arrive jamais",
+          "body": "Vous le demandez, ils sourient, ils oublient dès la porte franchie."
+        },
+        {
+          "title": "Commerçant le jour, community manager la nuit",
+          "body": "Vous n'avez pas le temps. Vos concurrents non plus. La différence, c'est nous."
+        },
+        {
+          "title": "Le voisin a l'ancienneté, vous avez la qualité",
+          "body": "Il a les avis. Vous avez le talent. Devenez la référence comme vous le méritez."
+        }
+      ],
+      "outroPart1": "Et si on transformait ça en",
+      "outroHighlight": "combo gagnant",
+      "outroPart2": "?"
+    },
+    "howItWorks": {
+      "h2Part1": "Parcours simple,",
+      "h2Highlight": "zéro friction",
+      "lead": "Du setup au premier avis Google encaissé, voici le parcours complet.",
+      "steps": [
+        {
+          "title": "Configurez",
+          "subtitle": "Votre jeu en 2 minutes",
+          "description": "Choisissez votre jeu, personnalisez les lots et leurs probabilités. Le tout aux couleurs de votre enseigne."
+        },
+        {
+          "title": "Affichez",
+          "subtitle": "Le QR code prêt à poser",
+          "description": "Sur la table, le comptoir ou l'addition. On vous envoie les visuels, vous les imprimez et les posez."
+        },
+        {
+          "title": "Ils jouent",
+          "subtitle": "Avis Google · Follow · Newsletter",
+          "description": "Ils scannent, réalisent l'action marketing que vous avez choisie, puis jouent pour tenter de gagner un lot."
+        },
+        {
+          "title": "Vous récoltez",
+          "subtitle": "Multi-plateformes en 1 clic",
+          "description": "Gagnez des avis et abonnements : Google, Instagram, TripAdvisor, TikTok, et plus encore."
+        },
+        {
+          "title": "Ils reviennent",
+          "subtitle": "Swipe caissier · Achat min · Fini",
+          "description": "Ils reviennent, récupèrent leurs lots sous minimum d'achat. Vos bénéfices autofinancent la solution."
+        }
+      ]
+    },
+    "activate": {
+      "h2Part1": "Une petite action pour",
+      "h2Em1": "eux",
+      "h2Part2": ", un grand pas pour",
+      "h2Em2": "vous",
+      "lead": "Pour jouer, vos clients réalisent une action gagnante pour votre enseigne.",
+      "actions": [
+        { "label": "Avis Google", "sub": "5★ qui vous remontent" },
+        { "label": "Follow Instagram", "sub": "+1 abonné qualifié" },
+        { "label": "Follow TikTok", "sub": "Visibilité local Gen Z" },
+        { "label": "Avis Tripadvisor", "sub": "Note moyenne en hausse" },
+        { "label": "Like Facebook", "sub": "Communauté locale" },
+        { "label": "Newsletter", "sub": "Email collecté pour relancer" }
+      ],
+      "footnote": "Vous choisissez les actions · vos clients jouent · les résultats remontent"
+    },
+    "roi": {
+      "h2Part1": "Combien d'avis Google",
+      "h2Highlight": "allez-vous débloquer",
+      "h2Part2": "ce mois-ci ?",
+      "leadPart1": "Bougez les curseurs.",
+      "leadStrong": "Les chiffres parlent mieux qu'un pitch.",
+      "yourStore": "Votre commerce en 3 chiffres",
+      "customersLabel": "Clients par jour",
+      "customersSuffix": " clients/jour",
+      "ticketLabel": "Ticket moyen",
+      "ticketSuffix": " €",
+      "disclaimer": "Estimations basées sur des ratios observés chez nos clients beta : 35 % de taux de scan, 55 % de taux de conversion en avis, 45 % de retour en boutique. Chaque commerce est différent, ces chiffres sont des ordres de grandeur.",
+      "newReviewsLabel": "Nouveaux avis Google / mois",
+      "newReviewsCaption": "De nouveaux avis Google encaissés dès le premier mois.",
+      "returnsLabel": "Retours en boutique",
+      "returnsPerMonth": " / mois",
+      "returnsCaption": "Clients qui reviennent encaisser leur coupon",
+      "revenueLabel": "CA additionnel",
+      "revenueCaption": "Chiffre d'affaires lié au retour client",
+      "cta": "Débloquer ces avis avec BoumRank",
+      "currencyLocale": "fr-FR",
+      "currencyCode": "EUR"
+    },
+    "faq": {
+      "h2": "Les {count} questions qu'on nous pose",
+      "h2Highlight": "avant de se lancer",
+      "leadPart1": "Si vous pensez à autre chose,",
+      "leadStrong": "on répond en moins de 2 h en chat.",
+      "anotherQuestion": "Autre question ?",
+      "writeUs": "Écrivez-nous",
+      "responseTime": ", on répond en moins de 2 h."
+    },
+    "finalCta": {
+      "h2Part1": "Prêt à",
+      "h2Highlight": "décupler vos avis Google",
+      "h2Part2": "?",
+      "subPart1": "5 minutes",
+      "subPart2": "pour activer.",
+      "subPart3": "14 jours",
+      "subPart4": "pour tester.",
+      "subPart5": "Zéro raison d'attendre.",
+      "badges": {
+        "setup": "Setup en 5 min",
+        "noCard": "Aucune CB requise",
+        "noCommit": "Sans engagement",
+        "support": "Support français",
+        "rgpd": "Conforme RGPD"
+      },
+      "signature": "Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université · Beta Janvier 2026"
+    }
+  },
+  "faqs": {
+    "home": [
+      {
+        "question": "Vous avez un essai gratuit ?",
+        "answer": "Oui, 14 jours pour tester la bête en conditions réelles, sans carte bancaire demandée au départ. Vous activez, vous mesurez, vous décidez."
+      },
+      {
+        "question": "Mes clients vont-ils vraiment jouer ? Ils ne sont pas des gamers.",
+        "answer": "C'est justement le point. Le jeu n'est pas pour les gamers, c'est pour tout le monde. Une roue qui tourne, ça parle à votre grand-mère comme à l'ado de 14 ans. 89 % des scans aboutissent à une partie lancée sur nos données beta."
+      },
+      {
+        "question": "Est-ce que peux configurer le minimum d'achat pour la récupération des lots ?",
+        "answer": "Oui, vous fixez un seuil unique pour l'ensemble de vos lots. Que ce soit 0 €, 5 € ou 10 €, vous définissez le montant minimum de commande nécessaire pour qu'un client puisse repartir avec son lot."
+      },
+      {
+        "question": "Est-ce que je peux personnaliser le jeu aux couleurs de mon commerce ?",
+        "answer": "C'est même notre signature. 13 templates de départ, palette de couleurs 100 % custom, votre logo, votre typo, vos illustrations. Vos clients jouent chez vous, pas chez BoumRank."
+      },
+      {
+        "question": "Vous êtes qui, en fait ? Startup française ? Équipe à l'étranger ?",
+        "answer": "Équipe 100 % française, basés à Marseille, programme Pépite Aix-Marseille Université. Support en français, facturation en français, fondateurs joignables sur WhatsApp. Pas de hotline à Bangalore."
+      },
+      {
+        "question": "Je suis nul en tech. Est-ce que je vais y arriver ?",
+        "answer": "Oui, et sans transpirer. Le setup prend 5 minutes chrono : vous choisissez votre jeu dans une liste, vous glissez votre logo, vous cliquez sur « Activer ». Nous vous envoyons le QR code imprimable par mail. Si vous savez poster sur Instagram, vous savez utiliser BoumRank."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "lead": "Insights, retours d'expérience, et tactiques marketing pour les commerçants locaux.",
+    "readMore": "Lire l'article",
+    "publishedOn": "Publié le",
+    "readingTime": "{minutes} min de lecture",
+    "comingSoon": {
+      "title": "Bientôt disponible en anglais",
+      "lead": "Nos articles seront prochainement traduits en anglais.",
+      "cta": "Lire en français"
+    },
+    "noPosts": "Aucun article pour le moment. Revenez bientôt."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Une question, une démo, un partenariat ? Écrivez-nous, on répond en moins de 2 h.",
+    "form": {
+      "name": "Votre nom",
+      "namePlaceholder": "Marie Dupont",
+      "email": "Votre email",
+      "emailPlaceholder": "marie@restaurant.fr",
+      "company": "Votre commerce",
+      "companyPlaceholder": "Restaurant Le Marseillais",
+      "message": "Votre message",
+      "messagePlaceholder": "Bonjour, je gère un restaurant de 50 couverts et j'aimerais en savoir plus...",
+      "submit": "Envoyer",
+      "submitting": "Envoi en cours...",
+      "success": "Message envoyé ! On vous répond dans la journée.",
+      "error": "Une erreur est survenue. Réessayez ou écrivez-nous à support@boumrank.com.",
+      "required": "Champ requis"
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "lead": "L'histoire de BoumRank, de l'idée au produit."
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "lead": "Un service, trois engagements. À vous de choisir."
+  },
+  "features": {
+    "title": "Fonctionnalités",
+    "lead": "Tout ce que BoumRank vous offre pour transformer chaque scan en avis."
+  },
+  "howItWorksPage": {
+    "title": "Comment ça marche",
+    "lead": "Du QR code au retour en boutique, voici comment BoumRank fonctionne."
+  },
+  "experience": {
+    "title": "Démo en ligne",
+    "lead": "Testez l'expérience BoumRank vous-même."
+  },
+  "technology": {
+    "title": "Technologie",
+    "lead": "La stack qui propulse BoumRank."
+  },
+  "legalNotice": {
+    "title": "Mentions légales"
+  },
+  "privacyPolicy": {
+    "title": "Politique de confidentialité"
+  },
+  "terms": {
+    "title": "Conditions générales de vente"
+  },
+  "cookieBanner": {
+    "title": "Cookies & vie privée",
+    "body": "On utilise des cookies pour mesurer l'audience du site (Vercel Analytics) et améliorer l'expérience. Vous gardez la main.",
+    "acceptAll": "Tout accepter",
+    "rejectAll": "Tout refuser",
+    "customize": "Personnaliser",
+    "necessary": "Nécessaires",
+    "analytics": "Mesure d'audience",
+    "save": "Enregistrer mes choix"
+  },
+  "onboarding": {
+    "title": "Démarrez en 60 secondes",
+    "step1": "Votre prénom",
+    "step2": "Le nom de votre commerce",
+    "step3": "Votre email",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Créer mon compte",
+    "submitting": "Création...",
+    "skip": "Plus tard"
+  },
+  "seo": {
+    "home": {
+      "title": "BoumRank, plus d'avis Google grâce au jeu",
+      "description": "BoumRank transforme chaque visite en avis Google. Vos clients scannent un QR code, jouent à un mini-jeu (roue, slots, blackjack) et reviennent gagner leur lot en boutique. Setup en 5 minutes, à partir de 59€/mois."
+    },
+    "pricing": {
+      "title": "Tarifs",
+      "description": "Un service, trois engagements. À partir de 59€/mois HT. Essai gratuit 14 jours, sans carte bancaire."
+    },
+    "about": {
+      "title": "À propos",
+      "description": "L'équipe derrière BoumRank, basée à Marseille, soutenue par Pépite Aix-Marseille Université."
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "description": "Du scan au retour en boutique : découvrez comment BoumRank transforme chaque client en ambassadeur."
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "description": "Mini-jeux, dashboard, multi-actions, multi-plateformes. Tout ce qu'il faut pour récolter des avis et fidéliser."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Écrivez-nous : démo, partenariat, question. Réponse en moins de 2 heures."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Insights, retours d'expérience et tactiques marketing pour les commerçants locaux."
+    },
+    "experience": {
+      "title": "Démo en ligne",
+      "description": "Testez l'expérience BoumRank vous-même : scannez, jouez, gagnez."
+    },
+    "technology": {
+      "title": "Technologie",
+      "description": "La stack qui propulse BoumRank : Next.js, Supabase, Vercel."
+    },
+    "legalNotice": {
+      "title": "Mentions légales",
+      "description": "Informations légales sur BoumRank."
+    },
+    "privacyPolicy": {
+      "title": "Politique de confidentialité",
+      "description": "Comment BoumRank traite vos données personnelles."
+    },
+    "terms": {
+      "title": "Conditions générales",
+      "description": "Conditions générales de vente de BoumRank."
+    }
+  },
+  "emails": {
+    "contact": {
+      "internal": {
+        "subject": "Nouveau message de {name}",
+        "intro": "Vous avez reçu un nouveau message via le formulaire de contact de boumrank.com :"
+      },
+      "confirmation": {
+        "subject": "On a bien reçu votre message",
+        "greeting": "Bonjour {name},",
+        "body": "On a bien reçu votre message et on revient vers vous sous moins de 2 heures (jours ouvrés). En attendant, voici quelques ressources qui pourraient vous intéresser :",
+        "resources": {
+          "demo": "Tester la démo en ligne",
+          "pricing": "Voir nos tarifs",
+          "howItWorks": "Comprendre comment ça marche"
+        },
+        "signature": "L'équipe BoumRank",
+        "ps": "PS : si c'est urgent, écrivez-nous directement à support@boumrank.com."
+      }
+    }
+  }
+}

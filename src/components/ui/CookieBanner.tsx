@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, Check, X, Settings as SettingsIcon, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
+import { useLocale } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
 import { readConsent, writeConsent, hasChosenConsent, type ConsentState } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
@@ -15,6 +16,8 @@ export const CookieBanner = () => {
   const [analytics, setAnalytics] = useState(false);
   const [ads, setAds] = useState(false);
   const [functional, setFunctional] = useState(false);
+  const locale = useLocale();
+  const isEn = locale === 'en';
 
   // Show banner on first visit only
   useEffect(() => {
@@ -73,16 +76,17 @@ export const CookieBanner = () => {
                   </div>
                   <div>
                     <h2 className="font-display font-bold text-base text-[var(--text-primary)] mb-1">
-                      Un peu de transparence sur les cookies
+                      {isEn ? 'A bit of transparency about cookies' : 'Un peu de transparence sur les cookies'}
                     </h2>
                     <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                      On utilise des cookies pour mesurer ce qui marche (anonymisé) et vous proposer
-                      la meilleure expérience. Vos données ne sont jamais revendues. Conforme RGPD.{' '}
+                      {isEn
+                        ? "We use cookies to measure what works (anonymized) and give you the best experience. Your data is never sold. GDPR-compliant. "
+                        : "On utilise des cookies pour mesurer ce qui marche (anonymisé) et vous proposer la meilleure expérience. Vos données ne sont jamais revendues. Conforme RGPD. "}
                       <Link
                         href="/politique-de-confidentialite"
                         className="text-[var(--primary-blue)] font-semibold hover:underline"
                       >
-                        En savoir plus
+                        {isEn ? 'Learn more' : 'En savoir plus'}
                       </Link>
                       .
                     </p>
@@ -92,7 +96,7 @@ export const CookieBanner = () => {
                 <div className="flex flex-col gap-2">
                   <Button onClick={acceptAll} variant="gradient" size="md" className="w-full">
                     <Check size={16} />
-                    Tout accepter
+                    {isEn ? 'Accept all' : 'Tout accepter'}
                   </Button>
                   <div className="grid grid-cols-2 gap-2">
                     <Button
@@ -102,7 +106,7 @@ export const CookieBanner = () => {
                       className="w-full"
                     >
                       <X size={14} />
-                      Tout refuser
+                      {isEn ? 'Reject all' : 'Tout refuser'}
                     </Button>
                     <Button
                       onClick={() => setView('settings')}
@@ -111,7 +115,7 @@ export const CookieBanner = () => {
                       className="w-full"
                     >
                       <SettingsIcon size={14} />
-                      Personnaliser
+                      {isEn ? 'Customize' : 'Personnaliser'}
                     </Button>
                   </div>
                 </div>
@@ -124,37 +128,46 @@ export const CookieBanner = () => {
                   </div>
                   <div>
                     <h2 className="font-display font-bold text-base text-[var(--text-primary)]">
-                      Vos préférences cookies
+                      {isEn ? 'Your cookie preferences' : 'Vos préférences cookies'}
                     </h2>
                     <p className="text-xs text-[var(--text-secondary)]">
-                      Choisissez ce qu&apos;on peut mesurer.
+                      {isEn ? "Pick what we're allowed to measure." : "Choisissez ce qu'on peut mesurer."}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-3 mb-5">
                   <ToggleRow
-                    label="Essentiels"
-                    description="Obligatoires pour le bon fonctionnement du site. Toujours actifs."
+                    label={isEn ? 'Essential' : 'Essentiels'}
+                    description={isEn
+                      ? 'Required for the site to work. Always on.'
+                      : 'Obligatoires pour le bon fonctionnement du site. Toujours actifs.'}
                     checked={true}
                     disabled
                     onChange={() => {}}
+                    requiredLabel={isEn ? 'Required' : 'Requis'}
                   />
                   <ToggleRow
-                    label="Analytics"
-                    description="Mesure anonyme du trafic via GA4 + Vercel Analytics. Nous aide à améliorer le site."
+                    label={isEn ? 'Analytics' : 'Analytics'}
+                    description={isEn
+                      ? 'Anonymous traffic measurement via GA4 + Vercel Analytics. Helps us improve the site.'
+                      : 'Mesure anonyme du trafic via GA4 + Vercel Analytics. Nous aide à améliorer le site.'}
                     checked={analytics}
                     onChange={setAnalytics}
                   />
                   <ToggleRow
-                    label="Publicité & retargeting"
-                    description="Meta Pixel + Google Ads pour nos campagnes publicitaires. Aucun partage avec des tiers."
+                    label={isEn ? 'Ads & retargeting' : 'Publicité & retargeting'}
+                    description={isEn
+                      ? 'Meta Pixel + Google Ads for our paid campaigns. No third-party sharing.'
+                      : 'Meta Pixel + Google Ads pour nos campagnes publicitaires. Aucun partage avec des tiers.'}
                     checked={ads}
                     onChange={setAds}
                   />
                   <ToggleRow
-                    label="Fonctionnels"
-                    description="Chatbot Chatbase + préférences UI (thème, langue). Aucune tracking."
+                    label={isEn ? 'Functional' : 'Fonctionnels'}
+                    description={isEn
+                      ? 'Chatbase chatbot + UI preferences (theme, language). No tracking.'
+                      : 'Chatbot Chatbase + préférences UI (thème, langue). Aucune tracking.'}
                     checked={functional}
                     onChange={setFunctional}
                   />
@@ -162,14 +175,14 @@ export const CookieBanner = () => {
 
                 <div className="flex flex-col gap-2">
                   <Button onClick={saveCustom} variant="gradient" size="md" className="w-full">
-                    Sauvegarder mes préférences
+                    {isEn ? 'Save my preferences' : 'Sauvegarder mes préférences'}
                   </Button>
                   <button
                     onClick={() => setView('banner')}
                     className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors flex items-center justify-center gap-1"
                   >
                     <ChevronRight size={12} className="rotate-180" />
-                    Retour
+                    {isEn ? 'Back' : 'Retour'}
                   </button>
                 </div>
               </div>
@@ -187,9 +200,10 @@ type ToggleRowProps = {
   checked: boolean;
   disabled?: boolean;
   onChange: (v: boolean) => void;
+  requiredLabel?: string;
 };
 
-function ToggleRow({ label, description, checked, disabled, onChange }: ToggleRowProps) {
+function ToggleRow({ label, description, checked, disabled, onChange, requiredLabel }: ToggleRowProps) {
   return (
     <div
       className={cn(
@@ -206,7 +220,7 @@ function ToggleRow({ label, description, checked, disabled, onChange }: ToggleRo
           </span>
           {disabled && (
             <span className="text-[9px] font-display font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[var(--primary-green)] text-white">
-              Requis
+              {requiredLabel ?? 'Requis'}
             </span>
           )}
         </div>
