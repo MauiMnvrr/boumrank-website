@@ -162,12 +162,30 @@
       "h2Em2": "you",
       "lead": "To play, your customers complete an action that pays off for your business.",
       "actions": [
-        { "label": "Google review", "sub": "5★ that lift your ranking" },
-        { "label": "Instagram follow", "sub": "+1 qualified follower" },
-        { "label": "TikTok follow", "sub": "Gen Z local reach" },
-        { "label": "Tripadvisor review", "sub": "Average score on the rise" },
-        { "label": "Facebook like", "sub": "Local community" },
-        { "label": "Newsletter", "sub": "Email collected for relaunch" }
+        {
+          "label": "Google review",
+          "sub": "5★ that lift your ranking"
+        },
+        {
+          "label": "Instagram follow",
+          "sub": "+1 qualified follower"
+        },
+        {
+          "label": "TikTok follow",
+          "sub": "Gen Z local reach"
+        },
+        {
+          "label": "Tripadvisor review",
+          "sub": "Average score on the rise"
+        },
+        {
+          "label": "Facebook like",
+          "sub": "Local community"
+        },
+        {
+          "label": "Newsletter",
+          "sub": "Email collected for relaunch"
+        }
       ],
       "footnote": "You pick the actions · your customers play · results flow in"
     },
@@ -283,16 +301,383 @@
     }
   },
   "about": {
-    "title": "About",
-    "lead": "The story of BoumRank, from idea to product."
+    "hero": {
+      "title": "Two friends, one obsession:",
+      "titleGradient": "let merchants focus on what they love.",
+      "subtitle": "BoumRank was born from a simple observation. Here's our story."
+    },
+    "story": {
+      "title": "You're a merchant, not a social media manager.",
+      "p1": "You open at 7am. You close at 10pm. In between, you cook, cut, style, and welcome everyone who walks in. You give everything to your craft. Google rankings, customer reviews, follow-ups, loyalty programs — you know they matter. But you don't have the time, the energy, or the desire to become a digital marketing expert.",
+      "p2": "Meanwhile, competitors who've figured out these tools are taking your spot on Google.",
+      "painPoints": [
+        {
+          "title": "Asking for a review is awkward.",
+          "body": "You hesitate to do it in person. It feels pushy."
+        },
+        {
+          "title": "Local SEO is a black box.",
+          "body": "Too many tools, too much jargon, never enough time to actually dig in."
+        },
+        {
+          "title": "Marketing eats your day.",
+          "body": "Every hour you spend automating is an hour you're not with your customers."
+        }
+      ]
+    },
+    "team": {
+      "title": "We found",
+      "titleGradient": "a gem",
+      "titleSuffix": ".",
+      "quote": "We watched our friends, our family — merchants we loved — struggle every day to get noticed. We knew there had to be a better way. We looked for it. We found it.",
+      "quoteAuthor": "Liam & Maui, co-founders of BoumRank",
+      "p": "We tested it first with family — Liam's mom, Maui's brother — before offering it to anyone else. We didn't have the right to waste their time. Today, it works. And we want to bring it to every merchant who deserves to be taken care of.",
+      "photoAlt": "Liam and Maui, co-founders of BoumRank, sitting side by side",
+      "photoCaption": "Liam (left) and Maui, co-founders of BoumRank."
+    },
+    "pepite": {
+      "title": "A simple mechanic",
+      "titleGradient": "that changes everything",
+      "subtitle": "A QR code. A game. A reward. The combo that turns every customer into a brand ambassador.",
+      "aside": "You, through all of this? Keep doing what you love.",
+      "steps": [
+        {
+          "n": "01",
+          "title": "The customer scans.",
+          "body": "On the check, at the register, on the table: a QR code unique to your business."
+        },
+        {
+          "n": "02",
+          "title": "The customer plays.",
+          "body": "Spin the wheel, pull the slots, try blackjack: an addictive mini-game that just needs a Google review to play."
+        },
+        {
+          "n": "03",
+          "title": "The customer comes back.",
+          "body": "They win a reward to redeem in-store. You see them again. They spend more."
+        }
+      ]
+    },
+    "results": {
+      "title": "Real results,",
+      "titleGradient": "not empty promises",
+      "titleSuffix": ".",
+      "footnote": "Tested first with family and friends. Now running at restaurants, salons, boutiques, and beauty institutes.",
+      "stats": [
+        {
+          "headline": "Hundreds",
+          "unit": "of Google reviews per month",
+          "body": "Automatic collection, no follow-ups, no awkwardness."
+        },
+        {
+          "headline": "Up to 1 in 3",
+          "unit": "customers return",
+          "body": "The game draws them in, the reward brings them back."
+        }
+      ]
+    },
+    "mission": {
+      "title": "Our mission.",
+      "statement": "Free up time for local merchants so they can get back to what they do best:",
+      "statementGradient": "their craft",
+      "statementSuffix": ".",
+      "pillars": [
+        {
+          "title": "Human.",
+          "body": "We don't sell a tool — we handle your marketing like a business partner."
+        },
+        {
+          "title": "Automatic.",
+          "body": "You don't touch a thing. It runs in the background, every single day."
+        },
+        {
+          "title": "Local.",
+          "body": "Built for neighborhood businesses. Starting in France."
+        }
+      ]
+    },
+    "vision": {
+      "eyebrow": "Vision 2030",
+      "title": "A marketplace for",
+      "titleGradient": "local businesses",
+      "titleSuffix": ".",
+      "body": "Tomorrow, BoumRank won't just be your review and loyalty tool. It'll be the marketplace that connects businesses in your neighborhood: the restaurant sending customers to the barber next door, the salon sharing their best regulars with the boutique down the street. A local economy that thrives together, not fights for scraps."
+    },
+    "cta": {
+      "title": "Want to talk?",
+      "subtitle": "We'd rather have a conversation before we ever ask for your money. That's just how we operate.",
+      "contact": "Get in touch",
+      "trial": "Start your 14-day free trial"
+    }
   },
   "pricing": {
     "title": "Pricing",
-    "lead": "One service, three commitments. You pick."
+    "lead": "One product. Three commitments. You pick.",
+    "hero": {
+      "title1": "One service.",
+      "title2": "Three commitments.",
+      "title3": "Starting at $63/mo.",
+      "subtitle": "The full product, unlocked from day one.",
+      "subtitleHighlight": "All you choose is how long you want to stay."
+    },
+    "plans": {
+      "badge": "The price",
+      "title1": "The longer you commit,",
+      "title2": "the less you pay.",
+      "subtitle": "Same product. Three time horizons. That's it.",
+      "featured": "⭐ Best value",
+      "saving": "Save {amount}€/year",
+      "priceUnit": "/mo excl. tax",
+      "cta": "Start your 14-day free trial",
+      "noCreditCard": "No credit card needed"
+    },
+    "features": {
+      "badge": "What you get",
+      "title1": "Every feature.",
+      "title2": "Always.",
+      "subtitle": "Whichever plan you pick, you get 100% of the product. No feature gating. No hidden upsells.",
+      "items": [
+        {
+          "title": "All 3 games unlocked",
+          "body": "Wheel, Slots, Blackjack — activate any combo, any time"
+        },
+        {
+          "title": "100% custom branding",
+          "body": "13 templates, unlimited colors, custom illustrations"
+        },
+        {
+          "title": "Performance dashboard",
+          "body": "Scan rate, conversion, avg. spend, time-on-floor"
+        },
+        {
+          "title": "Unlimited QR codes",
+          "body": "3 print-ready formats, unlimited cashier swipes"
+        },
+        {
+          "title": "Sequential campaigns",
+          "body": "Happy hour, weekends, birthday specials"
+        },
+        {
+          "title": "Priority support (EN + FR)",
+          "body": "Chat reply in under 2h, GDPR-compliant EU hosting"
+        }
+      ],
+      "promises": [
+        "5-minute setup",
+        "14-day free trial, no CC",
+        "CSV export + Zapier",
+        "Lifetime updates"
+      ]
+    },
+    "enterprise": {
+      "title": "Multiple locations? Franchise?",
+      "body": "Multi-location accounts, API access, dedicated account manager, SLA. We'll send you a custom quote within 48h.",
+      "cta": "Talk to Liam",
+      "contactHref": "/en/contact"
+    },
+    "faq": {
+      "title1": "The 5 questions",
+      "title2": "before you pull out your card",
+      "items": [
+        {
+          "question": "What happens if I cancel before my commitment ends?",
+          "answer": "On the 6-month and annual plans, you commit to the full term. Early cancellation means paying out the remaining months. On the month-to-month plan (€79/mo), you can cancel in one click, whenever you want, no penalty."
+        },
+        {
+          "question": "How does renewal work at the end of my term?",
+          "answer": "Your subscription renews automatically at the same rate. Before each renewal date, we reach out to review your results and confirm (or adjust) your plan. No surprises. No gotchas."
+        },
+        {
+          "question": "Does the 14-day free trial apply to all three plans?",
+          "answer": "Yes — all three plans start with a 14-day free trial, no credit card required at signup. Every feature unlocked, no scan limits. On day 14, you choose your plan (or you walk away, no hard feelings)."
+        },
+        {
+          "question": "Can I switch plans mid-way through?",
+          "answer": "Upgrading to a longer commitment (lower price) is instant, anytime. Downgrading to a shorter commitment takes effect at the end of your current billing cycle. One click from your dashboard."
+        },
+        {
+          "question": "Are all features really included, even on the €79/mo plan?",
+          "answer": "Yes. All 3 games, 100% custom branding, the Performance dashboard, sequential campaigns, CSV export, Zapier, priority support: everything is unlocked from day one, regardless of plan. The only difference between plans is the commitment length and the price."
+        },
+        {
+          "question": "How do payments and invoicing work?",
+          "answer": "Monthly recurring billing via Stripe (PCI-DSS Level 1). A PDF invoice is generated each month, downloadable from your dashboard. EU hosting, GDPR-compliant, zero data reselling. First charge hits at the end of your 14-day trial."
+        }
+      ]
+    }
   },
   "features": {
-    "title": "Features",
-    "lead": "Everything BoumRank gives you to turn every scan into a review."
+    "section1": {
+      "title": "Your digital menu:",
+      "titleGradient": "a marketing Trojan Horse",
+      "titleSuffix": ".",
+      "subtitle": "Customers open it to pick their meal.",
+      "subtitleHighlight": "They discover they can win something.",
+      "menuRestaurantName": "The Little Café",
+      "menuTitle": "Our menu",
+      "menuItems": [
+        {
+          "label": "Hazelnut Coffee",
+          "price": "$3.20"
+        },
+        {
+          "label": "Butter Croissant",
+          "price": "$2.20"
+        },
+        {
+          "label": "Avocado Toast",
+          "price": "$7.50"
+        },
+        {
+          "label": "Mango Smoothie",
+          "price": "$6.00"
+        },
+        {
+          "label": "Caesar Salad",
+          "price": "$13.90"
+        }
+      ],
+      "benefits": [
+        {
+          "title": "QR code built in",
+          "body": "No more stained menus or reprint fees. One QR at the table: customers browse the menu and land on the game."
+        },
+        {
+          "title": "Zero explanation needed",
+          "body": "A simple prompt at the bottom: \"Try your luck.\" They tap because they want to, not because they feel pressured."
+        },
+        {
+          "title": "1 in 3 customers triggers a marketing action",
+          "body": "Google review, Instagram follow, newsletter signup. Every game starts with an action you chose — every meal is a visibility boost."
+        }
+      ]
+    },
+    "section2": {
+      "title": "You configure it. They play.",
+      "titleGradient": "You win.",
+      "subtitle": "Four building blocks that come together into",
+      "subtitleHighlight": "a gamified loyalty program",
+      "subtitleSuffix": "you run from your phone.",
+      "resultPill": "Result: a customer who comes back",
+      "stepPrefix": "Step",
+      "steps": [
+        {
+          "number": "01",
+          "label": "The game",
+          "title": "3 mechanics engineered for dopamine",
+          "body": "Spin the wheel, pull the slots, try blackjack. A short emotional hit — the kind that makes people want to share.",
+          "bullets": [
+            "Wheel: visual, universal",
+            "Slots: the thrill of alignment",
+            "Blackjack: for the gamblers"
+          ],
+          "kpiValue": "+187%",
+          "kpiLabel": "engagement vs. survey"
+        },
+        {
+          "number": "02",
+          "label": "The action",
+          "title": "One required action before playing",
+          "body": "You decide what customers do before the game starts. Marketing disguised as a game, not a free lottery.",
+          "bullets": [
+            "Auto-verified Google review",
+            "Insta, TikTok, Facebook follow",
+            "Newsletter or SMS opt-in",
+            "Refer a friend"
+          ],
+          "kpiValue": "4.8/5",
+          "kpiLabel": "avg. Google rating in beta"
+        },
+        {
+          "number": "03",
+          "label": "The prizes",
+          "title": "You control 100% of the economics",
+          "body": "Fine-tune probabilities to the percent, set minimum purchase per prize, control scarcity. Margins stay tight.",
+          "bullets": [
+            "Unlimited prizes",
+            "Per-percent probability control",
+            "Min. purchase per prize",
+            "Built-in return loop"
+          ],
+          "kpiValue": "−12%",
+          "kpiLabel": "customer acquisition cost"
+        },
+        {
+          "number": "04",
+          "label": "The coupon",
+          "title": "Available next day, brings them back",
+          "body": "Win today, redeem tomorrow. That delay turns a review into a repeat customer.",
+          "bullets": [
+            "Custom expiry date",
+            "Available the next day",
+            "Account-linked, single use",
+            "Real-time multi-register sync"
+          ],
+          "kpiValue": "63%",
+          "kpiLabel": "of coupons redeemed in-store"
+        }
+      ],
+      "couponLabel": "Boum coupon",
+      "couponValue": "−20%",
+      "couponValidity": "Valid tomorrow"
+    },
+    "section3": {
+      "title": "One dashboard.",
+      "titleGradient": "Three advantages",
+      "titleSuffix": "nobody else offers.",
+      "subtitle": "All your metrics in real time,",
+      "subtitleHighlight": "with a clear view of your ROI",
+      "subtitleSuffix": "no spreadsheets, no agency.",
+      "dashboardLabel": "Dashboard · This week",
+      "dashboardRange": "05/12 — 05/18",
+      "stats": [
+        {
+          "label": "Actions this week",
+          "value": "342",
+          "delta": "+18%",
+          "deltaLabel": "vs. last week"
+        },
+        {
+          "label": "Cashback generated",
+          "value": "$1,247",
+          "delta": "+32%",
+          "deltaLabel": "vs. last week"
+        },
+        {
+          "label": "Coupons redeemed",
+          "value": "89",
+          "delta": "+12%",
+          "deltaLabel": "vs. last week"
+        }
+      ],
+      "googleRatingLabel": "Google rating",
+      "googleRatingValue": "4.7 ★",
+      "googleRatingDelta": "+0.3 this month",
+      "description": "See in real time",
+      "descriptionHighlight1": "weekly actions",
+      "descriptionHighlight2": "cashback generated per redeemed coupon",
+      "descriptionSuffix": "and your Google rating trend. Fully exportable. Timestamped. Yours.",
+      "advantagesTitle": "Three things",
+      "advantagesTitleGradient": "nobody else",
+      "advantagesTitleSuffix": "does.",
+      "advantages": [
+        {
+          "badge": "Built-in menu",
+          "title": "The menu that makes the difference",
+          "body": "We're the only ones who include your digital menu at no extra cost. It's on us — and we genuinely mean it."
+        },
+        {
+          "badge": "Self-funding",
+          "title": "The solution that pays for itself",
+          "body": "Set a minimum purchase. The customer comes back, spends, and the tool pays for itself. Max reviews, zero net cost."
+        },
+        {
+          "badge": "2-minute setup",
+          "title": "More scans, more fans",
+          "body": "No more isolated QR codes like the competition. Our integration gets 1 in 3 customers playing instead of 1 in 5. More players, more reviews."
+        }
+      ]
+    }
   },
   "howItWorksPage": {
     "title": "How it works",

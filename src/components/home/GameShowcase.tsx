@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, createElement } from 'react';
+import { useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, LayoutGrid, Ticket, MoreHorizontal, Gift } from 'lucide-react';
 import Image from 'next/image';
@@ -194,29 +195,31 @@ const ScreenWheel = () => (
 
 export const GameShowcase = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const locale = useLocale();
+  const isEn = locale === 'en';
 
   const steps = [
     {
-      title: "1. L\u2019Attraction",
-      desc: "Le client scanne votre QR Code. Pas d\u2019inscription, pas de friction.",
+      title: isEn ? "1. The Hook" : "1. L'Attraction",
+      desc: isEn ? "Customer scans your QR code. No signup, no friction." : "Le client scanne votre QR Code. Pas d'inscription, pas de friction.",
       component: ScreenHome,
       duration: 3500
     },
     {
-      title: "2. L\u2019Action",
-      desc: "Le client r\u00e9alise l\u2019action : Avis Google, Instagram ou Quiz.",
+      title: isEn ? "2. The Action" : "2. L'Action",
+      desc: isEn ? "They complete an action: Google review, Instagram follow, or quiz." : "Le client r\u00e9alise l'action : Avis Google, Instagram ou Quiz.",
       component: ScreenActions,
       duration: 3500
     },
     {
-      title: "3. Machine \u00e0 Sous",
-      desc: "Alignez 3 symboles identiques pour gagner. Un classique ind\u00e9modable qui booste l\u2019adr\u00e9naline.",
+      title: isEn ? "3. Slot Machine" : "3. Machine \u00e0 Sous",
+      desc: isEn ? "Match 3 identical symbols to win. A timeless classic that cranks up the adrenaline." : "Alignez 3 symboles identiques pour gagner. Un classique ind\u00e9modable qui booste l'adr\u00e9naline.",
       component: ScreenSlots,
       duration: 4000
     },
     {
-      title: "4. Le Jeu (Roue)",
-      desc: "Roue de la chance : Une exp\u00e9rience fluide \u00e0 60FPS.",
+      title: isEn ? "4. The Game (Wheel)" : "4. Le Jeu (Roue)",
+      desc: isEn ? "Spin the wheel: a buttery-smooth 60FPS experience." : "Roue de la chance : Une exp\u00e9rience fluide \u00e0 60FPS.",
       component: ScreenWheel,
       duration: 4000
     }
@@ -240,12 +243,12 @@ export const GameShowcase = () => {
             <div className="inline-flex items-center gap-2 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[var(--border-highlight)] px-4 py-1.5 rounded-full mb-6">
               <span className="w-2 h-2 bg-[#1B6FC2] rounded-full animate-ping"></span>
               <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">
-                Live Preview
+                {isEn ? 'Live Preview' : 'Live Preview'}
               </span>
             </div>
 
             <h2 className="text-4xl md:text-6xl font-extrabold uppercase mb-10 leading-none text-[var(--text-primary)]">
-              L&apos;Exp&eacute;rience
+              {isEn ? 'The Experience' : "L'Expérience"}
               <div className="w-48 h-2 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] mt-2 shadow-[0_0_15px_rgba(27,111,194,0.5)]"></div>
             </h2>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { Zap, Dices, ShieldCheck, Palette, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
@@ -16,7 +17,7 @@ type Differentiator = {
   accent: string;
 };
 
-const differentiators: Differentiator[] = [
+const FR_DIFFERENTIATORS: Differentiator[] = [
   {
     id: 'setup',
     icon: <Zap size={24} />,
@@ -63,7 +64,58 @@ const differentiators: Differentiator[] = [
   },
 ];
 
+const EN_DIFFERENTIATORS: Differentiator[] = [
+  {
+    id: 'setup',
+    icon: <Zap size={24} />,
+    number: '01',
+    title: '5-minute setup, not 3 weeks',
+    description:
+      "While competitors ask for a quote, you've already landed your first review. No training needed, no sales call to schedule.",
+    competitor: 'Kadow Club: quote-based · Average 2-3 week delay',
+    gradient: 'linear-gradient(135deg, #F28C28 0%, #D47318 100%)',
+    accent: '#F28C28',
+  },
+  {
+    id: 'games',
+    icon: <Dices size={24} />,
+    number: '02',
+    title: '3 games, not 1',
+    description:
+      "Wheel, Slots, Blackjack. Mix it up, run tests, find what your crowd loves. Other platforms give you one mechanic and that's it.",
+    competitor: 'Up Review, Cadeo, Basilyk: 1 game only',
+    gradient: 'linear-gradient(135deg, #1B6FC2 0%, #1E9DAA 100%)',
+    accent: '#1B6FC2',
+  },
+  {
+    id: 'coupon',
+    icon: <ShieldCheck size={24} />,
+    number: '03',
+    title: 'The anti-fraud physical coupon',
+    description:
+      "Cashier swipes, coupon disappears. No more screenshots circulating between friends. Anti-abuse is baked into the mechanic, not a fragile algorithm.",
+    competitor: 'Competitors: reusable codes · Fraud possible',
+    gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
+    accent: '#2EAE6D',
+  },
+  {
+    id: 'branding',
+    icon: <Palette size={24} />,
+    number: '04',
+    title: '100% your brand, your colors',
+    description:
+      "13 starter templates, custom colors, logo, font: the game is yours. Not BoumRank with your name slapped on it.",
+    competitor: 'Competitors: limited branding · Subtle logo',
+    gradient: 'linear-gradient(135deg, #7C5CFC 0%, #E84393 100%)',
+    accent: '#7C5CFC',
+  },
+];
+
 export const Differentiators = () => {
+  const locale = useLocale();
+  const isEn = locale === 'en';
+  const differentiators = isEn ? EN_DIFFERENTIATORS : FR_DIFFERENTIATORS;
+
   return (
     <section className="relative py-24 md:py-32 bg-[var(--bg-elevated)] overflow-hidden">
       {/* Background : dramatic central glow */}
@@ -79,16 +131,16 @@ export const Differentiators = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Le{' '}
+            {isEn ? 'The' : 'Le'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_50%,#7C5CFC_100%)]">
-              combo gagnant
+              {isEn ? 'winning combo' : 'combo gagnant'}
             </span>{' '}
-            que les autres n&apos;ont pas.
+            {isEn ? "your alternatives don't have." : "que les autres n'ont pas."}
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-            Quatre choses que BoumRank fait —{' '}
+            {isEn ? 'Four things BoumRank does' : 'Quatre choses que BoumRank fait'} —{' '}
             <span className="text-[var(--text-primary)] font-semibold">
-              et que vos alternatives ne font pas.
+              {isEn ? 'that your alternatives simply cannot.' : 'et que vos alternatives ne font pas.'}
             </span>
           </p>
         </motion.div>
@@ -162,16 +214,17 @@ export const Differentiators = () => {
           <Card variant="gradient" padding="lg" className="text-center">
             <p className="text-base md:text-lg text-[var(--text-body)] leading-relaxed max-w-3xl mx-auto mb-5">
               <span className="font-semibold text-[var(--text-primary)]">
-                Aucun concurrent ne coche les 4 cases.
+                {isEn ? 'No competitor checks all 4 boxes.' : 'Aucun concurrent ne coche les 4 cases.'}
               </span>{' '}
-              BoumRank a été pensé pour les commerçants qui veulent du concret, vite, sans devoir devenir
-              ingénieur marketing.
+              {isEn
+                ? "BoumRank was built for merchants who want results, fast, without becoming a marketing engineer."
+                : "BoumRank a été pensé pour les commerçants qui veulent du concret, vite, sans devoir devenir ingénieur marketing."}
             </p>
             <Link
               href="/#comparatif-concurrents"
               className="inline-flex items-center gap-2 font-display font-bold text-sm uppercase tracking-wider text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] transition-colors"
             >
-              Voir le comparatif détaillé
+              {isEn ? 'See the full comparison' : 'Voir le comparatif détaillé'}
               <ArrowRight size={14} />
             </Link>
           </Card>

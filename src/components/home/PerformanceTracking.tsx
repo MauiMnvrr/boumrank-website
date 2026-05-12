@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import { useLocale } from 'next-intl';
 import { motion, useSpring, useInView } from 'framer-motion';
 import { QrCode, Star, TrendingUp, UserCheck, Layout, Download, LogOut, FileSpreadsheet, Calendar, MoreHorizontal, Receipt, Ticket, BarChart2 } from 'lucide-react';
 
@@ -61,6 +62,9 @@ const KPICard: React.FC<KPICardProps> = ({ icon: Icon, label, value, sub, delay,
 };
 
 export const PerformanceTracking = () => {
+  const locale = useLocale();
+  const isEn = locale === 'en';
+
   return (
     <section id="analytics" className="py-24 bg-[var(--bg-primary)] relative overflow-hidden">
       {/* Background Decor */}
@@ -78,13 +82,17 @@ export const PerformanceTracking = () => {
             >
               <div className="inline-flex items-center gap-2 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[var(--border-highlight)] px-4 py-1.5 rounded-full mb-6">
                 <BarChart2 className="w-4 h-4 text-[#1B6FC2]" />
-                <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">Pilotage Business</span>
+                <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">{isEn ? 'Business Analytics' : 'Pilotage Business'}</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold uppercase mb-6 leading-tight text-[var(--text-primary)]">
-                Pilotez votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">croissance</span> en temps r&eacute;el
+                {isEn ? 'Track your ' : 'Pilotez votre '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">{isEn ? 'growth' : 'croissance'}</span>
+                {isEn ? ' in real time' : ' en temps réel'}
               </h2>
               <p className="text-[var(--text-secondary)] text-lg">
-                Acc&eacute;dez &agrave; un tableau de bord intuitif pour mesurer l&apos;impact de vos jeux sur votre business.
+                {isEn
+                  ? 'Access an intuitive dashboard to measure the impact of your games on your business.'
+                  : "Accédez à un tableau de bord intuitif pour mesurer l'impact de vos jeux sur votre business."}
               </p>
             </motion.div>
           </div>
@@ -104,10 +112,10 @@ export const PerformanceTracking = () => {
               <div className="bg-[#0D1117] p-6 border-b border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-4">
                   <button className="bg-[#161B22] text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 border border-white/10">
-                    <Layout size={14} /> Vue Groupe
+                    <Layout size={14} /> {isEn ? 'Group View' : 'Vue Groupe'}
                   </button>
                   <button className="bg-[#161B22]/50 text-gray-400 px-4 py-2 rounded-lg text-xs font-bold border border-white/5">
-                    Plateforme joueur
+                    {isEn ? 'Player Platform' : 'Plateforme joueur'}
                   </button>
                 </div>
                 <div className="flex items-center gap-4">
@@ -115,21 +123,21 @@ export const PerformanceTracking = () => {
                     <FileSpreadsheet size={14} /> Export CSV
                   </button>
                   <button className="bg-[#161B22] text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 border border-white/10">
-                    <LogOut size={14} /> D&eacute;connexion
+                    <LogOut size={14} /> {isEn ? 'Sign Out' : 'Déconnexion'}
                   </button>
                 </div>
               </div>
 
               {/* Page Title & Subtitle */}
               <div className="p-8 text-center bg-[#1C2333]">
-                <h3 className="text-3xl md:text-4xl font-extrabold text-[#3A8FE0] uppercase mb-2 tracking-tight">Dashboard Admin</h3>
-                <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">Vue d&apos;ensemble de votre campagne</p>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-[#3A8FE0] uppercase mb-2 tracking-tight">{isEn ? 'Admin Dashboard' : 'Dashboard Admin'}</h3>
+                <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">{isEn ? 'Campaign overview' : "Vue d'ensemble de votre campagne"}</p>
               </div>
 
               {/* Tabs Menu */}
               <div className="px-8 pb-4 flex justify-center">
                 <div className="bg-[#1a1a1a] rounded-xl p-1 flex flex-wrap justify-center gap-1 border border-white/5">
-                  {['Stats', 'Jeux et R\u00e9compenses', 'Liens', 'Preuves', 'Tickets', 'Param\u00e8tres'].map((tab, idx) => (
+                  {(isEn ? ['Stats', 'Games & Rewards', 'Links', 'Proof', 'Tickets', 'Settings'] : ['Stats', 'Jeux et R\u00e9compenses', 'Liens', 'Preuves', 'Tickets', 'Param\u00e8tres']).map((tab, idx) => (
                     <button key={tab} className={`px-6 py-2.5 rounded-lg text-[10px] font-extrabold uppercase tracking-widest transition-all ${idx === 0 ? 'bg-[#161B22] text-white' : 'text-gray-500 hover:text-white'}`}>
                       {tab}
                     </button>
@@ -141,7 +149,7 @@ export const PerformanceTracking = () => {
               <div className="px-8 py-4 flex justify-start">
                 <button className="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg text-[10px] font-extrabold uppercase flex items-center gap-3 border border-white/10">
                   <Calendar size={14} className="text-[#3A8FE0]" />
-                  Tout le temps
+                  {isEn ? 'All time' : 'Tout le temps'}
                   <MoreHorizontal size={14} />
                 </button>
               </div>
@@ -150,33 +158,33 @@ export const PerformanceTracking = () => {
               <div className="p-8 grid grid-cols-1 md:grid-cols-4 gap-6">
                 <KPICard
                   icon={TrendingUp}
-                  label="Parties jou\u00e9es"
+                  label={isEn ? "Games played" : "Parties jou\u00e9es"}
                   value="1284"
-                  sub="Le nombre de clients qui ont jou\u00e9 aujourd'hui."
+                  sub={isEn ? "Customers who played today." : "Le nombre de clients qui ont jou\u00e9 aujourd'hui."}
                   delay={0.1}
                   iconBg="bg-[#1B6FC2]/80 shadow-[0_0_15px_rgba(27,111,194,0.3)]"
                 />
                 <KPICard
                   icon={Star}
-                  label="Actions marketing"
+                  label={isEn ? "Marketing actions" : "Actions marketing"}
                   value="452"
-                  sub="+452 nouveaux avis Google, +84 abonnements Instagram."
+                  sub={isEn ? "+452 new Google reviews, +84 Instagram follows." : "+452 nouveaux avis Google, +84 abonnements Instagram."}
                   delay={0.2}
                   iconBg="bg-[#00CEC9]/80 shadow-[0_0_15px_rgba(0,206,201,0.3)]"
                 />
                 <KPICard
                   icon={Download}
-                  label="R\u00e9compenses gagn\u00e9es"
+                  label={isEn ? "Rewards won" : "R\u00e9compenses gagn\u00e9es"}
                   value="128"
-                  sub="Nombre de coupons de r\u00e9duction g\u00e9n\u00e9r\u00e9s par les joueurs."
+                  sub={isEn ? "Discount coupons generated by players." : "Nombre de coupons de r\u00e9duction g\u00e9n\u00e9r\u00e9s par les joueurs."}
                   delay={0.3}
                   iconBg="bg-[#2EAE6D]/80 shadow-[0_0_15px_rgba(46,174,109,0.3)]"
                 />
                 <KPICard
                   icon={UserCheck}
-                  label="Emails collect\u00e9s"
+                  label={isEn ? "Emails collected" : "Emails collect\u00e9s"}
                   value="842"
-                  sub="Base de donn\u00e9es qualifi\u00e9e pour votre marketing direct."
+                  sub={isEn ? "Qualified list for your direct marketing." : "Base de donn\u00e9es qualifi\u00e9e pour votre marketing direct."}
                   delay={0.4}
                   iconBg="bg-[#1B6FC2]/80 shadow-[0_0_15px_rgba(27,111,194,0.3)]"
                 />
@@ -185,9 +193,9 @@ export const PerformanceTracking = () => {
                 <div className="md:col-span-1">
                   <KPICard
                     icon={Receipt}
-                    label="Montant total additions"
+                    label={isEn ? "Total order value" : "Montant total additions"}
                     value="12450 \u20AC"
-                    sub="Chiffre d'affaires estim\u00e9 g\u00e9n\u00e9r\u00e9 par vos r\u00e9compenses."
+                    sub={isEn ? "Estimated revenue driven by your rewards." : "Chiffre d'affaires estim\u00e9 g\u00e9n\u00e9r\u00e9 par vos r\u00e9compenses."}
                     delay={0.5}
                     iconBg="bg-orange-500/80 shadow-[0_0_15px_rgba(249,115,22,0.3)]"
                   />
@@ -205,7 +213,7 @@ export const PerformanceTracking = () => {
                       <Ticket size={32} className="text-white" />
                     </div>
                     <div>
-                      <h4 className="text-white text-xs font-extrabold uppercase tracking-widest mb-1 opacity-80">Tickets r&eacute;cup&eacute;r&eacute;s</h4>
+                      <h4 className="text-white text-xs font-extrabold uppercase tracking-widest mb-1 opacity-80">{isEn ? 'Tickets redeemed' : 'Tickets récupérés'}</h4>
                       <div className="text-5xl font-extrabold text-white">
                         <AnimatedNumber value={152} />
                       </div>
@@ -223,14 +231,14 @@ export const PerformanceTracking = () => {
                       <div>
                         <div className="flex items-center gap-2 mb-2">
                           <TrendingUp className="text-red-500 w-5 h-5" />
-                          <h4 className="text-white text-xl font-extrabold uppercase tracking-wide">Courbe d&apos;Engagement</h4>
-                          <span className="text-gray-500 text-[10px] font-bold uppercase">(30 derniers jours)</span>
+                          <h4 className="text-white text-xl font-extrabold uppercase tracking-wide">{isEn ? 'Engagement Curve' : "Courbe d'Engagement"}</h4>
+                          <span className="text-gray-500 text-[10px] font-bold uppercase">{isEn ? '(last 30 days)' : '(30 derniers jours)'}</span>
                         </div>
-                        <p className="text-gray-500 text-xs font-medium">Nombre de scans QR Code par jour</p>
+                        <p className="text-gray-500 text-xs font-medium">{isEn ? 'QR Code scans per day' : 'Nombre de scans QR Code par jour'}</p>
                       </div>
                       <div className="flex items-center gap-2 bg-[#161B22]/50 px-4 py-2 rounded-full border border-white/10">
                         <div className="w-2 h-2 rounded-full bg-white opacity-40"></div>
-                        <span className="text-white text-[10px] font-extrabold uppercase tracking-widest">Stable vs semaine pr&eacute;c&eacute;dente</span>
+                        <span className="text-white text-[10px] font-extrabold uppercase tracking-widest">{isEn ? 'Stable vs previous week' : 'Stable vs semaine précédente'}</span>
                       </div>
                     </div>
 
@@ -297,13 +305,13 @@ export const PerformanceTracking = () => {
                         <div className="text-white text-2xl font-extrabold mb-1">
                           <AnimatedNumber value={8} />
                         </div>
-                        <div className="text-gray-500 text-[9px] font-extrabold uppercase tracking-widest">Moyenne / jour</div>
+                        <div className="text-gray-500 text-[9px] font-extrabold uppercase tracking-widest">{isEn ? 'Avg / day' : 'Moyenne / jour'}</div>
                       </div>
                       <div className="text-center">
                         <div className="text-[#3A8FE0] text-2xl font-extrabold mb-1">
                           <AnimatedNumber value={14} />
                         </div>
-                        <div className="text-gray-500 text-[9px] font-extrabold uppercase tracking-widest">Pic le dim. 14</div>
+                        <div className="text-gray-500 text-[9px] font-extrabold uppercase tracking-widest">{isEn ? 'Peak on Sun 14' : 'Pic le dim. 14'}</div>
                       </div>
                     </div>
                   </div>

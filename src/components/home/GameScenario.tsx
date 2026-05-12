@@ -2,112 +2,115 @@
 
 import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { QrCode, ThumbsUp, Dices, ScanEye, Ticket, Star, Smartphone } from 'lucide-react';
-
-const steps = [
-  {
-    icon: QrCode,
-    title: "Le Scan Instantan\u00e9",
-    desc: "Le client scanne votre QR code en boutique. Aucune application \u00e0 t\u00e9l\u00e9charger.",
-    visual: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="w-32 h-32 border-4 border-[#1B6FC2] rounded-xl relative p-2 shadow-[0_0_20px_rgba(27,111,194,0.2)]">
-          <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-[var(--text-primary)] -mt-1 -ml-1"></div>
-          <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-[var(--text-primary)] -mt-1 -mr-1"></div>
-          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-[var(--text-primary)] -mb-1 -ml-1"></div>
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-[var(--text-primary)] -mb-1 -mr-1"></div>
-          <QrCode className="w-full h-full text-[var(--text-primary)] opacity-90" />
-          <motion.div
-            animate={{ top: ['0%', '100%', '0%'] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute left-0 right-0 h-1 bg-[#1B6FC2] shadow-[0_0_15px_rgba(27,111,194,0.8)] z-10 opacity-80"
-          />
-        </div>
-      </div>
-    )
-  },
-  {
-    icon: ThumbsUp,
-    title: "L\u2019Engagement",
-    desc: "Il choisit une mission pour soutenir votre commerce (Avis Google, Abonnement Instagram, ...).",
-    visual: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="bg-white text-[#1A202C] p-6 rounded-xl shadow-lg w-48 relative transform rotate-3">
-          <div className="flex gap-1 mb-2">
-            {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
-          </div>
-          <div className="h-2 bg-gray-200 rounded w-3/4 mb-2"></div>
-          <div className="h-2 bg-gray-200 rounded w-1/2"></div>
-          <div className="absolute -right-4 -bottom-4 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] p-3 rounded-full border-4 border-[var(--bg-elevated)]">
-            <ThumbsUp className="w-6 h-6 text-white" />
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
-    icon: Dices,
-    title: "Le Frisson du Jeu",
-    desc: "Le jeu se d\u00e9bloque (Machine \u00e0 sous, Roue de la fortune ou Blackjack). Il joue pour tenter de gagner un lot exclusif.",
-    visual: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="w-32 h-32 rounded-full border-4 border-[#7C5CFC] border-t-[#1B6FC2] border-r-[#2EAE6D] shadow-[0_0_30px_rgba(124,92,252,0.3)] relative bg-[var(--bg-surface)] dark:bg-[#1C2333] flex items-center justify-center"
-        >
-          <Dices className="w-12 h-12 text-[var(--text-primary)]" />
-        </motion.div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-[var(--border-default)] rounded-full animate-ping opacity-20"></div>
-      </div>
-    )
-  },
-  {
-    icon: ScanEye,
-    title: "La Validation Magique",
-    desc: "Il uploade sa preuve et notre IA la valide instantan\u00e9ment (Aucune triche possible!).",
-    visual: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="w-40 h-24 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[#1B6FC2] rounded-lg relative overflow-hidden flex items-center justify-center">
-          <div className="absolute inset-0 bg-[#1B6FC2]/10"></div>
-          <ScanEye className="w-10 h-10 text-[#1B6FC2]" />
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
-            className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] w-full origin-left"
-          />
-          <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] text-white text-[10px] font-bold rounded">OK</div>
-        </div>
-      </div>
-    )
-  },
-  {
-    icon: Ticket,
-    title: "Le Retour Garanti",
-    desc: "Il re\u00e7oit son coupon digital, valable lors de sa prochaine visite, pour le faire revenir \u00e0 coup s\u00fbr.",
-    visual: (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="w-48 bg-gradient-to-r from-[#7C5CFC] to-[#9B7BFF] p-4 rounded-lg shadow-xl relative overflow-hidden border-2 border-dashed border-white/30">
-          <div className="w-6 h-6 bg-[var(--bg-elevated)] rounded-full absolute -left-3 top-1/2 -translate-y-1/2"></div>
-          <div className="w-6 h-6 bg-[var(--bg-elevated)] rounded-full absolute -right-3 top-1/2 -translate-y-1/2"></div>
-          <div className="text-center">
-            <span className="text-[10px] font-bold text-white/70 uppercase tracking-widest">Gagn&eacute; !</span>
-            <div className="text-xl font-extrabold text-white uppercase my-1">1 Menu Offert</div>
-            <div className="text-[10px] text-white/70">Valable 7 jours</div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-];
 
 export const GameScenario = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const locale = useLocale();
+  const isEn = locale === 'en';
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
+
+  const steps = [
+    {
+      icon: QrCode,
+      title: isEn ? "The Instant Scan" : "Le Scan Instantané",
+      desc: isEn ? "Customer scans your QR code in-store. No app to download." : "Le client scanne votre QR code en boutique. Aucune application à télécharger.",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="w-32 h-32 border-4 border-[#1B6FC2] rounded-xl relative p-2 shadow-[0_0_20px_rgba(27,111,194,0.2)]">
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-[var(--text-primary)] -mt-1 -ml-1"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-[var(--text-primary)] -mt-1 -mr-1"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-[var(--text-primary)] -mb-1 -ml-1"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-[var(--text-primary)] -mb-1 -mr-1"></div>
+            <QrCode className="w-full h-full text-[var(--text-primary)] opacity-90" />
+            <motion.div
+              animate={{ top: ['0%', '100%', '0%'] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className="absolute left-0 right-0 h-1 bg-[#1B6FC2] shadow-[0_0_15px_rgba(27,111,194,0.8)] z-10 opacity-80"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      icon: ThumbsUp,
+      title: isEn ? "The Commitment" : "L'Engagement",
+      desc: isEn ? "They choose a mission to support your business (Google review, Instagram follow, ...)." : "Il choisit une mission pour soutenir votre commerce (Avis Google, Abonnement Instagram, ...).",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="bg-white text-[#1A202C] p-6 rounded-xl shadow-lg w-48 relative transform rotate-3">
+            <div className="flex gap-1 mb-2">
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+            </div>
+            <div className="h-2 bg-gray-200 rounded w-3/4 mb-2"></div>
+            <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+            <div className="absolute -right-4 -bottom-4 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] p-3 rounded-full border-4 border-[var(--bg-elevated)]">
+              <ThumbsUp className="w-6 h-6 text-white" />
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      icon: Dices,
+      title: isEn ? "The Game Thrill" : "Le Frisson du Jeu",
+      desc: isEn ? "The game unlocks (Slots, Wheel of Fortune or Blackjack). They play to win an exclusive prize." : "Le jeu se débloque (Machine à sous, Roue de la fortune ou Blackjack). Il joue pour tenter de gagner un lot exclusif.",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="w-32 h-32 rounded-full border-4 border-[#7C5CFC] border-t-[#1B6FC2] border-r-[#2EAE6D] shadow-[0_0_30px_rgba(124,92,252,0.3)] relative bg-[var(--bg-surface)] dark:bg-[#1C2333] flex items-center justify-center"
+          >
+            <Dices className="w-12 h-12 text-[var(--text-primary)]" />
+          </motion.div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-[var(--border-default)] rounded-full animate-ping opacity-20"></div>
+        </div>
+      )
+    },
+    {
+      icon: ScanEye,
+      title: isEn ? "The Magic Validation" : "La Validation Magique",
+      desc: isEn ? "They upload their proof and our AI validates it instantly (zero cheating possible!)." : "Il uploade sa preuve et notre IA la valide instantanément (Aucune triche possible!).",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="w-40 h-24 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[#1B6FC2] rounded-lg relative overflow-hidden flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#1B6FC2]/10"></div>
+            <ScanEye className="w-10 h-10 text-[#1B6FC2]" />
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+              className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] w-full origin-left"
+            />
+            <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] text-white text-[10px] font-bold rounded">OK</div>
+          </div>
+        </div>
+      )
+    },
+    {
+      icon: Ticket,
+      title: isEn ? "The Guaranteed Return" : "Le Retour Garanti",
+      desc: isEn ? "They receive a digital coupon, valid on their next visit — bringing them back for sure." : "Il reçoit son coupon digital, valable lors de sa prochaine visite, pour le faire revenir à coup sûr.",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="w-48 bg-gradient-to-r from-[#7C5CFC] to-[#9B7BFF] p-4 rounded-lg shadow-xl relative overflow-hidden border-2 border-dashed border-white/30">
+            <div className="w-6 h-6 bg-[var(--bg-elevated)] rounded-full absolute -left-3 top-1/2 -translate-y-1/2"></div>
+            <div className="w-6 h-6 bg-[var(--bg-elevated)] rounded-full absolute -right-3 top-1/2 -translate-y-1/2"></div>
+            <div className="text-center">
+              <span className="text-[10px] font-bold text-white/70 uppercase tracking-widest">{isEn ? 'Won!' : 'Gagné !'}</span>
+              <div className="text-xl font-extrabold text-white uppercase my-1">{isEn ? '1 Free Meal' : '1 Menu Offert'}</div>
+              <div className="text-[10px] text-white/70">{isEn ? 'Valid 7 days' : 'Valable 7 jours'}</div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
 
   return (
     <section ref={containerRef} className="py-24 bg-[var(--bg-elevated)] relative overflow-hidden">
@@ -117,13 +120,20 @@ export const GameScenario = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[var(--border-highlight)] px-4 py-1.5 rounded-full mb-6">
             <Smartphone className="w-4 h-4 text-[#1B6FC2]" />
-            <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">Parcours Client</span>
+            <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">
+              {isEn ? 'Customer Journey' : 'Parcours Client'}
+            </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase text-[var(--text-primary)]">
-            Mise en <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">Situation</span>
+            {isEn ? 'See It in' : 'Mise en'}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">
+              {isEn ? 'Action' : 'Situation'}
+            </span>
           </h2>
           <p className="text-[var(--text-secondary)] mt-4 max-w-xl mx-auto">
-            De l&apos;entr&eacute;e en magasin jusqu&apos;au retour client. Une exp&eacute;rience fluide et addictive.
+            {isEn
+              ? 'From walking in to coming back. A smooth, addictive experience.'
+              : "De l'entrée en magasin jusqu'au retour client. Une expérience fluide et addictive."}
           </p>
         </div>
 

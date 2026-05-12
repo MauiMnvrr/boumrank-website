@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { PieChart, Gift } from 'lucide-react';
 
 interface FeatureCardProps {
@@ -99,6 +100,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, customIcon, title
 
 export const Features = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const locale = useLocale();
+  const isEn = locale === 'en';
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -108,7 +111,23 @@ export const Features = () => {
   const yBg2 = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const scaleBg = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 1]);
 
-  const features = [
+  const features = isEn ? [
+    {
+      customIcon: <DualIcons />,
+      title: "Slots, Wheel & Blackjack",
+      description: "Turn every piece of feedback into a game. Customers pick between the Slot Machine, the Wheel, or Express Blackjack to win."
+    },
+    {
+      icon: Gift,
+      title: "Flash Rewards",
+      description: "Winning ticket sent by email, redeemable from the next day. Set a minimum spend to protect your margins."
+    },
+    {
+      icon: PieChart,
+      title: "Real-Time Stats",
+      description: "All-in-one control: track loyalty, validate proof, configure games \u2014 from one dashboard."
+    }
+  ] : [
     {
       customIcon: <DualIcons />,
       title: "Slots, Roue & Blackjack",
@@ -144,7 +163,7 @@ export const Features = () => {
           viewport={{ once: true }}
           className="text-[#1B6FC2] font-bold uppercase tracking-widest text-sm"
         >
-          Pourquoi BoumRank ?
+          {isEn ? 'Why BoumRank?' : 'Pourquoi BoumRank ?'}
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -153,7 +172,7 @@ export const Features = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl md:text-5xl font-extrabold uppercase mt-4 text-[var(--text-primary)]"
         >
-          Toutes les chances <br />de votre <span className="text-[#1B6FC2] underline decoration-4 underline-offset-4">C&ocirc;t&eacute;</span>
+          {isEn ? 'All the odds' : 'Toutes les chances'} <br />{isEn ? 'in your' : 'de votre'} <span className="text-[#1B6FC2] underline decoration-4 underline-offset-4">{isEn ? 'Favor' : 'Côté'}</span>
         </motion.h2>
       </div>
 

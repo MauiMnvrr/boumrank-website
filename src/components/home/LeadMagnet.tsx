@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { Download, Mail, Check, BookOpen, Sparkles, AlertCircle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -15,6 +16,8 @@ export const LeadMagnet = () => {
   const [email, setEmail] = useState('');
   const [state, setState] = useState<FormState>('idle');
   const [error, setError] = useState<string | null>(null);
+  const locale = useLocale();
+  const isEn = locale === 'en';
 
   const trackEvent = (name: string, payload: Record<string, unknown> = {}) => {
     if (typeof window === 'undefined') return;
@@ -29,7 +32,7 @@ export const LeadMagnet = () => {
     setError(null);
 
     if (!EMAIL_REGEX.test(email.trim())) {
-      setError('Merci de saisir un email valide.');
+      setError(isEn ? 'Please enter a valid email address.' : 'Merci de saisir un email valide.');
       setState('error');
       return;
     }
@@ -49,7 +52,7 @@ export const LeadMagnet = () => {
         | null;
 
       if (!res.ok || !data?.ok) {
-        throw new Error(data?.error ?? 'Envoi impossible.');
+        throw new Error(data?.error ?? (isEn ? 'Could not send. Please try again.' : 'Envoi impossible.'));
       }
 
       setState('success');
@@ -69,7 +72,7 @@ export const LeadMagnet = () => {
         }
       }
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Une erreur est survenue.';
+      const msg = err instanceof Error ? err.message : (isEn ? 'An error occurred.' : 'Une erreur est survenue.');
       setError(msg);
       setState('error');
     }
@@ -152,17 +155,17 @@ export const LeadMagnet = () => {
               <div className="flex flex-col">
 
                 <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl leading-[1.1] mb-4 text-[var(--text-primary)]">
-                  Le <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#7C5CFC_0%,#1B6FC2_100%)]">Playbook BoumRank</span> :
+                  {isEn ? 'The' : 'Le'} <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#7C5CFC_0%,#1B6FC2_100%)]">BoumRank Playbook</span> :
                   <br />
-                  50 idées de lots qui font revenir vos clients.
+                  {isEn ? '50 reward ideas that bring customers back.' : '50 idées de lots qui font revenir vos clients.'}
                 </h2>
 
                 <p className="text-base text-[var(--text-secondary)] leading-relaxed mb-6">
-                  Le PDF de <span className="font-semibold text-[var(--text-primary)]">28 pages</span>{' '}
-                  que vos concurrents vont télécharger à votre place si vous ne le faites pas.
+                  {isEn ? 'The' : 'Le'} <span className="font-semibold text-[var(--text-primary)]">{isEn ? '28-page PDF' : '28 pages'}</span>{' '}
+                  {isEn ? "your competitors will download instead of you if you don't grab it first." : 'que vos concurrents vont télécharger à votre place si vous ne le faites pas.'}
                   <br />
                   <span className="text-[var(--text-primary)] font-semibold">
-                    Gratuit, sans spam, livré direct dans votre boîte.
+                    {isEn ? 'Free, no spam, straight to your inbox.' : 'Gratuit, sans spam, livré direct dans votre boîte.'}
                   </span>
                 </p>
 
@@ -184,7 +187,7 @@ export const LeadMagnet = () => {
                             setEmail(e.target.value);
                             if (state === 'error') setState('idle');
                           }}
-                          placeholder="votre@email.com"
+                          placeholder={isEn ? 'your@email.com' : 'votre@email.com'}
                           required
                           disabled={state === 'submitting'}
                           className={cn(
@@ -214,12 +217,12 @@ export const LeadMagnet = () => {
                             >
                               <Sparkles size={16} />
                             </motion.div>
-                            Envoi...
+                            {isEn ? 'Sending...' : 'Envoi...'}
                           </>
                         ) : (
                           <>
                             <Download size={16} />
-                            Recevoir mon playbook
+                            {isEn ? 'Get my playbook' : 'Recevoir mon playbook'}
                           </>
                         )}
                       </Button>
@@ -237,7 +240,7 @@ export const LeadMagnet = () => {
                     )}
 
                     <p className="text-xs text-[var(--text-muted)]">
-                      Zéro spam. Zéro revente. Désabonnement en 1 clic à tout moment. Conforme RGPD.
+                      {isEn ? 'Zero spam. Zero resale. Unsubscribe in 1 click anytime. GDPR compliant.' : 'Zéro spam. Zéro revente. Désabonnement en 1 clic à tout moment. Conforme RGPD.'}
                     </p>
                   </form>
                 ) : (
@@ -251,12 +254,12 @@ export const LeadMagnet = () => {
                     </div>
                     <div className="flex-1">
                       <div className="font-display font-bold text-[var(--text-primary)] mb-1">
-                        C&apos;est envoyé ! 🎉
+                        {isEn ? "It's on its way! 🎉" : "C'est envoyé ! 🎉"}
                       </div>
                       <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                        Le Playbook BoumRank arrive dans votre boîte sous quelques minutes (pensez à
-                        regarder les spams si ça tarde). Et gardez un œil sur vos emails — on vous partage des
-                        astuces tous les 15 jours pour booster vos avis.
+                        {isEn
+                          ? 'The BoumRank Playbook is hitting your inbox in a few minutes (check spam if it takes a while). And keep an eye on your emails — we share tips every 2 weeks to boost your reviews.'
+                          : "Le Playbook BoumRank arrive dans votre boîte sous quelques minutes (pensez à regarder les spams si ça tarde). Et gardez un œil sur vos emails — on vous partage des astuces tous les 15 jours pour booster vos avis."}
                       </p>
                     </div>
                   </motion.div>

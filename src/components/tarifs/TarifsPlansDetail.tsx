@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
@@ -14,6 +15,7 @@ type OfferCardProps = {
 };
 
 const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
+  const t = useTranslations('pricing.plans');
   const isFeatured = offer.highlighted;
 
   return (
@@ -46,7 +48,7 @@ const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
         {isFeatured && (
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)] text-white text-[10px] font-display font-extrabold uppercase tracking-[0.12em] px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_8px_20px_rgba(242,140,40,0.3)]">
-              ⭐ Le meilleur deal
+              {t('featured')}
             </div>
           </div>
         )}
@@ -54,7 +56,7 @@ const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
         <div className="mb-3 min-h-[26px]">
           {offer.yearlySaving > 0 ? (
             <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.1em] px-3 py-1 rounded-full bg-[rgba(46,174,109,0.12)] text-[var(--primary-green)]">
-              Économisez {offer.yearlySaving}€/an
+              {t('saving', { amount: offer.yearlySaving })}
             </span>
           ) : (
             <span className="inline-block invisible">.</span>
@@ -77,7 +79,7 @@ const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
             {offer.price}€
           </span>
           <span className="text-xs font-display font-semibold text-[var(--text-muted)]">
-            /mois HT
+            {t('priceUnit')}
           </span>
         </div>
         <div className="text-xs text-[var(--text-muted)] mb-5">{offer.totalLabel}</div>
@@ -94,10 +96,10 @@ const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
           size="md"
           className="w-full"
         >
-          Démarrer 14j gratuits
+          {t('cta')}
         </Button>
         <div className="text-[11px] text-[var(--text-muted)] text-center mt-2">
-          Sans carte bancaire
+          {t('noCreditCard')}
         </div>
       </Card>
     </motion.div>
@@ -106,6 +108,7 @@ const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
 
 export const TarifsPlansDetail = () => {
   const { openModal } = useOnboarding();
+  const t = useTranslations('pricing.plans');
 
   return (
     <section className="relative py-20 md:py-24 bg-[var(--bg-elevated)] overflow-hidden">
@@ -120,16 +123,16 @@ export const TarifsPlansDetail = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.15em] text-[var(--primary-blue)] bg-[rgba(27,111,194,0.08)] px-3 py-1.5 rounded-full mb-3">
-            Le prix
+            {t('badge')}
           </span>
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
-            Plus vous vous engagez.{' '}
+            {t('title1')}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              Moins vous payez.
+              {t('title2')}
             </span>
           </h2>
           <p className="text-base md:text-lg text-[var(--text-secondary)]">
-            Le même service. Trois durées d&apos;engagement. C&apos;est tout.
+            {t('subtitle')}
           </p>
         </motion.div>
 

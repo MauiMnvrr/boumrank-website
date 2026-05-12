@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Plus } from 'lucide-react';
-import { TARIFS_FAQS } from '@/data/tarifs-faqs';
 import { cn } from '@/lib/utils';
 
 export const TarifsFaq = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const t = useTranslations('pricing.faq');
+  const items = t.raw('items') as Array<{ question: string; answer: string }>;
 
   return (
     <section className="relative py-24 md:py-32 bg-[var(--bg-elevated)] overflow-hidden">
@@ -22,16 +24,16 @@ export const TarifsFaq = () => {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
-            Les 5 questions{' '}
+            {t('title1')}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              avant de sortir la CB
+              {t('title2')}
             </span>
             .
           </h2>
         </motion.div>
 
         <div className="max-w-3xl mx-auto flex flex-col gap-3">
-          {TARIFS_FAQS.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div

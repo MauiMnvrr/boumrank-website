@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
@@ -13,9 +14,10 @@ type TeaserCardProps = {
   offer: PricingOffer;
   index: number;
   onCtaClick: () => void;
+  isEn: boolean;
 };
 
-const TeaserCard = ({ offer, index, onCtaClick }: TeaserCardProps) => {
+const TeaserCard = ({ offer, index, onCtaClick, isEn }: TeaserCardProps) => {
   const isFeatured = offer.highlighted;
 
   return (
@@ -48,7 +50,7 @@ const TeaserCard = ({ offer, index, onCtaClick }: TeaserCardProps) => {
         {isFeatured && (
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)] text-white text-[10px] font-display font-extrabold uppercase tracking-[0.12em] px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_8px_20px_rgba(242,140,40,0.3)]">
-              ⭐ Le meilleur deal
+              {isEn ? '⭐ Best deal' : '⭐ Le meilleur deal'}
             </div>
           </div>
         )}
@@ -56,7 +58,7 @@ const TeaserCard = ({ offer, index, onCtaClick }: TeaserCardProps) => {
         <div className="mb-3 min-h-[26px]">
           {offer.yearlySaving > 0 ? (
             <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.1em] px-3 py-1 rounded-full bg-[rgba(46,174,109,0.12)] text-[var(--primary-green)]">
-              Économisez {offer.yearlySaving}€/an
+              {isEn ? `Save ${offer.yearlySaving}€/yr` : `Économisez ${offer.yearlySaving}€/an`}
             </span>
           ) : (
             <span className="inline-block invisible">.</span>
@@ -79,7 +81,7 @@ const TeaserCard = ({ offer, index, onCtaClick }: TeaserCardProps) => {
             {offer.price}€
           </span>
           <span className="text-xs font-display font-semibold text-[var(--text-muted)]">
-            /mois HT
+            {isEn ? '/mo excl. tax' : '/mois HT'}
           </span>
         </div>
         <div className="text-xs text-[var(--text-muted)] mb-5">{offer.totalLabel}</div>
@@ -92,10 +94,10 @@ const TeaserCard = ({ offer, index, onCtaClick }: TeaserCardProps) => {
           size="md"
           className="w-full"
         >
-          Démarrer 14j gratuits
+          {isEn ? 'Start 14-day free trial' : 'Démarrer 14j gratuits'}
         </Button>
         <div className="text-[11px] text-[var(--text-muted)] text-center mt-2">
-          Sans carte bancaire
+          {isEn ? 'No credit card required' : 'Sans carte bancaire'}
         </div>
       </Card>
     </motion.div>
@@ -104,6 +106,8 @@ const TeaserCard = ({ offer, index, onCtaClick }: TeaserCardProps) => {
 
 export const PricingTeaser = () => {
   const { openModal } = useOnboarding();
+  const locale = useLocale();
+  const isEn = locale === 'en';
 
   return (
     <section
@@ -121,22 +125,22 @@ export const PricingTeaser = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Plus vous vous engagez.{' '}
+            {isEn ? 'The longer you commit.' : 'Plus vous vous engagez.'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              Moins vous payez.
+              {isEn ? 'The less you pay.' : 'Moins vous payez.'}
             </span>
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-            Un service complet.{' '}
+            {isEn ? 'Every feature. Always.' : 'Un service complet.'}{' '}
             <span className="font-semibold text-[var(--text-primary)]">
-              Trois engagements. À partir de 59€/mois.
+              {isEn ? 'Three commitment options. From €59/mo.' : 'Trois engagements. À partir de 59€/mois.'}
             </span>
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto items-stretch">
           {PRICING_OFFERS.map((offer, i) => (
-            <TeaserCard key={offer.id} offer={offer} index={i} onCtaClick={openModal} />
+            <TeaserCard key={offer.id} offer={offer} index={i} onCtaClick={openModal} isEn={isEn} />
           ))}
         </div>
 
@@ -151,11 +155,13 @@ export const PricingTeaser = () => {
             href="/tarifs"
             className="inline-flex items-center gap-2 font-display font-bold text-sm uppercase tracking-wider text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] transition-colors"
           >
-            Voir le détail et la FAQ
+            {isEn ? 'View details and FAQ' : 'Voir le détail et la FAQ'}
             <ArrowRight size={14} />
           </Link>
           <p className="text-xs text-[var(--text-muted)] mt-3">
-            Toutes les offres incluent : 100% des features · Setup en 5 min · Essai 14 jours sans CB · RGPD
+            {isEn
+              ? 'All plans include: 100% of features · 5-min setup · 14-day trial no CC · GDPR'
+              : 'Toutes les offres incluent : 100% des features · Setup en 5 min · Essai 14 jours sans CB · RGPD'}
           </p>
         </motion.div>
       </div>

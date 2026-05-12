@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import {
   Smartphone,
   Star,
@@ -16,6 +17,8 @@ import { useOnboarding } from '@/components/ui/OnboardingProvider';
 
 export const Solution = () => {
   const { openModal } = useOnboarding();
+  const locale = useLocale();
+  const isEn = locale === 'en';
 
   const scrollToDemo = () => {
     const target = document.getElementById('demo-roue');
@@ -38,21 +41,21 @@ export const Solution = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Transformez chaque{' '}
+            {isEn ? 'Turn every' : 'Transformez chaque'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
-              client en joueur
+              {isEn ? 'customer into a player' : 'client en joueur'}
             </span>
             .
             <br />
-            Chaque{' '}
+            {isEn ? 'Every' : 'Chaque'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
-              joueur en ambassadeur
+              {isEn ? 'player into an advocate' : 'joueur en ambassadeur'}
             </span>
             .
           </h2>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
-            Un QR code sur la table. Un jeu. Un coupon.{' '}
-            <span className="font-semibold text-[var(--text-primary)]">Le combo gagnant.</span>
+            {isEn ? 'A QR code on the table. A game. A coupon.' : 'Un QR code sur la table. Un jeu. Un coupon.'}{' '}
+            <span className="font-semibold text-[var(--text-primary)]">{isEn ? 'The winning combo.' : 'Le combo gagnant.'}</span>
           </p>
         </motion.div>
 
@@ -73,18 +76,23 @@ export const Solution = () => {
                     <Smartphone size={22} />
                   </div>
                   <div>
-                    <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold">Côté joueur</div>
-                    <div className="font-display font-bold text-lg text-[var(--text-primary)]">Votre client</div>
+                    <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold">{isEn ? 'Player side' : 'Côté joueur'}</div>
+                    <div className="font-display font-bold text-lg text-[var(--text-primary)]">{isEn ? 'Your customer' : 'Votre client'}</div>
                   </div>
                 </div>
 
                 <ul className="space-y-4 mb-6 flex-1">
-                  {[
+                  {(isEn ? [
+                    { icon: <Smartphone size={16} />, text: 'Scans the QR code at the table' },
+                    { icon: <Star size={16} />, text: 'Leaves a Google review (or follows on Insta, or subscribes)' },
+                    { icon: <Gift size={16} />, text: 'Spins the wheel, hits the slots or plays blackjack' },
+                    { icon: <Users size={16} />, text: 'Leaves with a coupon to redeem later' },
+                  ] : [
                     { icon: <Smartphone size={16} />, text: 'Scanne le QR code à table' },
                     { icon: <Star size={16} />, text: 'Laisse un avis Google (ou Insta, ou newsletter)' },
                     { icon: <Gift size={16} />, text: 'Lance la roue, les slots ou le blackjack' },
                     { icon: <Users size={16} />, text: 'Repart avec un coupon à utiliser plus tard' },
-                  ].map((step, i) => (
+                  ]).map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[linear-gradient(135deg,rgba(27,111,194,0.15)_0%,rgba(30,157,170,0.15)_100%)] flex items-center justify-center text-[var(--primary-blue)] mt-0.5">
                         {step.icon}
@@ -96,7 +104,7 @@ export const Solution = () => {
 
                 <div className="pt-5 border-t border-[var(--border-default)]">
                   <p className="text-sm text-[var(--text-secondary)] italic leading-relaxed">
-                    « J&apos;ai laissé un avis 5★ et j&apos;ai gagné un café gratuit. Je raconte à tout le monde. »
+                    {isEn ? '"I left a 5★ review and won a free coffee. I\'ve been telling everyone."' : "« J'ai laissé un avis 5★ et j'ai gagné un café gratuit. Je raconte à tout le monde. »"}
                   </p>
                 </div>
               </Card>
@@ -116,18 +124,23 @@ export const Solution = () => {
                     <LayoutDashboard size={22} />
                   </div>
                   <div>
-                    <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold">Côté commerçant</div>
-                    <div className="font-display font-bold text-lg text-[var(--text-primary)]">Vous</div>
+                    <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold">{isEn ? 'Merchant side' : 'Côté commerçant'}</div>
+                    <div className="font-display font-bold text-lg text-[var(--text-primary)]">{isEn ? 'You' : 'Vous'}</div>
                   </div>
                 </div>
 
                 <ul className="space-y-4 mb-6 flex-1">
-                  {[
+                  {(isEn ? [
+                    { icon: <LayoutDashboard size={16} />, text: 'Set up your game in 5 minutes' },
+                    { icon: <Star size={16} />, text: 'Your Google reviews climb week after week' },
+                    { icon: <TrendingUp size={16} />, text: 'Your Insta followers take off (without posting more)' },
+                    { icon: <Users size={16} />, text: 'Customers come back to redeem their prize (minimum spend you set)' },
+                  ] : [
                     { icon: <LayoutDashboard size={16} />, text: 'Configurez votre jeu en 5 minutes' },
                     { icon: <Star size={16} />, text: 'Vos avis Google grimpent semaine après semaine' },
                     { icon: <TrendingUp size={16} />, text: 'Vos abonnés Insta décollent (sans publier plus)' },
                     { icon: <Users size={16} />, text: 'Vos clients reviennent encaisser leur lot (achat min que vous fixez)' },
-                  ].map((step, i) => (
+                  ]).map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[linear-gradient(135deg,rgba(30,157,170,0.15)_0%,rgba(46,174,109,0.15)_100%)] flex items-center justify-center text-[var(--primary-green)] mt-0.5">
                         {step.icon}
@@ -139,7 +152,7 @@ export const Solution = () => {
 
                 <div className="pt-5 border-t border-[var(--border-default)]">
                   <p className="text-sm text-[var(--text-secondary)] italic leading-relaxed">
-                    « +47 avis Google en 6 semaines, sans rien changer à mon service. »
+                    {isEn ? '"47 new Google reviews in 6 weeks, without changing a thing about my service."' : '« +47 avis Google en 6 semaines, sans rien changer à mon service. »'}
                   </p>
                 </div>
               </Card>
@@ -176,18 +189,15 @@ export const Solution = () => {
         >
           <Card variant="gradient" padding="xl" className="text-center">
             <p className="text-base md:text-lg text-[var(--text-body)] leading-relaxed max-w-3xl mx-auto mb-6">
-              <span className="font-semibold text-[var(--text-primary)]">Setup en 5 minutes,</span> zéro
-              app à télécharger,{' '}
-              <span className="font-semibold text-[var(--text-primary)]">100% autonome.</span> Vous
-              décuplez vos avis, vos abonnés et vos retours client. BoumRank fait le boulot pendant
-              que vous gérez votre commerce.
+              <span className="font-semibold text-[var(--text-primary)]">{isEn ? '5-minute setup,' : 'Setup en 5 minutes,'}</span> {isEn ? 'zero app to download,' : 'zéro app à télécharger,'}{' '}
+              <span className="font-semibold text-[var(--text-primary)]">{isEn ? '100% autonomous.' : '100% autonome.'}</span> {isEn ? 'You multiply your reviews, followers, and customer returns. BoumRank does the work while you run your business.' : 'Vous décuplez vos avis, vos abonnés et vos retours client. BoumRank fait le boulot pendant que vous gérez votre commerce.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button onClick={openModal} variant="gradient" size="lg">
-                Lancer ma démo gratuite
+                {isEn ? 'Start my free demo' : 'Lancer ma démo gratuite'}
               </Button>
               <Button onClick={scrollToDemo} variant="outline" size="lg">
-                Jouer à la roue maintenant
+                {isEn ? 'Spin the wheel now' : 'Jouer à la roue maintenant'}
                 <ArrowRight size={18} />
               </Button>
             </div>

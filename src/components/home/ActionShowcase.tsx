@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { Star, Share2 } from 'lucide-react';
 
 // --- Custom Brand Icons ---
@@ -48,6 +49,8 @@ const TikTokIcon = () => (
 
 export const ActionShowcase = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const locale = useLocale();
+  const isEn = locale === 'en';
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -74,7 +77,7 @@ export const ActionShowcase = () => {
             className="inline-flex items-center gap-2 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[var(--border-default)] px-4 py-1.5 rounded-full mb-6"
           >
             <Star className="w-4 h-4 text-yellow-500 dark:text-yellow-400" />
-            <span className="text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-widest">Objectifs Multiples</span>
+            <span className="text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-widest">{isEn ? 'Multiple Goals' : 'Objectifs Multiples'}</span>
           </motion.div>
 
           <motion.h2
@@ -84,7 +87,7 @@ export const ActionShowcase = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-extrabold uppercase mb-6 text-[var(--text-primary)]"
           >
-            Choisissez votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-[#1B6FC2]">Objectif</span>
+            {isEn ? 'Choose your' : 'Choisissez votre'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-[#1B6FC2]">{isEn ? 'Goal' : 'Objectif'}</span>
           </motion.h2>
 
           <motion.p
@@ -94,7 +97,7 @@ export const ActionShowcase = () => {
             transition={{ delay: 0.2 }}
             className="text-[var(--text-secondary)] max-w-2xl mx-auto text-lg"
           >
-            Ne demandez plus, gamifiez. Incitez vos clients &agrave; r&eacute;aliser l&apos;action qui compte le plus pour votre croissance.
+            {isEn ? "Stop asking, start playing. Drive customers to take the action that matters most for your growth." : "Ne demandez plus, gamifiez. Incitez vos clients à réaliser l'action qui compte le plus pour votre croissance."}
           </motion.p>
         </div>
 
@@ -125,15 +128,15 @@ export const ActionShowcase = () => {
             </div>
 
             <h3 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-3 flex items-center gap-2">
-              Boostez votre <span className="text-yellow-500">E-R&eacute;putation</span>
+              {isEn ? 'Boost your' : 'Boostez votre'} <span className="text-yellow-500">{isEn ? 'Online Reputation' : 'E-Réputation'}</span>
             </h3>
             <p className="text-[var(--text-body)] font-medium leading-relaxed">
-              Multipliez vos avis 5 &eacute;toiles m&eacute;caniquement. Le client poste une capture d&apos;&eacute;cran de son avis positif pour d&eacute;bloquer le jeu.
+              {isEn ? "Multiply your 5-star reviews on autopilot. Customers post a screenshot of their positive review to unlock the game." : "Multipliez vos avis 5 étoiles mécaniquement. Le client poste une capture d'écran de son avis positif pour débloquer le jeu."}
             </p>
 
             <div className="mt-6 flex items-center gap-2 text-yellow-600 dark:text-yellow-400 text-sm font-bold uppercase tracking-wide opacity-80 group-hover:opacity-100">
               <Star className="w-4 h-4 fill-current" />
-              <span>Impact Imm&eacute;diat sur le r&eacute;f&eacute;rencement local</span>
+              <span>{isEn ? 'Instant impact on local rankings' : 'Impact Immédiat sur le référencement local'}</span>
             </div>
           </motion.div>
 
@@ -160,15 +163,15 @@ export const ActionShowcase = () => {
 
             <div>
               <h3 className="text-xl font-extrabold uppercase text-[var(--text-primary)] mb-2">
-                Engagez votre <span className="text-[#7C5CFC]">Communaut&eacute;</span>
+                {isEn ? 'Grow your' : 'Engagez votre'} <span className="text-[#7C5CFC]">{isEn ? 'Community' : 'Communauté'}</span>
               </h3>
               <p className="text-[var(--text-body)] text-sm leading-relaxed mb-4">
-                Gagnez des followers qualifi&eacute;s. &quot;Abonnez-vous pour lancer la roue !&quot;
+                {isEn ? 'Win qualified followers. "Follow us to spin the wheel!"' : 'Gagnez des followers qualifiés. "Abonnez-vous pour lancer la roue !"'}
               </p>
 
               <div className="flex items-center gap-2 text-[#7C5CFC] text-xs font-bold uppercase tracking-wide">
                 <Share2 className="w-3 h-3" />
-                <span>Viralit&eacute; garantie</span>
+                <span>{isEn ? 'Virality guaranteed' : 'Viralité garantie'}</span>
               </div>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { Sparkles, Smartphone, Bot, Store, ShieldCheck, Database, TrendingUp, Clock, Users, Zap } from 'lucide-react';
 
 interface AdvantageCardProps {
@@ -32,12 +33,12 @@ const AdvantageCard: React.FC<AdvantageCardProps> = ({ icon: Icon, title, advant
 
     <div className="space-y-3">
       <div>
-        <span className="text-xs font-bold text-[#7C5CFC] uppercase tracking-wider block mb-1">L&apos;Avantage</span>
+        <span className="text-xs font-bold text-[#7C5CFC] uppercase tracking-wider block mb-1">The Edge</span>
         <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{advantage}</p>
       </div>
 
       <div className="pt-3 border-t border-[var(--border-default)]">
-        <span className="text-xs font-bold text-[#2EAE6D] uppercase tracking-wider block mb-1">Le R&eacute;sultat</span>
+        <span className="text-xs font-bold text-[#2EAE6D] uppercase tracking-wider block mb-1">The Result</span>
         <p className="text-[var(--text-primary)] font-medium text-sm">{result}</p>
       </div>
     </div>
@@ -46,6 +47,8 @@ const AdvantageCard: React.FC<AdvantageCardProps> = ({ icon: Icon, title, advant
 
 export const CompetitiveAdvantages = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const locale = useLocale();
+  const isEn = locale === 'en';
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -53,7 +56,44 @@ export const CompetitiveAdvantages = () => {
 
   const yBg = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  const advantages = [
+  const advantages = isEn ? [
+    {
+      icon: Sparkles,
+      title: "Dopamine Engagement",
+      advantage: "Unlike boring surveys, we deliver an exciting emotional experience.",
+      result: "Participation rates that blow traditional solutions out of the water."
+    },
+    {
+      icon: Smartphone,
+      title: "Zero Friction (No-App)",
+      advantage: "No heavy app to download. Everything runs in the mobile browser via QR Code.",
+      result: "Scan \u2192 Play \u2192 Win in under 30 seconds."
+    },
+    {
+      icon: Bot,
+      title: "Full Automation",
+      advantage: "Your staff checks nothing. Our AI engine validates proof instantly, 24/7.",
+      result: "A loyalty campaign that runs itself without slowing down your service."
+    },
+    {
+      icon: Store,
+      title: "Drive-to-Store",
+      advantage: "Rewards are stored digitally and incentivize a return visit to be redeemed.",
+      result: "Higher visit frequency and bigger average basket."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Anti-Fraud Shield",
+      advantage: "Automatic detection of duplicates, edits, and invalid proof.",
+      result: "You only give out rewards to real customers who actually visited."
+    },
+    {
+      icon: Database,
+      title: "Marketing Data",
+      advantage: "In exchange for the game, we legally collect your customers' emails (GDPR).",
+      result: "A qualified database to break free from social algorithm dependency."
+    }
+  ] : [
     {
       icon: Sparkles,
       title: "L\u2019Engagement Dopamine",
@@ -102,12 +142,12 @@ export const CompetitiveAdvantages = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-[#1B6FC2] font-bold uppercase tracking-widest text-sm">Pourquoi nous ?</span>
+          <span className="text-[#1B6FC2] font-bold uppercase tracking-widest text-sm">{isEn ? 'Why us?' : 'Pourquoi nous ?'}</span>
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase mt-4 mb-6 text-[var(--text-primary)]">
-            L&apos;Avantage <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">Injuste</span>
+            {isEn ? 'The Unfair' : "L'Avantage"} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">{isEn ? 'Advantage' : 'Injuste'}</span>
           </h2>
           <p className="text-[var(--text-secondary)] max-w-2xl mx-auto text-lg">
-            Ne jouez pas seulement pour participer. Jouez pour gagner des parts de march&eacute;.
+            {isEn ? "Don't just play to participate. Play to win market share." : "Ne jouez pas seulement pour participer. Jouez pour gagner des parts de marché."}
           </p>
         </div>
 
@@ -128,12 +168,17 @@ export const CompetitiveAdvantages = () => {
           <div className="absolute top-0 right-0 w-64 h-full bg-[#1B6FC2]/5 skew-x-12 transform translate-x-20"></div>
 
           <div className="grid md:grid-cols-4 gap-8 relative z-10">
-            {[
+            {(isEn ? [
+              { icon: TrendingUp, text: "Grow your revenue", sub: "Recurring income" },
+              { icon: Clock, text: "Save time", sub: "Autonomous AI" },
+              { icon: Users, text: "Know your customers", sub: "First-party data" },
+              { icon: Zap, text: "Modernize your brand", sub: "Digital experience" },
+            ] : [
               { icon: TrendingUp, text: "Boostez votre C.A.", sub: "Revenus r\u00e9currents" },
               { icon: Clock, text: "Gagnez du temps", sub: "IA Autonome" },
               { icon: Users, text: "Connaissez vos clients", sub: "Data Propri\u00e9taire" },
               { icon: Zap, text: "Modernisez votre image", sub: "Exp\u00e9rience Digitale" },
-            ].map((item, idx) => (
+            ]).map((item, idx) => (
               <div key={idx} className="flex flex-col items-center text-center md:items-start md:text-left">
                 <div className="flex items-center gap-3 mb-2">
                   <item.icon className="text-[#1B6FC2] w-5 h-5" />

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { Utensils, Scissors, ShoppingBag, ArrowRight, Star, TrendingUp, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
@@ -18,7 +19,7 @@ type Sector = {
   href: string;
 };
 
-const sectors: Sector[] = [
+const FR_SECTORS: Sector[] = [
   {
     id: 'restaurants',
     icon: <Utensils size={24} />,
@@ -30,7 +31,7 @@ const sectors: Sector[] = [
     perks: [
       { icon: <Star size={14} />, label: '+47 avis Google en 6 semaines' },
       { icon: <TrendingUp size={14} />, label: '25 % de retours sur le ticket du soir' },
-      { icon: <Heart size={14} />, label: 'Pic de satisfaction = pic d\'avis' },
+      { icon: <Heart size={14} />, label: "Pic de satisfaction = pic d'avis" },
     ],
     gradient: 'linear-gradient(135deg, #1B6FC2 0%, #1E9DAA 100%)',
     accent: '#1B6FC2',
@@ -72,7 +73,65 @@ const sectors: Sector[] = [
   },
 ];
 
+const EN_SECTORS: Sector[] = [
+  {
+    id: 'restaurants',
+    icon: <Utensils size={24} />,
+    emoji: '🍔',
+    name: 'Restaurants & bars',
+    tagline: 'Your customers love your food. Make sure Google knows it.',
+    body:
+      'Bistros, pizzerias, tea rooms, food trucks: turn the end of a meal into a game moment, and your reviews into fuel to fill the evening service.',
+    perks: [
+      { icon: <Star size={14} />, label: '+47 Google reviews in 6 weeks' },
+      { icon: <TrendingUp size={14} />, label: '25% return rate on the evening ticket' },
+      { icon: <Heart size={14} />, label: 'Satisfaction peak = review peak' },
+    ],
+    gradient: 'linear-gradient(135deg, #1B6FC2 0%, #1E9DAA 100%)',
+    accent: '#1B6FC2',
+    href: '/#pour-qui',
+  },
+  {
+    id: 'salons',
+    icon: <Scissors size={24} />,
+    emoji: '💇',
+    name: 'Salons & beauty',
+    tagline: "The happy client's review — captured before she walks out the door.",
+    body:
+      "Hair salons, barbershops, aesthetics, nail studios: engage your clients at the end of their appointment, when satisfaction is at its peak. They play, they win, they come back to redeem.",
+    perks: [
+      { icon: <Star size={14} />, label: 'Reviews collected right from the chair' },
+      { icon: <TrendingUp size={14} />, label: '+1 appointment per month on average' },
+      { icon: <Heart size={14} />, label: 'Insta followers taking off' },
+    ],
+    gradient: 'linear-gradient(135deg, #E84393 0%, #7C5CFC 100%)',
+    accent: '#E84393',
+    href: '/#pour-qui',
+  },
+  {
+    id: 'boutiques',
+    icon: <ShoppingBag size={24} />,
+    emoji: '🛍️',
+    name: 'Boutiques & retail',
+    tagline: 'Your loyalty card — jackpot edition.',
+    body:
+      "Concept stores, bookshops, wine bars, florists, décor: replace the dusty stamp card with a game your customers talk about — and double your Insta following in 6 weeks.",
+    perks: [
+      { icon: <Star size={14} />, label: 'Gamified loyalty, no paper card' },
+      { icon: <TrendingUp size={14} />, label: 'Average basket: +18%' },
+      { icon: <Heart size={14} />, label: 'Word-of-mouth on turbo' },
+    ],
+    gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E9DAA 100%)',
+    accent: '#2EAE6D',
+    href: '/#pour-qui',
+  },
+];
+
 export const Sectors = () => {
+  const locale = useLocale();
+  const isEn = locale === 'en';
+  const sectors = isEn ? EN_SECTORS : FR_SECTORS;
+
   return (
     <section
       id="pour-qui"
@@ -95,16 +154,16 @@ export const Sectors = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Pensé pour les commerces{' '}
+            {isEn ? 'Built for businesses' : 'Pensé pour les commerces'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)]">
-              qui veulent jouer
+              {isEn ? 'that want to play' : 'qui veulent jouer'}
             </span>
             <br />
-            — et gagner.
+            {isEn ? '— and win.' : '— et gagner.'}
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-            Trois secteurs, une même mécanique,{' '}
-            <span className="text-[var(--text-primary)] font-semibold">des résultats qui décollent.</span>
+            {isEn ? 'Three sectors, one mechanic,' : 'Trois secteurs, une même mécanique,'}{' '}
+            <span className="text-[var(--text-primary)] font-semibold">{isEn ? 'results that take off.' : 'des résultats qui décollent.'}</span>
           </p>
         </motion.div>
 
@@ -180,7 +239,7 @@ export const Sectors = () => {
                       className="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-wider transition-colors"
                       style={{ color: sector.accent }}
                     >
-                      Découvrir pour mon secteur
+                      {isEn ? 'Discover for my sector' : 'Découvrir pour mon secteur'}
                       <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
@@ -199,12 +258,14 @@ export const Sectors = () => {
           className="text-center mt-12 max-w-2xl mx-auto"
         >
           <p className="text-sm text-[var(--text-muted)] italic">
-            Vous êtes dans un autre secteur (services, événementiel, tourisme, franchise) ?{' '}
+            {isEn
+              ? 'In a different industry (services, events, tourism, franchise)?'
+              : 'Vous êtes dans un autre secteur (services, événementiel, tourisme, franchise) ?'}{' '}
             <Link
               href="/contact"
               className="text-[var(--primary-blue)] font-semibold not-italic hover:underline"
             >
-              On adapte BoumRank à votre métier →
+              {isEn ? 'We adapt BoumRank to your business →' : 'On adapte BoumRank à votre métier →'}
             </Link>
           </p>
         </motion.div>

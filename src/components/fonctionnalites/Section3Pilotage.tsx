@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import {
   LayoutDashboard,
   Coins,
@@ -11,46 +12,32 @@ import {
 } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 
-type Advantage = {
-  icon: React.ReactNode;
-  badge: string;
-  title: string;
-  body: string;
-  gradient: string;
-  accent: string;
-};
-
-const advantages: Advantage[] = [
-  {
-    icon: <Star size={24} />,
-    badge: 'Le menu intégré',
-    title: 'Le menu, qui fait la différence',
-    body: 'Nous sommes les seuls à inclure votre menu digitalisé sans surcoût. C\'est pour nous, c\'est cadeau, et ça nous fait vraiment plaisir',
-    gradient: 'linear-gradient(135deg, #1B6FC2 0%, #144F8C 100%)',
-    accent: '#1B6FC2',
-  },
-  {
-    icon: <Coins size={24} />,
-    badge: 'L\'auto-financement',
-    title: 'La solution qui s\'auto-finance',
-    body: 'Fixez un minimum d\'achat. Le client revient, consomme et la solution s\'auto-finance. Max d\'avis, aucune sortie !',
-    gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
-    accent: '#2EAE6D',
-  },
-  {
-    icon: <Zap size={24} />,
-    badge: 'Setup 2 minutes',
-    title: 'Plus de scans, plus de fans',
-    body: 'Fini le QR code isolé de nos concurrents. Notre intégration fait jouer 1 client sur 3 au lieu de 1 sur 5. Résultat : plus de joueurs, plus d\'avis.',
-    gradient: 'linear-gradient(135deg, #F28C28 0%, #D47318 100%)',
-    accent: '#F28C28',
-  },
+const STAT_ICONS = [
+  <TrendingUp key="trend" size={16} />,
+  <Coins key="coins" size={16} />,
+  <Trophy key="trophy" size={16} />,
 ];
+const STAT_COLORS = ['#1B6FC2', '#2EAE6D', '#F28C28'];
+
+const ADVANTAGE_ICONS = [
+  <Star key="star" size={24} />,
+  <Coins key="coins" size={24} />,
+  <Zap key="zap" size={24} />,
+];
+const ADVANTAGE_GRADIENTS = [
+  'linear-gradient(135deg, #1B6FC2 0%, #144F8C 100%)',
+  'linear-gradient(135deg, #2EAE6D 0%, #1E8A52 100%)',
+  'linear-gradient(135deg, #F28C28 0%, #D47318 100%)',
+];
+const ADVANTAGE_ACCENTS = ['#1B6FC2', '#2EAE6D', '#F28C28'];
 
 export const Section3Pilotage = () => {
+  const t = useTranslations('features.section3');
+  const stats = t.raw('stats') as Array<{ label: string; value: string; delta: string; deltaLabel: string }>;
+  const advantages = t.raw('advantages') as Array<{ badge: string; title: string; body: string }>;
+
   return (
     <section className="relative py-24 md:py-32 bg-[var(--bg-primary)] overflow-hidden">
-      {/* Big "3" decorative number */}
       <div className="absolute top-12 left-4 md:left-12 font-display font-extrabold text-[20rem] md:text-[28rem] leading-none opacity-[0.04] select-none pointer-events-none text-[var(--primary-green)]">
         3
       </div>
@@ -58,7 +45,6 @@ export const Section3Pilotage = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(46,174,109,0.06),transparent_60%)]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,18 +53,16 @@ export const Section3Pilotage = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            Un dashboard.{' '}
+            {t('title')}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#2EAE6D_0%,#F28C28_100%)]">
-              Trois avantages
+              {t('titleGradient')}
             </span>{' '}
-            que personne ne vous offre.
+            {t('titleSuffix')}
           </h2>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
-            Toutes vos métriques en temps réel,{' '}
-            <span className="text-[var(--text-primary)] font-semibold">
-              et la vision claire de votre ROI
-            </span>{' '}
-            — sans Excel, sans agence.
+            {t('subtitle')}{' '}
+            <span className="text-[var(--text-primary)] font-semibold">{t('subtitleHighlight')}</span>{' '}
+            {t('subtitleSuffix')}
           </p>
         </motion.div>
 
@@ -91,15 +75,12 @@ export const Section3Pilotage = () => {
           className="max-w-5xl mx-auto mb-16"
         >
           <div className="relative">
-            {/* Glow */}
             <div className="absolute -inset-8 bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] blur-3xl opacity-20" />
-
             <Card
               variant="elevated"
               padding="lg"
               className="relative bg-[var(--bg-surface)] border-2 border-[var(--border-default)]"
             >
-              {/* Top bar */}
               <div className="flex items-center justify-between pb-4 border-b border-[var(--border-default)] mb-6">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#E74C3C]" />
@@ -107,38 +88,15 @@ export const Section3Pilotage = () => {
                   <div className="w-2.5 h-2.5 rounded-full bg-[#27AE60]" />
                 </div>
                 <div className="text-[10px] uppercase tracking-widest font-display font-bold text-[var(--text-muted)]">
-                  Dashboard · Cette semaine
+                  {t('dashboardLabel')}
                 </div>
-                <div className="text-xs text-[var(--text-muted)] font-data">12/05 — 18/05</div>
+                <div className="text-xs text-[var(--text-muted)] font-data">{t('dashboardRange')}</div>
               </div>
 
-              {/* Stats grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                {[
-                  {
-                    label: 'Actions cette semaine',
-                    value: '342',
-                    delta: '+18%',
-                    icon: <TrendingUp size={16} />,
-                    color: '#1B6FC2',
-                  },
-                  {
-                    label: 'Cashback généré',
-                    value: '1 247 €',
-                    delta: '+32%',
-                    icon: <Coins size={16} />,
-                    color: '#2EAE6D',
-                  },
-                  {
-                    label: 'Coupons utilisés',
-                    value: '89',
-                    delta: '+12%',
-                    icon: <Trophy size={16} />,
-                    color: '#F28C28',
-                  },
-                ].map((stat) => (
+                {stats.map((stat, i) => (
                   <div
-                    key={stat.label}
+                    key={i}
                     className="rounded-xl p-4 bg-[var(--bg-primary)] border border-[var(--border-default)]"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -147,12 +105,9 @@ export const Section3Pilotage = () => {
                       </span>
                       <div
                         className="w-7 h-7 rounded-lg flex items-center justify-center"
-                        style={{
-                          background: `${stat.color}15`,
-                          color: stat.color,
-                        }}
+                        style={{ background: `${STAT_COLORS[i]}15`, color: STAT_COLORS[i] }}
                       >
-                        {stat.icon}
+                        {STAT_ICONS[i]}
                       </div>
                     </div>
                     <div className="font-data font-bold text-2xl md:text-3xl text-[var(--text-primary)] mb-1">
@@ -160,23 +115,25 @@ export const Section3Pilotage = () => {
                     </div>
                     <div
                       className="text-xs font-semibold inline-flex items-center gap-1"
-                      style={{ color: stat.color }}
+                      style={{ color: STAT_COLORS[i] }}
                     >
-                      <TrendingUp size={12} /> {stat.delta} vs semaine dernière
+                      <TrendingUp size={12} /> {stat.delta} {stat.deltaLabel}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Bar chart mock */}
               <div className="rounded-xl p-5 bg-[var(--bg-primary)] border border-[var(--border-default)]">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <div className="text-[10px] uppercase tracking-widest font-display font-bold text-[var(--text-muted)]">
-                      Note Google
+                      {t('googleRatingLabel')}
                     </div>
                     <div className="font-data font-bold text-lg text-[var(--text-primary)]">
-                      4,7 ★ <span className="text-[var(--primary-green)] text-sm font-semibold">+0,3 ce mois</span>
+                      {t('googleRatingValue')}{' '}
+                      <span className="text-[var(--primary-green)] text-sm font-semibold">
+                        {t('googleRatingDelta')}
+                      </span>
                     </div>
                   </div>
                   <LayoutDashboard size={18} className="text-[var(--text-muted)]" />
@@ -198,7 +155,6 @@ export const Section3Pilotage = () => {
           </div>
         </motion.div>
 
-        {/* Description */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -207,20 +163,15 @@ export const Section3Pilotage = () => {
           className="max-w-3xl mx-auto text-center mb-20"
         >
           <p className="text-base md:text-lg text-[var(--text-body)] leading-relaxed">
-            Vous voyez en temps réel{' '}
-            <span className="font-semibold text-[var(--text-primary)]">
-              les actions de la semaine
-            </span>
-            , le{' '}
-            <span className="font-semibold text-[var(--primary-green)]">
-              cashback rapporté par chaque coupon utilisé
-            </span>
-            , et l&apos;évolution de votre note Google. Tout exportable.
-            Tout horodaté. Tout à vous.
+            {t('description')}{' '}
+            <span className="font-semibold text-[var(--text-primary)]">{t('descriptionHighlight1')}</span>
+            {', '}
+            <span className="font-semibold text-[var(--primary-green)]">{t('descriptionHighlight2')}</span>
+            {', '}
+            {t('descriptionSuffix')}
           </p>
         </motion.div>
 
-        {/* 3 competitive advantages */}
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -230,11 +181,11 @@ export const Section3Pilotage = () => {
             className="text-center mb-12"
           >
             <h3 className="font-display font-extrabold uppercase text-2xl md:text-3xl lg:text-4xl text-[var(--text-primary)] leading-tight">
-              Trois choses que{' '}
+              {t('advantagesTitle')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_50%,#F28C28_100%)]">
-                personne d&apos;autre
+                {t('advantagesTitleGradient')}
               </span>{' '}
-              ne fait.
+              {t('advantagesTitleSuffix')}
             </h3>
           </motion.div>
 
@@ -251,12 +202,11 @@ export const Section3Pilotage = () => {
                   variant="solid"
                   padding="lg"
                   className="h-full relative overflow-hidden"
-                  style={{ borderTop: `4px solid ${a.accent}` }}
+                  style={{ borderTop: `4px solid ${ADVANTAGE_ACCENTS[i]}` }}
                 >
-                  {/* Big badge number */}
                   <div
                     className="absolute -top-4 -right-4 font-display font-extrabold text-[8rem] leading-none opacity-[0.06] select-none pointer-events-none"
-                    style={{ color: a.accent }}
+                    style={{ color: ADVANTAGE_ACCENTS[i] }}
                   >
                     0{i + 1}
                   </div>
@@ -264,14 +214,14 @@ export const Section3Pilotage = () => {
                   <div className="relative z-10">
                     <div
                       className="inline-flex w-14 h-14 rounded-2xl items-center justify-center text-white mb-5 shadow-[0_12px_30px_rgba(0,0,0,0.15)]"
-                      style={{ background: a.gradient }}
+                      style={{ background: ADVANTAGE_GRADIENTS[i] }}
                     >
-                      {a.icon}
+                      {ADVANTAGE_ICONS[i]}
                     </div>
 
                     <div
                       className="text-[10px] uppercase tracking-widest font-display font-extrabold mb-2"
-                      style={{ color: a.accent }}
+                      style={{ color: ADVANTAGE_ACCENTS[i] }}
                     >
                       {a.badge}
                     </div>

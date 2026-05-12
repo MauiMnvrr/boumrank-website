@@ -1,9 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
 
 export function AProposHero() {
+  const t = useTranslations('about.hero');
+
   return (
     <section className="relative overflow-hidden bg-[var(--bg-primary)]">
       <div
@@ -22,10 +25,8 @@ export function AProposHero() {
           transition={{ duration: 0.6 }}
           className="font-display text-4xl font-bold leading-tight text-[var(--text-primary)] md:text-6xl"
         >
-          Deux amis, une obsession :{' '}
-          <span className="text-gradient">
-            que les commerçants restent concentrés sur leur passion.
-          </span>
+          {t('title')}{' '}
+          <span className="text-gradient">{t('titleGradient')}</span>
         </motion.h1>
 
         <motion.p
@@ -34,7 +35,7 @@ export function AProposHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-8 max-w-2xl text-lg text-[var(--text-secondary)] md:text-xl"
         >
-          BoumRank est né d&apos;un constat simple. Voici notre histoire.
+          {t('subtitle')}
         </motion.p>
 
         <motion.div

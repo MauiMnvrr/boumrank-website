@@ -1,8 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export function AProposVision() {
+  const t = useTranslations('about.vision');
+
   return (
     <section className="bg-[var(--bg-elevated)] py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
@@ -14,20 +17,14 @@ export function AProposVision() {
             transition={{ duration: 0.6 }}
           >
             <p className="font-data text-sm font-bold uppercase tracking-widest text-gradient">
-              Vision 2030
+              {t('eyebrow')}
             </p>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-[var(--text-primary)] md:text-5xl">
-              Une marketplace entre{' '}
-              <span className="text-gradient">commerces locaux</span>.
+              {t('title')}{' '}
+              <span className="text-gradient">{t('titleGradient')}</span>
+              {t('titleSuffix')}
             </h2>
-            <p className="mt-8 text-lg leading-relaxed text-[var(--text-body)]">
-              Demain, BoumRank ne sera plus seulement votre outil d&apos;avis et
-              de fidélisation. Ce sera la marketplace qui connecte les commerces
-              de votre quartier entre eux : le restaurateur qui envoie ses
-              clients chez le coiffeur d&apos;à côté, le salon qui partage ses
-              meilleurs clients avec la boutique du coin. Une économie locale
-              qui se renforce, pas qui se subit.
-            </p>
+            <p className="mt-8 text-lg leading-relaxed text-[var(--text-body)]">{t('body')}</p>
           </motion.div>
 
           <motion.div
@@ -47,11 +44,7 @@ export function AProposVision() {
 
 function NetworkSVG() {
   return (
-    <svg
-      viewBox="0 0 320 320"
-      className="h-auto w-full max-w-sm"
-      aria-hidden
-    >
+    <svg viewBox="0 0 320 320" className="h-auto w-full max-w-sm" aria-hidden>
       <defs>
         <linearGradient id="netGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#1B6FC2" />
@@ -73,22 +66,10 @@ function NetworkSVG() {
         <line x1="240" y1="80" x2="80" y2="240" />
       </g>
 
-      {[
-        [80, 80],
-        [240, 80],
-        [80, 240],
-        [240, 240],
-      ].map(([cx, cy], i) => (
+      {([[80, 80], [240, 80], [80, 240], [240, 240]] as [number, number][]).map(([cx, cy], i) => (
         <g key={i}>
           <circle cx={cx} cy={cy} r="32" fill="url(#nodeGrad)" />
-          <circle
-            cx={cx}
-            cy={cy}
-            r="14"
-            fill="white"
-            stroke="url(#netGrad)"
-            strokeWidth="3"
-          />
+          <circle cx={cx} cy={cy} r="14" fill="white" stroke="url(#netGrad)" strokeWidth="3" />
         </g>
       ))}
     </svg>

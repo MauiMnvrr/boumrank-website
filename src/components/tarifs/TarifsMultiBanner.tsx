@@ -1,10 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { Building2, ArrowRight } from 'lucide-react';
 
 export const TarifsMultiBanner = () => {
+  const t = useTranslations('pricing.enterprise');
+
   return (
     <section className="relative py-12 md:py-16 bg-[var(--bg-primary)] overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -32,10 +35,10 @@ export const TarifsMultiBanner = () => {
               </div>
               <div>
                 <h3 className="font-display font-extrabold uppercase text-lg md:text-xl text-[var(--text-primary)] mb-1.5 tracking-wide">
-                  Plusieurs établissements ? Franchise ?
+                  {t('title')}
                 </h3>
                 <p className="text-sm md:text-base text-[var(--text-body)] leading-snug">
-                  Multi-établissements, API, account manager dédié, SLA. On vous fait un devis sur-mesure en 48h.
+                  {t('body')}
                 </p>
               </div>
             </div>
@@ -45,7 +48,7 @@ export const TarifsMultiBanner = () => {
               className="inline-flex items-center gap-2 flex-shrink-0 font-display font-bold uppercase text-xs md:text-sm tracking-wider text-white px-6 py-3.5 rounded-full shadow-[0_10px_28px_rgba(124,92,252,0.3)] hover:scale-[1.03] transition-transform"
               style={{ background: 'linear-gradient(135deg, #7C5CFC 0%, #E84393 100%)' }}
             >
-              Parler à Liam
+              {t('cta')}
               <ArrowRight size={16} />
             </Link>
           </div>

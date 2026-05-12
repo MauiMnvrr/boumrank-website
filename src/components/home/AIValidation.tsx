@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { ScanEye, ShieldAlert, Bot, UserCheck, Zap, BrainCircuit, Lock, Fingerprint } from 'lucide-react';
 
 const FeatureBlock = ({ icon: Icon, title, children, delay }: { icon: React.ComponentType<{ className?: string }>, title: string, children?: React.ReactNode, delay: number }) => (
@@ -28,6 +29,8 @@ const FeatureBlock = ({ icon: Icon, title, children, delay }: { icon: React.Comp
 
 export const AIValidation = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const locale = useLocale();
+  const isEn = locale === 'en';
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -46,14 +49,20 @@ export const AIValidation = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[var(--border-highlight)] px-4 py-1.5 rounded-full mb-6">
             <ShieldAlert className="w-4 h-4 text-[#1B6FC2]" />
-            <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">S&eacute;curit&eacute; Maximale</span>
+            <span className="text-[#1B6FC2] text-xs font-bold uppercase tracking-widest">
+              {isEn ? 'Maximum Security' : 'Sécurité Maximale'}
+            </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase mb-6 text-[var(--text-primary)]">
-            Validation IA : <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">Fiabilit&eacute; &agrave; toute &eacute;preuve</span>
+            {isEn ? 'AI Validation:' : 'Validation IA :'} <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">
+              {isEn ? 'Rock-solid reliability' : 'Fiabilité à toute épreuve'}
+            </span>
           </h2>
           <p className="text-[var(--text-secondary)] max-w-2xl mx-auto text-lg">
-            L&apos;IA agit comme premi&egrave;re ligne de d&eacute;fense (vitesse), tandis que le Dashboard Admin assure le contr&ocirc;le final.
+            {isEn
+              ? 'AI acts as the first line of defense (speed), while the Admin Dashboard handles final control.'
+              : "L'IA agit comme première ligne de défense (vitesse), tandis que le Dashboard Admin assure le contrôle final."}
           </p>
         </div>
 
@@ -61,27 +70,39 @@ export const AIValidation = () => {
 
           {/* Left Content - Features */}
           <div>
-            <FeatureBlock icon={ScanEye} title="1. Analyse Visuelle Cognitive" delay={0.2}>
-              <p>Notre technologie ne se contente pas de regarder, elle <strong>comprend</strong>.</p>
+            <FeatureBlock icon={ScanEye} title={isEn ? "1. Cognitive Visual Analysis" : "1. Analyse Visuelle Cognitive"} delay={0.2}>
+              {isEn ? (
+                <p>Our technology doesn't just look — it <strong>understands</strong>.</p>
+              ) : (
+                <p>Notre technologie ne se contente pas de regarder, elle <strong>comprend</strong>.</p>
+              )}
               <ul className="list-disc list-inside mt-2 text-[var(--text-muted)]">
-                <li><span className="text-[var(--text-body)]">OCR Avanc&eacute; :</span> Lit les mots-cl&eacute;s obligatoires.</li>
-                <li><span className="text-[var(--text-body)]">Validation de crit&egrave;res :</span> V&eacute;rifie les 5 &eacute;toiles ou les dates.</li>
+                <li><span className="text-[var(--text-body)]">{isEn ? 'Advanced OCR:' : 'OCR Avancé :'}</span> {isEn ? 'Reads required keywords.' : 'Lit les mots-clés obligatoires.'}</li>
+                <li><span className="text-[var(--text-body)]">{isEn ? 'Criteria validation:' : 'Validation de critères :'}</span> {isEn ? 'Checks for 5 stars or dates.' : 'Vérifie les 5 étoiles ou les dates.'}</li>
               </ul>
             </FeatureBlock>
 
-            <FeatureBlock icon={Fingerprint} title="2. Bouclier Anti-Fraude" delay={0.3}>
-              <p>Fini les tricheurs qui r&eacute;utilisent la m&ecirc;me photo.</p>
+            <FeatureBlock icon={Fingerprint} title={isEn ? "2. Anti-Fraud Shield" : "2. Bouclier Anti-Fraude"} delay={0.3}>
+              {isEn ? (
+                <p>No more cheaters reusing the same photo.</p>
+              ) : (
+                <p>Fini les tricheurs qui réutilisent la même photo.</p>
+              )}
               <ul className="list-disc list-inside mt-2 text-[var(--text-muted)]">
-                <li><span className="text-[var(--text-body)]">Hachage d&apos;image :</span> D&eacute;tecte les doublons m&ecirc;me recadr&eacute;s.</li>
-                <li><span className="text-[var(--text-body)]">Analyse de m&eacute;tadonn&eacute;es :</span> &Eacute;carte les montages grossiers.</li>
+                <li><span className="text-[var(--text-body)]">{isEn ? 'Image hashing:' : "Hachage d'image :"}</span> {isEn ? 'Detects duplicates even if cropped.' : 'Détecte les doublons même recadrés.'}</li>
+                <li><span className="text-[var(--text-body)]">{isEn ? 'Metadata analysis:' : 'Analyse de métadonnées :'}</span> {isEn ? 'Flags obvious composites.' : 'Écarte les montages grossiers.'}</li>
               </ul>
             </FeatureBlock>
 
-            <FeatureBlock icon={UserCheck} title="3. Mod&egrave;le Hybride" delay={0.4}>
-              <p>L&apos;alliance parfaite entre vitesse et contr&ocirc;le humain.</p>
+            <FeatureBlock icon={UserCheck} title={isEn ? "3. Hybrid Model" : "3. Modèle Hybride"} delay={0.4}>
+              {isEn ? (
+                <p>The perfect balance between speed and human oversight.</p>
+              ) : (
+                <p>L&apos;alliance parfaite entre vitesse et contrôle humain.</p>
+              )}
               <ul className="list-disc list-inside mt-2 text-[var(--text-muted)]">
-                <li><span className="text-[var(--text-body)]">Escalade Intelligente :</span> Les cas douteux sont marqu&eacute;s &quot;&Agrave; v&eacute;rifier&quot;.</li>
-                <li><span className="text-[var(--text-body)]">Validation Swipe :</span> Interface rapide pour l&apos;admin.</li>
+                <li><span className="text-[var(--text-body)]">{isEn ? 'Smart escalation:' : 'Escalade Intelligente :'}</span> {isEn ? 'Flagged cases are marked "To Review".' : 'Les cas douteux sont marqués "À vérifier".'}</li>
+                <li><span className="text-[var(--text-body)]">{isEn ? 'Swipe validation:' : 'Validation Swipe :'}</span> {isEn ? 'Fast admin interface.' : 'Interface rapide pour l\'admin.'}</li>
               </ul>
             </FeatureBlock>
           </div>
@@ -119,8 +140,8 @@ export const AIValidation = () => {
                     <Bot className="text-white w-6 h-6" />
                   </div>
                   <div className="text-center">
-                    <div className="text-[#3A8FE0] font-bold uppercase text-lg">Valid&eacute;</div>
-                    <div className="text-xs text-gray-400">Confiance IA: 99.8%</div>
+                    <div className="text-[#3A8FE0] font-bold uppercase text-lg">{isEn ? 'Validated' : 'Validé'}</div>
+                    <div className="text-xs text-gray-400">{isEn ? 'AI confidence: 99.8%' : 'Confiance IA: 99.8%'}</div>
                   </div>
                 </div>
               </div>
@@ -135,9 +156,9 @@ export const AIValidation = () => {
         {/* Quick Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-16">
           {[
-            { icon: Zap, label: "Instantan\u00e9", sub: "< 3 sec" },
-            { icon: BrainCircuit, label: "Intelligent", sub: "Analyse s\u00e9mantique" },
-            { icon: Lock, label: "S\u00e9curis\u00e9", sub: "Anti-doublon" },
+            { icon: Zap, label: isEn ? "Instant" : "Instantan\u00e9", sub: "< 3 sec" },
+            { icon: BrainCircuit, label: isEn ? "Intelligent" : "Intelligent", sub: isEn ? "Semantic analysis" : "Analyse s\u00e9mantique" },
+            { icon: Lock, label: isEn ? "Secured" : "S\u00e9curis\u00e9", sub: isEn ? "Anti-duplicate" : "Anti-doublon" },
           ].map((stat, idx) => (
             <motion.div
               key={idx}

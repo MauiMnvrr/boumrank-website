@@ -162,12 +162,30 @@
       "h2Em2": "vous",
       "lead": "Pour jouer, vos clients réalisent une action gagnante pour votre enseigne.",
       "actions": [
-        { "label": "Avis Google", "sub": "5★ qui vous remontent" },
-        { "label": "Follow Instagram", "sub": "+1 abonné qualifié" },
-        { "label": "Follow TikTok", "sub": "Visibilité local Gen Z" },
-        { "label": "Avis Tripadvisor", "sub": "Note moyenne en hausse" },
-        { "label": "Like Facebook", "sub": "Communauté locale" },
-        { "label": "Newsletter", "sub": "Email collecté pour relancer" }
+        {
+          "label": "Avis Google",
+          "sub": "5★ qui vous remontent"
+        },
+        {
+          "label": "Follow Instagram",
+          "sub": "+1 abonné qualifié"
+        },
+        {
+          "label": "Follow TikTok",
+          "sub": "Visibilité local Gen Z"
+        },
+        {
+          "label": "Avis Tripadvisor",
+          "sub": "Note moyenne en hausse"
+        },
+        {
+          "label": "Like Facebook",
+          "sub": "Communauté locale"
+        },
+        {
+          "label": "Newsletter",
+          "sub": "Email collecté pour relancer"
+        }
       ],
       "footnote": "Vous choisissez les actions · vos clients jouent · les résultats remontent"
     },
@@ -283,16 +301,383 @@
     }
   },
   "about": {
-    "title": "À propos",
-    "lead": "L'histoire de BoumRank, de l'idée au produit."
+    "hero": {
+      "title": "Deux amis, une obsession :",
+      "titleGradient": "que les commerçants restent concentrés sur leur passion.",
+      "subtitle": "BoumRank est né d'un constat simple. Voici notre histoire."
+    },
+    "story": {
+      "title": "Vous êtes commerçant, pas community manager.",
+      "p1": "Vous ouvrez à 7h. Vous fermez à 22h. Entre les deux, vous cuisinez, vous coupez, vous coiffez, vous accueillez. Vous donnez tout ce que vous avez à votre métier. Le référencement Google, les avis clients, les relances, les programmes de fidélité, vous savez que c'est important. Mais vous n'avez ni le temps, ni l'envie, ni l'énergie de devenir spécialiste en marketing digital.",
+      "p2": "Pendant ce temps, vos concurrents qui maîtrisent ces outils prennent votre place sur Google.",
+      "painPoints": [
+        {
+          "title": "Demander un avis, c'est gênant.",
+          "body": "On hésite à le faire en personne, par peur de paraître insistant."
+        },
+        {
+          "title": "Le SEO local, c'est opaque.",
+          "body": "Trop d'outils, trop de jargon, jamais le temps de s'y mettre vraiment."
+        },
+        {
+          "title": "Le marketing, c'est chronophage.",
+          "body": "Chaque heure passée à automatiser, c'est une heure de moins avec vos clients."
+        }
+      ]
+    },
+    "team": {
+      "title": "On a trouvé",
+      "titleGradient": "une pépite",
+      "titleSuffix": ".",
+      "quote": "On a regardé nos proches, nos amis commerçants, galérer chaque jour pour faire connaître leur passion. On savait qu'il existait une meilleure façon. On l'a cherchée. On l'a trouvée.",
+      "quoteAuthor": "Liam & Maui, co-fondateurs de BoumRank",
+      "p": "On a d'abord testé chez nos proches, la mère de Liam, le frère de Maui, avant de le proposer à qui que ce soit d'autre. Parce qu'on n'avait pas le droit de leur faire perdre du temps. Aujourd'hui, ça marche. Et on veut le proposer à tous les commerçants qui méritent qu'on s'occupe d'eux.",
+      "photoAlt": "Liam et Maui, co-fondateurs de BoumRank, assis côte à côte",
+      "photoCaption": "Liam (à gauche) et Maui, co-fondateurs de BoumRank."
+    },
+    "pepite": {
+      "title": "Une mécanique simple",
+      "titleGradient": "qui change tout",
+      "subtitle": "Un QR code. Un jeu. Une récompense. La combinaison qui transforme chaque client en ambassadeur.",
+      "aside": "Vous, pendant tout ça ? Vous continuez à faire ce que vous aimez.",
+      "steps": [
+        {
+          "n": "01",
+          "title": "Le client scanne.",
+          "body": "Sur l'addition, à la caisse, sur la table : un QR code unique à votre commerce."
+        },
+        {
+          "n": "02",
+          "title": "Le client joue.",
+          "body": "Roue de la fortune, machine à sous, blackjack : un mini-jeu addictif qui demande juste un avis Google pour jouer."
+        },
+        {
+          "n": "03",
+          "title": "Le client revient.",
+          "body": "Il gagne une récompense à venir chercher chez vous. Vous le revoyez. Il consomme."
+        }
+      ]
+    },
+    "results": {
+      "title": "Des résultats concrets,",
+      "titleGradient": "pas des promesses en l'air",
+      "titleSuffix": ".",
+      "footnote": "Testé d'abord chez nos proches. Étendu aujourd'hui à des restaurants, salons, boutiques, instituts.",
+      "stats": [
+        {
+          "headline": "Des centaines",
+          "unit": "d'avis Google par mois",
+          "body": "Génération automatique, sans relance, sans gêne."
+        },
+        {
+          "headline": "Jusqu'à 1 client sur 3",
+          "unit": "qui revient",
+          "body": "Le mini-jeu rapproche, la récompense fait revenir."
+        }
+      ]
+    },
+    "mission": {
+      "title": "Notre mission.",
+      "statement": "Libérer le temps des commerçants français pour qu'ils retournent à ce qu'ils font de mieux :",
+      "statementGradient": "leur métier",
+      "statementSuffix": ".",
+      "pillars": [
+        {
+          "title": "Humain.",
+          "body": "On ne vend pas un outil, on s'occupe de votre marketing comme un associé."
+        },
+        {
+          "title": "Automatique.",
+          "body": "Vous ne touchez à rien. Tout tourne en arrière-plan, tous les jours."
+        },
+        {
+          "title": "Local.",
+          "body": "Construit pour les commerces de proximité français, en France."
+        }
+      ]
+    },
+    "vision": {
+      "eyebrow": "Vision 2030",
+      "title": "Une marketplace entre",
+      "titleGradient": "commerces locaux",
+      "titleSuffix": ".",
+      "body": "Demain, BoumRank ne sera plus seulement votre outil d'avis et de fidélisation. Ce sera la marketplace qui connecte les commerces de votre quartier entre eux : le restaurateur qui envoie ses clients chez le coiffeur d'à côté, le salon qui partage ses meilleurs clients avec la boutique du coin. Une économie locale qui se renforce, pas qui se subit."
+    },
+    "cta": {
+      "title": "Envie d'en parler ?",
+      "subtitle": "On préfère discuter avec vous avant de vous vendre quoi que ce soit. C'est notre façon de faire.",
+      "contact": "Nous écrire",
+      "trial": "Essayer 14 jours gratuits"
+    }
   },
   "pricing": {
     "title": "Tarifs",
-    "lead": "Un service, trois engagements. À vous de choisir."
+    "lead": "Un service, trois engagements. À vous de choisir.",
+    "hero": {
+      "title1": "Un service.",
+      "title2": "Trois engagements.",
+      "title3": "À partir de 59€/mois.",
+      "subtitle": "Le même service, débloqué entièrement dès le jour 1.",
+      "subtitleHighlight": "Vous choisissez juste combien de temps vous voulez rester."
+    },
+    "plans": {
+      "badge": "Le prix",
+      "title1": "Plus vous vous engagez.",
+      "title2": "Moins vous payez.",
+      "subtitle": "Le même service. Trois durées d'engagement. C'est tout.",
+      "featured": "⭐ Le meilleur deal",
+      "saving": "Économisez {amount}€/an",
+      "priceUnit": "/mois HT",
+      "cta": "Démarrer 14j gratuits",
+      "noCreditCard": "Sans carte bancaire"
+    },
+    "features": {
+      "badge": "Ce que vous obtenez",
+      "title1": "Toutes les features.",
+      "title2": "Tout le temps.",
+      "subtitle": "Peu importe l'offre choisie, vous avez 100% du service. Pas de feature gating, pas d'upsell caché.",
+      "items": [
+        {
+          "title": "Les 3 jeux débloqués",
+          "body": "Roue, Slots, Blackjack, tous activables à volonté"
+        },
+        {
+          "title": "Branding 100% custom",
+          "body": "13 templates, palette illimitée, illustrations"
+        },
+        {
+          "title": "Dashboard Performance",
+          "body": "Taux scan, conversion, retour caisse, temps moyen"
+        },
+        {
+          "title": "QR codes illimités",
+          "body": "3 formats imprimables, swipe caissier illimité"
+        },
+        {
+          "title": "Campagnes séquentielles",
+          "body": "Happy hour, week-end, anniversaire client"
+        },
+        {
+          "title": "Support FR prioritaire",
+          "body": "Réponse en chat sous 2h, hébergement RGPD en Europe"
+        }
+      ],
+      "promises": [
+        "Setup en 5 minutes",
+        "Essai 14 jours sans CB",
+        "Export CSV + Zapier",
+        "Mises à jour à vie"
+      ]
+    },
+    "enterprise": {
+      "title": "Plusieurs établissements ? Franchise ?",
+      "body": "Multi-établissements, API, account manager dédié, SLA. On vous fait un devis sur-mesure en 48h.",
+      "cta": "Parler à Liam",
+      "contactHref": "/contact"
+    },
+    "faq": {
+      "title1": "Les 5 questions",
+      "title2": "avant de sortir la CB",
+      "items": [
+        {
+          "question": "Que se passe-t-il si je résilie avant la fin de mon engagement ?",
+          "answer": "Sur les offres 6 mois et 1 an, vous vous engagez sur la durée choisie. En cas de résiliation anticipée, vous payez les mensualités restantes. Sur la formule sans engagement (79€), vous résiliez en 1 clic, quand vous voulez, sans pénalité."
+        },
+        {
+          "question": "Comment se passe le renouvellement à la fin de mon engagement ?",
+          "answer": "Votre abonnement se renouvelle automatiquement au même tarif. Avant chaque échéance, on vous contacte pour faire un point sur vos résultats et confirmer (ou ajuster) votre formule. Aucune surprise, aucun piège."
+        },
+        {
+          "question": "L'essai gratuit 14 jours, il marche pour les 3 offres ?",
+          "answer": "Oui, les 3 offres démarrent par 14 jours gratuits, sans carte bancaire à l'inscription. Toutes les features débloquées, aucune limite de scans. Au jour 14, vous choisissez votre offre (ou vous partez, sans reproche)."
+        },
+        {
+          "question": "Je peux passer d'une offre à une autre en cours de route ?",
+          "answer": "Upgrade vers une offre plus engageante (donc moins chère) : instantané, à tout moment. Downgrade vers une offre moins engageante : effectif à la fin de votre cycle d'engagement en cours. Tout se fait en 1 clic depuis votre dashboard."
+        },
+        {
+          "question": "Les features sont vraiment toutes incluses, même dans la formule à 79€ ?",
+          "answer": "Oui. Les 3 jeux, le branding 100% custom, le dashboard Performance, les campagnes séquentielles, l'export CSV, Zapier, le support prioritaire FR : tout est débloqué dès le jour 1, peu importe l'offre. Les 3 offres ne diffèrent que par la durée d'engagement et le tarif associé."
+        },
+        {
+          "question": "Comment ça se passe pour les paiements et la facturation ?",
+          "answer": "Paiement mensuel récurrent via Stripe (PCI-DSS niveau 1). Facture PDF émise chaque mois, téléchargeable depuis votre dashboard. Hébergement européen, RGPD, aucune revente de données. Le 1er prélèvement intervient à la fin de votre essai 14 jours."
+        }
+      ]
+    }
   },
   "features": {
-    "title": "Fonctionnalités",
-    "lead": "Tout ce que BoumRank vous offre pour transformer chaque scan en avis."
+    "section1": {
+      "title": "Votre menu digitalisé,",
+      "titleGradient": "LE Cheval de Troie",
+      "titleSuffix": "marketing.",
+      "subtitle": "Vos clients consultent le menu pour choisir leur plat.",
+      "subtitleHighlight": "Ils découvrent qu'ils peuvent gagner.",
+      "menuRestaurantName": "Le Petit Café",
+      "menuTitle": "Notre menu",
+      "menuItems": [
+        {
+          "label": "Café Noisette",
+          "price": "2,80 €"
+        },
+        {
+          "label": "Croissant Beurre",
+          "price": "1,90 €"
+        },
+        {
+          "label": "Tartine Avocat",
+          "price": "6,50 €"
+        },
+        {
+          "label": "Smoothie Mangue",
+          "price": "5,20 €"
+        },
+        {
+          "label": "Salade César",
+          "price": "11,90 €"
+        }
+      ],
+      "benefits": [
+        {
+          "title": "QR-code",
+          "body": "Plus de menus tachés, plus de mises à jour à réimprimer. Un seul QR sur table, vos clients consultent leur menu et tombent sur le jeu."
+        },
+        {
+          "title": "Aucune explication nécessaire",
+          "body": "Une simple invitation en bas du menu : «Tentez votre chance». Le client clique parce qu'il a envie, pas parce qu'on l'oblige."
+        },
+        {
+          "title": "1 client sur 3 déclenche une action marketing",
+          "body": "Avis Google, abonnement Insta, newsletter. Chaque partie commence par une action que vous avez choisie, chaque repas en boost pour votre visibilité."
+        }
+      ]
+    },
+    "section2": {
+      "title": "Vous configurez. Vos clients jouent.",
+      "titleGradient": "Vous récoltez.",
+      "subtitle": "Quatre éléments qui s'assemblent en",
+      "subtitleHighlight": "un programme de fidélité gamifié",
+      "subtitleSuffix": "pilotable depuis votre téléphone.",
+      "resultPill": "Résultat : un client qui revient",
+      "stepPrefix": "Étape",
+      "steps": [
+        {
+          "number": "01",
+          "label": "Le jeu",
+          "title": "3 mécaniques calibrées pour la dopamine",
+          "body": "Roue, slot, blackjack. Un pic émotionnel court, le frisson qui pousse à partager.",
+          "bullets": [
+            "Roue : visuelle, universelle",
+            "Slot : frisson de l'alignement",
+            "Blackjack : la clientèle joueuse"
+          ],
+          "kpiValue": "+187 %",
+          "kpiLabel": "d'engagement vs sondage"
+        },
+        {
+          "number": "02",
+          "label": "L'action",
+          "title": "Une action obligatoire avant de jouer",
+          "body": "Vous décidez ce que le client fait avant la partie. Du marketing déguisé en jeu, pas une loterie gratuite.",
+          "bullets": [
+            "Avis Google vérifié auto",
+            "Abo Insta, TikTok, Facebook",
+            "Opt-in newsletter ou SMS",
+            "Parrainage à un ami"
+          ],
+          "kpiValue": "4,8 / 5",
+          "kpiLabel": "note Google moyenne en bêta"
+        },
+        {
+          "number": "03",
+          "label": "Les lots",
+          "title": "Vous pilotez 100 % de l'économie",
+          "body": "Probabilités au pourcent près, minimum d'achat par lot, rareté. La marge reste à la centaine près.",
+          "bullets": [
+            "Lots illimités",
+            "Probabilités au pourcent près",
+            "Minimum d'achat par lot",
+            "Boucle de retour intégrée"
+          ],
+          "kpiValue": "−12 %",
+          "kpiLabel": "de coût d'acquisition"
+        },
+        {
+          "number": "04",
+          "label": "Le coupon",
+          "title": "Disponible J+1, ramène le client",
+          "body": "On gagne aujourd'hui, on consomme demain. Ce délai transforme un avis en client fidèle.",
+          "bullets": [
+            "Date d'expiration libre",
+            "Disponible dès le lendemain",
+            "Lié au compte, usage unique",
+            "Sync temps réel multi-caisses"
+          ],
+          "kpiValue": "63 %",
+          "kpiLabel": "de coupons activés en boutique"
+        }
+      ],
+      "couponLabel": "Boum coupon",
+      "couponValue": "−20 %",
+      "couponValidity": "Valide demain"
+    },
+    "section3": {
+      "title": "Un dashboard.",
+      "titleGradient": "Trois avantages",
+      "titleSuffix": "que personne ne vous offre.",
+      "subtitle": "Toutes vos métriques en temps réel,",
+      "subtitleHighlight": "et la vision claire de votre ROI",
+      "subtitleSuffix": "sans Excel, sans agence.",
+      "dashboardLabel": "Dashboard · Cette semaine",
+      "dashboardRange": "12/05 — 18/05",
+      "stats": [
+        {
+          "label": "Actions cette semaine",
+          "value": "342",
+          "delta": "+18%",
+          "deltaLabel": "vs semaine dernière"
+        },
+        {
+          "label": "Cashback généré",
+          "value": "1 247 €",
+          "delta": "+32%",
+          "deltaLabel": "vs semaine dernière"
+        },
+        {
+          "label": "Coupons utilisés",
+          "value": "89",
+          "delta": "+12%",
+          "deltaLabel": "vs semaine dernière"
+        }
+      ],
+      "googleRatingLabel": "Note Google",
+      "googleRatingValue": "4,7 ★",
+      "googleRatingDelta": "+0,3 ce mois",
+      "description": "Vous voyez en temps réel",
+      "descriptionHighlight1": "les actions de la semaine",
+      "descriptionHighlight2": "le cashback rapporté par chaque coupon utilisé",
+      "descriptionSuffix": "et l'évolution de votre note Google. Tout exportable. Tout horodaté. Tout à vous.",
+      "advantagesTitle": "Trois choses que",
+      "advantagesTitleGradient": "personne d'autre",
+      "advantagesTitleSuffix": "ne fait.",
+      "advantages": [
+        {
+          "badge": "Le menu intégré",
+          "title": "Le menu, qui fait la différence",
+          "body": "Nous sommes les seuls à inclure votre menu digitalisé sans surcoût. C'est pour nous, c'est cadeau, et ça nous fait vraiment plaisir"
+        },
+        {
+          "badge": "L'auto-financement",
+          "title": "La solution qui s'auto-finance",
+          "body": "Fixez un minimum d'achat. Le client revient, consomme et la solution s'auto-finance. Max d'avis, aucune sortie !"
+        },
+        {
+          "badge": "Setup 2 minutes",
+          "title": "Plus de scans, plus de fans",
+          "body": "Fini le QR code isolé de nos concurrents. Notre intégration fait jouer 1 client sur 3 au lieu de 1 sur 5. Résultat : plus de joueurs, plus d'avis."
+        }
+      ]
+    }
   },
   "howItWorksPage": {
     "title": "Comment ça marche",

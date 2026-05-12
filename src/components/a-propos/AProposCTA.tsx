@@ -1,11 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
 import { SIGNUP_URL } from '@/lib/constants';
 
 export function AProposCTA() {
+  const t = useTranslations('about.cta');
+
   return (
     <section className="bg-[var(--bg-primary)] py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-6">
@@ -27,24 +30,23 @@ export function AProposCTA() {
 
           <div className="relative">
             <h2 className="font-display text-3xl font-bold leading-tight text-[var(--text-primary)] md:text-5xl">
-              Envie d&apos;en parler&nbsp;?
+              {t('title')}
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-[var(--text-body)] md:text-xl">
-              On préfère discuter avec vous avant de vous vendre quoi que ce
-              soit. C&apos;est notre façon de faire.
+              {t('subtitle')}
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/contact">
                 <Button variant="gradient" size="lg">
-                  Nous écrire
+                  {t('contact')}
                 </Button>
               </Link>
-              <Link href={SIGNUP_URL}>
+              <a href={SIGNUP_URL}>
                 <Button variant="outline" size="lg">
-                  Essayer 14 jours gratuits
+                  {t('trial')}
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </motion.div>
