@@ -39,6 +39,7 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const fromAddress = process.env.RESEND_FROM || `BoumRank <${COMPANY.email}>`;
+  const internalTo = process.env.CONTACT_TO_EMAIL || COMPANY.email;
   const pdfUrl = `${SITE_URL}/guides/playbook-boumrank-50-lots.pdf`;
 
   // Dev / no-key fallback : log the capture and return success
@@ -60,7 +61,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from: fromAddress,
       to: [email],
-      subject: 'Votre Playbook BoumRank — 50 idées de lots',
+      subject: 'Votre Playbook BoumRank, 50 idées de lots',
       html: buildEmailHtml(pdfUrl),
       text: buildEmailText(pdfUrl),
       tags: [
@@ -75,6 +76,24 @@ export async function POST(req: Request) {
         { ok: false, error: "Envoi impossible pour l'instant." },
         { status: 502 }
       );
+    }
+
+    // Internal notification (best-effort, never blocks the user response)
+    try {
+      await resend.emails.send({
+        from: fromAddress,
+        to: [internalTo],
+        replyTo: email,
+        subject: `Nouveau lead playbook: ${email}`,
+        html: buildInternalHtml(email),
+        text: `Nouveau lead playbook\nEmail: ${email}\nDate: ${new Date().toISOString()}`,
+        tags: [
+          { name: 'magnet', value: 'playbook-50-lots' },
+          { name: 'kind', value: 'internal-notification' },
+        ],
+      });
+    } catch (notifyErr) {
+      console.error('[lead-magnet] internal notification failed', notifyErr);
     }
 
     return NextResponse.json({ ok: true, mode: 'email' });
@@ -121,6 +140,25 @@ function buildEmailHtml(pdfUrl: string): string {
         <p style="margin:16px 0 0;color:#9AA8B8;font-size:12px;">
           BoumRank — Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université
         </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+function buildInternalHtml(email: string): string {
+  return `<!doctype html>
+<html lang="fr">
+<body style="margin:0;background:#F8FAFB;font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif;color:#1A202C;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#FFFFFF;border-radius:16px;overflow:hidden;">
+    <tr><td style="height:6px;background:linear-gradient(90deg,#1B6FC2 0%,#1E9DAA 50%,#2EAE6D 100%);"></td></tr>
+    <tr>
+      <td style="padding:32px;">
+        <h1 style="margin:0 0 16px;font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:-0.5px;">Nouveau lead playbook</h1>
+        <p style="margin:0 0 8px;color:#9AA8B8;text-transform:uppercase;font-size:12px;letter-spacing:1px;">Email</p>
+        <p style="margin:0 0 16px;"><a href="mailto:${email}" style="color:#1B6FC2;text-decoration:none;font-weight:600;">${email}</a></p>
+        <p style="margin:0;color:#4A5568;font-size:13px;">Source: home-lead-magnet (Playbook 50 lots)</p>
       </td>
     </tr>
   </table>

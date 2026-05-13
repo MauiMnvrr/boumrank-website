@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export function ContactForm() {
   const t = useTranslations('contact.form');
+  const locale = useLocale();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -15,6 +16,8 @@ export function ContactForm() {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   function validate() {
     const newErrors: Record<string, string> = {};
@@ -37,19 +40,45 @@ export function ContactForm() {
     return Object.keys(newErrors).length === 0;
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!validate()) return;
 
-    const subject = encodeURIComponent(
-      `Contact ${formData.company || formData.name}`,
-    );
-    const body = encodeURIComponent(
-      `${t('name')}: ${formData.name}\n${t('email')}: ${formData.email}\n${t('company')}: ${formData.company}\n\n${t('message')}:\n${formData.message}`,
-    );
+    setLoading(true);
+    setServerError(null);
 
-    window.location.href = `mailto:support@boumrank.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, locale }),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+      };
+
+      if (!res.ok || !data.ok) {
+        setServerError(
+          data.error ||
+            (locale === 'en'
+              ? 'Sending failed. Please try again.'
+              : 'Envoi impossible. Réessayez dans un instant.'),
+        );
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setServerError(
+        locale === 'en'
+          ? 'Network error. Please try again.'
+          : 'Erreur réseau. Réessayez dans un instant.',
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -150,11 +179,22 @@ export function ContactForm() {
         )}
       </div>
 
+      {serverError && (
+        <p className="text-sm text-[#E74C3C]" role="alert">
+          {serverError}
+        </p>
+      )}
+
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] text-white py-4 rounded-full font-extrabold uppercase text-sm tracking-widest shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:shadow-[0_0_30px_rgba(27,111,194,0.6)] hover:scale-[1.02] transition-all"
+        disabled={loading}
+        className="w-full bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] text-white py-4 rounded-full font-extrabold uppercase text-sm tracking-widest shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:shadow-[0_0_30px_rgba(27,111,194,0.6)] hover:scale-[1.02] transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
       >
-        {t('submit')}
+        {loading
+          ? locale === 'en'
+            ? 'Sending...'
+            : 'Envoi...'
+          : t('submit')}
       </button>
     </form>
   );
