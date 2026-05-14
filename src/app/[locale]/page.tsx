@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Hero } from '@/components/home/Hero';
+import { SocialProof } from '@/components/home/SocialProof';
 import { Problem } from '@/components/home/Problem';
 import { HowItWorks } from '@/components/home/HowItWorks';
 import { Activate } from '@/components/home/Activate';
@@ -41,6 +42,7 @@ export default async function HomePage({
         ]}
       />
       <Hero />
+      <SocialProof />
       <Problem />
       <HowItWorks />
       <Activate />

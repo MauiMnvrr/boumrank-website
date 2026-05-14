@@ -76,19 +76,34 @@ export const FAQ = () => {
                   aria-controls={`faq-answer-${i}`}
                   className="w-full flex items-center justify-between gap-4 px-5 md:px-6 py-5 text-left group"
                 >
-                  <span className="flex-1 font-display font-bold text-base md:text-lg text-[var(--text-primary)] leading-snug">
-                    <span className="text-[var(--text-muted)] mr-2 font-mono text-sm">
-                      Q{(i + 1).toString().padStart(2, '0')}.
+                  <span className="flex-1 font-display font-bold text-base md:text-lg text-[var(--text-primary)] leading-snug flex items-baseline gap-3">
+                    <span
+                      className={cn(
+                        'font-data text-xs md:text-sm tracking-[0.15em] transition-colors',
+                        isOpen
+                          ? 'text-[var(--primary-blue)]'
+                          : 'text-[var(--text-muted)] group-hover:text-[var(--primary-blue)]'
+                      )}
+                    >
+                      {(i + 1).toString().padStart(2, '0')}
                     </span>
-                    {item.question}
+                    <span className="relative inline-block">
+                      {item.question}
+                      <span
+                        className={cn(
+                          'absolute left-0 -bottom-0.5 h-[2px] bg-[linear-gradient(90deg,#1B6FC2_0%,#2EAE6D_100%)] transition-[width] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                          isOpen ? 'w-full' : 'w-0 group-hover:w-1/3'
+                        )}
+                      />
+                    </span>
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className={cn(
                       'flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-colors',
                       isOpen
-                        ? 'bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] text-white'
+                        ? 'bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] text-white shadow-[0_4px_12px_rgba(27,111,194,0.25)]'
                         : 'bg-[var(--bg-elevated)] text-[var(--text-primary)] group-hover:bg-[var(--border-highlight)]'
                     )}
                   >
@@ -103,7 +118,7 @@ export const FAQ = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
                       <div className="px-5 md:px-6 pb-5 pt-0 pl-14 md:pl-16">
