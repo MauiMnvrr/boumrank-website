@@ -151,29 +151,56 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: '100dvh' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden fixed inset-0 top-[64px] bg-[var(--bg-primary)] z-[99] overflow-y-auto"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <motion.div
+              className="flex flex-col p-8 gap-6"
+              variants={{
+                hidden:  {},
+                visible: { transition: { staggerChildren: 0.06, delayChildren: 0.12 } },
+              }}
+              initial="hidden"
+              animate="visible"
+            >
               {menuItems.map((item) => (
-                <Link
+                <motion.div
                   key={item.key}
-                  href={item.href}
-                  className={cn(
-                    'font-display font-extrabold text-2xl uppercase transition-colors',
-                    pathname === item.href
-                      ? 'text-[var(--primary-blue)]'
-                      : 'text-[var(--text-primary)] hover:text-[var(--primary-blue)]'
-                  )}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  variants={{
+                    hidden:  { opacity: 0, x: -20 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+                  }}
                 >
-                  {tNav(item.key)}
-                </Link>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'font-display font-extrabold text-2xl uppercase transition-colors block',
+                      "relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[3px]",
+                      'after:bg-[linear-gradient(90deg,#1B6FC2_0%,#2EAE6D_100%)] hover:after:w-full after:transition-[width] after:duration-500',
+                      pathname === item.href
+                        ? 'text-[var(--primary-blue)] after:w-full'
+                        : 'text-[var(--text-primary)] hover:text-[var(--primary-blue)]'
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {tNav(item.key)}
+                  </Link>
+                </motion.div>
               ))}
 
-              <div className="w-full h-px bg-[var(--border-default)] my-2" />
+              <motion.div
+                variants={{
+                  hidden:  { opacity: 0 },
+                  visible: { opacity: 1, transition: { duration: 0.4 } },
+                }}
+                className="w-full h-px bg-[var(--border-default)] my-2"
+              />
 
-              <a
+              <motion.a
+                variants={{
+                  hidden:  { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+                }}
                 href={AUTH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -181,22 +208,36 @@ export const Navbar: React.FC = () => {
               >
                 {tCommon('clientPortal')}
                 <ExternalLink size={16} />
-              </a>
+              </motion.a>
 
-              <LanguageToggle variant="full" />
-
-              <Button
-                onClick={(e) => {
-                  openModal(e);
-                  setIsMobileMenuOpen(false);
+              <motion.div
+                variants={{
+                  hidden:  { opacity: 0, y: 12 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
                 }}
-                variant="gradient"
-                size="lg"
-                className="w-full"
               >
-                {tCommon('tryFree')}
-              </Button>
-            </div>
+                <LanguageToggle variant="full" />
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  hidden:  { opacity: 0, y: 16 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+                }}
+              >
+                <Button
+                  onClick={(e) => {
+                    openModal(e);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  variant="gradient"
+                  size="lg"
+                  className="w-full"
+                >
+                  {tCommon('tryFree')}
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

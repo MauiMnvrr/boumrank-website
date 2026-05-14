@@ -7,6 +7,9 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import { AuroraBackground } from '@/components/decorative/AuroraBackground';
+import { RevealOnScroll } from '@/components/decorative/RevealOnScroll';
 import { DEMO_URL } from '@/lib/constants';
 
 // =====================================================
@@ -27,41 +30,6 @@ const InstagramIcon = ({ size = 18 }: { size?: number }) => (
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );
-
-const FOOD_EMOJIS = ['🍔', '🌭', '🌮', '🌯', '🥙', '🥗', '🥓', '🍗', '🍖', '🍟', '🍕', '🥪', '🍱', '🥘', '🧆', '🍲', '🍛', '🍜', '🍳', '🥟', '🍿', '🍤', '🍣', '🍝', '🥞', '🧇', '🍪', '🍩', '🧁', '🍦', '🎂', '🍰', '🥧', '🍮', '🍧', '🍨', '🍭', '🍫', '🍬', '🍆', '🍑', '🍓', '🍍', '🍊', '🍎', '🍌', '🥑', '🍒', '🍋', '🥥', '🥚', '🧀', '🥜', '🥔', '🥩', '🍞', '🥯', '🥝', '🍉', '🍇', '🥦', '🥖', '🥒', '🍯', '🥕', '🌽'];
-
-const EmojiRain = () => {
-  const [drops, setDrops] = useState<{ emoji: string; left: string; duration: number; delay: number; size: number }[]>([]);
-
-  useEffect(() => {
-    setDrops(
-      Array.from({ length: 40 }).map((_, i) => ({
-        emoji: FOOD_EMOJIS[i % FOOD_EMOJIS.length],
-        left: Math.floor(Math.random() * 100) + '%',
-        duration: Math.random() * 20 + 15,
-        delay: Math.random() * -30,
-        size: Math.random() * 1.5 + 1,
-      }))
-    );
-  }, []);
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {drops.map((drop, i) => (
-        <motion.div
-          key={i}
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: '110vh', opacity: [0, 0.18, 0.18, 0], rotate: [0, 360] }}
-          transition={{ duration: drop.duration, repeat: Infinity, delay: drop.delay, ease: 'linear' }}
-          style={{ left: drop.left, fontSize: `${drop.size}rem` }}
-          className="absolute top-0 pointer-events-none select-none filter blur-[1px] z-0"
-        >
-          {drop.emoji}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
 
 const BottomNav = () => {
   const t = useTranslations('home.hero.mockup');
@@ -289,61 +257,110 @@ export const Hero = () => {
   }, [screens.length]);
 
   return (
-    <section className="relative min-h-[100dvh] pt-24 pb-12 overflow-hidden flex items-center bg-[var(--bg-primary)]">
-      {/* Background : radial gradient + emoji rain */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(27,111,194,0.08),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(27,111,194,0.1),transparent_70%)]" />
-        <EmojiRain />
-      </div>
+    <section className="relative min-h-[100dvh] pt-24 pb-16 overflow-hidden flex items-center bg-[var(--bg-primary)]">
+      {/* Signature aurora background — replaces previous radial gradient + emoji rain */}
+      <AuroraBackground variant="auto" intensity="medium" />
+
+      {/* Subtle dotted grid overlay for texture */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 opacity-[0.15] dark:opacity-20"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at center, currentColor 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          color: 'var(--text-muted)',
+          maskImage: 'radial-gradient(ellipse at center, black 0%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 0%, transparent 80%)',
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
-          {/* LEFT — Copy & CTAs (refonte complète Jour 2) */}
+          {/* LEFT — Copy & CTAs */}
           <motion.div
             style={{ y: yText }}
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="text-left"
           >
-            {/* H1 — punchline avec mots-clés en gradient */}
-            <h1 className="font-display font-extrabold uppercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
-              {t('h1Part1')}{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
-                {t('h1Word1')}
-              </span>
-              ,{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
-                {t('h1Word2')}
-              </span>
-              ,
-              <br />
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
-                  {t('h1Final')}
+            {/* Eyebrow — clé d'entrée brand */}
+            <RevealOnScroll mode="fade" delay={0.05}>
+              <Eyebrow variant="subtle" size="sm" withDot className="mb-5">
+                QR · Mini-jeux · Avis Google
+              </Eyebrow>
+            </RevealOnScroll>
+
+            {/* H1 — punchline avec mots-clés en gradient + mask reveal */}
+            <RevealOnScroll mode="mask">
+              <h1 className="font-display font-extrabold uppercase text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
+                {t('h1Part1')}{' '}
+                <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
+                  {t('h1Word1')}
                 </span>
-                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-30" />
-              </span>
-              .
-            </h1>
+                ,{' '}
+                <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
+                  {t('h1Word2')}
+                </span>
+                ,
+                <br />
+                <span className="relative inline-block">
+                  <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
+                    {t('h1Final')}
+                  </span>
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ originX: 0 }}
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-40"
+                  />
+                </span>
+                .
+              </h1>
+            </RevealOnScroll>
 
             {/* Sub-headline */}
-            <p className="text-[var(--text-body)] text-base sm:text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
-              {t('subhead')}
-            </p>
+            <RevealOnScroll mode="fade" delay={0.25}>
+              <p className="text-[var(--text-body)] text-base sm:text-lg md:text-xl mb-7 max-w-xl leading-relaxed">
+                {t('subhead')}
+              </p>
+            </RevealOnScroll>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button onClick={openModal} variant="gradient" size="lg" className="w-full sm:w-auto">
-                <Sparkles size={18} />
-                {tCommon('tryFreeFortnight')}
-              </Button>
-            </div>
+            <RevealOnScroll mode="fade" delay={0.35}>
+              <div className="flex flex-col sm:flex-row gap-4 mb-7">
+                <Button onClick={openModal} variant="gradient" size="lg" className="w-full sm:w-auto">
+                  <Sparkles size={18} />
+                  {tCommon('tryFreeFortnight')}
+                </Button>
+              </div>
+            </RevealOnScroll>
+
+            {/* Identity chips — secteurs commerce */}
+            <RevealOnScroll mode="split" delay={0.45} stagger={0.06}>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
+                {['Restaurant', 'Boulangerie', 'Salon', 'Café', 'Boutique'].map((label) => (
+                  <span
+                    key={label}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-default)] shadow-[0_2px_8px_rgba(15,23,42,0.04)]"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-[var(--primary-green)]" />
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </RevealOnScroll>
 
           </motion.div>
 
-          {/* RIGHT — Mockup smartphone */}
-          <div className="relative flex justify-center perspective-1000 origin-top">
+          {/* RIGHT — Mockup smartphone with subtle float loop */}
+          <motion.div
+            className="relative flex justify-center perspective-1000 origin-top"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
             <motion.div
               initial={{ rotateY: -20, rotateX: 10, opacity: 0 }}
               animate={{ rotateY: -12, rotateX: 5, opacity: 1 }}
@@ -369,8 +386,30 @@ export const Hero = () => {
             </motion.div>
             {/* Glow halo behind phone */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[320px] md:w-[400px] h-[260px] sm:h-[320px] md:h-[400px] bg-[linear-gradient(135deg,rgba(27,111,194,0.15)_0%,rgba(46,174,109,0.15)_100%)] rounded-full blur-[80px] -z-10" />
-          </div>
+          </motion.div>
         </div>
+
+        {/* Scroll indicator — SVG draw-on line + chevron */}
+        <motion.div
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-[var(--text-secondary)]"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em]">Découvrir</span>
+          <svg width="2" height="48" viewBox="0 0 2 48" fill="none">
+            <motion.line
+              x1="1" y1="0" x2="1" y2="48"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ delay: 1.6, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </svg>
+        </motion.div>
       </div>
     </section>
   );
