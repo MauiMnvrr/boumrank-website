@@ -113,7 +113,7 @@ export const RoiCalculator = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-[5fr_7fr] gap-8 items-stretch">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-6 md:gap-8 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

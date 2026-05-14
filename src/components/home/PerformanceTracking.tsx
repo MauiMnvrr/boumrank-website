@@ -294,7 +294,7 @@ export const PerformanceTracking = () => {
                     </div>
 
                     {/* Footer Stats Grid */}
-                    <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/5">
+                    <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/5">
                       <div className="text-center">
                         <div className="text-[#3A8FE0] text-2xl font-extrabold mb-1">
                           <AnimatedNumber value={242} />

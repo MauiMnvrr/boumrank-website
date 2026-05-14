@@ -55,7 +55,7 @@ export default async function TechnologiePage({
             <span className="text-[#1E9DAA] font-bold uppercase tracking-widest text-sm">
               {isEn ? 'Artificial intelligence' : 'Intelligence artificielle'}
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-none text-[var(--text-primary)]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-[1.05] text-[var(--text-primary)]">
               {isEn ? 'Our ' : 'Notre '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E9DAA] via-[#2EAE6D] to-[#1B6FC2]">
                 {isEn ? 'technology' : 'technologie'}

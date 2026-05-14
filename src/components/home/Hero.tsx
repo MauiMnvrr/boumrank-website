@@ -342,13 +342,13 @@ export const Hero = () => {
 
           </motion.div>
 
-          {/* RIGHT — Mockup smartphone (CONSERVÉ TEL QUEL — chef d'œuvre) */}
-          <div className="relative flex justify-center perspective-1000 scale-[0.85] sm:scale-90 md:scale-100 origin-top">
+          {/* RIGHT — Mockup smartphone */}
+          <div className="relative flex justify-center perspective-1000 origin-top">
             <motion.div
               initial={{ rotateY: -20, rotateX: 10, opacity: 0 }}
               animate={{ rotateY: -12, rotateX: 5, opacity: 1 }}
               transition={{ duration: 1.1, delay: 0.2 }}
-              className="relative w-[300px] sm:w-[320px] h-[610px] sm:h-[650px] bg-[#1a1a1a] rounded-[3rem] border-8 border-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-[260px] sm:w-[300px] md:w-[340px] lg:w-[360px] h-[560px] sm:h-[620px] md:h-[700px] lg:h-[740px] bg-[#1a1a1a] rounded-[3rem] border-8 border-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
             >
               <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-white/10 to-transparent pointer-events-none z-50"></div>
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-xl z-50"></div>
@@ -368,7 +368,7 @@ export const Hero = () => {
               </div>
             </motion.div>
             {/* Glow halo behind phone */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[linear-gradient(135deg,rgba(27,111,194,0.15)_0%,rgba(46,174,109,0.15)_100%)] rounded-full blur-[80px] -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[320px] md:w-[400px] h-[260px] sm:h-[320px] md:h-[400px] bg-[linear-gradient(135deg,rgba(27,111,194,0.15)_0%,rgba(46,174,109,0.15)_100%)] rounded-full blur-[80px] -z-10" />
           </div>
         </div>
       </div>

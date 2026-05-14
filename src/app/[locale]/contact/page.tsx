@@ -56,7 +56,7 @@ export default async function ContactPage({
             <span className="text-[#1B6FC2] font-bold uppercase tracking-widest text-sm">
               {isEn ? "Let's talk about your project" : 'Parlons de votre projet'}
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-none text-[var(--text-primary)]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-[1.05] text-[var(--text-primary)]">
               {isEn ? 'Contact ' : 'Contactez '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D]">
                 {isEn ? 'our team' : 'notre équipe'}

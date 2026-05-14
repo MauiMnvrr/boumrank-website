@@ -35,7 +35,7 @@ export const Vision = () => {
               y: [0, -20, 0],
             }}
             transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl pointer-events-none"
+            className="absolute top-0 right-0 w-[220px] sm:w-[300px] md:w-[400px] h-[220px] sm:h-[300px] md:h-[400px] bg-white/10 rounded-full blur-3xl pointer-events-none"
           />
           <motion.div
             animate={{
@@ -43,7 +43,7 @@ export const Vision = () => {
               y: [0, 30, 0],
             }}
             transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#F28C28]/20 rounded-full blur-3xl pointer-events-none"
+            className="absolute bottom-0 left-0 w-[260px] sm:w-[380px] md:w-[500px] h-[260px] sm:h-[380px] md:h-[500px] bg-[#F28C28]/20 rounded-full blur-3xl pointer-events-none"
           />
 
           {/* Connected network pattern (decorative SVG) */}

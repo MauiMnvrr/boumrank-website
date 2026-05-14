@@ -55,7 +55,7 @@ export default async function ExperiencePage({
             <span className="text-[#7C5CFC] font-bold uppercase tracking-widest text-sm">
               {isEn ? 'Immersive customer journey' : 'Parcours client immersif'}
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-none text-[var(--text-primary)]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-[1.05] text-[var(--text-primary)]">
               {isEn ? 'The ' : "L'"}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C5CFC] via-[#1B6FC2] to-[#1E9DAA]">
                 {isEn ? 'experience' : 'expérience de jeu'}
