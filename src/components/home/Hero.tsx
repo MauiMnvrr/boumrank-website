@@ -292,34 +292,37 @@ export const Hero = () => {
               </Eyebrow>
             </RevealOnScroll>
 
-            {/* H1 — punchline avec mots-clés en gradient + mask reveal */}
-            <RevealOnScroll mode="mask">
-              <h1 className="font-display font-extrabold uppercase text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
-                {t('h1Part1')}{' '}
-                <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
-                  {t('h1Word1')}
+            {/* H1 — punchline avec mots-cles en gradient */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display font-extrabold uppercase text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]"
+            >
+              {t('h1Part1')}{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
+                {t('h1Word1')}
+              </span>
+              ,{' '}
+              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
+                {t('h1Word2')}
+              </span>
+              ,
+              <br />
+              <span className="relative inline-block">
+                <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
+                  {t('h1Final')}
                 </span>
-                ,{' '}
-                <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
-                  {t('h1Word2')}
-                </span>
-                ,
-                <br />
-                <span className="relative inline-block">
-                  <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
-                    {t('h1Final')}
-                  </span>
-                  <motion.span
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ originX: 0 }}
-                    className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-40"
-                  />
-                </span>
-                .
-              </h1>
-            </RevealOnScroll>
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ originX: 0 }}
+                  className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-40"
+                />
+              </span>
+              .
+            </motion.h1>
 
             {/* Sub-headline */}
             <RevealOnScroll mode="fade" delay={0.25}>
