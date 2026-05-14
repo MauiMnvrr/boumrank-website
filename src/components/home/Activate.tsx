@@ -78,7 +78,7 @@ export const Activate = () => {
       <div className="absolute top-1/3 -left-32 w-[420px] h-[420px] bg-[radial-gradient(circle,rgba(46,174,109,0.10),transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[480px] h-[480px] bg-[radial-gradient(circle,rgba(27,111,194,0.10),transparent_70%)] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

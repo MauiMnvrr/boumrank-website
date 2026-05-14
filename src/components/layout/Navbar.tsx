@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
           : 'bg-transparent py-5'
       )}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center gap-6">
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center gap-4 sm:gap-6">
         {/* Logo */}
         <Link
           href="/"
@@ -149,7 +149,7 @@ export const Navbar: React.FC = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
+            animate={{ opacity: 1, height: '100dvh' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="lg:hidden fixed inset-0 top-[64px] bg-[var(--bg-primary)] z-[99] overflow-y-auto"

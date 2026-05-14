@@ -36,7 +36,7 @@ export default async function MentionsLegalesPage({
   setRequestLocale(locale);
   return (
     <section className="pt-32 pb-24 bg-[var(--bg-primary)] min-h-screen">
-      <div className="container mx-auto px-6 max-w-4xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <Breadcrumbs
           items={[
             { label: 'Accueil', href: '/' },

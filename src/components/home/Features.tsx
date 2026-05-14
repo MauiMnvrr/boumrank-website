@@ -156,7 +156,7 @@ export const Features = () => {
         className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-[#2EAE6D]/5 rounded-full blur-[100px] pointer-events-none"
       />
 
-      <div className="container mx-auto px-6 mb-16 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 mb-16 text-center relative z-10">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ export const Features = () => {
         </motion.h2>
       </div>
 
-      <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
         {features.map((feature, idx) => (
           <FeatureCard key={idx} {...feature} index={idx} />
         ))}

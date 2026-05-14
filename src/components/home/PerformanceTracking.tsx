@@ -70,7 +70,7 @@ export const PerformanceTracking = () => {
       {/* Background Decor */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#2EAE6D]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-1 gap-16 items-center">
 
           {/* Header Area */}

@@ -7,7 +7,7 @@ export default async function NotFound() {
 
   return (
     <section className="min-h-[70vh] flex items-center justify-center bg-[var(--bg-primary)]">
-      <div className="container mx-auto px-6 text-center">
+      <div className="container mx-auto px-4 sm:px-6 text-center">
         <div className="text-8xl md:text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] mb-6">
           404
         </div>

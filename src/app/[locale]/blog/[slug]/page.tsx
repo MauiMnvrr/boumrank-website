@@ -93,7 +93,7 @@ export default async function BlogArticlePage({
       />
 
       <article className="py-12 bg-[var(--bg-primary)]">
-        <div className="container mx-auto px-6 max-w-3xl">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-[var(--text-secondary)] hover:text-[#1B6FC2] transition-colors mb-8 text-sm font-bold uppercase tracking-wider"

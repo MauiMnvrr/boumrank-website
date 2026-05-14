@@ -44,7 +44,7 @@ export const Section3Pilotage = () => {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(46,174,109,0.06),transparent_60%)]" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

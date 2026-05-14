@@ -235,7 +235,7 @@ export const GameShowcase = () => {
 
   return (
     <section className="py-24 bg-[var(--bg-elevated)] relative overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left Column: Narrative */}
@@ -294,12 +294,12 @@ export const GameShowcase = () => {
           </div>
 
           {/* Phone mockup stays dark-themed */}
-          <div className="order-1 lg:order-2 flex justify-center items-center h-[650px] perspective-1000">
+          <div className="order-1 lg:order-2 flex justify-center items-center h-[560px] sm:h-[650px] perspective-1000 scale-[0.85] sm:scale-90 md:scale-100">
             <motion.div
               initial={{ rotateY: -15 }}
               whileInView={{ rotateY: -5 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-              className="relative w-[320px] h-[640px] bg-[#0D1117] rounded-[3.5rem] border-[8px] border-[#2a2a2a] shadow-[0_0_60px_rgba(0,0,0,0.6),0_20px_40px_rgba(0,0,0,0.4)] z-10 overflow-hidden ring-4 ring-black"
+              className="relative w-[300px] sm:w-[320px] h-[600px] sm:h-[640px] bg-[#0D1117] rounded-[3.5rem] border-[8px] border-[#2a2a2a] shadow-[0_0_60px_rgba(0,0,0,0.6),0_20px_40px_rgba(0,0,0,0.4)] z-10 overflow-hidden ring-4 ring-black"
             >
               <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-bl from-white/10 via-transparent to-transparent pointer-events-none z-50"></div>
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-[#2a2a2a] rounded-b-2xl z-50"></div>

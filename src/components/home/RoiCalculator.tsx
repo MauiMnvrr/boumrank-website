@@ -90,7 +90,7 @@ export const RoiCalculator = () => {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(46,174,109,0.08),transparent_70%)] translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(27,111,194,0.08),transparent_70%)] -translate-x-1/3 translate-y-1/3" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -267,10 +267,10 @@ function SliderInput({ label, value, setValue, min, max, step, suffix = '', acce
         </span>
       </div>
 
-      <div className="relative h-2">
-        <div className="absolute inset-0 bg-[var(--bg-elevated)] rounded-full" />
+      <div className="relative h-11 flex items-center touch-none">
+        <div className="absolute left-0 right-0 h-2 bg-[var(--bg-elevated)] rounded-full top-1/2 -translate-y-1/2" />
         <div
-          className={cn('absolute left-0 top-0 h-full rounded-full transition-none')}
+          className={cn('absolute left-0 h-2 rounded-full transition-none top-1/2 -translate-y-1/2')}
           style={{ width: `${percent}%`, background: `linear-gradient(90deg, ${accent}DD, ${accent})` }}
         />
         <input
@@ -281,11 +281,12 @@ function SliderInput({ label, value, setValue, min, max, step, suffix = '', acce
           value={value}
           onChange={(e) => setValue(Number(e.target.value))}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          style={{ touchAction: 'none' }}
           aria-label={label}
         />
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white border-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] pointer-events-none transition-none"
-          style={{ left: `calc(${percent}% - 10px)`, borderColor: accent }}
+          className="absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white border-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] pointer-events-none transition-none"
+          style={{ left: `calc(${percent}% - 12px)`, borderColor: accent }}
         />
       </div>
     </div>

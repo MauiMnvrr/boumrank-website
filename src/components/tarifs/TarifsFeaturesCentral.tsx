@@ -20,7 +20,7 @@ export const TarifsFeaturesCentral = () => {
 
   return (
     <section className="relative py-20 md:py-24 bg-[var(--bg-primary)] overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

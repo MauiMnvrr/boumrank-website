@@ -140,7 +140,7 @@ export const CompetitiveAdvantages = () => {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#7C5CFC]/5 dark:from-[#7C5CFC]/10 to-transparent rounded-full blur-[120px] pointer-events-none"
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <span className="text-[#1B6FC2] font-bold uppercase tracking-widest text-sm">{isEn ? 'Why us?' : 'Pourquoi nous ?'}</span>
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase mt-4 mb-6 text-[var(--text-primary)]">

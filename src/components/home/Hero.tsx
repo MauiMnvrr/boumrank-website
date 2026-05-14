@@ -289,15 +289,15 @@ export const Hero = () => {
   }, [screens.length]);
 
   return (
-    <section className="relative min-h-screen pt-24 pb-12 overflow-hidden flex items-center bg-[var(--bg-primary)]">
+    <section className="relative min-h-[100dvh] pt-24 pb-12 overflow-hidden flex items-center bg-[var(--bg-primary)]">
       {/* Background : radial gradient + emoji rain */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(27,111,194,0.08),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(27,111,194,0.1),transparent_70%)]" />
         <EmojiRain />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* LEFT — Copy & CTAs (refonte complète Jour 2) */}
           <motion.div
             style={{ y: yText }}
@@ -307,7 +307,7 @@ export const Hero = () => {
             className="text-left"
           >
             {/* H1 — punchline avec mots-clés en gradient */}
-            <h1 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
+            <h1 className="font-display font-extrabold uppercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
               {t('h1Part1')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
                 {t('h1Word1')}
@@ -328,13 +328,13 @@ export const Hero = () => {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-[var(--text-body)] text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
+            <p className="text-[var(--text-body)] text-base sm:text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
               {t('subhead')}
             </p>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button onClick={openModal} variant="gradient" size="lg">
+              <Button onClick={openModal} variant="gradient" size="lg" className="w-full sm:w-auto">
                 <Sparkles size={18} />
                 {tCommon('tryFreeFortnight')}
               </Button>
@@ -343,12 +343,12 @@ export const Hero = () => {
           </motion.div>
 
           {/* RIGHT — Mockup smartphone (CONSERVÉ TEL QUEL — chef d'œuvre) */}
-          <div className="relative flex justify-center perspective-1000">
+          <div className="relative flex justify-center perspective-1000 scale-[0.85] sm:scale-90 md:scale-100 origin-top">
             <motion.div
               initial={{ rotateY: -20, rotateX: 10, opacity: 0 }}
               animate={{ rotateY: -12, rotateX: 5, opacity: 1 }}
               transition={{ duration: 1.1, delay: 0.2 }}
-              className="relative w-[320px] h-[650px] bg-[#1a1a1a] rounded-[3rem] border-8 border-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-[300px] sm:w-[320px] h-[610px] sm:h-[650px] bg-[#1a1a1a] rounded-[3rem] border-8 border-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
             >
               <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-white/10 to-transparent pointer-events-none z-50"></div>
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-xl z-50"></div>

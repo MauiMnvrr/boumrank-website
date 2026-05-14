@@ -55,7 +55,7 @@ export default async function BlogPage({
       <Breadcrumbs items={[{ label: locale === 'en' ? 'Home' : 'Accueil', href: '/' }, { label: t('title') }]} />
 
       <section className="py-20 bg-[var(--bg-primary)]">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <span className="text-[#1B6FC2] font-bold uppercase tracking-widest text-sm">
               {eyebrow}

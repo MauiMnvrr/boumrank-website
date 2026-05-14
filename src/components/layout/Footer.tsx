@@ -179,7 +179,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[var(--bg-primary)] pt-16 pb-8">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Top row: brand + 4 link columns */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Brand block */}

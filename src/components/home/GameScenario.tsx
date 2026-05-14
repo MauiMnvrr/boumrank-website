@@ -116,7 +116,7 @@ export const GameScenario = () => {
     <section ref={containerRef} className="py-24 bg-[var(--bg-elevated)] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_50%,rgba(27,111,194,0.05),transparent_50%)] pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[var(--border-highlight)] px-4 py-1.5 rounded-full mb-6">
             <Smartphone className="w-4 h-4 text-[#1B6FC2]" />

@@ -32,7 +32,7 @@ export const CTA = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         style={{ scale: scaleContent }}
-        className="container mx-auto px-6 relative z-10 text-center"
+        className="container mx-auto px-4 sm:px-6 relative z-10 text-center"
       >
         <h2 className="text-5xl md:text-7xl font-extrabold uppercase mb-8 text-[var(--text-primary)]">
           {isEn ? 'Ready to' : 'Prêt à'} <br />

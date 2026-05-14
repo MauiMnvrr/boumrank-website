@@ -34,7 +34,7 @@ export const FinalCTA = () => {
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(124,92,252,0.12),transparent_70%)] -translate-x-1/2 -translate-y-1/4 pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(46,174,109,0.12),transparent_70%)] translate-x-1/2 translate-y-1/4 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export const FinalCTA = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="font-display font-extrabold uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
+          <h2 className="font-display font-extrabold uppercase text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]">
             {t('h2Part1')}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
               {t('h2Highlight')}
@@ -57,12 +57,12 @@ export const FinalCTA = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-            <Button onClick={openModal} variant="gradient" size="xl">
+            <Button onClick={openModal} variant="gradient" size="lg" className="w-full sm:w-auto sm:!h-16 sm:!px-10 sm:!text-lg">
               <Rocket size={20} />
               {tCommon('startTrial')}
             </Button>
-            <Link href="/contact">
-              <Button variant="outline" size="xl" type="button">
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" type="button" className="w-full sm:w-auto sm:!h-16 sm:!px-10 sm:!text-lg">
                 <Calendar size={20} />
                 {tCommon('bookDemo')}
               </Button>

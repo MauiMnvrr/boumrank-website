@@ -17,7 +17,7 @@ export const Vision = () => {
       className="relative py-24 md:py-32 overflow-hidden bg-[var(--bg-primary)]"
     >
       {/* Full-width gradient card (not full-width section to keep container rhythm) */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
