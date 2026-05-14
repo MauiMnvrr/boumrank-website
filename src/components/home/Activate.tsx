@@ -111,20 +111,21 @@ const TikTokLogo = () => (
 
 const TripadvisorLogo = () => (
   <svg viewBox="0 0 48 48" className="w-9 h-9" aria-hidden="true">
-    {/* Owl head (rounded square-circle hybrid in real mark, simplified to round) */}
-    <circle cx="24" cy="24" r="20" fill="#000" />
-    {/* Green "wing" top accent */}
-    <path d="M9 14 Q24 6 39 14 L37 18 Q24 11 11 18 Z" fill="#34E0A1" />
-    {/* Left eye (white outer, red inner — TripAdvisor signature) */}
-    <circle cx="17" cy="27" r="6.5" fill="#fff" />
-    <circle cx="17" cy="27" r="2.6" fill="#000" />
-    <circle cx="17.6" cy="26.4" r="0.9" fill="#fff" />
-    {/* Right eye (white outer, green inner — TripAdvisor signature) */}
-    <circle cx="31" cy="27" r="6.5" fill="#fff" />
-    <circle cx="31" cy="27" r="2.6" fill="#000" />
-    <circle cx="31.6" cy="26.4" r="0.9" fill="#fff" />
-    {/* Beak hint */}
-    <circle cx="24" cy="34.5" r="1.4" fill="#34E0A1" />
+    {/* Brand green background circle */}
+    <circle cx="24" cy="24" r="20" fill="#34E0A1" />
+    {/* Eartufts — two triangular peaks above each eye */}
+    <path d="M8 17 L14 11 L19 17 Z" fill="#000" />
+    <path d="M29 17 L34 11 L40 17 Z" fill="#000" />
+    {/* Left eye donut (black outer, green iris, black pupil) */}
+    <circle cx="15" cy="25" r="7.5" fill="#000" />
+    <circle cx="15" cy="25" r="4.5" fill="#34E0A1" />
+    <circle cx="15" cy="25" r="2.3" fill="#000" />
+    {/* Right eye donut */}
+    <circle cx="33" cy="25" r="7.5" fill="#000" />
+    <circle cx="33" cy="25" r="4.5" fill="#34E0A1" />
+    <circle cx="33" cy="25" r="2.3" fill="#000" />
+    {/* Beak — V triangle pointing down */}
+    <path d="M21 32 L27 32 L24 38 Z" fill="#000" />
   </svg>
 );
 
