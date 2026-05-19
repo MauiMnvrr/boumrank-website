@@ -21,6 +21,7 @@ import {
   Cookie,
   Crown,
 } from 'lucide-react';
+import { FaInstagram, FaTiktok, FaFacebook } from 'react-icons/fa';
 import { MarqueeRow } from '@/components/decorative/MarqueeRow';
 import { RevealOnScroll } from '@/components/decorative/RevealOnScroll';
 
@@ -82,7 +83,6 @@ export const SocialProof = () => {
     { icon: <Share2 size={16} />,    label: isEn ? 'Social share'        : 'Partage réseaux',        tone: 'blue'   as const },
     { icon: <Mail size={16} />,      label: isEn ? 'Newsletter signup'   : 'Inscription newsletter', tone: 'teal'   as const },
     { icon: <ThumbsUp size={16} />,  label: isEn ? 'TripAdvisor review'  : 'Avis TripAdvisor',       tone: 'green'  as const },
-    { icon: <Star size={16} />,      label: isEn ? 'Yelp rating'         : 'Note Yelp',             tone: 'pink'   as const },
     { icon: <Mail size={16} />,      label: isEn ? 'Loyalty subscription': 'Abonnement fidélité',    tone: 'blue'   as const },
   ];
 
@@ -95,6 +95,9 @@ export const SocialProof = () => {
     { icon: <Trophy size={16} />,    label: isEn ? 'VIP access'          : 'Accès VIP',              tone: 'blue'   as const },
     { icon: <Sparkles size={16} />,  label: isEn ? 'Surprise menu'       : 'Menu surprise',          tone: 'orange' as const },
     { icon: <Star size={16} />,      label: isEn ? 'Loyalty boost'       : 'Boost fidélité',         tone: 'teal'   as const },
+    { icon: <FaInstagram size={16} />, label: isEn ? 'Instagram follow'  : 'Abonnement Instagram',   tone: 'pink'   as const },
+    { icon: <FaTiktok size={16} />,    label: isEn ? 'TikTok follow'     : 'Abonnement TikTok',      tone: 'purple' as const },
+    { icon: <FaFacebook size={16} />,  label: isEn ? 'Facebook follow'   : 'Abonnement Facebook',    tone: 'blue'   as const },
   ];
 
   return (
