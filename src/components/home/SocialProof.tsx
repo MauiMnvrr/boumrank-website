@@ -193,7 +193,7 @@ export const SocialProof = () => {
         {/* Marquee row 3: récompenses (left, faster) */}
         <RevealOnScroll mode="fade" delay={0.26}>
           <div>
-            <MarqueeRow duration={42} direction="left" gap="gap-3 sm:gap-4">
+            <MarqueeRow duration={120} direction="left" gap="gap-3 sm:gap-4">
               {rewards.map((r) => (
                 <Chip key={`r-${r.label}`} icon={r.icon} label={r.label} tone={r.tone} />
               ))}
