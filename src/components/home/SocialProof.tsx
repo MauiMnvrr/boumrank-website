@@ -93,12 +93,12 @@ export const SocialProof = () => {
   ];
 
   const actions = [
-    { icon: <Star size={16} />,      label: isEn ? 'Google review'       : 'Avis Google',           tone: 'orange' as const },
-    { icon: <Heart size={16} />,     label: isEn ? 'Social follow'       : 'Abonnement réseaux',     tone: 'pink'   as const },
-    { icon: <Share2 size={16} />,    label: isEn ? 'Social share'        : 'Partage réseaux',        tone: 'blue'   as const },
-    { icon: <Mail size={16} />,      label: isEn ? 'Newsletter signup'   : 'Inscription newsletter', tone: 'teal'   as const },
-    { icon: <ThumbsUp size={16} />,  label: isEn ? 'TripAdvisor review'  : 'Avis TripAdvisor',       tone: 'green'  as const },
-    { icon: <Mail size={16} />,      label: isEn ? 'Loyalty subscription': 'Abonnement fidélité',    tone: 'blue'   as const },
+    { icon: <Star size={16} />,        label: isEn ? 'Google review'       : 'Avis Google',           tone: 'orange' as const },
+    { icon: <FaInstagram size={16} />, label: isEn ? 'Instagram follow'    : 'Abonnement Instagram',  tone: 'pink'   as const },
+    { icon: <FaFacebook size={16} />,  label: isEn ? 'Facebook follow'     : 'Abonnement Facebook',   tone: 'blue'   as const },
+    { icon: <Mail size={16} />,        label: isEn ? 'Newsletter signup'   : 'Inscription newsletter', tone: 'teal'   as const },
+    { icon: <FaTiktok size={16} />,    label: isEn ? 'TikTok follow'       : 'Abonnement TikTok',     tone: 'purple' as const },
+    { icon: <ThumbsUp size={16} />,    label: isEn ? 'TripAdvisor review'  : 'Avis TripAdvisor',      tone: 'green'  as const },
   ];
 
   const rewards = [
