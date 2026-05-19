@@ -83,7 +83,6 @@ export const SocialProof = () => {
     { icon: <Mail size={16} />,      label: isEn ? 'Newsletter signup'   : 'Inscription newsletter', tone: 'teal'   as const },
     { icon: <ThumbsUp size={16} />,  label: isEn ? 'TripAdvisor review'  : 'Avis TripAdvisor',       tone: 'green'  as const },
     { icon: <Star size={16} />,      label: isEn ? 'Yelp rating'         : 'Note Yelp',             tone: 'pink'   as const },
-    { icon: <Sparkles size={16} />,  label: isEn ? 'Photo on social'     : 'Photo sur les réseaux',  tone: 'purple' as const },
     { icon: <Mail size={16} />,      label: isEn ? 'Loyalty subscription': 'Abonnement fidélité',    tone: 'blue'   as const },
   ];
 
