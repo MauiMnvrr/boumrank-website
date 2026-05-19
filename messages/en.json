@@ -72,8 +72,9 @@
   },
   "home": {
     "hero": {
-      "h1Part1": "They",
+      "h1Line1Prefix": "Your customers",
       "h1Word1": "scan",
+      "h1Line2Prefix": "They",
       "h1Word2": "play",
       "h1Final": "YOU win",
       "subhead": "Become the local spot everyone picks. Turn each visit into a playful moment, stack up reviews, and outrank the competition.",

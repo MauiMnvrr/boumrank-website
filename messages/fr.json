@@ -72,8 +72,9 @@
   },
   "home": {
     "hero": {
-      "h1Part1": "Ils",
+      "h1Line1Prefix": "Vos clients",
       "h1Word1": "scannent",
+      "h1Line2Prefix": "Ils",
       "h1Word2": "jouent",
       "h1Final": "TU gagnes",
       "subhead": "Devenez le commerce que tout le monde choisit. Offrez une expérience ludique, récoltez massivement des avis et surclassez vos concurrents.",

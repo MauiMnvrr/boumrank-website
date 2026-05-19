@@ -313,7 +313,6 @@ export const Hero = () => {
                   className="absolute -bottom-1 left-0 right-0 h-1 bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)] rounded-full opacity-40"
                 />
               </span>
-              .
             </motion.h1>
 
             {/* Sub-headline */}
