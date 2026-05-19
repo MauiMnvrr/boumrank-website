@@ -132,7 +132,7 @@ export const SocialProof = () => {
             <p className="text-[var(--text-body)] text-base sm:text-lg leading-relaxed">
               {isEn
                 ? 'BoumRank turns any in-store action into a playful reward — choose the action, set the prize, the platform runs the rest.'
-                : "BoumRank transforme n'importe quelle action en boutique en récompense ludique. Vous choisissez l'action, vous fixez le gain, la plateforme s'occupe du reste."}
+                : "Avis Google, abonnés Instagram, inscriptions newsletter… Vous fixez l'action à booster et la récompense à offrir. Vos clients jouent, gagnent et reviennent."}
             </p>
           </div>
         </RevealOnScroll>
