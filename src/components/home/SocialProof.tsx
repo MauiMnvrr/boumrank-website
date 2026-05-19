@@ -23,7 +23,6 @@ import {
 } from 'lucide-react';
 import { MarqueeRow } from '@/components/decorative/MarqueeRow';
 import { RevealOnScroll } from '@/components/decorative/RevealOnScroll';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 
 type ChipProps = {
   icon: React.ReactNode;
@@ -111,9 +110,6 @@ export const SocialProof = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <RevealOnScroll mode="fade">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-            <Eyebrow variant="subtle" size="sm" withDot className="mb-4">
-              {isEn ? 'Plug & play ecosystem' : 'Écosystème plug & play'}
-            </Eyebrow>
             <h2 className="font-display font-extrabold uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] text-[var(--text-primary)] mb-4">
               {isEn ? (
                 <>

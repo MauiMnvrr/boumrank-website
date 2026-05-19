@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Button } from '@/components/ui/Button';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { AuroraBackground } from '@/components/decorative/AuroraBackground';
 import { RevealOnScroll } from '@/components/decorative/RevealOnScroll';
 import { DEMO_URL } from '@/lib/constants';
@@ -285,13 +284,6 @@ export const Hero = () => {
             transition={{ duration: 0.5 }}
             className="text-left"
           >
-            {/* Eyebrow — clé d'entrée brand */}
-            <RevealOnScroll mode="fade" delay={0.05}>
-              <Eyebrow variant="subtle" size="sm" withDot className="mb-5">
-                QR · Mini-jeux · Avis Google
-              </Eyebrow>
-            </RevealOnScroll>
-
             {/* H1 — punchline avec mots-cles en gradient */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -299,15 +291,15 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="font-display font-extrabold uppercase text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] mb-6 text-[var(--text-primary)]"
             >
-              {t('h1Part1')}{' '}
+              {t('h1Line1Prefix')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
                 {t('h1Word1')}
               </span>
-              ,{' '}
+              <br />
+              {t('h1Line2Prefix')}{' '}
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
                 {t('h1Word2')}
               </span>
-              ,
               <br />
               <span className="relative inline-block">
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_100%)]">
@@ -334,9 +326,14 @@ export const Hero = () => {
             {/* CTA */}
             <RevealOnScroll mode="fade" delay={0.35}>
               <div className="flex flex-col sm:flex-row gap-4 mb-7">
-                <Button onClick={openModal} variant="gradient" size="lg" className="w-full sm:w-auto">
-                  <Sparkles size={18} />
-                  {tCommon('tryFreeFortnight')}
+                <Button
+                  onClick={openModal}
+                  variant="gradient"
+                  size="lg"
+                  className="w-full sm:w-auto whitespace-normal sm:whitespace-nowrap text-center leading-tight px-5 sm:px-8 text-sm sm:text-base"
+                >
+                  <Sparkles size={18} className="shrink-0" />
+                  <span className="break-words">{tCommon('tryFreeFortnight')}</span>
                 </Button>
               </div>
             </RevealOnScroll>
