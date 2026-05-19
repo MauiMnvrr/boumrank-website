@@ -337,21 +337,6 @@ export const Hero = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Identity chips — secteurs commerce */}
-            <RevealOnScroll mode="split" delay={0.45} stagger={0.06}>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                {['Restaurant', 'Boulangerie', 'Salon', 'Café', 'Boutique'].map((label) => (
-                  <span
-                    key={label}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-default)] shadow-[0_2px_8px_rgba(15,23,42,0.04)]"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-[var(--primary-green)]" />
-                    {label}
-                  </span>
-                ))}
-              </div>
-            </RevealOnScroll>
-
           </motion.div>
 
           {/* RIGHT — Mockup smartphone with subtle float loop */}
