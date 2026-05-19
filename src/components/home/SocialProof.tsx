@@ -20,6 +20,14 @@ import {
   Percent,
   Cookie,
   Crown,
+  Brush,
+  Wrench,
+  Pen,
+  HandHeart,
+  Hand,
+  Store,
+  Key,
+  Wine,
 } from 'lucide-react';
 import { FaInstagram, FaTiktok, FaFacebook } from 'react-icons/fa';
 import { MarqueeRow } from '@/components/decorative/MarqueeRow';
@@ -75,6 +83,15 @@ export const SocialProof = () => {
     { icon: <Sparkles size={16} />,         label: isEn ? 'Florist'    : 'Fleuriste',   tone: 'purple' as const },
     { icon: <Cookie size={16} />,           label: isEn ? 'Pastry'     : 'Pâtisserie',  tone: 'orange' as const },
     { icon: <Crown size={16} />,            label: isEn ? 'Concept'    : 'Concept',     tone: 'blue'   as const },
+    { icon: <Scissors size={16} />,         label: isEn ? 'Hairdresser': 'Coiffeur',     tone: 'teal'   as const },
+    { icon: <Brush size={16} />,            label: isEn ? 'Barber'     : 'Barbier',      tone: 'orange' as const },
+    { icon: <Wrench size={16} />,           label: isEn ? 'Garage'     : 'Garage',       tone: 'blue'   as const },
+    { icon: <Pen size={16} />,              label: isEn ? 'Tattoo shop': 'Salon tatouage', tone: 'pink' as const },
+    { icon: <HandHeart size={16} />,        label: isEn ? 'Massage'    : 'Massage',      tone: 'purple' as const },
+    { icon: <Hand size={16} />,             label: isEn ? 'Manicure'   : 'Manucure',     tone: 'pink'   as const },
+    { icon: <Store size={16} />,            label: isEn ? 'Concept store': 'Concept store', tone: 'green' as const },
+    { icon: <Key size={16} />,              label: isEn ? 'Locksmith'  : 'Serrurier',    tone: 'orange' as const },
+    { icon: <Wine size={16} />,             label: isEn ? 'Bar'        : 'Bar',          tone: 'purple' as const },
   ];
 
   const actions = [
