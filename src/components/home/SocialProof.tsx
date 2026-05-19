@@ -122,9 +122,9 @@ export const SocialProof = () => {
                 </>
               ) : (
                 <>
-                  Tous les commerces,{' '}
+                  Une solution pour{' '}
                   <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-                    toutes les récompenses
+                    votre commerce
                   </span>
                 </>
               )}
