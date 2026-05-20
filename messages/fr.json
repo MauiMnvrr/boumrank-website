@@ -125,9 +125,9 @@
       "outroPart2": "?"
     },
     "howItWorks": {
-      "h2Part1": "Parcours simple,",
-      "h2Highlight": "zéro friction",
-      "lead": "Du setup au premier avis Google encaissé, voici le parcours complet.",
+      "h2Part1": "Un parcours simple",
+      "h2Highlight": "",
+      "lead": "De la configuration au premier avis Google",
       "steps": [
         {
           "title": "Configurez",
