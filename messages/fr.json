@@ -125,8 +125,8 @@
       "outroPart2": "?"
     },
     "howItWorks": {
-      "h2Part1": "Un parcours simple",
-      "h2Highlight": "",
+      "h2Part1": "Un parcours",
+      "h2Highlight": "simple",
       "lead": "De la configuration au premier avis Google",
       "steps": [
         {
