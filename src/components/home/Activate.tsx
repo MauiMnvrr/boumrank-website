@@ -41,15 +41,7 @@ export const Activate = () => {
               <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
                 {t('h2Em1')}
               </span>
-              {t('h2Part2')}{' '}
-              <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
-                {t('h2Em2')}
-              </span>
-              .
             </h2>
-            <p className="text-lg md:text-xl text-[var(--text-body)] leading-relaxed max-w-2xl mx-auto text-center">
-              {t('lead')}
-            </p>
           </motion.div>
         </div>
 
@@ -78,15 +70,6 @@ export const Activate = () => {
           ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center text-sm text-[var(--text-muted)] font-display uppercase tracking-widest mt-12"
-        >
-          {t('footnote')}
-        </motion.p>
       </div>
     </section>
   );

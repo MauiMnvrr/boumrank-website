@@ -157,11 +157,11 @@
       ]
     },
     "activate": {
-      "h2Part1": "One small step for",
-      "h2Em1": "them",
-      "h2Part2": ", one giant leap for",
-      "h2Em2": "you",
-      "lead": "To play, your customers complete an action that pays off for your business.",
+      "h2Part1": "You pick the actions, your customers play,",
+      "h2Em1": "results flow in",
+      "h2Part2": "",
+      "h2Em2": "",
+      "lead": "",
       "actions": [
         {
           "label": "Google review",

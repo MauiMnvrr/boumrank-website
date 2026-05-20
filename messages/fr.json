@@ -157,11 +157,11 @@
       ]
     },
     "activate": {
-      "h2Part1": "Une petite action pour",
-      "h2Em1": "eux",
-      "h2Part2": ", un grand pas pour",
-      "h2Em2": "vous",
-      "lead": "Pour jouer, vos clients réalisent une action gagnante pour votre enseigne.",
+      "h2Part1": "Vous choisissez les actions, vos clients jouent,",
+      "h2Em1": "les résultats montent",
+      "h2Part2": "",
+      "h2Em2": "",
+      "lead": "",
       "actions": [
         {
           "label": "Avis Google",
