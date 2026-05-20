@@ -105,7 +105,7 @@
     "problem": {
       "h2Part1": "On connaît la",
       "h2Highlight": "chanson",
-      "lead": "Trois frustrations que chaque commerçant local connaît par cœur.",
+      "lead": "Trois frustrations que chaque commerçant connaît",
       "items": [
         {
           "title": "L'avis « promis juré » qui n'arrive jamais",
@@ -113,11 +113,11 @@
         },
         {
           "title": "Commerçant le jour, community manager la nuit",
-          "body": "Vous n'avez pas le temps. Vos concurrents non plus. La différence, c'est nous."
+          "body": "Vous gérez votre boutique, on s'occupe du numérique"
         },
         {
-          "title": "Le voisin a l'ancienneté, vous avez la qualité",
-          "body": "Il a les avis. Vous avez le talent. Devenez la référence comme vous le méritez."
+          "title": "Seuls les aigris vous laissent des avis",
+          "body": "Les clients mécontents parlent 3x plus souvent"
         }
       ],
       "outroPart1": "Et si on transformait ça en",

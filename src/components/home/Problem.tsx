@@ -1,14 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MessageSquareOff, TrendingDown, Wrench } from 'lucide-react';
+import { MessageSquareOff, Store, ThumbsDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card';
 
 const ICONS = [
   { icon: <MessageSquareOff size={24} />, emoji: '😩' },
-  { icon: <TrendingDown size={24} />, emoji: '😤' },
-  { icon: <Wrench size={24} />, emoji: '🤯' },
+  { icon: <Store size={24} />, emoji: '😤' },
+  { icon: <ThumbsDown size={24} />, emoji: '😡' },
 ];
 
 export const Problem = () => {

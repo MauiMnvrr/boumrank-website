@@ -105,7 +105,7 @@
     "problem": {
       "h2Part1": "We know the",
       "h2Highlight": "drill",
-      "lead": "Three frustrations every local business knows by heart.",
+      "lead": "Three frustrations every shopkeeper knows",
       "items": [
         {
           "title": "The \"cross my heart\" review that never lands",
@@ -113,11 +113,11 @@
         },
         {
           "title": "Shopkeeper by day, community manager by night",
-          "body": "You have no time. Neither do your competitors. The difference? Us."
+          "body": "You run your shop, we handle the digital side"
         },
         {
-          "title": "Your neighbor has seniority, you have the goods",
-          "body": "They have the reviews. You have the talent. Become the local benchmark you deserve to be."
+          "title": "Only the grumpy ones leave reviews",
+          "body": "Unhappy customers speak up 3x more often"
         }
       ],
       "outroPart1": "What if we turned that into a",
