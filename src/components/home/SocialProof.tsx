@@ -201,16 +201,7 @@ export const SocialProof = () => {
           </div>
         </RevealOnScroll>
 
-        {/* Footer caption with subtle motion */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-center mt-10 sm:mt-14 text-xs sm:text-sm text-[var(--text-muted)] font-display font-bold uppercase tracking-[0.25em]"
-        >
-          {isEn ? '× combinable in seconds via the BoumRank back-office' : '× combinables en quelques secondes via le back-office BoumRank'}
-        </motion.div>
+
       </div>
     </section>
   );
