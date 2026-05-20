@@ -214,8 +214,8 @@
       "currencyCode": "EUR"
     },
     "faq": {
-      "h2": "The {count} questions we get",
-      "h2Highlight": "before signing up",
+      "h2": "The {count} most frequently asked questions",
+      "h2Highlight": "",
       "leadPart1": "Got something else in mind?",
       "leadStrong": "We answer in under 2 hours via chat.",
       "anotherQuestion": "Another question?",
@@ -244,7 +244,7 @@
   "faqs": {
     "home": [
       {
-        "question": "Do you offer a free trial?",
+        "question": "Do you offer a free trial",
         "answer": "Yes, 14 days to put it through its paces in real conditions, no credit card needed upfront. You activate, you measure, you decide."
       },
       {

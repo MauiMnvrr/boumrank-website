@@ -214,8 +214,8 @@
       "currencyCode": "EUR"
     },
     "faq": {
-      "h2": "Les {count} questions qu'on nous pose",
-      "h2Highlight": "avant de se lancer",
+      "h2": "Les {count} questions les plus fréquentes",
+      "h2Highlight": "",
       "leadPart1": "Si vous pensez à autre chose,",
       "leadStrong": "on répond en moins de 2 h en chat.",
       "anotherQuestion": "Autre question ?",
@@ -244,7 +244,7 @@
   "faqs": {
     "home": [
       {
-        "question": "Vous avez un essai gratuit ?",
+        "question": "Offrez vous un essai gratuit",
         "answer": "Oui, 14 jours pour tester la bête en conditions réelles, sans carte bancaire demandée au départ. Vous activez, vous mesurez, vous décidez."
       },
       {
