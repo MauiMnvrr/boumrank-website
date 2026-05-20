@@ -101,9 +101,11 @@ export const HowItWorks = () => {
                   {step.title}
                 </h3>
 
-                <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-3">
-                  {step.subtitle}
-                </div>
+                {step.subtitle && (
+                  <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-3">
+                    {step.subtitle}
+                  </div>
+                )}
 
                 <p className="text-[13px] text-[var(--text-body)] leading-snug px-0">
                   {step.description}
@@ -148,9 +150,11 @@ export const HowItWorks = () => {
                     <span className="text-xs text-[var(--text-muted)] mr-2">{i + 1}.</span>
                     {step.title}
                   </h3>
-                  <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-2">
-                    {step.subtitle}
-                  </div>
+                  {step.subtitle && (
+                    <div className="text-xs text-[var(--text-muted)] font-display font-semibold tracking-wide mb-2">
+                      {step.subtitle}
+                    </div>
+                  )}
                   <p className="text-sm text-[var(--text-body)] leading-relaxed">
                     {step.description}
                   </p>

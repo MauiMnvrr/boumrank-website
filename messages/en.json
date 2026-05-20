@@ -131,27 +131,27 @@
       "steps": [
         {
           "title": "Set up",
-          "subtitle": "Your game in 2 minutes",
+          "subtitle": "",
           "description": "Pick your game, customize the prizes and their odds. All in your brand's colors."
         },
         {
           "title": "Display",
-          "subtitle": "QR code ready to go",
+          "subtitle": "",
           "description": "On the table, the counter, the receipt. We send the visuals, you print and post them."
         },
         {
           "title": "They play",
-          "subtitle": "Google review · Follow · Newsletter",
+          "subtitle": "",
           "description": "They scan, complete the marketing action you chose, then play to win a prize."
         },
         {
           "title": "You collect",
-          "subtitle": "Multi-platform in one click",
+          "subtitle": "",
           "description": "Stack up reviews and follows: Google, Instagram, TripAdvisor, TikTok, and more."
         },
         {
           "title": "They come back",
-          "subtitle": "Cashier swipe · Min purchase · Done",
+          "subtitle": "",
           "description": "They return, redeem their prize over a minimum purchase. Your extra revenue funds the whole thing."
         }
       ]

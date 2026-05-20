@@ -131,27 +131,27 @@
       "steps": [
         {
           "title": "Configurez",
-          "subtitle": "Votre jeu en 2 minutes",
+          "subtitle": "",
           "description": "Choisissez votre jeu, personnalisez les lots et leurs probabilités. Le tout aux couleurs de votre enseigne."
         },
         {
           "title": "Affichez",
-          "subtitle": "Le QR code prêt à poser",
+          "subtitle": "",
           "description": "Sur la table, le comptoir ou l'addition. On vous envoie les visuels, vous les imprimez et les posez."
         },
         {
           "title": "Ils jouent",
-          "subtitle": "Avis Google · Follow · Newsletter",
+          "subtitle": "",
           "description": "Ils scannent, réalisent l'action marketing que vous avez choisie, puis jouent pour tenter de gagner un lot."
         },
         {
           "title": "Vous récoltez",
-          "subtitle": "Multi-plateformes en 1 clic",
+          "subtitle": "",
           "description": "Gagnez des avis et abonnements : Google, Instagram, TripAdvisor, TikTok, et plus encore."
         },
         {
           "title": "Ils reviennent",
-          "subtitle": "Swipe caissier · Achat min · Fini",
+          "subtitle": "",
           "description": "Ils reviennent, récupèrent leurs lots sous minimum d'achat. Vos bénéfices autofinancent la solution."
         }
       ]
