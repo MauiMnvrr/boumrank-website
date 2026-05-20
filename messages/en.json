@@ -130,19 +130,19 @@
       "lead": "From setup to your first Google review in the bag, here's the full ride.",
       "steps": [
         {
-          "title": "Set up",
+          "title": "You set up",
           "subtitle": "",
-          "description": "Pick your game, customize the prizes and their odds. All in your brand's colors."
+          "description": "Customize your game, the rewards and their winning odds. All in your brand's colors."
         },
         {
           "title": "Display",
           "subtitle": "",
-          "description": "On the table, the counter, the receipt. We send the visuals, you print and post them."
+          "description": "Put your QR code in front of your customers. We send the visuals, you print them."
         },
         {
           "title": "They play",
           "subtitle": "",
-          "description": "They scan, complete the marketing action you chose, then play to win a prize."
+          "description": "They scan, complete the chosen marketing action, then play to win a reward."
         },
         {
           "title": "You collect",
@@ -152,7 +152,7 @@
         {
           "title": "They come back",
           "subtitle": "",
-          "description": "They return, redeem their prize over a minimum purchase. Your extra revenue funds the whole thing."
+          "description": "They return, redeem their rewards over a minimum purchase. A solution that funds itself."
         }
       ]
     },

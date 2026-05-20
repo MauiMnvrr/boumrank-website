@@ -130,19 +130,19 @@
       "lead": "De la configuration au premier avis Google",
       "steps": [
         {
-          "title": "Configurez",
+          "title": "Vous configurez",
           "subtitle": "",
-          "description": "Choisissez votre jeu, personnalisez les lots et leurs probabilités. Le tout aux couleurs de votre enseigne."
+          "description": "Personnalisez votre jeu, les récompenses et leurs probabilités de gain. Le tout aux couleurs de votre enseigne."
         },
         {
           "title": "Affichez",
           "subtitle": "",
-          "description": "Sur la table, le comptoir ou l'addition. On vous envoie les visuels, vous les imprimez et les posez."
+          "description": "Posez votre QR code sous les yeux de vos clients. On vous envoie les visuels, vous les imprimez."
         },
         {
           "title": "Ils jouent",
           "subtitle": "",
-          "description": "Ils scannent, réalisent l'action marketing que vous avez choisie, puis jouent pour tenter de gagner un lot."
+          "description": "Ils scannent, réalisent l'action marketing choisie, puis jouent pour tenter de gagner une récompense."
         },
         {
           "title": "Vous récoltez",
@@ -152,7 +152,7 @@
         {
           "title": "Ils reviennent",
           "subtitle": "",
-          "description": "Ils reviennent, récupèrent leurs lots sous minimum d'achat. Vos bénéfices autofinancent la solution."
+          "description": "Ils reviennent, récupèrent leurs récompenses sous minimum d'achat. Une solution qui s'autofinance."
         }
       ]
     },
