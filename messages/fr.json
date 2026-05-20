@@ -192,7 +192,7 @@
     },
     "roi": {
       "h2Part1": "Combien d'avis Google",
-      "h2Highlight": "allez-vous débloquer",
+      "h2Highlight": "allez-vous obtenir",
       "h2Part2": "ce mois-ci ?",
       "leadPart1": "Bougez les curseurs.",
       "leadStrong": "Les chiffres parlent mieux qu'un pitch.",
@@ -203,7 +203,7 @@
       "ticketSuffix": " €",
       "disclaimer": "Estimations basées sur des ratios observés chez nos clients beta : 35 % de taux de scan, 55 % de taux de conversion en avis, 45 % de retour en boutique. Chaque commerce est différent, ces chiffres sont des ordres de grandeur.",
       "newReviewsLabel": "Nouveaux avis Google / mois",
-      "newReviewsCaption": "De nouveaux avis Google encaissés dès le premier mois.",
+      "newReviewsCaption": "De nouveaux avis Google dès le premier mois.",
       "returnsLabel": "Retours en boutique",
       "returnsPerMonth": " / mois",
       "returnsCaption": "Clients qui reviennent encaisser leur coupon",
