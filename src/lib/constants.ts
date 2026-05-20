@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://boumrank.com';
 export const SITE_NAME = 'BoumRank';
 export const SITE_DESCRIPTION =
-  'BoumRank transforme chaque visite en avis Google. Vos clients scannent un QR code, jouent à un mini-jeu (roue, slots, blackjack) et reviennent gagner leur lot en boutique. Setup en 5 minutes, à partir de 59€/mois.';
+  'BoumRank transforme chaque visite en avis Google. Vos clients scannent un QR code, jouent à un mini-jeu (roue, slots, blackjack) et reviennent gagner leur récompense en boutique. Setup en 5 minutes, à partir de 59€/mois.';
 export const SITE_LOCALE = 'fr_FR';
 
 export const APP_URL = 'https://app.boumrank.com';

@@ -128,7 +128,7 @@ export const SocialProof = () => {
     { icon: <Trophy size={16} />,      label: isEn ? 'Cinema ticket'     : 'Billet cinéma',        tone: 'purple' as const },
     { icon: <ShoppingBag size={16} />, label: isEn ? 'Free delivery'     : 'Livraison offerte',    tone: 'teal'   as const },
     { icon: <UtensilsCrossed size={16} />, label: isEn ? 'Restaurant voucher': 'Bon restaurant',   tone: 'orange' as const },
-    { icon: <Gift size={16} />,        label: isEn ? 'Surprise box'      : 'Lot surprise',         tone: 'pink'   as const },
+    { icon: <Gift size={16} />,        label: isEn ? 'Surprise box'      : 'Récompense surprise',  tone: 'pink'   as const },
   ];
 
   return (

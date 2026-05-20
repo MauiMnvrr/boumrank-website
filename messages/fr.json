@@ -238,7 +238,7 @@
         "support": "Support français",
         "rgpd": "Conforme RGPD"
       },
-      "signature": "Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université · Beta Janvier 2026"
+      "signature": "Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université"
     }
   },
   "faqs": {
@@ -252,8 +252,8 @@
         "answer": "Une roue qui tourne, ça parle à votre grand-mère comme à l'ado de 14 ans. 89 % des scan vont jusqu'au bout du parcours."
       },
       {
-        "question": "Est-ce que peux configurer le minimum d'achat pour la récupération des lots ?",
-        "answer": "Oui, vous fixez un seuil unique pour l'ensemble de vos lots. Que ce soit 0 €, 5 € ou 10 €, vous définissez le montant minimum de commande nécessaire pour qu'un client puisse repartir avec son lot."
+        "question": "Est-ce que peux configurer le minimum d'achat pour la récupération des récompenses ?",
+        "answer": "Oui, vous fixez un seuil unique pour l'ensemble de vos récompenses. Que ce soit 0 €, 5 € ou 10 €, vous définissez le montant minimum de commande nécessaire pour qu'un client puisse repartir avec sa récompense."
       },
       {
         "question": "Est-ce que je peux personnaliser le jeu aux couleurs de mon commerce ?",
@@ -587,17 +587,17 @@
             "Parrainage à un ami"
           ],
           "kpiValue": "4,8 / 5",
-          "kpiLabel": "note Google moyenne en bêta"
+          "kpiLabel": "note Google moyenne"
         },
         {
           "number": "03",
-          "label": "Les lots",
+          "label": "Les récompenses",
           "title": "Vous pilotez 100 % de l'économie",
-          "body": "Probabilités au pourcent près, minimum d'achat par lot, rareté. La marge reste à la centaine près.",
+          "body": "Probabilités au pourcent près, minimum d'achat par récompense, rareté. La marge reste à la centaine près.",
           "bullets": [
-            "Lots illimités",
+            "Récompenses illimitées",
             "Probabilités au pourcent près",
-            "Minimum d'achat par lot",
+            "Minimum d'achat par récompense",
             "Boucle de retour intégrée"
           ],
           "kpiValue": "−12 %",
@@ -725,7 +725,7 @@
   "seo": {
     "home": {
       "title": "BoumRank, plus d'avis Google grâce au jeu",
-      "description": "BoumRank transforme chaque visite en avis Google. Vos clients scannent un QR code, jouent à un mini-jeu (roue, slots, blackjack) et reviennent gagner leur lot en boutique. Setup en 5 minutes, à partir de 59€/mois."
+      "description": "BoumRank transforme chaque visite en avis Google. Vos clients scannent un QR code, jouent à un mini-jeu (roue, slots, blackjack) et reviennent gagner leur récompense en boutique. Setup en 5 minutes, à partir de 59€/mois."
     },
     "pricing": {
       "title": "Tarifs",

@@ -139,7 +139,7 @@ export const Solution = () => {
                     { icon: <LayoutDashboard size={16} />, text: 'Configurez votre jeu en 5 minutes' },
                     { icon: <Star size={16} />, text: 'Vos avis Google grimpent semaine après semaine' },
                     { icon: <TrendingUp size={16} />, text: 'Vos abonnés Insta décollent (sans publier plus)' },
-                    { icon: <Users size={16} />, text: 'Vos clients reviennent encaisser leur lot (achat min que vous fixez)' },
+                    { icon: <Users size={16} />, text: 'Vos clients reviennent encaisser leur récompense (achat min que vous fixez)' },
                   ]).map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-7 h-7 rounded-full bg-[linear-gradient(135deg,rgba(30,157,170,0.15)_0%,rgba(46,174,109,0.15)_100%)] flex items-center justify-center text-[var(--primary-green)] mt-0.5">

@@ -58,7 +58,7 @@ export const GameScenario = () => {
     {
       icon: Dices,
       title: isEn ? "The Game Thrill" : "Le Frisson du Jeu",
-      desc: isEn ? "The game unlocks (Slots, Wheel of Fortune or Blackjack). They play to win an exclusive prize." : "Le jeu se débloque (Machine à sous, Roue de la fortune ou Blackjack). Il joue pour tenter de gagner un lot exclusif.",
+      desc: isEn ? "The game unlocks (Slots, Wheel of Fortune or Blackjack). They play to win an exclusive prize." : "Le jeu se débloque (Machine à sous, Roue de la fortune ou Blackjack). Il joue pour tenter de gagner une récompense exclusive.",
       visual: (
         <div className="relative w-full h-full flex items-center justify-center">
           <motion.div

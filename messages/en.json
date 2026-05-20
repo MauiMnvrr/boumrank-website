@@ -238,7 +238,7 @@
         "support": "French support",
         "rgpd": "GDPR compliant"
       },
-      "signature": "Built in Marseille · Powered by Pépite Aix-Marseille University · Beta January 2026"
+      "signature": "Built in Marseille · Powered by Pépite Aix-Marseille University"
     }
   },
   "faqs": {
@@ -249,7 +249,7 @@
       },
       {
         "question": "Will my customers actually play? They aren't gamers.",
-        "answer": "That's exactly the point. The game isn't for gamers, it's for everyone. A spinning wheel speaks to your grandma just as much as a 14-year-old. 89% of scans lead to a game launched, based on our beta data."
+        "answer": "That's exactly the point. The game isn't for gamers, it's for everyone. A spinning wheel speaks to your grandma just as much as a 14-year-old. 89% of scans lead to a game launched."
       },
       {
         "question": "Can I set a minimum purchase to redeem prizes?",
@@ -587,7 +587,7 @@
             "Refer a friend"
           ],
           "kpiValue": "4.8/5",
-          "kpiLabel": "avg. Google rating in beta"
+          "kpiLabel": "avg. Google rating"
         },
         {
           "number": "03",
