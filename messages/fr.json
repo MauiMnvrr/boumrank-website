@@ -313,15 +313,15 @@
       "p2": "Pendant ce temps, vos concurrents qui maîtrisent ces outils prennent votre place sur Google.",
       "painPoints": [
         {
-          "title": "Demander un avis, c'est gênant.",
+          "title": "Demander un avis, c'est gênant",
           "body": "On hésite à le faire en personne, par peur de paraître insistant."
         },
         {
-          "title": "Le SEO local, c'est opaque.",
+          "title": "Le SEO local, c'est opaque",
           "body": "Trop d'outils, trop de jargon, jamais le temps de s'y mettre vraiment."
         },
         {
-          "title": "Le marketing, c'est chronophage.",
+          "title": "Le marketing, c'est chronophage",
           "body": "Chaque heure passée à automatiser, c'est une heure de moins avec vos clients."
         }
       ]
@@ -344,17 +344,17 @@
       "steps": [
         {
           "n": "01",
-          "title": "Le client scanne.",
+          "title": "Le client scanne",
           "body": "Sur l'addition, à la caisse, sur la table : un QR code unique à votre commerce."
         },
         {
           "n": "02",
-          "title": "Le client joue.",
+          "title": "Le client joue",
           "body": "Roue de la fortune, machine à sous, blackjack : un mini-jeu addictif qui demande juste un avis Google pour jouer."
         },
         {
           "n": "03",
-          "title": "Le client revient.",
+          "title": "Le client revient",
           "body": "Il gagne une récompense à venir chercher chez vous. Vous le revoyez. Il consomme."
         }
       ]
@@ -384,15 +384,15 @@
       "statementSuffix": ".",
       "pillars": [
         {
-          "title": "Humain.",
+          "title": "Humain",
           "body": "On ne vend pas un outil, on s'occupe de votre marketing comme un associé."
         },
         {
-          "title": "Automatique.",
+          "title": "Automatique",
           "body": "Vous ne touchez à rien. Tout tourne en arrière-plan, tous les jours."
         },
         {
-          "title": "Local.",
+          "title": "Local",
           "body": "Construit pour les commerces de proximité français, en France."
         }
       ]
@@ -555,7 +555,7 @@
     },
     "section2": {
       "title": "Vous configurez, vos clients jouent,",
-      "titleGradient": "Vous récoltez.",
+      "titleGradient": "Vous récoltez",
       "subtitle": "Quatre éléments qui s'assemblent en",
       "subtitleHighlight": "un programme de fidélité gamifié",
       "subtitleSuffix": "pilotable depuis votre téléphone.",

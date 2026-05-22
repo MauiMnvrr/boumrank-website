@@ -313,15 +313,15 @@
       "p2": "Meanwhile, competitors who've figured out these tools are taking your spot on Google.",
       "painPoints": [
         {
-          "title": "Asking for a review is awkward.",
+          "title": "Asking for a review is awkward",
           "body": "You hesitate to do it in person. It feels pushy."
         },
         {
-          "title": "Local SEO is a black box.",
+          "title": "Local SEO is a black box",
           "body": "Too many tools, too much jargon, never enough time to actually dig in."
         },
         {
-          "title": "Marketing eats your day.",
+          "title": "Marketing eats your day",
           "body": "Every hour you spend automating is an hour you're not with your customers."
         }
       ]
@@ -344,17 +344,17 @@
       "steps": [
         {
           "n": "01",
-          "title": "The customer scans.",
+          "title": "The customer scans",
           "body": "On the check, at the register, on the table: a QR code unique to your business."
         },
         {
           "n": "02",
-          "title": "The customer plays.",
+          "title": "The customer plays",
           "body": "Spin the wheel, pull the slots, try blackjack: an addictive mini-game that just needs a Google review to play."
         },
         {
           "n": "03",
-          "title": "The customer comes back.",
+          "title": "The customer comes back",
           "body": "They win a reward to redeem in-store. You see them again. They spend more."
         }
       ]
@@ -384,15 +384,15 @@
       "statementSuffix": ".",
       "pillars": [
         {
-          "title": "Human.",
+          "title": "Human",
           "body": "We don't sell a tool — we handle your marketing like a business partner."
         },
         {
-          "title": "Automatic.",
+          "title": "Automatic",
           "body": "You don't touch a thing. It runs in the background, every single day."
         },
         {
-          "title": "Local.",
+          "title": "Local",
           "body": "Built for neighborhood businesses. Starting in France."
         }
       ]
