@@ -28,7 +28,6 @@ export const TarifsFaq = () => {
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
               {t('title2')}
             </span>
-            .
           </h2>
         </motion.div>
 

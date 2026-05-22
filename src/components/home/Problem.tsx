@@ -32,7 +32,6 @@ export const Problem = () => {
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_100%)]">
               {t('h2Highlight')}
             </span>
-            .
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
             {t('lead')}

@@ -77,7 +77,6 @@ export const Vision = () => {
               <span className="inline-block text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#FBAB5C_50%,#FFFFFF_100%)]">
                 {isEn ? 'spread across the whole neighborhood' : 'circuleront dans tout le quartier'}
               </span>
-              .
             </motion.h2>
 
             {/* Sub */}

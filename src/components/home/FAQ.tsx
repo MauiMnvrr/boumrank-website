@@ -42,14 +42,7 @@ export const FAQ = () => {
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
               {t('h2Highlight')}
             </span>
-            .
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-            {t('leadPart1')}{' '}
-            <span className="text-[var(--text-primary)] font-semibold">
-              {t('leadStrong')}
-            </span>
-          </p>
         </motion.div>
 
         <div className="max-w-5xl mx-auto flex flex-col gap-3">
