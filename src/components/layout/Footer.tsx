@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { MapPin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useDarkMode } from '@/components/ui/DarkModeProvider';
@@ -201,10 +201,6 @@ export const Footer: React.FC = () => {
               {t('tagline')}
             </p>
             <div className="flex flex-col gap-2 text-xs text-[var(--text-muted)]">
-              <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-[var(--primary-teal)]" />
-                <span>{t('location')}</span>
-              </div>
               <a
                 href={`mailto:${COMPANY.email}`}
                 className="flex items-center gap-2 hover:text-[var(--primary-blue)] transition-colors"
@@ -233,8 +229,7 @@ export const Footer: React.FC = () => {
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[var(--border-default)]">
           <p className="text-[var(--text-muted)] text-xs uppercase font-display font-bold tracking-wider text-center md:text-left">
-            {t('copyright', { year })}{' '}
-            <span className="text-[var(--text-secondary)]">{t('incorporation')}</span>
+            {t('copyright', { year })}
           </p>
           <div className="flex items-center gap-3">
             <a

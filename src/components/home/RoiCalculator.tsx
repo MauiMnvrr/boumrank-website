@@ -105,12 +105,6 @@ export const RoiCalculator = () => {
             </span>{' '}
             {t('h2Part2')}
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-            {t('leadPart1')}{' '}
-            <span className="text-[var(--text-primary)] font-semibold">
-              {t('leadStrong')}
-            </span>
-          </p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-6 md:gap-8 items-stretch">

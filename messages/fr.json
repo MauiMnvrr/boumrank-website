@@ -27,7 +27,7 @@
   },
   "footer": {
     "tagline": "Le marketing local qui se joue. Plus d'avis Google, plus de followers, plus de clients qui reviennent. Setup en 5 minutes.",
-    "location": "Conçu à Marseille · Soutenu par Pépite Aix-Marseille",
+    "location": "",
     "columns": {
       "product": {
         "title": "Produit",
@@ -68,7 +68,7 @@
       "free": "Gratuit"
     },
     "copyright": "© {year} BoumRank, Tous droits réservés ·",
-    "incorporation": "SAS en cours de création"
+    "incorporation": ""
   },
   "home": {
     "hero": {
@@ -132,7 +132,7 @@
         {
           "title": "Vous configurez",
           "subtitle": "",
-          "description": "Personnalisez votre jeu, les récompenses et leurs probabilités. Le tout aux couleurs de votre enseigne."
+          "description": "Personnalisez votre jeu, les récompenses, les probabilités. Le tout aux couleurs de votre enseigne."
         },
         {
           "title": "Vous affichez",
@@ -142,7 +142,7 @@
         {
           "title": "Ils jouent",
           "subtitle": "",
-          "description": "Ils scannent, réalisent l'action marketing choisie, puis jouent pour tenter de gagner une récompense."
+          "description": "Ils scannent, réalisent l'action marketing, puis jouent pour tenter de gagner une récompense."
         },
         {
           "title": "Vous récoltez",
@@ -209,7 +209,7 @@
       "returnsCaption": "Clients qui reviennent",
       "revenueLabel": "CA additionnel",
       "revenueCaption": "Chiffre d'affaires lié au retour client",
-      "cta": "Débloquer ces avis avec BoumRank",
+      "cta": "Obtenez ces avis avec Boumrank",
       "currencyLocale": "fr-FR",
       "currencyCode": "EUR"
     },
@@ -238,7 +238,7 @@
         "support": "Support français",
         "rgpd": "Conforme RGPD"
       },
-      "signature": "Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université"
+      "signature": "Propulsé par Pépite Aix-Marseille Université"
     }
   },
   "faqs": {
