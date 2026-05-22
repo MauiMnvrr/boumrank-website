@@ -22,7 +22,7 @@ export function AProposPepite() {
         >
           <h2 className="font-display text-3xl font-bold leading-tight text-[var(--text-primary)] md:text-5xl">
             {t('title')}{' '}
-            <span className="text-gradient">{t('titleGradient')}</span>.
+            <span className="text-gradient">{t('titleGradient')}</span>
           </h2>
           <p className="mt-6 text-lg text-[var(--text-body)] md:text-xl">{t('subtitle')}</p>
         </motion.div>

@@ -45,13 +45,11 @@ export const Solution = () => {
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_100%)]">
               {isEn ? 'customer into a player' : 'client en joueur'}
             </span>
-            .
             <br />
             {isEn ? 'Every' : 'Chaque'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1E9DAA_0%,#2EAE6D_100%)]">
               {isEn ? 'player into an advocate' : 'joueur en ambassadeur'}
             </span>
-            .
           </h2>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
             {isEn ? 'A QR code on the table. A game. A coupon.' : 'Un QR code sur la table. Un jeu. Un coupon.'}{' '}
