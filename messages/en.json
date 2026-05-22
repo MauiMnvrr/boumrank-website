@@ -105,7 +105,7 @@
     "problem": {
       "h2Part1": "We know the",
       "h2Highlight": "drill",
-      "lead": "Three frustrations every shopkeeper knows",
+      "lead": "Three frustrations every shopkeeper knows.",
       "items": [
         {
           "title": "The \"cross my heart\" review that never lands",
@@ -113,11 +113,11 @@
         },
         {
           "title": "Shopkeeper by day, community manager by night",
-          "body": "You run your shop, we handle the digital side"
+          "body": "You run your shop, we handle the digital side."
         },
         {
           "title": "Only the grumpy ones leave reviews",
-          "body": "Unhappy customers speak up 3x more often"
+          "body": "Unhappy customers speak up 3x more often."
         }
       ],
       "outroPart1": "What if we turned that into a",
@@ -304,11 +304,11 @@
   "about": {
     "hero": {
       "title": "Two friends, one obsession:",
-      "titleGradient": "let merchants focus on what they love.",
+      "titleGradient": "let merchants focus on what they love",
       "subtitle": "BoumRank was born from a simple observation. Here's our story."
     },
     "story": {
-      "title": "You're a merchant, not a social media manager.",
+      "title": "You're a merchant, not a social media manager",
       "p1": "You open at 7am. You close at 10pm. In between, you cook, cut, style, and welcome everyone who walks in. You give everything to your craft. Google rankings, customer reviews, follow-ups, loyalty programs — you know they matter. But you don't have the time, the energy, or the desire to become a digital marketing expert.",
       "p2": "Meanwhile, competitors who've figured out these tools are taking your spot on Google.",
       "painPoints": [
@@ -329,7 +329,7 @@
     "team": {
       "title": "We found",
       "titleGradient": "a gem",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "quote": "We watched our friends, our family — merchants we loved — struggle every day to get noticed. We knew there had to be a better way. We looked for it. We found it.",
       "quoteAuthor": "Liam & Maui, co-founders of BoumRank",
       "p": "We tested it first with family — Liam's mom, Maui's brother — before offering it to anyone else. We didn't have the right to waste their time. Today, it works. And we want to bring it to every merchant who deserves to be taken care of.",
@@ -362,7 +362,7 @@
     "results": {
       "title": "Real results,",
       "titleGradient": "not empty promises",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "footnote": "Tested first with family and friends. Now running at restaurants, salons, boutiques, and beauty institutes.",
       "stats": [
         {
@@ -378,7 +378,7 @@
       ]
     },
     "mission": {
-      "title": "Our mission.",
+      "title": "Our mission",
       "statement": "Free up time for local merchants so they can get back to what they do best:",
       "statementGradient": "their craft",
       "statementSuffix": ".",
@@ -401,7 +401,7 @@
       "eyebrow": "Vision 2030",
       "title": "A marketplace for",
       "titleGradient": "local businesses",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "body": "Tomorrow, BoumRank won't just be your review and loyalty tool. It'll be the marketplace that connects businesses in your neighborhood: the restaurant sending customers to the barber next door, the salon sharing their best regulars with the boutique down the street. A local economy that thrives together, not fights for scraps."
     },
     "cta": {
@@ -415,16 +415,16 @@
     "title": "Pricing",
     "lead": "One product. Three commitments. You pick.",
     "hero": {
-      "title1": "One service.",
-      "title2": "Three commitments.",
-      "title3": "Starting at $63/mo.",
+      "title1": "One service,",
+      "title2": "Three commitments,",
+      "title3": "Starting at $63/mo",
       "subtitle": "The full product, unlocked from day one.",
       "subtitleHighlight": "All you choose is how long you want to stay."
     },
     "plans": {
       "badge": "The price",
       "title1": "The longer you commit,",
-      "title2": "the less you pay.",
+      "title2": "the less you pay",
       "subtitle": "Same product. Three time horizons. That's it.",
       "featured": "⭐ Best value",
       "saving": "Save {amount}€/year",
@@ -434,33 +434,33 @@
     },
     "features": {
       "badge": "What you get",
-      "title1": "Every feature.",
-      "title2": "Always.",
+      "title1": "Every feature,",
+      "title2": "Always",
       "subtitle": "Whichever plan you pick, you get 100% of the product. No feature gating. No hidden upsells.",
       "items": [
         {
           "title": "All 3 games unlocked",
-          "body": "Wheel, Slots, Blackjack — activate any combo, any time"
+          "body": "Wheel, Slots, Blackjack — activate any combo, any time."
         },
         {
           "title": "100% custom branding",
-          "body": "13 templates, unlimited colors, custom illustrations"
+          "body": "13 templates, unlimited colors, custom illustrations."
         },
         {
           "title": "Performance dashboard",
-          "body": "Scan rate, conversion, avg. spend, time-on-floor"
+          "body": "Scan rate, conversion, avg. spend, time-on-floor."
         },
         {
           "title": "Unlimited QR codes",
-          "body": "3 print-ready formats, unlimited cashier swipes"
+          "body": "3 print-ready formats, unlimited cashier swipes."
         },
         {
           "title": "Sequential campaigns",
-          "body": "Happy hour, weekends, birthday specials"
+          "body": "Happy hour, weekends, birthday specials."
         },
         {
           "title": "Priority support (EN + FR)",
-          "body": "Chat reply in under 2h, GDPR-compliant EU hosting"
+          "body": "Chat reply in under 2h, GDPR-compliant EU hosting."
         }
       ],
       "promises": [
@@ -511,7 +511,7 @@
     "section1": {
       "title": "Your digital menu:",
       "titleGradient": "a marketing Trojan Horse",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "subtitle": "Customers open it to pick their meal.",
       "subtitleHighlight": "They discover they can win something.",
       "menuRestaurantName": "The Little Café",
@@ -554,8 +554,8 @@
       ]
     },
     "section2": {
-      "title": "You configure it. They play.",
-      "titleGradient": "You win.",
+      "title": "You configure it, they play,",
+      "titleGradient": "You win",
       "subtitle": "Four building blocks that come together into",
       "subtitleHighlight": "a gamified loyalty program",
       "subtitleSuffix": "you run from your phone.",
@@ -623,9 +623,9 @@
       "couponValidity": "Valid tomorrow"
     },
     "section3": {
-      "title": "One dashboard.",
+      "title": "One dashboard,",
       "titleGradient": "Three advantages",
-      "titleSuffix": "nobody else offers.",
+      "titleSuffix": "nobody else offers",
       "subtitle": "All your metrics in real time,",
       "subtitleHighlight": "with a clear view of your ROI",
       "subtitleSuffix": "no spreadsheets, no agency.",

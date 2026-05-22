@@ -105,7 +105,7 @@
     "problem": {
       "h2Part1": "On connaît la",
       "h2Highlight": "chanson",
-      "lead": "Trois frustrations que chaque commerçant connaît",
+      "lead": "Trois frustrations que chaque commerçant connaît.",
       "items": [
         {
           "title": "L'avis « promis juré » qui n'arrive jamais",
@@ -113,11 +113,11 @@
         },
         {
           "title": "Commerçant le jour, community manager la nuit",
-          "body": "Vous gérez votre boutique, on s'occupe du numérique"
+          "body": "Vous gérez votre boutique, on s'occupe du numérique."
         },
         {
           "title": "Seuls les aigris vous laissent des avis",
-          "body": "Les clients mécontents parlent 3x plus souvent"
+          "body": "Les clients mécontents parlent 3x plus souvent."
         }
       ],
       "outroPart1": "Et si on transformait ça en",
@@ -127,7 +127,7 @@
     "howItWorks": {
       "h2Part1": "Un parcours",
       "h2Highlight": "simple",
-      "lead": "De la configuration au premier avis Google",
+      "lead": "De la configuration au premier avis Google.",
       "steps": [
         {
           "title": "Vous configurez",
@@ -304,11 +304,11 @@
   "about": {
     "hero": {
       "title": "Deux amis, une obsession :",
-      "titleGradient": "que les commerçants restent concentrés sur leur passion.",
+      "titleGradient": "que les commerçants restent concentrés sur leur passion",
       "subtitle": "BoumRank est né d'un constat simple. Voici notre histoire."
     },
     "story": {
-      "title": "Vous êtes commerçant, pas community manager.",
+      "title": "Vous êtes commerçant, pas community manager",
       "p1": "Vous ouvrez à 7h. Vous fermez à 22h. Entre les deux, vous cuisinez, vous coupez, vous coiffez, vous accueillez. Vous donnez tout ce que vous avez à votre métier. Le référencement Google, les avis clients, les relances, les programmes de fidélité, vous savez que c'est important. Mais vous n'avez ni le temps, ni l'envie, ni l'énergie de devenir spécialiste en marketing digital.",
       "p2": "Pendant ce temps, vos concurrents qui maîtrisent ces outils prennent votre place sur Google.",
       "painPoints": [
@@ -329,7 +329,7 @@
     "team": {
       "title": "On a trouvé",
       "titleGradient": "une pépite",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "quote": "On a regardé nos proches, nos amis commerçants, galérer chaque jour pour faire connaître leur passion. On savait qu'il existait une meilleure façon. On l'a cherchée. On l'a trouvée.",
       "quoteAuthor": "Liam & Maui, co-fondateurs de BoumRank",
       "p": "On a d'abord testé chez nos proches, la mère de Liam, le frère de Maui, avant de le proposer à qui que ce soit d'autre. Parce qu'on n'avait pas le droit de leur faire perdre du temps. Aujourd'hui, ça marche. Et on veut le proposer à tous les commerçants qui méritent qu'on s'occupe d'eux.",
@@ -362,7 +362,7 @@
     "results": {
       "title": "Des résultats concrets,",
       "titleGradient": "pas des promesses en l'air",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "footnote": "Testé d'abord chez nos proches. Étendu aujourd'hui à des restaurants, salons, boutiques, instituts.",
       "stats": [
         {
@@ -378,7 +378,7 @@
       ]
     },
     "mission": {
-      "title": "Notre mission.",
+      "title": "Notre mission",
       "statement": "Libérer le temps des commerçants français pour qu'ils retournent à ce qu'ils font de mieux :",
       "statementGradient": "leur métier",
       "statementSuffix": ".",
@@ -401,7 +401,7 @@
       "eyebrow": "Vision 2030",
       "title": "Une marketplace entre",
       "titleGradient": "commerces locaux",
-      "titleSuffix": ".",
+      "titleSuffix": "",
       "body": "Demain, BoumRank ne sera plus seulement votre outil d'avis et de fidélisation. Ce sera la marketplace qui connecte les commerces de votre quartier entre eux : le restaurateur qui envoie ses clients chez le coiffeur d'à côté, le salon qui partage ses meilleurs clients avec la boutique du coin. Une économie locale qui se renforce, pas qui se subit."
     },
     "cta": {
@@ -415,16 +415,16 @@
     "title": "Tarifs",
     "lead": "Un service, trois engagements. À vous de choisir.",
     "hero": {
-      "title1": "Un service.",
-      "title2": "Trois engagements.",
-      "title3": "À partir de 59€/mois.",
+      "title1": "Un service,",
+      "title2": "Trois engagements,",
+      "title3": "À partir de 59€/mois",
       "subtitle": "Le même service, débloqué entièrement dès le jour 1.",
       "subtitleHighlight": "Vous choisissez juste combien de temps vous voulez rester."
     },
     "plans": {
       "badge": "Le prix",
-      "title1": "Plus vous vous engagez.",
-      "title2": "Moins vous payez.",
+      "title1": "Plus vous vous engagez,",
+      "title2": "Moins vous payez",
       "subtitle": "Le même service. Trois durées d'engagement. C'est tout.",
       "featured": "⭐ Le meilleur deal",
       "saving": "Économisez {amount}€/an",
@@ -434,33 +434,33 @@
     },
     "features": {
       "badge": "Ce que vous obtenez",
-      "title1": "Toutes les features.",
-      "title2": "Tout le temps.",
+      "title1": "Toutes les features,",
+      "title2": "Tout le temps",
       "subtitle": "Peu importe l'offre choisie, vous avez 100% du service. Pas de feature gating, pas d'upsell caché.",
       "items": [
         {
           "title": "Les 3 jeux débloqués",
-          "body": "Roue, Slots, Blackjack, tous activables à volonté"
+          "body": "Roue, Slots, Blackjack, tous activables à volonté."
         },
         {
           "title": "Branding 100% custom",
-          "body": "13 templates, palette illimitée, illustrations"
+          "body": "13 templates, palette illimitée, illustrations."
         },
         {
           "title": "Dashboard Performance",
-          "body": "Taux scan, conversion, retour caisse, temps moyen"
+          "body": "Taux scan, conversion, retour caisse, temps moyen."
         },
         {
           "title": "QR codes illimités",
-          "body": "3 formats imprimables, swipe caissier illimité"
+          "body": "3 formats imprimables, swipe caissier illimité."
         },
         {
           "title": "Campagnes séquentielles",
-          "body": "Happy hour, week-end, anniversaire client"
+          "body": "Happy hour, week-end, anniversaire client."
         },
         {
           "title": "Support FR prioritaire",
-          "body": "Réponse en chat sous 2h, hébergement RGPD en Europe"
+          "body": "Réponse en chat sous 2h, hébergement RGPD en Europe."
         }
       ],
       "promises": [
@@ -511,7 +511,7 @@
     "section1": {
       "title": "Votre menu digitalisé,",
       "titleGradient": "LE Cheval de Troie",
-      "titleSuffix": "marketing.",
+      "titleSuffix": "marketing",
       "subtitle": "Vos clients consultent le menu pour choisir leur plat.",
       "subtitleHighlight": "Ils découvrent qu'ils peuvent gagner.",
       "menuRestaurantName": "Le Petit Café",
@@ -554,7 +554,7 @@
       ]
     },
     "section2": {
-      "title": "Vous configurez. Vos clients jouent.",
+      "title": "Vous configurez, vos clients jouent,",
       "titleGradient": "Vous récoltez.",
       "subtitle": "Quatre éléments qui s'assemblent en",
       "subtitleHighlight": "un programme de fidélité gamifié",
@@ -623,9 +623,9 @@
       "couponValidity": "Valide demain"
     },
     "section3": {
-      "title": "Un dashboard.",
+      "title": "Un dashboard,",
       "titleGradient": "Trois avantages",
-      "titleSuffix": "que personne ne vous offre.",
+      "titleSuffix": "que personne ne vous offre",
       "subtitle": "Toutes vos métriques en temps réel,",
       "subtitleHighlight": "et la vision claire de votre ROI",
       "subtitleSuffix": "sans Excel, sans agence.",
@@ -665,7 +665,7 @@
         {
           "badge": "Le menu intégré",
           "title": "Le menu, qui fait la différence",
-          "body": "Nous sommes les seuls à inclure votre menu digitalisé sans surcoût. C'est pour nous, c'est cadeau, et ça nous fait vraiment plaisir"
+          "body": "Nous sommes les seuls à inclure votre menu digitalisé sans surcoût. C'est pour nous, c'est cadeau, et ça nous fait vraiment plaisir."
         },
         {
           "badge": "L'auto-financement",
