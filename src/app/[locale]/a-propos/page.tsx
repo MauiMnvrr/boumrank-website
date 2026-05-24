@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import {
   SchemaOrg,
   organizationSchema,
-  localBusinessSchema,
   breadcrumbSchema,
 } from '@/components/seo/SchemaOrg';
 import { AProposHero } from '@/components/a-propos/AProposHero';
@@ -55,7 +54,6 @@ export default async function AProposPage({
       <SchemaOrg
         schemas={[
           organizationSchema(),
-          localBusinessSchema(),
           breadcrumbSchema([
             { name: aboutHome, url: locale === 'fr' ? `${SITE_URL}/` : `${SITE_URL}/en` },
             { name: aboutLabel, url: canonical },

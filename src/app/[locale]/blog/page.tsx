@@ -16,13 +16,15 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'seo.blog' });
   const canonical = locale === 'fr' ? `${SITE_URL}/blog` : `${SITE_URL}/en/blog`;
+  const isEnPlaceholder = locale === 'en' && !process.env.NOTION_BLOG_DATABASE_ID_EN;
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
       canonical,
-      languages: { fr: `${SITE_URL}/blog`, en: `${SITE_URL}/en/blog` },
+      languages: { fr: `${SITE_URL}/blog`, en: `${SITE_URL}/en/blog`, 'x-default': `${SITE_URL}/blog` },
     },
+    ...(isEnPlaceholder && { robots: { index: false, follow: true } }),
   };
 }
 

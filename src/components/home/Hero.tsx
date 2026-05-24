@@ -286,7 +286,7 @@ export const Hero = () => {
           >
             {/* H1 — punchline avec mots-cles en gradient */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="font-display font-extrabold uppercase text-[1.875rem] sm:text-[2.5rem] md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] 2xl:text-[4.5rem] leading-[0.95] mb-6 text-[var(--text-primary)] whitespace-nowrap"

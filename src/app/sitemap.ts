@@ -4,22 +4,18 @@ import { routing } from '@/i18n/routing';
 
 type LocalizedPath = keyof typeof routing.pathnames;
 
-const STATIC_PATHS: {
-  path: LocalizedPath;
-  priority: number;
-  changeFrequency: 'weekly' | 'monthly' | 'yearly';
-}[] = [
-  { path: '/', priority: 1.0, changeFrequency: 'weekly' },
-  { path: '/experience', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/technologie', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/tarifs', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/fonctionnalites', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/a-propos', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
-  { path: '/politique-de-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
-  { path: '/conditions-generales', priority: 0.3, changeFrequency: 'yearly' },
+const STATIC_PATHS: LocalizedPath[] = [
+  '/',
+  '/experience',
+  '/technologie',
+  '/tarifs',
+  '/fonctionnalites',
+  '/a-propos',
+  '/contact',
+  '/blog',
+  '/mentions-legales',
+  '/politique-de-confidentialite',
+  '/conditions-generales',
 ];
 
 function resolvePath(path: LocalizedPath, locale: 'fr' | 'en'): string {
@@ -35,27 +31,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const { path, priority, changeFrequency } of STATIC_PATHS) {
+  for (const path of STATIC_PATHS) {
     const frUrl = resolvePath(path, 'fr');
     const enUrl = resolvePath(path, 'en');
     const alternates = {
-      languages: { fr: frUrl, en: enUrl },
+      languages: { fr: frUrl, en: enUrl, 'x-default': frUrl },
     };
 
-    entries.push({
-      url: frUrl,
-      lastModified,
-      changeFrequency,
-      priority,
-      alternates,
-    });
-    entries.push({
-      url: enUrl,
-      lastModified,
-      changeFrequency,
-      priority: priority * 0.9,
-      alternates,
-    });
+    entries.push({ url: frUrl, lastModified, alternates });
+    entries.push({ url: enUrl, lastModified, alternates });
   }
 
   return entries;

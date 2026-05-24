@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { SITE_URL } from '@/lib/constants';
 import { Hero } from '@/components/home/Hero';
 import { SocialProof } from '@/components/home/SocialProof';
 import { Problem } from '@/components/home/Problem';
@@ -15,6 +17,25 @@ import {
   faqPageSchema,
 } from '@/components/seo/SchemaOrg';
 import { HOME_FAQ_COUNT, type FaqItem } from '@/data/home-faqs';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const canonical = locale === 'fr' ? SITE_URL : `${SITE_URL}/en`;
+  return {
+    alternates: {
+      canonical,
+      languages: {
+        fr: SITE_URL,
+        en: `${SITE_URL}/en`,
+        'x-default': SITE_URL,
+      },
+    },
+  };
+}
 
 export default async function HomePage({
   params,
