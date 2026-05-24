@@ -102,15 +102,10 @@ export function softwareApplicationSchema() {
     url: SITE_URL,
     offers: {
       '@type': 'AggregateOffer',
-      lowPrice: '65',
+      lowPrice: '59',
       highPrice: '79',
       priceCurrency: 'EUR',
       offerCount: 3,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '500',
     },
   };
 }
@@ -159,7 +154,7 @@ export function productSchema(plans: Array<{
       .map((plan) => ({
         '@type': 'Offer',
         name: plan.name,
-        price: plan.price.replace('\u20ac', ''),
+        price: plan.price.replace(/[^\d.]/g, ''),
         priceCurrency: 'EUR',
         priceValidUntil: new Date(
           new Date().getFullYear() + 1,
@@ -177,6 +172,7 @@ export function blogPostingSchema(post: {
   excerpt: string;
   slug: string;
   publishDate: string;
+  lastEditedDate?: string;
   author: string;
   coverImage?: string;
   tags?: string[];
@@ -189,7 +185,7 @@ export function blogPostingSchema(post: {
     description: post.excerpt,
     url: `${SITE_URL}/blog/${post.slug}`,
     datePublished: post.publishDate,
-    dateModified: post.publishDate,
+    dateModified: post.lastEditedDate ?? post.publishDate,
     author: {
       '@type': 'Person',
       name: post.author,
@@ -202,12 +198,10 @@ export function blogPostingSchema(post: {
         url: `${SITE_URL}/logos/logo-horizontal-violet-cyan-gradient.png`,
       },
     },
-    ...(post.coverImage && {
-      image: {
-        '@type': 'ImageObject',
-        url: post.coverImage,
-      },
-    }),
+    image: {
+      '@type': 'ImageObject',
+      url: post.coverImage ?? `${SITE_URL}/og-image.png`,
+    },
     ...(post.tags && {
       keywords: post.tags.join(', '),
     }),
