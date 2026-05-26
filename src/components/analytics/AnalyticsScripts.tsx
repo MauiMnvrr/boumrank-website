@@ -25,6 +25,7 @@ export function AnalyticsScripts() {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
 
   return (
     <>
@@ -37,6 +38,13 @@ export function AnalyticsScripts() {
 
       {/* Google Analytics 4 */}
       {gaId && <GoogleAnalytics gaId={gaId} />}
+
+      {/* Microsoft Clarity — heatmaps + session replay, lazy-loaded */}
+      {clarityId && (
+        <Script id="ms-clarity" strategy="lazyOnload">
+          {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarityId}");`}
+        </Script>
+      )}
 
       {/* Meta Pixel — gated by Consent Mode via fbq consent commands */}
       {metaPixelId && (
