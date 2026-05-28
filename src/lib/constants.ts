@@ -16,7 +16,7 @@ export const COMPANY = {
   socials: {
     twitter: '', // réactiver quand le compte @boumrank sera créé sur X
     linkedin: 'https://linkedin.com/company/boumrank',
-    instagram: '', // réactiver quand le compte @boumrank sera créé sur Instagram
+    instagram: 'https://www.instagram.com/we_are_boumrank',
   },
 } as const;
 
