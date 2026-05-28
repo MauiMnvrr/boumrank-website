@@ -66,6 +66,7 @@ type AnyHref =
   | '/blog'
   | '/experience'
   | '/technologie'
+  | '/presentation'
   | '/mentions-legales'
   | '/conditions-generales'
   | '/politique-de-confidentialite';
@@ -125,6 +126,10 @@ export const Footer: React.FC = () => {
       labelKey: 'columns.resources.qrGenerator',
       href: '/generateur-qr-demo',
       badgeKey: 'badges.free',
+    },
+    {
+      labelKey: 'columns.resources.presentation',
+      href: '/presentation',
     },
     { labelKey: 'columns.resources.about', href: '/a-propos' },
   ];

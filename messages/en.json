@@ -51,7 +51,8 @@
         "faq": "FAQ",
         "guide": "Guide: 50 Google reviews in 30 days",
         "qrGenerator": "Demo QR generator",
-        "about": "About"
+        "about": "About",
+        "presentation": "Presentation"
       },
       "legal": {
         "title": "Legal",
@@ -770,6 +771,10 @@
     "terms": {
       "title": "Terms of service",
       "description": "BoumRank's terms of service."
+    },
+    "presentation": {
+      "title": "BoumRank, Presentation",
+      "description": "Discover BoumRank in a few slides: the gamification SaaS that turns your customers into ambassadors. QR code, mini game, in-store reward."
     }
   },
   "emails": {
@@ -790,6 +795,22 @@
         "signature": "The BoumRank team",
         "ps": "PS: if it's urgent, email us directly at support@boumrank.com."
       }
+    }
+  },
+  "presentation": {
+    "breadcrumb": "Presentation",
+    "eyebrow": "Our story in a few slides",
+    "titleLine1": "Discover",
+    "titleLine2": "BoumRank",
+    "lead": "Product vision, business model, traction and roadmap. Everything you need to know about how BoumRank is reinventing local marketing.",
+    "iframeTitle": "BoumRank Presentation",
+    "helper": "Scroll through the deck at your own pace",
+    "cta": {
+      "eyebrow": "Want to talk?",
+      "title": "Got a question or want to team up?",
+      "lead": "Whether you are a merchant, an investor or a potential partner, let's chat about what's next.",
+      "contactButton": "Contact us",
+      "demoButton": "Try the demo"
     }
   }
 }

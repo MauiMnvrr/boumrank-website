@@ -13,6 +13,7 @@ const STATIC_PATHS: LocalizedPath[] = [
   '/a-propos',
   '/contact',
   '/blog',
+  '/presentation',
   '/mentions-legales',
   '/politique-de-confidentialite',
   '/conditions-generales',

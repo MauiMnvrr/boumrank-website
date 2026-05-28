@@ -46,6 +46,7 @@ export const routing = defineRouting({
       fr: '/conditions-generales',
       en: '/terms',
     },
+    '/presentation': '/presentation',
   },
 });
 
