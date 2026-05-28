@@ -69,9 +69,10 @@ type AnyHref =
   | '/presentation'
   | '/mentions-legales'
   | '/conditions-generales'
-  | '/politique-de-confidentialite';
+  | '/politique-de-confidentialite'
+;
 
-type AnchorHref = `/#${string}` | `/generateur-qr-demo`;
+type AnchorHref = `/#${string}` | `/generateur-qr-demo` | `/secteurs/${string}`;
 
 type FooterLink = {
   labelKey: string;
@@ -103,9 +104,9 @@ export const Footer: React.FC = () => {
   ];
 
   const solutionsLinks: (FooterLink | AnchorFooterLink)[] = [
-    { labelKey: 'columns.solutions.restaurants', href: '/#pour-qui' },
-    { labelKey: 'columns.solutions.salons', href: '/#pour-qui' },
-    { labelKey: 'columns.solutions.retail', href: '/#pour-qui' },
+    { labelKey: 'columns.solutions.restaurants', href: '/secteurs/restaurants' },
+    { labelKey: 'columns.solutions.salons', href: '/secteurs/salons-beaute' },
+    { labelKey: 'columns.solutions.retail', href: '/secteurs/boutiques-retail' },
     { labelKey: 'columns.solutions.multisite', href: '/contact' },
     {
       labelKey: 'columns.solutions.network',
@@ -151,7 +152,7 @@ export const Footer: React.FC = () => {
   const renderLink = (link: FooterLink | AnchorFooterLink) => {
     const label = t(link.labelKey);
     const badge = link.badgeKey ? t(link.badgeKey) : null;
-    const isHash = link.href.startsWith('/#') || link.href.startsWith('/generateur');
+    const isHash = link.href.startsWith('/#') || link.href.startsWith('/generateur') || link.href.startsWith('/secteurs/');
 
     const content = (
       <>
@@ -237,33 +238,39 @@ export const Footer: React.FC = () => {
             {t('copyright', { year })}
           </p>
           <div className="flex items-center gap-3">
-            <a
-              href="https://twitter.com/boumrank"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
-            >
-              <TwitterIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://linkedin.com/company/boumrank"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://instagram.com/boumrank"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
-            >
-              <InstagramIcon className="w-4 h-4" />
-            </a>
+            {COMPANY.socials.twitter && (
+              <a
+                href={COMPANY.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
+              >
+                <TwitterIcon className="w-4 h-4" />
+              </a>
+            )}
+            {COMPANY.socials.linkedin && (
+              <a
+                href={COMPANY.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
+              >
+                <LinkedinIcon className="w-4 h-4" />
+              </a>
+            )}
+            {COMPANY.socials.instagram && (
+              <a
+                href={COMPANY.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-muted)] hover:text-[var(--primary-blue)] hover:border-[var(--border-highlight)] transition-all"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+            )}
           </div>
         </div>
       </div>

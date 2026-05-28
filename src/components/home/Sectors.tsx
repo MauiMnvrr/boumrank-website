@@ -36,7 +36,7 @@ const FR_SECTORS: Sector[] = [
     ],
     gradient: 'linear-gradient(135deg, #1B6FC2 0%, #1E9DAA 100%)',
     accent: '#1B6FC2',
-    href: '/#pour-qui',
+    href: '/secteurs/restaurants',
   },
   {
     id: 'salons',
@@ -53,7 +53,7 @@ const FR_SECTORS: Sector[] = [
     ],
     gradient: 'linear-gradient(135deg, #E84393 0%, #7C5CFC 100%)',
     accent: '#E84393',
-    href: '/#pour-qui',
+    href: '/secteurs/salons-beaute',
   },
   {
     id: 'boutiques',
@@ -70,7 +70,7 @@ const FR_SECTORS: Sector[] = [
     ],
     gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E9DAA 100%)',
     accent: '#2EAE6D',
-    href: '/#pour-qui',
+    href: '/secteurs/boutiques-retail',
   },
 ];
 
@@ -90,7 +90,7 @@ const EN_SECTORS: Sector[] = [
     ],
     gradient: 'linear-gradient(135deg, #1B6FC2 0%, #1E9DAA 100%)',
     accent: '#1B6FC2',
-    href: '/#pour-qui',
+    href: '/secteurs/restaurants',
   },
   {
     id: 'salons',
@@ -107,7 +107,7 @@ const EN_SECTORS: Sector[] = [
     ],
     gradient: 'linear-gradient(135deg, #E84393 0%, #7C5CFC 100%)',
     accent: '#E84393',
-    href: '/#pour-qui',
+    href: '/secteurs/salons-beaute',
   },
   {
     id: 'boutiques',
@@ -124,7 +124,7 @@ const EN_SECTORS: Sector[] = [
     ],
     gradient: 'linear-gradient(135deg, #2EAE6D 0%, #1E9DAA 100%)',
     accent: '#2EAE6D',
-    href: '/#pour-qui',
+    href: '/secteurs/boutiques-retail',
   },
 ];
 

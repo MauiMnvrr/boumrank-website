@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/constants';
 import { routing } from '@/i18n/routing';
+import { SECTOR_SLUGS } from '@/data/sectors';
 
 type LocalizedPath = keyof typeof routing.pathnames;
 
@@ -39,6 +40,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       languages: { fr: frUrl, en: enUrl, 'x-default': frUrl },
     };
 
+    entries.push({ url: frUrl, lastModified, alternates });
+    entries.push({ url: enUrl, lastModified, alternates });
+  }
+
+  // Sector landing pages
+  for (const slug of SECTOR_SLUGS) {
+    const frUrl = `${SITE_URL}/secteurs/${slug}`;
+    const enUrl = `${SITE_URL}/en/sectors/${slug}`;
+    const alternates = {
+      languages: { fr: frUrl, en: enUrl, 'x-default': frUrl },
+    };
     entries.push({ url: frUrl, lastModified, alternates });
     entries.push({ url: enUrl, lastModified, alternates });
   }

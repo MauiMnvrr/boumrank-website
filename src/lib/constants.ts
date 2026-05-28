@@ -14,9 +14,9 @@ export const COMPANY = {
   foundingYear: 2024,
   email: 'support@boumrank.com',
   socials: {
-    twitter: '',
-    linkedin: '',
-    instagram: '',
+    twitter: '', // réactiver quand le compte @boumrank sera créé sur X
+    linkedin: 'https://linkedin.com/company/boumrank',
+    instagram: '', // réactiver quand le compte @boumrank sera créé sur Instagram
   },
 } as const;
 

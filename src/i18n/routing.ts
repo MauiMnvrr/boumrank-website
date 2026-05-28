@@ -47,6 +47,10 @@ export const routing = defineRouting({
       en: '/terms',
     },
     '/presentation': '/presentation',
+    '/secteurs/[sector]': {
+      fr: '/secteurs/[sector]',
+      en: '/sectors/[sector]',
+    },
   },
 });
 
