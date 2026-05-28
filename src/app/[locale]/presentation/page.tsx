@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SchemaOrg, organizationSchema } from '@/components/seo/SchemaOrg';
 import { Button } from '@/components/ui/Button';
 import { SITE_URL, DEMO_URL } from '@/lib/constants';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { Mail, PlayCircle } from 'lucide-react';
 
 export async function generateMetadata({
@@ -122,12 +123,12 @@ export default async function PresentationPage({
                   {t('cta.contactButton')}
                 </Button>
               </Link>
-              <a href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+              <TrackedLink href={DEMO_URL} target="_blank" rel="noopener noreferrer" event="demo_click" payload={{ cta_location: 'presentation' }}>
                 <Button variant="outline" size="lg">
                   <PlayCircle size={18} />
                   {t('cta.demoButton')}
                 </Button>
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>

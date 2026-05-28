@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SchemaOrg, organizationSchema } from '@/components/seo/SchemaOrg';
 import { ContactForm } from '@/components/ui/ContactForm';
 import { SITE_URL, DEMO_URL } from '@/lib/constants';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { Mail, Calendar, MapPin, MessageCircle } from 'lucide-react';
 
 export async function generateMetadata({
@@ -109,14 +110,16 @@ export default async function ContactPage({
                           ? 'Get a personalized walkthrough tailored to your industry.'
                           : 'Prenez rendez-vous pour une présentation personnalisée adaptée à votre secteur.'}
                       </p>
-                      <a
+                      <TrackedLink
                         href={DEMO_URL}
                         target="_blank"
                         rel="noopener noreferrer"
+                        event="demo_click"
+                        payload={{ cta_location: 'contact' }}
                         className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1B6FC2] via-[#1E9DAA] to-[#2EAE6D] text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(27,111,194,0.3)] hover:shadow-[0_0_25px_rgba(27,111,194,0.5)] hover:scale-105 transition-all"
                       >
                         {isEn ? 'See the demo' : 'Voir la démo'}
-                      </a>
+                      </TrackedLink>
                     </div>
                   </div>
 
