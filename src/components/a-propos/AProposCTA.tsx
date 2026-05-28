@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
-import { SIGNUP_URL } from '@/lib/constants';
+import { useOnboarding } from '@/components/ui/OnboardingProvider';
+import { track } from '@/lib/analytics';
 
 export function AProposCTA() {
   const t = useTranslations('about.cta');
+  const { openModal } = useOnboarding();
 
   return (
     <section className="bg-[var(--bg-primary)] py-24 md:py-32">
@@ -42,11 +44,18 @@ export function AProposCTA() {
                   {t('contact')}
                 </Button>
               </Link>
-              <a href={SIGNUP_URL}>
-                <Button variant="outline" size="lg">
-                  {t('trial')}
-                </Button>
-              </a>
+              <Button
+                variant="outline"
+                size="lg"
+                data-cta="signup"
+                data-cta-location="apropos-cta"
+                onClick={() => {
+                  track('signup_click', { cta_location: 'apropos-cta' });
+                  openModal();
+                }}
+              >
+                {t('trial')}
+              </Button>
             </div>
           </div>
         </motion.div>

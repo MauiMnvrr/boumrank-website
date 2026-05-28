@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { HOME_FAQ_COUNT } from '@/data/home-faqs';
 import { cn } from '@/lib/utils';
+import { track } from '@/lib/analytics';
 
 export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -140,6 +141,7 @@ export const FAQ = () => {
               {t('anotherQuestion')}{' '}
               <Link
                 href="/contact"
+                onClick={() => track('contact_click', { cta_location: 'faq' })}
                 className="font-semibold text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] transition-colors underline underline-offset-2 decoration-[var(--primary-blue)]/30 hover:decoration-[var(--primary-blue)]"
               >
                 {t('writeUs')}

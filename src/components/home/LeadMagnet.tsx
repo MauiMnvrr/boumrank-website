@@ -7,6 +7,7 @@ import { Download, Mail, Check, BookOpen, Sparkles, AlertCircle } from 'lucide-r
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
+import { track, trackMeta } from '@/lib/analytics';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -19,14 +20,6 @@ export const LeadMagnet = () => {
   const locale = useLocale();
   const isEn = locale === 'en';
 
-  const trackEvent = (name: string, payload: Record<string, unknown> = {}) => {
-    if (typeof window === 'undefined') return;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const w = window as any;
-    if (w.gtag) w.gtag('event', name, payload);
-    if (w.dataLayer) w.dataLayer.push({ event: name, ...payload });
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -38,7 +31,7 @@ export const LeadMagnet = () => {
     }
 
     setState('submitting');
-    trackEvent('lead_magnet_submitted', { source: 'home_lead_magnet' });
+    track('lead_magnet_submitted', { source: 'home_lead_magnet' });
 
     try {
       const res = await fetch('/api/lead-magnet', {
@@ -56,21 +49,14 @@ export const LeadMagnet = () => {
       }
 
       setState('success');
-      trackEvent('lead_magnet_download', {
+      track('lead_magnet_download', {
         source: 'home_lead_magnet',
         magnet: '50-lots-qui-font-revenir',
       });
-      // Fire Meta Pixel Lead event (consent-gated inside the wrapper)
-      if (typeof window !== 'undefined') {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const w = window as any;
-        if (typeof w.fbq === 'function') {
-          w.fbq('track', 'Lead', {
-            content_name: 'Playbook BoumRank',
-            content_category: 'lead-magnet',
-          });
-        }
-      }
+      trackMeta('Lead', {
+        content_name: 'Playbook BoumRank',
+        content_category: 'lead-magnet',
+      });
     } catch (err) {
       const msg = err instanceof Error ? err.message : (isEn ? 'An error occurred.' : 'Une erreur est survenue.');
       setError(msg);

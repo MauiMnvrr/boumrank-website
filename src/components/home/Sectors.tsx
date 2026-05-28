@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
+import { track } from '@/lib/analytics';
 import { Utensils, Scissors, ShoppingBag, ArrowRight, Star, TrendingUp, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 
@@ -263,6 +264,7 @@ export const Sectors = () => {
               : 'Vous êtes dans un autre secteur (services, événementiel, tourisme, franchise) ?'}{' '}
             <Link
               href="/contact"
+              onClick={() => track('contact_click', { cta_location: 'sectors' })}
               className="text-[var(--primary-blue)] font-semibold not-italic hover:underline"
             >
               {isEn ? 'We adapt BoumRank to your business →' : 'On adapte BoumRank à votre métier →'}

@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { Link } from '@/i18n/navigation';
+import { track } from '@/lib/analytics';
 
 const ICONS = [Settings, QrCode, Gamepad2, Star, Store];
 const GRADIENTS = [
@@ -171,7 +172,7 @@ export const HowItWorks = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button onClick={openModal} variant="gradient" size="lg" className="normal-case tracking-normal">
+          <Button onClick={() => { track('signup_click', { cta_location: 'how-it-works' }); openModal(); }} variant="gradient" size="lg" className="normal-case tracking-normal">
             {tCommon('configureMyStore')}
           </Button>
           <Link

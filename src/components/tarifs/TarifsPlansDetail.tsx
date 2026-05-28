@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
 import { PRICING_OFFERS, type PricingOffer } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { track, trackMeta } from '@/lib/analytics';
 
 type OfferCardProps = {
   offer: PricingOffer;
@@ -91,7 +92,14 @@ const OfferCard = ({ offer, index, onCtaClick }: OfferCardProps) => {
         <div className="flex-1" />
 
         <Button
-          onClick={onCtaClick}
+          onClick={() => {
+            track('pricing_tier_click', { pricing_tier: offer.id });
+            track('signup_click', { cta_location: `tarifs-${offer.id}` });
+            trackMeta('Lead', { content_name: `signup_tarifs_${offer.id}` });
+            onCtaClick();
+          }}
+          data-cta={`pricing-${offer.id}`}
+          data-cta-location="tarifs-detail"
           variant={isFeatured ? 'gradient' : 'subtle'}
           size="md"
           className="w-full"
