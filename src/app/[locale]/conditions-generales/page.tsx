@@ -158,9 +158,11 @@ export default async function ConditionsGeneralesPage({
               du site.
             </p>
             <p className="mt-3">
-              Les prix sont indiqu&eacute;s en euros hors taxes (HT). La TVA
-              applicable sera ajout&eacute;e au moment de la facturation
-              conform&eacute;ment &agrave; la l&eacute;gislation en vigueur.
+              Les prix sont indiqu&eacute;s en euros. Le Prestataire rel&egrave;ve de
+              la franchise en base de TVA (article 293 B du CGI) : la TVA
+              n&apos;est pas applicable. En cas de d&eacute;passement des seuils
+              l&eacute;gaux, la TVA en vigueur sera appliqu&eacute;e et indiqu&eacute;e sur
+              les factures.
             </p>
             <p className="mt-3">
               Le paiement s&apos;effectue par carte bancaire via notre prestataire de
@@ -231,6 +233,11 @@ export default async function ConditionsGeneralesPage({
               <li>
                 Ne pas inciter &agrave; la publication de faux avis ou de
                 t&eacute;moignages trompeurs
+              </li>
+              <li>
+                &Ecirc;tre seul responsable du respect des conditions
+                d&apos;utilisation des plateformes tierces (Google et autres)
+                concernant la sollicitation d&apos;avis clients
               </li>
             </ul>
           </div>
@@ -336,7 +343,7 @@ export default async function ConditionsGeneralesPage({
                 </a>
               </p>
               <p>
-                Courrier : [Adresse du si&egrave;ge social]
+                Courrier : 59 avenue de la Panouse, 13009 Marseille, France
               </p>
             </div>
           </div>

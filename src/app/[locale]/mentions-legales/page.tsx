@@ -66,34 +66,26 @@ export default async function MentionsLegalesPage({
               <div className="grid sm:grid-cols-2 gap-3">
                 <div>
                   <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                    Raison sociale
+                    &Eacute;diteur
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    [Nom de la soci&eacute;t&eacute;]
+                    Liam Kahne, exploitant sous l&apos;enseigne {SITE_NAME}
                   </p>
                 </div>
                 <div>
                   <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                    Forme juridique
+                    Statut
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    [SAS / SARL]
+                    Entrepreneur individuel (EI)
                   </p>
                 </div>
                 <div>
                   <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                    Capital social
+                    SIREN
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    [Montant] euros
-                  </p>
-                </div>
-                <div>
-                  <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                    Si&egrave;ge social
-                  </span>
-                  <p className="text-[var(--text-primary)] font-medium">
-                    [Adresse]
+                    949 910 269
                   </p>
                 </div>
                 <div>
@@ -101,23 +93,39 @@ export default async function MentionsLegalesPage({
                     SIRET
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    [Num&eacute;ro]
+                    949 910 269 00024
                   </p>
                 </div>
                 <div>
                   <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                    RCS
+                    Code APE
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    [Ville]
+                    7021Z
                   </p>
                 </div>
                 <div>
                   <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                    Directeur de publication
+                    Si&egrave;ge
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    [Nom]
+                    59 avenue de la Panouse, 13009 Marseille, France
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    TVA
+                  </span>
+                  <p className="text-[var(--text-primary)] font-medium">
+                    TVA non applicable, art. 293 B du CGI
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    Directeur de la publication
+                  </span>
+                  <p className="text-[var(--text-primary)] font-medium">
+                    Liam Kahne
                   </p>
                 </div>
                 <div>
@@ -152,7 +160,7 @@ export default async function MentionsLegalesPage({
                     Adresse
                   </span>
                   <p className="text-[var(--text-primary)] font-medium">
-                    San Francisco, CA, USA
+                    340 S Lemon Ave #4133, Walnut, CA 91789, &Eacute;tats-Unis
                   </p>
                 </div>
                 <div>

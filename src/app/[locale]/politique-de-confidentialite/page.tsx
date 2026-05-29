@@ -82,10 +82,12 @@ export default async function PolitiqueDeConfidentialitePage({
             </p>
             <div className="bg-[var(--bg-elevated)] rounded-xl p-4 mt-3">
               <p className="font-medium text-[var(--text-primary)]">
-                {SITE_NAME}
+                Liam Kahne, entrepreneur individuel (EI), exploitant sous
+                l&apos;enseigne {SITE_NAME}
               </p>
+              <p>SIRET : 949 910 269 00024</p>
+              <p>Adresse : 59 avenue de la Panouse, 13009 Marseille, France</p>
               <p>Email : {COMPANY.email}</p>
-              <p>Adresse : [Adresse du si&egrave;ge social]</p>
             </div>
           </div>
 
@@ -352,12 +354,42 @@ export default async function PolitiqueDeConfidentialitePage({
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
               8. Transferts de donn&eacute;es
             </h2>
-            <p>
-              Certaines de vos donn&eacute;es peuvent &ecirc;tre transf&eacute;r&eacute;es vers
-              des pays situ&eacute;s hors de l&apos;Union europ&eacute;enne, notamment dans
-              le cadre de l&apos;h&eacute;bergement de notre plateforme (Vercel Inc.,
-              &Eacute;tats-Unis). Ces transferts sont encadr&eacute;s par des garanties
-              appropri&eacute;es conform&eacute;ment au RGPD, incluant les clauses
+            <p className="mb-3">
+              Pour fournir nos services, nous faisons appel &agrave; des
+              sous-traitants et prestataires techniques. Les principaux sont :
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Supabase</strong> (base de donn&eacute;es,
+                authentification, stockage), h&eacute;bergement dans l&apos;Union
+                europ&eacute;enne.
+              </li>
+              <li>
+                <strong>Vercel Inc.</strong> (h&eacute;bergement du site),
+                &Eacute;tats-Unis.
+              </li>
+              <li>
+                <strong>Stripe</strong> (paiement et gestion des abonnements).
+              </li>
+              <li>
+                <strong>Resend</strong> (envoi d&apos;emails transactionnels),
+                &Eacute;tats-Unis.
+              </li>
+              <li>
+                <strong>Google</strong> (analyse automatique des captures
+                d&apos;&eacute;cran par intelligence artificielle, et mesure
+                d&apos;audience via Google Analytics), &Eacute;tats-Unis.
+              </li>
+              <li>
+                <strong>Meta, Microsoft (Clarity), LinkedIn</strong> (mesure et
+                publicit&eacute; sur notre site, uniquement avec votre
+                consentement), &Eacute;tats-Unis.
+              </li>
+            </ul>
+            <p className="mt-3">
+              Certains de ces prestataires sont situ&eacute;s hors de l&apos;Union
+              europ&eacute;enne. Ces transferts sont encadr&eacute;s par des garanties
+              appropri&eacute;es conform&eacute;ment au RGPD, notamment les clauses
               contractuelles types de la Commission europ&eacute;enne.
             </p>
           </div>
@@ -392,16 +424,18 @@ export default async function PolitiqueDeConfidentialitePage({
             </p>
           </div>
 
-          {/* 11. Contact DPO */}
+          {/* 11. Contact protection des donn&eacute;es */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              11. Contact DPO
+              11. Contact protection des donn&eacute;es
             </h2>
             <p>
-              Pour toute question relative &agrave; la protection de vos donn&eacute;es
-              personnelles ou pour exercer vos droits, vous pouvez contacter
-              notre D&eacute;l&eacute;gu&eacute; &agrave; la Protection des Donn&eacute;es
-              (DPO) :
+              Aucun D&eacute;l&eacute;gu&eacute; &agrave; la Protection des Donn&eacute;es
+              (DPO) n&apos;est d&eacute;sign&eacute; &agrave; ce jour, cette
+              d&eacute;signation n&apos;&eacute;tant pas obligatoire au regard de notre
+              activit&eacute;. Pour toute question relative &agrave; la protection de
+              vos donn&eacute;es ou pour exercer vos droits, vous pouvez nous
+              contacter :
             </p>
             <div className="bg-[var(--bg-elevated)] rounded-xl p-4 mt-3">
               <p>
@@ -413,7 +447,7 @@ export default async function PolitiqueDeConfidentialitePage({
                   {COMPANY.email}
                 </a>
               </p>
-              <p>Adresse : [Adresse du si&egrave;ge social]</p>
+              <p>Adresse : 59 avenue de la Panouse, 13009 Marseille, France</p>
             </div>
           </div>
         </div>
