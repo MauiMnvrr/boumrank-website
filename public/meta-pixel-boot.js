@@ -12,6 +12,7 @@
   var scriptTag = document.getElementById('meta-pixel');
   var pixelId = scriptTag && scriptTag.getAttribute('data-pixel-id');
   if (!pixelId) return;
+  pixelId = pixelId.trim();
 
   // Check consent
   var adsGranted = false;
