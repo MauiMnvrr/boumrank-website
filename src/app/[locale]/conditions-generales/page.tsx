@@ -52,7 +52,7 @@ export default async function ConditionsGeneralesPage({
             </span>
           </h1>
           <p className="text-[var(--text-secondary)]">
-            Derni&egrave;re mise &agrave; jour : 16 avril 2026
+            Derni&egrave;re mise &agrave; jour : 29 mai 2026
           </p>
         </div>
 
