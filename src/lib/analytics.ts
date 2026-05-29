@@ -79,6 +79,11 @@ export function writeConsent(state: Omit<ConsentState, 'at'>): ConsentState {
     });
   }
 
+  // Notify in-app consent-gated trackers (Clarity, LinkedIn) to load/unload
+  window.dispatchEvent(
+    new CustomEvent('boumrank-consent-update', { detail: record })
+  );
+
   return record;
 }
 
