@@ -52,7 +52,7 @@ export default async function PolitiqueDeConfidentialitePage({
             </span>
           </h1>
           <p className="text-[var(--text-secondary)]">
-            Derni&egrave;re mise &agrave; jour : 29 mai 2026
+            Derni&egrave;re mise &agrave; jour : 30 mai 2026
           </p>
         </div>
 
@@ -123,9 +123,8 @@ export default async function PolitiqueDeConfidentialitePage({
                   Donn&eacute;es d&apos;utilisation du service
                 </h3>
                 <p>
-                  Interactions avec les jeux, captures d&apos;&eacute;cran soumises pour
-                  validation IA, historique des r&eacute;compenses, statistiques
-                  d&apos;engagement.
+                  Interactions avec les jeux, historique des r&eacute;compenses,
+                  statistiques d&apos;engagement.
                 </p>
               </div>
               <div className="bg-[var(--bg-elevated)] rounded-xl p-4">
@@ -155,10 +154,6 @@ export default async function PolitiqueDeConfidentialitePage({
               </li>
               <li>
                 Fourniture et am&eacute;lioration de nos services de gamification
-              </li>
-              <li>
-                Validation automatique des actions clients par notre intelligence
-                artificielle
               </li>
               <li>
                 Communication relative &agrave; votre compte (notifications,
@@ -376,9 +371,8 @@ export default async function PolitiqueDeConfidentialitePage({
                 &Eacute;tats-Unis.
               </li>
               <li>
-                <strong>Google</strong> (analyse automatique des captures
-                d&apos;&eacute;cran par intelligence artificielle, et mesure
-                d&apos;audience via Google Analytics), &Eacute;tats-Unis.
+                <strong>Google</strong> (mesure d&apos;audience via Google
+                Analytics), &Eacute;tats-Unis.
               </li>
               <li>
                 <strong>Meta, Microsoft (Clarity), LinkedIn</strong> (mesure et

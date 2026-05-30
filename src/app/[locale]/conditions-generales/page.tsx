@@ -52,7 +52,7 @@ export default async function ConditionsGeneralesPage({
             </span>
           </h1>
           <p className="text-[var(--text-secondary)]">
-            Derni&egrave;re mise &agrave; jour : 29 mai 2026
+            Derni&egrave;re mise &agrave; jour : 30 mai 2026
           </p>
         </div>
 
@@ -108,10 +108,6 @@ export default async function ConditionsGeneralesPage({
               <li>
                 G&eacute;n&eacute;rer des QR Codes personnalis&eacute;s pour l&apos;acc&egrave;s aux
                 jeux
-              </li>
-              <li>
-                Valider automatiquement les actions clients gr&acirc;ce &agrave;
-                l&apos;intelligence artificielle
               </li>
               <li>
                 Suivre les performances via un tableau de bord d&eacute;di&eacute;
