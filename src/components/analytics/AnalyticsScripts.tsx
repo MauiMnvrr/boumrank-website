@@ -22,6 +22,7 @@ import { ConsentGatedTrackers } from './ConsentGatedTrackers';
  *   NEXT_PUBLIC_GA_ID         e.g. G-XXXXXXXXXX
  *   NEXT_PUBLIC_META_PIXEL_ID e.g. 123456789012345
  *   NEXT_PUBLIC_LINKEDIN_PARTNER_ID e.g. 1234567
+ *   NEXT_PUBLIC_METRICOOL_HASH e.g. 299b0e4e190f520f8ff6f2e2560decf5
  */
 export function AnalyticsScripts() {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
@@ -29,6 +30,7 @@ export function AnalyticsScripts() {
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   const linkedinPartnerId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
+  const metricoolHash = process.env.NEXT_PUBLIC_METRICOOL_HASH;
 
   return (
     <>
@@ -46,6 +48,7 @@ export function AnalyticsScripts() {
       <ConsentGatedTrackers
         clarityId={clarityId}
         linkedinPartnerId={linkedinPartnerId}
+        metricoolHash={metricoolHash}
       />
 
       {/* Meta Pixel — gated by Consent Mode via fbq consent commands */}

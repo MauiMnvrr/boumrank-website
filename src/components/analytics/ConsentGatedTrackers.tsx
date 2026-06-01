@@ -18,9 +18,11 @@ import { readConsent, type ConsentState } from '@/lib/analytics';
 export function ConsentGatedTrackers({
   clarityId,
   linkedinPartnerId,
+  metricoolHash,
 }: {
   clarityId?: string;
   linkedinPartnerId?: string;
+  metricoolHash?: string;
 }) {
   const [consent, setConsent] = useState<ConsentState | null>(null);
 
@@ -40,6 +42,13 @@ export function ConsentGatedTrackers({
       {clarityId && analyticsGranted && (
         <Script id="ms-clarity" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarityId}");`}
+        </Script>
+      )}
+
+      {/* Metricool, chargé seulement si l'analytics est accepté */}
+      {metricoolHash && analyticsGranted && (
+        <Script id="metricool" strategy="lazyOnload">
+          {`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"${metricoolHash}"})});`}
         </Script>
       )}
 
