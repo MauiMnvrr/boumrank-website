@@ -35,15 +35,15 @@ const BottomNav = () => {
   const t = useTranslations('home.hero.mockup');
   return (
     <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#0D1117] border-t border-[#1B6FC2]/20 flex justify-around items-center px-4 z-20 backdrop-blur-md">
-      <div className="flex flex-col items-center gap-1 text-[#3A8FE0]">
+      <div className="flex flex-col items-center gap-1 text-[#6BB1F5]">
         <LayoutGrid size={20} className="drop-shadow-[0_0_5px_rgba(27,111,194,0.5)]" />
         <span className="text-[10px] font-bold uppercase tracking-wide">{t('play')}</span>
       </div>
-      <div className="flex flex-col items-center gap-1 text-gray-500">
+      <div className="flex flex-col items-center gap-1 text-gray-400">
         <Ticket size={20} />
         <span className="text-[10px] font-bold uppercase tracking-wide">{t('tickets')}</span>
       </div>
-      <div className="flex flex-col items-center gap-1 text-gray-500">
+      <div className="flex flex-col items-center gap-1 text-gray-400">
         <MoreHorizontal size={20} />
         <span className="text-[10px] font-bold uppercase tracking-wide">{t('menu')}</span>
       </div>
@@ -64,12 +64,12 @@ const ScreenHome = () => {
         <div className="w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(27,111,194,0.2)] overflow-hidden">
           <Image src="/logos/logo-original-v2-transparent.png" alt="BoumRank" width={96} height={96} className="w-full h-full object-cover" />
         </div>
-        <h3 className="text-white text-4xl font-extrabold uppercase mb-2 drop-shadow-lg">
+        <h3 className="text-white text-4xl font-extrabold uppercase mb-2 [text-shadow:_0_2px_8px_rgba(0,0,0,0.6)]">
           {before}
-          <span className="text-[#3A8FE0] text-glow">{exclaim}</span>
+          <span className="text-[#6BB1F5] [text-shadow:_0_2px_8px_rgba(0,0,0,0.55)]">{exclaim}</span>
         </h3>
-        <p className="text-gray-400 font-medium mb-10 text-sm max-w-[200px] leading-relaxed">
-          {t('chooseChallenge')} <span className="text-[#3A8FE0]">⚡</span>
+        <p className="text-gray-200 font-medium mb-10 text-sm max-w-[200px] leading-relaxed">
+          {t('chooseChallenge')} <span className="text-[#6BB1F5]">⚡</span>
         </p>
         <div className="w-full space-y-3">
           <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-cta="demo" data-cta-location="hero-slot" onClick={() => track('demo_click', { cta_location: 'hero-slot' })} className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm uppercase shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:scale-105 transition-transform cursor-pointer block no-underline">
@@ -89,7 +89,7 @@ const ScreenActions = () => {
   const t = useTranslations('home.hero.mockup');
   const tCommon = useTranslations('common');
   const actions: { key: 'googleReview' | 'instagram' | 'facebook'; icon: React.ReactNode }[] = [
-    { key: 'googleReview', icon: <Star size={18} className="text-[#3A8FE0]" /> },
+    { key: 'googleReview', icon: <Star size={18} className="text-[#6BB1F5]" /> },
     { key: 'instagram', icon: <InstagramIcon size={18} /> },
     { key: 'facebook', icon: <FacebookIcon size={18} /> },
   ];
@@ -103,8 +103,8 @@ const ScreenActions = () => {
         <div className="w-16 h-16 bg-[#161B22] border border-[#1B6FC2]/30 rounded-full flex items-center justify-center mb-4">
           <span className="text-3xl">🚀</span>
         </div>
-        <h3 className="text-white text-xl font-extrabold uppercase mb-1">{t('chooseAction')}</h3>
-        <p className="text-gray-400 text-xs mb-8">{t('proveCommitment')} 📸</p>
+        <h3 className="text-white text-xl font-extrabold uppercase mb-1 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">{t('chooseAction')}</h3>
+        <p className="text-gray-200 text-xs mb-8">{t('proveCommitment')} 📸</p>
         <div className="w-full space-y-3">
           {actions.map((a) => (
             <div key={a.key} className="bg-[#161B22] p-4 rounded-xl border border-white/10 flex items-center gap-3 font-bold text-white shadow-lg">
@@ -134,8 +134,8 @@ const ScreenSlots = () => {
         <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
       </div>
       <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-        <h3 className="text-white text-xl font-extrabold uppercase mb-10">
-          {head} <span className="text-[#3A8FE0] text-glow">{last}</span>
+        <h3 className="text-white text-xl font-extrabold uppercase mb-10 [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">
+          {head} <span className="text-[#6BB1F5] [text-shadow:_0_2px_8px_rgba(0,0,0,0.5)]">{last}</span>
         </h3>
       <div className="relative w-full max-w-[240px] bg-[#4a2e00] border-[4px] border-[#a16207] rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
         <div className="relative bg-[#1a1a1a] rounded-lg border-2 border-black p-2.5 flex gap-2 h-28 overflow-hidden">
@@ -150,7 +150,7 @@ const ScreenSlots = () => {
           ))}
         </div>
       </div>
-      <button className="mt-12 bg-[#1B6FC2]/10 border-2 border-[#1B6FC2]/40 text-[#3A8FE0] w-4/5 py-3 rounded-xl font-bold uppercase text-[10px] animate-pulse">
+      <button className="mt-12 bg-[#1B6FC2]/25 border-2 border-[#6BB1F5]/60 text-[#9CCBF8] w-4/5 py-3 rounded-xl font-bold uppercase text-xs tracking-wide animate-pulse">
         {t('loading')}
       </button>
     </div>
@@ -169,10 +169,10 @@ const ScreenWheel = () => {
       <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
     </div>
     <div className="flex-1 flex flex-col items-center justify-center mt-6">
-      <h3 className="text-white text-3xl font-extrabold uppercase mb-12 text-glow">{t('spinWin')}</h3>
+      <h3 className="text-white text-3xl font-extrabold uppercase mb-12 [text-shadow:_0_2px_10px_rgba(0,0,0,0.7)]">{t('spinWin')}</h3>
       <div className="relative w-64 h-64 flex items-center justify-center">
         <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-20">
-          <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[20px] border-t-[#3A8FE0]"></div>
+          <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[20px] border-t-[#6BB1F5]"></div>
         </div>
         <motion.div
           animate={{ rotate: [0, 360] }}
@@ -183,8 +183,8 @@ const ScreenWheel = () => {
           }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-20 h-20 rounded-full border-2 border-[#3A8FE0] flex items-center justify-center bg-[#0D1117] z-10">
-            <Gift size={32} className="text-[#3A8FE0]" />
+          <div className="w-20 h-20 rounded-full border-2 border-[#6BB1F5] flex items-center justify-center bg-[#0D1117] z-10">
+            <Gift size={32} className="text-[#6BB1F5]" />
           </div>
         </div>
       </div>
@@ -206,7 +206,7 @@ const ScreenWin = () => {
         <span className="font-bold text-sm uppercase">{tCommon('back')}</span>
       </div>
       <div className="px-6 pb-20 overflow-y-auto pt-4">
-        <h2 className="text-2xl font-extrabold text-[#3A8FE0] text-center mb-8 text-glow uppercase tracking-wide">
+        <h2 className="text-2xl font-extrabold text-[#6BB1F5] text-center mb-8 [text-shadow:_0_2px_8px_rgba(0,0,0,0.55)] uppercase tracking-wide">
           {t('freeCookie')}
         </h2>
         <div className="bg-[#161B22] rounded-lg p-4 mb-8 border border-white/10">
