@@ -805,12 +805,15 @@
     "lead": "Product vision, business model, traction and roadmap. Everything you need to know about how BoumRank is reinventing local marketing.",
     "iframeTitle": "BoumRank Presentation",
     "helper": "Scroll through the deck at your own pace",
+    "slideAlt": "Slide {number} of the BoumRank presentation",
+    "downloadPdf": "Download the PDF",
     "cta": {
       "eyebrow": "Want to talk?",
       "title": "Got a question or want to team up?",
       "lead": "Whether you are a merchant, an investor or a potential partner, let's chat about what's next.",
       "contactButton": "Contact us",
-      "demoButton": "Try the demo"
+      "demoButton": "Try the demo",
+      "directLabel": "Or reach us directly"
     }
   }
 }
