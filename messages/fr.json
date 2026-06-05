@@ -417,63 +417,62 @@
     "lead": "Un service, trois engagements. À vous de choisir.",
     "hero": {
       "title1": "Un service,",
-      "title2": "Trois engagements,",
-      "title3": "À partir de 59€/mois",
+      "title2": "Trois abonnements",
+      "title3": "",
       "subtitle": "Le même service, débloqué entièrement dès le jour 1.",
-      "subtitleHighlight": "Vous choisissez juste combien de temps vous voulez rester."
+      "subtitleHighlight": ""
     },
     "plans": {
       "badge": "Le prix",
-      "title1": "Plus vous vous engagez,",
-      "title2": "Moins vous payez",
-      "subtitle": "Le même service. Trois durées d'engagement. C'est tout.",
+      "title1": "Trois abonnements,",
+      "title2": "un seul service",
+      "subtitle": "Le service complet dans les trois formules. À vous de choisir.",
       "featured": "⭐ Le meilleur deal",
       "saving": "Économisez {amount}€/an",
       "priceUnit": "/mois HT",
-      "cta": "Démarrer 14j gratuits",
+      "cta": "Essayez 14j offerts",
       "noCreditCard": "Sans carte bancaire"
     },
     "features": {
       "badge": "Ce que vous obtenez",
-      "title1": "Toutes les features,",
-      "title2": "Tout le temps",
-      "subtitle": "Peu importe l'offre choisie, vous avez 100% du service. Pas de feature gating, pas d'upsell caché.",
+      "title1": "Toute la",
+      "title2": "puissance",
+      "subtitle": "Peu importe l'offre choisie, vous avez 100% du service.",
       "items": [
         {
           "title": "Les 3 jeux débloqués",
-          "body": "Roue, Slots, Blackjack, tous activables à volonté."
+          "body": "Roue, Slots, Blackjack."
         },
         {
-          "title": "Branding 100% custom",
-          "body": "13 templates, palette illimitée, illustrations."
+          "title": "À votre image",
+          "body": "Votre logo, vos couleurs."
         },
         {
-          "title": "Dashboard Performance",
-          "body": "Taux scan, conversion, retour caisse, temps moyen."
+          "title": "Tableau de bord",
+          "body": "Total des actions marketing obtenues."
         },
         {
           "title": "QR codes illimités",
-          "body": "3 formats imprimables, swipe caissier illimité."
+          "body": "3 formats imprimables."
         },
         {
-          "title": "Campagnes séquentielles",
-          "body": "Happy hour, week-end, anniversaire client."
+          "title": "Auto-financement",
+          "body": "Minimum d'achat personnalisable."
         },
         {
-          "title": "Support FR prioritaire",
-          "body": "Réponse en chat sous 2h, hébergement RGPD en Europe."
+          "title": "Support FR",
+          "body": "Réponse en chat sous 2h."
         }
       ],
       "promises": [
         "Setup en 5 minutes",
         "Essai 14 jours sans CB",
-        "Export CSV + Zapier",
         "Mises à jour à vie"
       ]
     },
     "enterprise": {
       "title": "Plusieurs établissements ? Franchise ?",
-      "body": "Multi-établissements, API, account manager dédié, SLA. On vous fait un devis sur-mesure en 48h.",
+      "body": "On vous fait un devis sur-mesure en 48h.",
       "cta": "Parler à Liam",
       "contactHref": "/contact"
     },

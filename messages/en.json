@@ -417,63 +417,62 @@
     "lead": "One product. Three commitments. You pick.",
     "hero": {
       "title1": "One service,",
-      "title2": "Three commitments,",
-      "title3": "Starting at $63/mo",
+      "title2": "Three plans",
+      "title3": "",
       "subtitle": "The full product, unlocked from day one.",
-      "subtitleHighlight": "All you choose is how long you want to stay."
+      "subtitleHighlight": ""
     },
     "plans": {
       "badge": "The price",
-      "title1": "The longer you commit,",
-      "title2": "the less you pay",
-      "subtitle": "Same product. Three time horizons. That's it.",
+      "title1": "Three plans,",
+      "title2": "one single service",
+      "subtitle": "The full product in all three plans. You just pick.",
       "featured": "⭐ Best value",
       "saving": "Save {amount}€/year",
       "priceUnit": "/mo excl. tax",
-      "cta": "Start your 14-day free trial",
+      "cta": "Try 14 days free",
       "noCreditCard": "No credit card needed"
     },
     "features": {
       "badge": "What you get",
-      "title1": "Every feature,",
-      "title2": "Always",
-      "subtitle": "Whichever plan you pick, you get 100% of the product. No feature gating. No hidden upsells.",
+      "title1": "All the",
+      "title2": "power",
+      "subtitle": "Whichever plan you pick, you get 100% of the product.",
       "items": [
         {
           "title": "All 3 games unlocked",
-          "body": "Wheel, Slots, Blackjack — activate any combo, any time."
+          "body": "Wheel, Slots, Blackjack."
         },
         {
-          "title": "100% custom branding",
-          "body": "13 templates, unlimited colors, custom illustrations."
+          "title": "Your brand",
+          "body": "Your logo, your colors."
         },
         {
-          "title": "Performance dashboard",
-          "body": "Scan rate, conversion, avg. spend, time-on-floor."
+          "title": "Dashboard",
+          "body": "Total marketing actions collected."
         },
         {
           "title": "Unlimited QR codes",
-          "body": "3 print-ready formats, unlimited cashier swipes."
+          "body": "3 print-ready formats."
         },
         {
-          "title": "Sequential campaigns",
-          "body": "Happy hour, weekends, birthday specials."
+          "title": "Self-funding",
+          "body": "Customizable minimum spend."
         },
         {
-          "title": "Priority support (EN + FR)",
-          "body": "Chat reply in under 2h, GDPR-compliant EU hosting."
+          "title": "Support (EN + FR)",
+          "body": "Chat reply in under 2h."
         }
       ],
       "promises": [
         "5-minute setup",
         "14-day free trial, no CC",
-        "CSV export + Zapier",
         "Lifetime updates"
       ]
     },
     "enterprise": {
       "title": "Multiple locations? Franchise?",
-      "body": "Multi-location accounts, API access, dedicated account manager, SLA. We'll send you a custom quote within 48h.",
+      "body": "We'll send you a custom quote within 48h.",
       "cta": "Talk to Liam",
       "contactHref": "/en/contact"
     },

@@ -21,8 +21,6 @@ export const TarifsHero = () => {
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#1E9DAA_50%,#2EAE6D_100%)]">
               {t('title2')}
             </span>
-            <br />
-            {t('title3')}
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto">

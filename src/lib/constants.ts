@@ -39,7 +39,7 @@ export const PRICING = {
     priceUnit: '€/mois HT',
     commitMonths: 6,
     totalLabel: 'Soit 414€ tous les 6 mois',
-    commitNote: 'Engagement 6 mois minimum. Renouvellement automatique au même tarif.',
+    commitNote: 'Engagement 6 mois minimum. Point bilan avant chaque renouvellement.',
     yearlySaving: 120,
     highlighted: false,
   },
