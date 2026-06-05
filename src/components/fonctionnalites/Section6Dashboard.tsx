@@ -7,7 +7,7 @@ import { Reveal, SectionHeader, IcChevDown } from './shared';
 type Kpi = { label: string; value: string; trend: string; detail: string };
 
 // Visual mapping (icon + color) applied by index — text comes from i18n.
-const KPI_ICONS = ['🎮', '⭐', '✉️', '€', '🎟️'];
+const KPI_ICONS = ['', '', '', '€', ''];
 const KPI_COLORS = ['#1B6FC2', '#1E9DAA', '#00CEC9', '#F28C28', '#7C5CFC'];
 
 // Curve data — 30 points
@@ -111,7 +111,6 @@ export const Section6Dashboard = () => {
 
   const kpis = t.raw(`kpis.${scope}`) as Kpi[];
   const curve = scope === 'shop' ? CURVE_SHOP : CURVE_NETWORK;
-  const highlights = t.raw('highlights') as Array<{ title: string; body: string }>;
 
   return (
     <section
@@ -351,55 +350,6 @@ export const Section6Dashboard = () => {
           </div>
         </Reveal>
 
-        {/* Highlights below */}
-        <Reveal delay={3}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: 16,
-              marginTop: 32,
-            }}
-          >
-            {highlights.map((hl) => (
-              <div
-                key={hl.title}
-                style={{
-                  background: 'var(--bg-surface)',
-                  border: '1px solid var(--border-default)',
-                  borderRadius: 18,
-                  padding: '18px 20px',
-                  transition: 'transform .3s, box-shadow .3s, border-color .3s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border-highlight)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(27,111,194,0.08)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border-default)';
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '';
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 800,
-                    fontSize: 15,
-                    color: 'var(--text-primary)',
-                    marginBottom: 6,
-                  }}
-                >
-                  {hl.title}
-                </div>
-                <div style={{ fontSize: 13, color: 'var(--text-body)', lineHeight: 1.5 }}>
-                  {hl.body}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );
