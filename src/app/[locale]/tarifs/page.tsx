@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SchemaOrg, faqPageSchema, productSchema } from '@/components/seo/SchemaOrg';
 import { FinalCTA } from '@/components/home/FinalCTA';
-import { TarifsHero } from '@/components/tarifs/TarifsHero';
 import { TarifsFeaturesCentral } from '@/components/tarifs/TarifsFeaturesCentral';
 import { TarifsPlansDetail } from '@/components/tarifs/TarifsPlansDetail';
 import { TarifsMultiBanner } from '@/components/tarifs/TarifsMultiBanner';
@@ -53,7 +52,6 @@ export default async function TarifsPage({
   return (
     <>
       <SchemaOrg schemas={[faqPageSchema(TARIFS_FAQS), productSchema(plansForSchema)]} />
-      <TarifsHero />
       <TarifsPlansDetail />
       <TarifsFeaturesCentral />
       <TarifsMultiBanner />

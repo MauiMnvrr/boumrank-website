@@ -119,7 +119,7 @@ export const TarifsPlansDetail = () => {
   const t = useTranslations('pricing.plans');
 
   return (
-    <section className="relative py-20 md:py-24 bg-[var(--bg-elevated)] overflow-hidden">
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 bg-[var(--bg-elevated)] overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(27,111,194,0.06),transparent_60%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -130,15 +130,12 @@ export const TarifsPlansDetail = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.15em] text-[var(--primary-blue)] bg-[rgba(27,111,194,0.08)] px-3 py-1.5 rounded-full mb-3">
-            {t('badge')}
-          </span>
-          <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
+          <h1 className="font-display font-extrabold uppercase text-4xl md:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
             {t('title1')}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
               {t('title2')}
             </span>
-          </h2>
+          </h1>
           <p className="text-base md:text-lg text-[var(--text-secondary)]">
             {t('subtitle')}
           </p>

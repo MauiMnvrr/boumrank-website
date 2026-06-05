@@ -30,9 +30,6 @@ export const TarifsFeaturesCentral = () => {
         >
           <div className="bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
             <div className="text-center mb-10">
-              <span className="inline-block font-display font-bold uppercase text-[10px] tracking-[0.15em] text-[var(--primary-blue)] bg-[rgba(27,111,194,0.08)] px-3 py-1.5 rounded-full mb-3">
-                {t('badge')}
-              </span>
               <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4 text-[var(--text-primary)]">
                 {t('title1')}{' '}
                 <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
@@ -52,16 +49,19 @@ export const TarifsFeaturesCentral = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="flex gap-3 items-start"
+                  tabIndex={0}
+                  className="group flex gap-3 items-start rounded-xl outline-none cursor-default"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[rgba(46,174,109,0.1)] text-[var(--primary-green)] flex items-center justify-center">
                     {ICONS[i]}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-[var(--text-primary)] text-sm mb-1">
+                    <h4 className="font-display font-bold text-[var(--text-primary)] text-sm">
                       {feature.title}
                     </h4>
-                    <p className="text-sm text-[var(--text-body)] leading-snug">{feature.body}</p>
+                    <p className="text-sm text-[var(--text-body)] leading-snug max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-out group-hover:max-h-28 group-hover:opacity-100 group-hover:mt-1 group-focus-within:max-h-28 group-focus-within:opacity-100 group-focus-within:mt-1">
+                      {feature.body}
+                    </p>
                   </div>
                 </motion.div>
               ))}
