@@ -674,7 +674,7 @@
         },
         {
           "title": "Mise à jour en temps réel",
-          "body": "Vous changez la carte, le QR n'a pas besoin d'être réimprimé."
+          "body": "Vous changez la carte, le QR reste le même."
         }
       ],
       "menuPhone": {

@@ -139,7 +139,7 @@ export const Section6Dashboard = () => {
               {t('titleSuffix')}
             </>
           }
-          lead={t('lead')}
+          lead={<>{t('lead').split(':')[0] + ':'}<br />{t('lead').split(':').slice(1).join(':').trim()}</>}
           maxLead={620}
           center
         />
