@@ -508,176 +508,367 @@
     }
   },
   "features": {
-    "section1": {
-      "title": "Your digital menu:",
-      "titleGradient": "a marketing Trojan Horse",
-      "titleSuffix": "",
-      "subtitle": "Customers open it to pick their meal.",
-      "subtitleHighlight": "They discover they can win something.",
-      "menuRestaurantName": "The Little Café",
-      "menuTitle": "Our menu",
-      "menuItems": [
-        {
-          "label": "Hazelnut Coffee",
-          "price": "$3.20"
-        },
-        {
-          "label": "Butter Croissant",
-          "price": "$2.20"
-        },
-        {
-          "label": "Avocado Toast",
-          "price": "$7.50"
-        },
-        {
-          "label": "Mango Smoothie",
-          "price": "$6.00"
-        },
-        {
-          "label": "Caesar Salad",
-          "price": "$13.90"
-        }
+    "jeux": {
+      "title": "Three",
+      "titleGradient": "mini-games",
+      "titleSuffix": ".",
+      "lead": "Stand out from your competitors by giving your customers a fun, one-of-a-kind experience.",
+      "wheel": {
+        "name": "Wheel of Fortune",
+        "hint": "Hover to spin"
+      },
+      "slot": {
+        "name": "Slot Machine",
+        "hint": "Hover to spin",
+        "badge": "Jackpot"
+      },
+      "blackjack": {
+        "name": "Blackjack Express",
+        "hint": "Hover the cards"
+      },
+      "slider": {
+        "title": "You set the generosity.",
+        "body": "You decide the percentage of winning players. It's up to you to find the right <strong>balance</strong>.",
+        "label": "Win chance",
+        "win": "Wins",
+        "lose": "Loses"
+      }
+    },
+    "actions": {
+      "title": "More",
+      "titleGradient": "local visibility",
+      "lead": "Your customer first does something for you: a Google review, a social follow, and much more.",
+      "bullets": [
+        "7 connected platforms",
+        "Fully customizable order",
+        "Automated solution"
       ],
-      "benefits": [
+      "priorities": [
+        "Top priority",
+        "If already done",
+        "Second choice"
+      ],
+      "card": {
+        "title": "Order of actions",
+        "subtitle": "Drag to reorder",
+        "reset": "Reset",
+        "tip": "Tip: start with the action that brings your business the most."
+      },
+      "platforms": {
+        "google": "Google reviews",
+        "trip": "TripAdvisor",
+        "trust": "Trustpilot",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "tiktok": "TikTok",
+        "newsletter": "Newsletter"
+      }
+    },
+    "coupons": {
+      "title": "Simple",
+      "titleGradient": "in-store validation",
+      "lead": "Choose the odds for each reward and set a minimum spend required to redeem the prize.",
+      "coupon": {
+        "reward": "Free dessert",
+        "code": "GVJF-429M-NBDC",
+        "minLabel": "Min. spend",
+        "minValue": "€10",
+        "expireLabel": "Expires",
+        "expireValue": "June 5",
+        "activeTitle": "Active now",
+        "activeSub": "Ready to use in store"
+      },
+      "slide": {
+        "prompt": "Slide to validate →",
+        "done": "✓ Coupon validated",
+        "once": "One use per customer.",
+        "usedOnce": "Cannot be used twice.",
+        "restart": "Start over",
+        "demo": "↑ Demo · Slide the green button"
+      },
+      "features": [
         {
-          "title": "QR code built in",
-          "body": "No more stained menus or reprint fees. One QR at the table: customers browse the menu and land on the game."
+          "title": "Fully customizable rewards",
+          "body": "Reward name, emoji, probability."
         },
         {
-          "title": "Zero explanation needed",
-          "body": "A simple prompt at the bottom: \"Try your luck.\" They tap because they want to, not because they feel pressured."
+          "title": "Automatic email delivery",
+          "body": "The coupon lands in the customer's inbox."
         },
         {
-          "title": "1 in 3 customers triggers a marketing action",
-          "body": "Google review, Instagram follow, newsletter signup. Every game starts with an action you chose — every meal is a visibility boost."
+          "title": "Minimum spend",
+          "body": "They redeem their rewards above a minimum spend."
+        },
+        {
+          "title": "Available tomorrow or right now",
+          "body": "Encourage customers to come back by activating the coupon at D+1."
+        },
+        {
+          "title": "Reminder before expiry",
+          "body": "An automatic email 3 days before. No more forgotten coupons."
+        },
+        {
+          "title": "Manual coupon generation",
+          "body": "Want to thank a loyal customer or fix a mishap?"
         }
       ]
     },
-    "section2": {
-      "title": "You configure it, they play,",
-      "titleGradient": "You win",
-      "subtitle": "Four building blocks that come together into",
-      "subtitleHighlight": "a gamified loyalty program",
-      "subtitleSuffix": "you run from your phone.",
-      "resultPill": "Result: a customer who comes back",
-      "stepPrefix": "Step",
-      "steps": [
-        {
-          "number": "01",
-          "label": "The game",
-          "title": "3 mechanics engineered for dopamine",
-          "body": "Spin the wheel, pull the slots, try blackjack. A short emotional hit — the kind that makes people want to share.",
-          "bullets": [
-            "Wheel: visual, universal",
-            "Slots: the thrill of alignment",
-            "Blackjack: for the gamblers"
-          ],
-          "kpiValue": "+187%",
-          "kpiLabel": "engagement vs. survey"
-        },
-        {
-          "number": "02",
-          "label": "The action",
-          "title": "One required action before playing",
-          "body": "You decide what customers do before the game starts. Marketing disguised as a game, not a free lottery.",
-          "bullets": [
-            "Auto-verified Google review",
-            "Insta, TikTok, Facebook follow",
-            "Newsletter or SMS opt-in",
-            "Refer a friend"
-          ],
-          "kpiValue": "4.8/5",
-          "kpiLabel": "avg. Google rating"
-        },
-        {
-          "number": "03",
-          "label": "The prizes",
-          "title": "You control 100% of the economics",
-          "body": "Fine-tune probabilities to the percent, set minimum purchase per prize, control scarcity. Margins stay tight.",
-          "bullets": [
-            "Unlimited prizes",
-            "Per-percent probability control",
-            "Min. purchase per prize",
-            "Built-in return loop"
-          ],
-          "kpiValue": "−12%",
-          "kpiLabel": "customer acquisition cost"
-        },
-        {
-          "number": "04",
-          "label": "The coupon",
-          "title": "Available next day, brings them back",
-          "body": "Win today, redeem tomorrow. That delay turns a review into a repeat customer.",
-          "bullets": [
-            "Custom expiry date",
-            "Available the next day",
-            "Account-linked, single use",
-            "Real-time multi-register sync"
-          ],
-          "kpiValue": "63%",
-          "kpiLabel": "of coupons redeemed in-store"
-        }
+    "marque": {
+      "title": "An experience",
+      "titleGradient": "in your image",
+      "titleSuffix": ".",
+      "lead": "Logo, colors, rewards. Customers see your brand.",
+      "navLabels": [
+        "Play",
+        "Coupons",
+        "Profile"
       ],
-      "couponLabel": "Boum coupon",
-      "couponValue": "−20%",
-      "couponValidity": "Valid tomorrow"
-    },
-    "section3": {
-      "title": "One dashboard,",
-      "titleGradient": "Three advantages",
-      "titleSuffix": "nobody else offers",
-      "subtitle": "All your metrics in real time,",
-      "subtitleHighlight": "with a clear view of your ROI",
-      "subtitleSuffix": "no spreadsheets, no agency.",
-      "dashboardLabel": "Dashboard · This week",
-      "dashboardRange": "05/12 — 05/18",
-      "stats": [
-        {
-          "label": "Actions this week",
-          "value": "342",
-          "delta": "+18%",
-          "deltaLabel": "vs. last week"
-        },
-        {
-          "label": "Cashback generated",
-          "value": "$1,247",
-          "delta": "+32%",
-          "deltaLabel": "vs. last week"
-        },
-        {
-          "label": "Coupons redeemed",
-          "value": "89",
-          "delta": "+12%",
-          "deltaLabel": "vs. last week"
-        }
+      "badges": [
+        "Your logo",
+        "Your colors",
+        "Your rewards",
+        "Your message"
       ],
-      "googleRatingLabel": "Google rating",
-      "googleRatingValue": "4.7 ★",
-      "googleRatingDelta": "+0.3 this month",
-      "description": "See in real time",
-      "descriptionHighlight1": "weekly actions",
-      "descriptionHighlight2": "cashback generated per redeemed coupon",
-      "descriptionSuffix": "and your Google rating trend. Fully exportable. Timestamped. Yours.",
-      "advantagesTitle": "Three things",
-      "advantagesTitleGradient": "nobody else",
-      "advantagesTitleSuffix": "does.",
-      "advantages": [
+      "games": {
+        "wheel": "Wheel of fortune",
+        "slot": "Slot machine"
+      },
+      "brands": [
         {
-          "badge": "Built-in menu",
-          "title": "The menu that makes the difference",
-          "body": "We're the only ones who include your digital menu at no extra cost. It's on us — and we genuinely mean it."
+          "name": "Trattoria",
+          "tagline": "Win a Tiramisu?",
+          "cta": "Play & savor",
+          "fullName": "La Trattoria",
+          "type": "Italian restaurant"
         },
         {
-          "badge": "Self-funding",
-          "title": "The solution that pays for itself",
-          "body": "Set a minimum purchase. The customer comes back, spends, and the tool pays for itself. Max reviews, zero net cost."
+          "name": "Hideout",
+          "tagline": "Try a free cocktail.",
+          "cta": "Play & sip",
+          "fullName": "Hideout Bar",
+          "type": "Cocktail bar"
         },
         {
-          "badge": "2-minute setup",
-          "title": "More scans, more fans",
-          "body": "No more isolated QR codes like the competition. Our integration gets 1 in 3 customers playing instead of 1 in 5. More players, more reviews."
+          "name": "Studio Lila",
+          "tagline": "Win your blow-dry?",
+          "cta": "Play & shine",
+          "fullName": "Studio Lila",
+          "type": "Hair salon"
         }
       ]
+    },
+    "menu": {
+      "title": "Your menu",
+      "titleGradient": "digitized",
+      "titleSuffix": ".",
+      "lead": "The same QR code that shows your menu also unlocks the game. No more paper menus, no app to install, just a scan.",
+      "qrCaption": "Place it on the table",
+      "bullets": [
+        {
+          "title": "Image, PDF or external link",
+          "body": "Import what you already have."
+        },
+        {
+          "title": "Print-ready QR code",
+          "body": "Download it, place it on the tables."
+        },
+        {
+          "title": "Real-time updates",
+          "body": "You change the menu, the QR never needs reprinting."
+        }
+      ],
+      "menuPhone": {
+        "restaurantName": "La Trattoria",
+        "menuOfDay": "Today's menu",
+        "categories": [
+          "All",
+          "Mains",
+          "Desserts",
+          "Wines"
+        ],
+        "items": [
+          {
+            "emoji": "🥗",
+            "name": "Caesar Salad",
+            "price": "€12"
+          },
+          {
+            "emoji": "🍕",
+            "name": "Margherita Pizza",
+            "price": "€14"
+          },
+          {
+            "emoji": "🍝",
+            "name": "Truffle Pasta",
+            "price": "€18"
+          },
+          {
+            "emoji": "🍰",
+            "name": "Homemade Tiramisu",
+            "price": "€7"
+          }
+        ]
+      }
+    },
+    "dashboard": {
+      "title": "Steer.",
+      "titleGradient": "Grow",
+      "titleSuffix": ".",
+      "lead": "Everything that matters on a single screen. One location or many: the same clarity.",
+      "card": {
+        "title": "Dashboard",
+        "shopSub": "Café Marseille · 30-day view",
+        "networkSub": "5 locations · aggregated view",
+        "scopeShop": "1 location",
+        "scopeNetwork": "Network view",
+        "period": "30d",
+        "engagementTitle": "Engagement",
+        "engagementSub": "Games played per day · last 30 days",
+        "legend": "Games"
+      },
+      "kpis": {
+        "shop": [
+          {
+            "label": "Games played",
+            "value": "1,284",
+            "trend": "+18%",
+            "detail": "Over 30 days · peak Sunday 7pm"
+          },
+          {
+            "label": "Marketing actions",
+            "value": "947",
+            "trend": "+24%",
+            "detail": "612 Google reviews · 218 Insta · 117 newsletter"
+          },
+          {
+            "label": "Emails collected",
+            "value": "892",
+            "trend": "+31%",
+            "detail": "All opt-in, exportable to CSV anytime"
+          },
+          {
+            "label": "Revenue generated",
+            "value": "€4,720",
+            "trend": "+12%",
+            "detail": "Total bill of redeemed coupons"
+          },
+          {
+            "label": "Coupons redeemed",
+            "value": "67%",
+            "trend": "+9 pts",
+            "detail": "739 of 1,102 used in store"
+          }
+        ],
+        "network": [
+          {
+            "label": "Games played",
+            "value": "8,412",
+            "trend": "+22%",
+            "detail": "Across 5 locations · peak Marseille centre"
+          },
+          {
+            "label": "Marketing actions",
+            "value": "6,290",
+            "trend": "+28%",
+            "detail": "Network total, all platforms"
+          },
+          {
+            "label": "Emails collected",
+            "value": "5,803",
+            "trend": "+36%",
+            "detail": "Centralized base, usable at group level"
+          },
+          {
+            "label": "Revenue generated",
+            "value": "€31,200",
+            "trend": "+17%",
+            "detail": "Sum of redeemed bills"
+          },
+          {
+            "label": "Coupons redeemed",
+            "value": "71%",
+            "trend": "+11 pts",
+            "detail": "Best rate: Aix · 78%"
+          }
+        ]
+      },
+      "highlights": [
+        {
+          "title": "Quick filters",
+          "body": "Week, month, year or all-time. One click, the view changes."
+        },
+        {
+          "title": "Detail per action",
+          "body": "How many Google reviews, how many Instagram followers. Platform by platform."
+        },
+        {
+          "title": "Multi-location",
+          "body": "Aggregated view for chains and franchises. Compare your outlets."
+        },
+        {
+          "title": "Team & access",
+          "body": "Your managers see their location. You keep the big picture."
+        }
+      ]
+    },
+    "mobile": {
+      "title": "Nothing to",
+      "titleGradient": "install",
+      "titleSuffix": ".",
+      "lead": "The customer journey fits in a browser and works on every phone. No app, no account.",
+      "badges": [
+        {
+          "label": "GDPR compliant",
+          "emoji": "🛡️"
+        },
+        {
+          "label": "No app",
+          "emoji": "📵"
+        },
+        {
+          "label": "Mobile only",
+          "emoji": "📱"
+        },
+        {
+          "label": "Hosted in Europe",
+          "emoji": "🇪🇺"
+        }
+      ],
+      "bullets": [
+        {
+          "title": "No friction",
+          "body": "No password, no download."
+        },
+        {
+          "title": "Limited retention",
+          "body": "Data automatically deleted after the legal retention period."
+        },
+        {
+          "title": "Your data stays yours",
+          "body": "CSV export anytime."
+        }
+      ],
+      "screens": {
+        "scan": {
+          "step": "Step 1",
+          "title": "I scan",
+          "body": "The QR code on the table."
+        },
+        "action": {
+          "step": "Step 2",
+          "title": "I leave a review",
+          "platforms": [
+            "Google reviews",
+            "Instagram",
+            "Newsletter"
+          ]
+        },
+        "play": {
+          "step": "Step 3",
+          "cta": "I play",
+          "body": "I win a free dessert."
+        }
+      }
     }
   },
   "howItWorksPage": {

@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Section1Menu } from '@/components/fonctionnalites/Section1Menu';
-import { Section2Mecanique } from '@/components/fonctionnalites/Section2Mecanique';
-import { Section3Pilotage } from '@/components/fonctionnalites/Section3Pilotage';
+import { Section1Jeux } from '@/components/fonctionnalites/Section1Jeux';
+import { Section2Actions } from '@/components/fonctionnalites/Section2Actions';
+import { Section3Coupons } from '@/components/fonctionnalites/Section3Coupons';
+import { Section4Marque } from '@/components/fonctionnalites/Section4Marque';
+import { Section5Menu } from '@/components/fonctionnalites/Section5Menu';
+import { Section6Dashboard } from '@/components/fonctionnalites/Section6Dashboard';
+import { Section7Mobile } from '@/components/fonctionnalites/Section7Mobile';
 import { FinalCTA } from '@/components/home/FinalCTA';
 import { SchemaOrg, organizationSchema } from '@/components/seo/SchemaOrg';
 import { SITE_URL } from '@/lib/constants';
+import '@/components/fonctionnalites/fonctionnalites.css';
 
 export async function generateMetadata({
   params,
@@ -39,9 +44,13 @@ export default async function FonctionnalitesPage({
   return (
     <>
       <SchemaOrg schemas={[organizationSchema()]} />
-      <Section1Menu />
-      <Section2Mecanique />
-      <Section3Pilotage />
+      <Section1Jeux />
+      <Section2Actions />
+      <Section3Coupons />
+      <Section4Marque />
+      <Section5Menu />
+      <Section6Dashboard />
+      <Section7Mobile />
       <FinalCTA />
     </>
   );
