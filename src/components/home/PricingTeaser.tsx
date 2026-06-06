@@ -133,9 +133,9 @@ export const PricingTeaser = () => {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-5 text-[var(--text-primary)]">
-            {isEn ? 'The longer you commit.' : 'Plus vous vous engagez.'}{' '}
+            {isEn ? 'The longer you commit,' : 'Plus vous vous engagez,'}{' '}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)]">
-              {isEn ? 'The less you pay.' : 'Moins vous payez.'}
+              {isEn ? 'The less you pay' : 'Moins vous payez'}
             </span>
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">

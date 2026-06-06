@@ -143,7 +143,7 @@ export const LeadMagnet = () => {
                 <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl leading-[1.1] mb-4 text-[var(--text-primary)]">
                   {isEn ? 'The' : 'Le'} <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#7C5CFC_0%,#1B6FC2_100%)]">BoumRank Playbook</span> :
                   <br />
-                  {isEn ? '50 reward ideas that bring customers back.' : '50 idées de récompenses qui font revenir vos clients.'}
+                  {isEn ? '50 reward ideas that bring customers back' : '50 idées de récompenses qui font revenir vos clients'}
                 </h2>
 
                 <p className="text-base text-[var(--text-secondary)] leading-relaxed mb-6">

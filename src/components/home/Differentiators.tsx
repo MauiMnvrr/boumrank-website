@@ -135,7 +135,7 @@ export const Differentiators = () => {
             <span className="text-transparent bg-clip-text bg-[linear-gradient(135deg,#F28C28_0%,#E84393_50%,#7C5CFC_100%)]">
               {isEn ? 'winning combo' : 'combo gagnant'}
             </span>{' '}
-            {isEn ? "your alternatives don't have." : "que les autres n'ont pas."}
+            {isEn ? "your alternatives don't have" : "que les autres n'ont pas"}
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
             {isEn ? 'Four things BoumRank does' : 'Quatre choses que BoumRank fait'} —{' '}

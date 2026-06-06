@@ -160,7 +160,7 @@ export const Sectors = () => {
               {isEn ? 'that want to play' : 'qui veulent jouer'}
             </span>
             <br />
-            {isEn ? '— and win.' : '— et gagner.'}
+            {isEn ? '— and win' : '— et gagner'}
           </h2>
           <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
             {isEn ? 'Three sectors, one mechanic,' : 'Trois secteurs, une même mécanique,'}{' '}

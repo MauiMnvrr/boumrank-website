@@ -4,7 +4,7 @@
     {
       "name": "nextjs-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "/Users/mauimanavarere/Desktop/Boumrank/boumrank-next"],
+      "runtimeArgs": ["run", "dev", "--prefix", "/Users/mauimanavarere/Desktop/Boumrank/website"],
       "port": 3000
     },
     {
