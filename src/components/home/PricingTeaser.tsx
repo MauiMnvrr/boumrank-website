@@ -148,7 +148,7 @@ export const PricingTeaser = () => {
 
         <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto items-stretch">
           {PRICING_OFFERS.map((offer, i) => (
-            <TeaserCard key={offer.id} offer={offer} index={i} onCtaClick={openModal} isEn={isEn} />
+            <TeaserCard key={offer.id} offer={offer} index={i} onCtaClick={() => openModal(undefined, offer.id === 'six-months' ? 'sixmonths' : offer.id)} isEn={isEn} />
           ))}
         </div>
 

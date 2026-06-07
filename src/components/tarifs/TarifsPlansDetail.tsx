@@ -143,7 +143,7 @@ export const TarifsPlansDetail = () => {
 
         <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto items-stretch">
           {PRICING_OFFERS.map((offer, i) => (
-            <OfferCard key={offer.id} offer={offer} index={i} onCtaClick={openModal} />
+            <OfferCard key={offer.id} offer={offer} index={i} onCtaClick={() => openModal(undefined, offer.id === 'six-months' ? 'sixmonths' : offer.id)} />
           ))}
         </div>
       </div>
