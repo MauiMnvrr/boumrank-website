@@ -1,0 +1,562 @@
+/* =========================================================================
+   Landing campagne /campagne — styles dédiés (mobile-first)
+   Réutilise les tokens du design system (globals.css). Préfixe : cmp-
+   ========================================================================= */
+
+.cmp-root {
+  background: var(--bg-primary);
+  color: var(--text-body);
+  overflow-x: hidden;
+  color-scheme: light;
+}
+
+/* Lecture seule par les lecteurs d'écran : libellé visuellement masqué */
+.cmp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Conteneur ---------- */
+.cmp-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .cmp-container { padding: 0 32px; }
+}
+
+.cmp-section {
+  position: relative;
+  padding: 72px 0;
+}
+@media (min-width: 768px) {
+  .cmp-section { padding: 110px 0; }
+}
+
+/* ---------- Typo fluide ---------- */
+.cmp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-blue);
+  padding: 7px 14px;
+  border-radius: 9999px;
+  background: var(--gradient-subtle);
+  border: 1px solid var(--border-highlight);
+}
+
+.cmp-h1 {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 7.5vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+.cmp-h2 {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 5.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+.cmp-h3 {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.15rem, 3.4vw, 1.5rem);
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin: 0;
+}
+.cmp-lead {
+  font-size: clamp(1.02rem, 2.7vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--text-body);
+  margin: 0;
+}
+.cmp-data {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cmp-grad-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Atmosphère (aurora + grain) ---------- */
+.cmp-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.cmp-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+}
+.cmp-blob-1 {
+  width: 60vw; height: 60vw; max-width: 620px; max-height: 620px;
+  top: -18%; left: -14%;
+  background: radial-gradient(circle, rgba(27,111,194,0.32), transparent 65%);
+}
+.cmp-blob-2 {
+  width: 55vw; height: 55vw; max-width: 560px; max-height: 560px;
+  bottom: -20%; right: -16%;
+  background: radial-gradient(circle, rgba(46,174,109,0.30), transparent 65%);
+}
+.cmp-blob-3 {
+  width: 42vw; height: 42vw; max-width: 460px; max-height: 460px;
+  top: 30%; right: 8%;
+  background: radial-gradient(circle, rgba(30,157,170,0.22), transparent 65%);
+}
+.cmp-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(27,111,194,0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 75%);
+          mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 75%);
+}
+
+/* ---------- Cadre téléphone ---------- */
+.cmp-phone {
+  position: relative;
+  width: clamp(232px, 72vw, 290px);
+  aspect-ratio: 290 / 600;
+  background: #0c0d10;
+  border-radius: 44px;
+  border: 8px solid #050608;
+  box-shadow:
+    0 34px 70px rgba(15, 23, 42, 0.30),
+    0 10px 26px rgba(27, 111, 194, 0.18),
+    inset 0 0 0 1.5px rgba(255,255,255,0.06);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cmp-phone::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 42%; height: 22px;
+  background: #050608;
+  border-radius: 0 0 14px 14px;
+  z-index: 12;
+}
+.cmp-phone-screen {
+  position: absolute;
+  inset: 0;
+  padding-top: 30px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-primary) 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* mini barre d'app */
+.cmp-app-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 4px;
+}
+.cmp-app-dot { width: 9px; height: 9px; border-radius: 50%; }
+
+/* ---------- Roue de la fortune ---------- */
+.cmp-wheel {
+  position: relative;
+  width: clamp(150px, 44vw, 188px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+.cmp-wheel-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #1b6fc2 0deg 60deg,
+    #1e9daa 60deg 120deg,
+    #2eae6d 120deg 180deg,
+    #f28c28 180deg 240deg,
+    #fbab5c 240deg 300deg,
+    #7c5cfc 300deg 360deg
+  );
+  border: 6px solid #fff;
+  box-shadow: 0 16px 36px rgba(27,111,194,0.28), 0 0 0 3px rgba(27,111,194,0.12);
+  animation: cmp-spin 9s cubic-bezier(0.22,1,0.36,1) infinite;
+}
+.cmp-wheel-arrow {
+  position: absolute;
+  top: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 20px solid var(--secondary-orange);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+  z-index: 3;
+}
+.cmp-wheel-hub {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 26%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid rgba(27,111,194,0.15);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3;
+  font-size: 20px;
+}
+@keyframes cmp-spin {
+  0%   { transform: rotate(0deg); }
+  55%  { transform: rotate(1080deg); }
+  70%  { transform: rotate(1080deg); }
+  100% { transform: rotate(1440deg); }
+}
+
+/* ---------- Étoiles (avis) ---------- */
+.cmp-stars { display: inline-flex; gap: 4px; }
+.cmp-star { color: #FFB400; }
+
+/* ---------- Coupon / récompense ---------- */
+.cmp-coupon {
+  position: relative;
+  background: linear-gradient(135deg, #1b6fc2, #1e9daa 55%, #2eae6d);
+  color: #fff;
+  border-radius: 18px;
+  padding: 18px 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(27,111,194,0.30);
+}
+.cmp-coupon::before,
+.cmp-coupon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 22px; height: 22px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.cmp-coupon::before { left: -11px; }
+.cmp-coupon::after  { right: -11px; }
+.cmp-coupon-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: cmp-shimmer 3s ease-in-out infinite;
+}
+@keyframes cmp-shimmer {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(200%); }
+  100% { transform: translateX(200%); }
+}
+
+/* ---------- QR code stylisé ---------- */
+.cmp-qr {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  width: 92px; height: 92px;
+  padding: 9px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.12);
+}
+.cmp-qr span { background: transparent; border-radius: 1.5px; }
+.cmp-qr span.on { background: var(--text-primary); }
+
+/* ---------- Puce flottante ---------- */
+.cmp-fchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 14px;
+  padding: 9px 13px;
+  box-shadow: 0 14px 34px rgba(15,23,42,0.12);
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Conteneur téléphone + puces flottantes (ancrage sur le device) */
+.cmp-phone-wrap {
+  position: relative;
+  width: clamp(232px, 72vw, 290px);
+  margin: 0 auto;
+}
+.cmp-phone-wrap .cmp-fchip { position: absolute; z-index: 2; }
+.cmp-fchip-tl { top: 26px; left: -26px; }
+.cmp-fchip-br { bottom: 40px; right: -24px; }
+@media (max-width: 400px) {
+  .cmp-fchip-tl { left: -10px; }
+  .cmp-fchip-br { right: -8px; }
+  .cmp-fchip { padding: 7px 10px; font-size: 12px; }
+}
+
+/* ---------- Carte générique ---------- */
+.cmp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+}
+
+/* ---------- Connecteur d'étapes ---------- */
+.cmp-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0 8px 20px rgba(27,111,194,0.30);
+  flex-shrink: 0;
+}
+
+/* ---------- Marquee secteurs ---------- */
+.cmp-sector-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 9999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* ---------- Header sticky ---------- */
+.cmp-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* ---------- CTA bouton ---------- */
+.cmp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: var(--gradient-primary);
+  border-radius: 9999px;
+  box-shadow: 0 10px 28px rgba(27,111,194,0.38);
+  transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s var(--ease-out-expo);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+.cmp-cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 38px rgba(27,111,194,0.5);
+}
+.cmp-cta:active { transform: scale(0.98); }
+.cmp-cta:focus-visible {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 3px;
+}
+.cmp-cta-lg { height: 60px; padding: 0 34px; font-size: 1.02rem; max-width: 100%; }
+.cmp-cta-md { height: 48px; padding: 0 22px; font-size: 0.82rem; max-width: 100%; }
+@media (max-width: 380px) {
+  .cmp-cta-lg { font-size: 0.92rem; padding: 0 22px; }
+  .cmp-cta-md { padding: 0 16px; }
+}
+
+/* Bascules d'affichage responsive */
+.cmp-only-sm { display: none; }
+@media (max-width: 480px) {
+  .cmp-hide-sm { display: none; }
+  .cmp-only-sm { display: inline; }
+}
+
+/* Variante inversée (sur fond gradient) */
+.cmp-cta.cmp-cta-invert {
+  background: #fff;
+  color: var(--primary-blue);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+  text-shadow: none;
+}
+.cmp-cta.cmp-cta-invert:hover {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.30);
+}
+.cmp-cta.cmp-cta-invert:focus-visible {
+  outline-color: #fff;
+}
+
+/* Onglets showcase */
+.cmp-tab {
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  min-height: 44px;
+  padding: 11px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  background: transparent;
+  color: var(--text-body);
+  transition: all 0.2s ease;
+}
+.cmp-tab[aria-pressed='true'] {
+  color: #fff;
+  background: var(--gradient-primary);
+  box-shadow: 0 6px 16px rgba(27,111,194,0.30);
+}
+.cmp-tab:focus-visible {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+.cmp-cta-pulse { position: relative; }
+.cmp-cta-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0 rgba(46,174,109,0.5);
+  animation: cmp-pulse 2.6s ease-out infinite;
+}
+@keyframes cmp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(46,174,109,0.45); }
+  70%  { box-shadow: 0 0 0 16px rgba(46,174,109,0); }
+  100% { box-shadow: 0 0 0 0 rgba(46,174,109,0); }
+}
+
+/* ---------- Scène d'ambiance (visuel "photo" codé) ---------- */
+.cmp-scene {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 20% 10%, rgba(242,140,40,0.18), transparent 55%),
+    radial-gradient(120% 100% at 90% 80%, rgba(46,174,109,0.22), transparent 55%),
+    linear-gradient(160deg, #15243a 0%, #0f2233 55%, #0c1b2a 100%);
+  min-height: 340px;
+  box-shadow: 0 24px 60px rgba(15,23,42,0.28);
+}
+.cmp-scene-grain {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ---------- Grilles responsives ---------- */
+.cmp-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  align-items: center;
+}
+@media (min-width: 940px) {
+  .cmp-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+  }
+}
+
+.cmp-loop-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .cmp-loop-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (min-width: 1040px) {
+  .cmp-loop-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.cmp-bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 820px) {
+  .cmp-bento { grid-template-columns: repeat(3, 1fr); }
+}
+
+.cmp-show-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+@media (min-width: 940px) {
+  .cmp-show-grid { grid-template-columns: 0.9fr 1.1fr; gap: 48px; }
+}
+
+/* ---------- Utilitaires d'animation locale ---------- */
+.cmp-float   { animation: cmp-floaty 6s ease-in-out infinite; }
+.cmp-float-2 { animation: cmp-floaty 5s ease-in-out infinite 0.6s; }
+@keyframes cmp-floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* Reduced motion : on coupe les boucles décoratives */
+@media (prefers-reduced-motion: reduce) {
+  .cmp-wheel-disc,
+  .cmp-coupon-shimmer,
+  .cmp-cta-pulse::after,
+  .cmp-float,
+  .cmp-float-2 {
+    animation: none !important;
+  }
+}

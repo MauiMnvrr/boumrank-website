@@ -9,6 +9,9 @@ export const SIGNUP_URL = `${APP_URL}/signup`;
 export const AUTH_URL = `${APP_URL}/auth`;
 export const DEMO_URL = `${APP_URL}/c/default`;
 
+// Lien de réservation d'appel (campagnes réseaux sociaux, landing /campagne)
+export const CAL_URL = 'https://cal.com/maui-manavarere-l1o9dv/15min';
+
 export const COMPANY = {
   name: 'BoumRank',
   foundingYear: 2024,
