@@ -11,6 +11,8 @@ import { DarkModeScript } from '@/components/ui/DarkModeScript';
 import { CookieBanner } from '@/components/ui/CookieBanner';
 import { ConsentBoot } from '@/components/analytics/ConsentBoot';
 import { AnalyticsScripts } from '@/components/analytics/AnalyticsScripts';
+import { Suspense } from 'react';
+import { JourneyTracking } from '@/components/analytics/JourneyTracking';
 import { SITE_URL, SITE_NAME } from '@/lib/constants';
 import { routing, type Locale } from '@/i18n/routing';
 
@@ -113,6 +115,9 @@ export default async function LocaleLayout({
           </DarkModeProvider>
         </NextIntlClientProvider>
         <AnalyticsScripts />
+        <Suspense fallback={null}>
+          <JourneyTracking />
+        </Suspense>
       </body>
     </html>
   );
