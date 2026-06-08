@@ -119,3 +119,18 @@ export function trackMeta(name: string, payload: Record<string, unknown> = {}): 
     w.fbq('track', name, payload);
   }
 }
+
+/** TikTok Pixel event (Contact, ViewContent, SubmitForm…). Consent-gated manually. */
+export function trackTikTok(name: string, payload: Record<string, unknown> = {}): void {
+  if (typeof window === 'undefined') return;
+  const consent = readConsent();
+  if (consent.ads !== 'granted') return;
+  const w = window as any;
+  if (!w.ttq) return;
+  // TikTok page view uses ttq.page(), pas ttq.track('page')
+  if (name === 'page') {
+    if (typeof w.ttq.page === 'function') w.ttq.page();
+    return;
+  }
+  if (typeof w.ttq.track === 'function') w.ttq.track(name, payload);
+}
