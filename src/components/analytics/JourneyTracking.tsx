@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { track } from '@/lib/analytics';
 import { trackEvent } from '@/lib/events';
 
 /**
@@ -10,13 +9,15 @@ import { trackEvent } from '@/lib/events';
  *
  * - page_view : à CHAQUE navigation SPA (le 1er chargement est déjà compté par
  *   les scripts de boot gtag/Meta/TikTok → on saute le 1er rendu pour éviter le
- *   double comptage).
- * - scroll_depth : seuils 25/50/75/90 % (1× chacun, throttlé en rAF).
+ *   double comptage). NB : les navigations par #ancre ne changent pas le pathname
+ *   et ne sont donc pas comptées (comportement voulu).
+ * - scroll_depth : seuils 25/50/75/90 % (réinitialisés à chaque page).
  * - section_view : IntersectionObserver sur [data-section] (1×/section/page).
- * - cta_click / outbound_click / file_download : un listener click délégué.
- * - form_start : un listener focusin délégué (1×/formulaire).
+ * - cta_click / outbound_click / file_download : un listener click délégué global.
+ * - form_start : 1er focus dans un <form> (réinitialisé à chaque page).
  *
- * Tout passe par track()/trackEvent() → gating par Consent Mode / readConsent().
+ * Tout passe par trackEvent() → la table EVENTS reste la source de vérité du
+ * routage multi-plateformes, et le gating Consent Mode / readConsent() s'applique.
  */
 export function JourneyTracking() {
   const pathname = usePathname();
@@ -38,9 +39,44 @@ export function JourneyTracking() {
     });
   }, [pathname, searchParams]);
 
-  // --- listeners globaux (montés 1×) : scroll / click / focus ---
+  // --- clics délégués (global, sans état par page) : cta / file / outbound ---
   useEffect(() => {
-    // scroll depth
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+
+      const ctaEl = target.closest<HTMLElement>('[data-cta]');
+      if (ctaEl) {
+        trackEvent('cta_click', {
+          cta_id: ctaEl.getAttribute('data-cta') || '',
+          cta_location: ctaEl.getAttribute('data-cta-location') || '',
+        });
+      }
+
+      const a = target.closest<HTMLAnchorElement>('a[href]');
+      if (a) {
+        const href = a.getAttribute('href') || '';
+        if (/\.(pdf|zip|csv|xlsx?|docx?|pptx?)(\?|#|$)/i.test(href)) {
+          const file = href.split('/').pop()?.split(/[?#]/)[0] || href;
+          trackEvent('file_download', { file_name: file });
+        }
+        try {
+          const url = new URL(href, window.location.href);
+          if (url.origin !== window.location.origin && /^https?:$/.test(url.protocol)) {
+            trackEvent('outbound_click', { link_url: url.href, link_domain: url.hostname });
+          }
+        } catch {
+          // href relatif / mailto / tel → ignoré
+        }
+      }
+    };
+    document.addEventListener('click', onClick, true);
+    return () => document.removeEventListener('click', onClick, true);
+  }, []);
+
+  // --- état réinitialisé à chaque page : scroll_depth, form_start, section_view ---
+  useEffect(() => {
+    // scroll depth (seuils ré-armés pour la nouvelle page)
     const thresholds = [25, 50, 75, 90];
     const fired = new Set<number>();
     let ticking = false;
@@ -56,46 +92,14 @@ export function JourneyTracking() {
         for (const t of thresholds) {
           if (pct >= t && !fired.has(t)) {
             fired.add(t);
-            track('scroll_depth', { percent_scrolled: t });
+            trackEvent('scroll_depth', { percent_scrolled: t });
           }
         }
       });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // clics délégués : cta / file_download / outbound
-    const onClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement | null;
-      if (!target) return;
-
-      const ctaEl = target.closest<HTMLElement>('[data-cta]');
-      if (ctaEl) {
-        track('cta_click', {
-          cta_id: ctaEl.getAttribute('data-cta') || '',
-          cta_location: ctaEl.getAttribute('data-cta-location') || '',
-        });
-      }
-
-      const a = target.closest<HTMLAnchorElement>('a[href]');
-      if (a) {
-        const href = a.getAttribute('href') || '';
-        if (/\.(pdf|zip|csv|xlsx?|docx?|pptx?)(\?|#|$)/i.test(href)) {
-          const file = href.split('/').pop()?.split(/[?#]/)[0] || href;
-          track('file_download', { file_name: file });
-        }
-        try {
-          const url = new URL(href, window.location.href);
-          if (url.origin !== window.location.origin && /^https?:$/.test(url.protocol)) {
-            track('outbound_click', { link_url: url.href, link_domain: url.hostname });
-          }
-        } catch {
-          // href relatif / mailto / tel → ignoré
-        }
-      }
-    };
-    document.addEventListener('click', onClick, true);
-
-    // form_start : 1er focus dans un <form>
+    // form_start (1er focus par formulaire, ré-armé pour la nouvelle page)
     const startedForms = new Set<string>();
     const onFocusIn = (e: FocusEvent) => {
       const el = e.target as HTMLElement | null;
@@ -108,38 +112,39 @@ export function JourneyTracking() {
         'form';
       if (startedForms.has(id)) return;
       startedForms.add(id);
-      track('form_start', { form_id: id });
+      trackEvent('form_start', { form_id: id });
     };
     document.addEventListener('focusin', onFocusIn);
 
+    // section_view (différé d'une frame pour observer le DOM de la nouvelle page)
+    let io: IntersectionObserver | null = null;
+    const raf = requestAnimationFrame(() => {
+      const seen = new Set<string>();
+      const els = Array.from(document.querySelectorAll<HTMLElement>('[data-section]'));
+      if (els.length === 0) return;
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            const id = (entry.target as HTMLElement).getAttribute('data-section') || '';
+            if (id && !seen.has(id)) {
+              seen.add(id);
+              trackEvent('section_view', { section_id: id });
+            }
+            io?.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.4 }
+      );
+      els.forEach((el) => io!.observe(el));
+    });
+
     return () => {
       window.removeEventListener('scroll', onScroll);
-      document.removeEventListener('click', onClick, true);
       document.removeEventListener('focusin', onFocusIn);
+      cancelAnimationFrame(raf);
+      io?.disconnect();
     };
-  }, []);
-
-  // --- section_view : ré-observé à chaque page ---
-  useEffect(() => {
-    const seen = new Set<string>();
-    const els = Array.from(document.querySelectorAll<HTMLElement>('[data-section]'));
-    if (els.length === 0) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const id = (entry.target as HTMLElement).getAttribute('data-section') || '';
-          if (id && !seen.has(id)) {
-            seen.add(id);
-            track('section_view', { section_id: id });
-          }
-          io.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.4 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
   }, [pathname]);
 
   return null;
