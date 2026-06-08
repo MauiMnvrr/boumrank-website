@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { track, trackMeta } from '@/lib/analytics';
+import { trackEvent } from '@/lib/events';
 
 export function ContactForm() {
   const t = useTranslations('contact.form');
@@ -70,10 +70,10 @@ export function ContactForm() {
         return;
       }
 
-      track('contact_form_submitted', {
+      trackEvent('contact_form_submitted', {
         has_company: !!formData.company.trim(),
+        content_name: 'contact_form',
       });
-      trackMeta('Lead', { content_name: 'contact_form' });
       setSubmitted(true);
     } catch {
       setServerError(

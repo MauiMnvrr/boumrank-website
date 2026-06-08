@@ -5,7 +5,7 @@ import { Rocket, Check, AlertTriangle, Lightbulb, Quote, Zap } from 'lucide-reac
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
-import { track, trackMeta } from '@/lib/analytics';
+import { trackEvent } from '@/lib/events';
 import type { SectorData, SectorLocale } from '@/data/sectors';
 
 type Props = {
@@ -19,8 +19,7 @@ export function SectorPageClient({ sector, locale }: Props) {
   const d: SectorLocale = isEn ? sector.en : sector.fr;
 
   const handleCta = () => {
-    track('signup_click', { cta_location: `sector-${sector.slug}` });
-    trackMeta('Lead', { content_name: `signup_sector_${sector.slug}` });
+    trackEvent('signup_click', { cta_location: `sector-${sector.slug}`, content_name: `signup_sector_${sector.slug}` });
     openModal();
   };
 

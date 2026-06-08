@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
-import { track, trackMeta } from '@/lib/analytics';
+import { trackEvent } from '@/lib/events';
 
 export const FinalCTA = () => {
   const { openModal } = useOnboarding();
@@ -61,8 +61,7 @@ export const FinalCTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
             <Button
               onClick={() => {
-                track('signup_click', { cta_location: 'final-cta' });
-                trackMeta('Lead', { content_name: 'signup_final_cta' });
+                trackEvent('signup_click', { cta_location: 'final-cta', content_name: 'signup_final_cta' });
                 openModal();
               }}
               data-cta="signup"
@@ -74,7 +73,7 @@ export const FinalCTA = () => {
               <Rocket size={20} />
               {tCommon('startTrial')}
             </Button>
-            <Link href="/contact" className="w-full sm:w-auto" onClick={() => track('contact_click', { cta_location: 'final-cta' })}>
+            <Link href="/contact" className="w-full sm:w-auto" onClick={() => trackEvent('contact_click', { cta_location: 'final-cta' })}>
               <Button variant="outline" size="lg" type="button" className="w-full sm:w-auto sm:!h-16 sm:!px-10 sm:!text-lg">
                 <Calendar size={20} />
                 {tCommon('bookDemo')}

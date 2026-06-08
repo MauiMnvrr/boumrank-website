@@ -7,7 +7,7 @@ import { Download, Mail, Check, BookOpen, Sparkles, AlertCircle } from 'lucide-r
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
-import { track, trackMeta } from '@/lib/analytics';
+import { trackEvent } from '@/lib/events';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -31,7 +31,7 @@ export const LeadMagnet = () => {
     }
 
     setState('submitting');
-    track('lead_magnet_submitted', { source: 'home_lead_magnet' });
+    trackEvent('lead_magnet_submitted', { source: 'home_lead_magnet' });
 
     try {
       const res = await fetch('/api/lead-magnet', {
@@ -49,13 +49,10 @@ export const LeadMagnet = () => {
       }
 
       setState('success');
-      track('lead_magnet_download', {
+      trackEvent('lead_magnet_download', {
         source: 'home_lead_magnet',
         magnet: '50-lots-qui-font-revenir',
-      });
-      trackMeta('Lead', {
         content_name: 'Playbook BoumRank',
-        content_category: 'lead-magnet',
       });
     } catch (err) {
       const msg = err instanceof Error ? err.message : (isEn ? 'An error occurred.' : 'Une erreur est survenue.');

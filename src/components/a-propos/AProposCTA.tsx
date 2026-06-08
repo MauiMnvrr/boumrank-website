@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
-import { track } from '@/lib/analytics';
+import { trackEvent } from '@/lib/events';
 
 export function AProposCTA() {
   const t = useTranslations('about.cta');
@@ -50,7 +50,7 @@ export function AProposCTA() {
                 data-cta="signup"
                 data-cta-location="apropos-cta"
                 onClick={() => {
-                  track('signup_click', { cta_location: 'apropos-cta' });
+                  trackEvent('signup_click', { cta_location: 'apropos-cta' });
                   openModal();
                 }}
               >

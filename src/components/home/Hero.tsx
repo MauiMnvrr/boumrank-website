@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button';
 import { AuroraBackground } from '@/components/decorative/AuroraBackground';
 import { RevealOnScroll } from '@/components/decorative/RevealOnScroll';
 import { DEMO_URL } from '@/lib/constants';
-import { track, trackMeta } from '@/lib/analytics';
+import { trackEvent } from '@/lib/events';
 
 // =====================================================
 // Mockup smartphone — 5 écrans cycliques (loop d'environ 22s)
@@ -72,10 +72,10 @@ const ScreenHome = () => {
           {t('chooseChallenge')} <span className="text-[#6BB1F5]">⚡</span>
         </p>
         <div className="w-full space-y-3">
-          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-cta="demo" data-cta-location="hero-slot" onClick={() => track('demo_click', { cta_location: 'hero-slot' })} className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm uppercase shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:scale-105 transition-transform cursor-pointer block no-underline">
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-cta="demo" data-cta-location="hero-slot" onClick={() => trackEvent('demo_click', { cta_location: 'hero-slot' })} className="w-full bg-gradient-to-r from-[#1B6FC2] to-[#2EAE6D] py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm uppercase shadow-[0_0_20px_rgba(27,111,194,0.4)] hover:scale-105 transition-transform cursor-pointer block no-underline">
             <span>🎰</span> {t('slotMachine')}
           </a>
-          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-cta="demo" data-cta-location="hero-wheel" onClick={() => track('demo_click', { cta_location: 'hero-wheel' })} className="w-full bg-[#161B22] border border-white/10 py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm hover:bg-[#161B22]/80 hover:scale-105 transition-all cursor-pointer block no-underline">
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" data-cta="demo" data-cta-location="hero-wheel" onClick={() => trackEvent('demo_click', { cta_location: 'hero-wheel' })} className="w-full bg-[#161B22] border border-white/10 py-3 rounded-xl flex items-center justify-center gap-3 text-white font-bold text-sm hover:bg-[#161B22]/80 hover:scale-105 transition-all cursor-pointer block no-underline">
             <span>🎡</span> {t('fortuneWheel')}
           </a>
         </div>
@@ -328,8 +328,7 @@ export const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-7">
                 <Button
                   onClick={() => {
-                    track('signup_click', { cta_location: 'hero' });
-                    trackMeta('Lead', { content_name: 'signup_hero' });
+                    trackEvent('signup_click', { cta_location: 'hero', content_name: 'signup_hero' });
                     openModal();
                   }}
                   data-cta="signup"
