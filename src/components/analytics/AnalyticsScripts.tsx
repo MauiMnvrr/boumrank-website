@@ -28,6 +28,7 @@ export function AnalyticsScripts() {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const tiktokPixelId = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   const linkedinPartnerId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
   const metricoolHash = process.env.NEXT_PUBLIC_METRICOOL_HASH;
@@ -58,6 +59,16 @@ export function AnalyticsScripts() {
           strategy="lazyOnload"
           src="/meta-pixel-boot.js"
           data-pixel-id={metaPixelId}
+        />
+      )}
+
+      {/* TikTok Pixel — gated par consentement ads dans /tiktok-pixel-boot.js */}
+      {tiktokPixelId && (
+        <Script
+          id="tiktok-pixel"
+          strategy="lazyOnload"
+          src="/tiktok-pixel-boot.js"
+          data-pixel-id={tiktokPixelId}
         />
       )}
     </>
