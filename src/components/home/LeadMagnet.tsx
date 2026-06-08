@@ -53,6 +53,7 @@ export const LeadMagnet = () => {
         source: 'home_lead_magnet',
         magnet: '50-lots-qui-font-revenir',
         content_name: 'Playbook BoumRank',
+        content_category: 'lead-magnet',
       });
     } catch (err) {
       const msg = err instanceof Error ? err.message : (isEn ? 'An error occurred.' : 'Une erreur est survenue.');
