@@ -7,30 +7,38 @@ import { FinalCta } from '@/components/campagne/FinalCta';
 import { Footer } from '@/components/campagne/Footer';
 import { MotionProvider, Reassurance } from '@/components/campagne/primitives';
 import { OfferProvider, OfferButton } from '@/components/campagne/OfferModal';
+import {
+  SchemaOrg,
+  organizationSchema,
+  softwareApplicationSchema,
+} from '@/components/seo/SchemaOrg';
 
 export default function CampagnePage() {
   return (
-    <MotionProvider>
-      <OfferProvider>
-        <Header />
-        <main>
-          <Hero />
-          <Loop />
-          <Benefits />
+    <>
+      <SchemaOrg schemas={[organizationSchema(), softwareApplicationSchema()]} />
+      <MotionProvider>
+        <OfferProvider>
+          <Header />
+          <main>
+            <Hero />
+            <Loop />
+            <Benefits />
 
-          {/* CTA mi-parcours : capter les leads convaincus avant le bas de page */}
-          <section style={{ padding: '4px 16px 28px', textAlign: 'center' }}>
-            <OfferButton size="lg" pulse source="campagne_mid">
-              Débloquer mon mois offert
-            </OfferButton>
-            <Reassurance center />
-          </section>
+            {/* CTA mi-parcours : capter les leads convaincus avant le bas de page */}
+            <section style={{ padding: '4px 16px 28px', textAlign: 'center' }}>
+              <OfferButton size="lg" pulse source="campagne_mid">
+                Débloquer mon mois offert
+              </OfferButton>
+              <Reassurance center />
+            </section>
 
-          <Sectors />
-          <FinalCta />
-        </main>
-        <Footer />
-      </OfferProvider>
-    </MotionProvider>
+            <Sectors />
+            <FinalCta />
+          </main>
+          <Footer />
+        </OfferProvider>
+      </MotionProvider>
+    </>
   );
 }

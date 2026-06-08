@@ -2,9 +2,7 @@
 
 import { type ReactNode, type CSSProperties } from 'react';
 import { motion, MotionConfig, type Variants } from 'framer-motion';
-import { CAL_URL } from '@/lib/constants';
 import { fadeUp, inViewOnce, EASE } from '@/lib/motion';
-import { trackBookCall } from './tracking';
 
 /* ============================================================================
    Provider Motion — respecte prefers-reduced-motion pour TOUTES les animations
@@ -12,54 +10,6 @@ import { trackBookCall } from './tracking';
    ============================================================================ */
 export function MotionProvider({ children }: { children: ReactNode }) {
   return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
-}
-
-/* URL de réservation avec UTM, construite proprement (robuste aux query params) */
-function buildCalHref(source: string) {
-  try {
-    const u = new URL(CAL_URL);
-    u.searchParams.set('utm_source', source);
-    return u.toString();
-  } catch {
-    return CAL_URL;
-  }
-}
-
-/* ============================================================================
-   CTA — réservation d'appel (cal.com). Toujours en nouvel onglet.
-   ============================================================================ */
-export function CalCta({
-  children = 'Réserver mon appel',
-  size = 'lg',
-  pulse = false,
-  variant = 'gradient',
-  className = '',
-  style,
-  source = 'campagne',
-}: {
-  children?: ReactNode;
-  size?: 'md' | 'lg';
-  pulse?: boolean;
-  variant?: 'gradient' | 'invert';
-  className?: string;
-  style?: CSSProperties;
-  source?: string;
-}) {
-  return (
-    <a
-      href={buildCalHref(source)}
-      target="_blank"
-      rel="noopener noreferrer"
-      data-cta={source}
-      onClick={() => trackBookCall(source)}
-      className={`cmp-cta cmp-cta-${size} ${variant === 'invert' ? 'cmp-cta-invert' : ''} ${pulse ? 'cmp-cta-pulse' : ''} ${className}`}
-      style={style}
-    >
-      {children}
-      <ArrowIcon size={size === 'lg' ? 20 : 16} />
-      <span className="cmp-sr-only"> (ouvre un nouvel onglet)</span>
-    </a>
-  );
 }
 
 /* Ligne de réassurance sous les CTA (sans engagement, aucune CB requise). */
@@ -182,6 +132,7 @@ export function Stars({ size = 22, className = '' }: { size?: number; className?
       initial="hidden"
       whileInView="visible"
       viewport={inViewOnce}
+      role="img"
       aria-label="5 étoiles sur 5"
     >
       {Array.from({ length: 5 }).map((_, i) => (
@@ -231,25 +182,6 @@ export function PhoneFrame({
     </div>
   );
 }
-
-/* Style partagé : faux bouton dans l'écran du téléphone (mockup) */
-export const screenCtaStyle: CSSProperties = {
-  textAlign: 'center',
-  height: 46,
-  borderRadius: 9999,
-  background: 'var(--gradient-primary)',
-  color: '#fff',
-  fontFamily: 'var(--font-plus-jakarta), sans-serif',
-  fontWeight: 800,
-  fontSize: 14,
-  letterSpacing: '0.03em',
-  textTransform: 'uppercase',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: '0 8px 20px rgba(27,111,194,0.35)',
-  textShadow: '0 1px 2px rgba(0,0,0,0.25)',
-};
 
 /* ============================================================================
    Icônes

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { writeConsent, hasChosenConsent } from '@/lib/analytics';
 import { enableCampagneTracking } from './tracking';
 
@@ -42,6 +43,7 @@ export function CampagneTracking() {
   return (
     <>
       <Analytics />
+      <SpeedInsights />
       {showBanner && <ConsentBanner onAccept={accept} onRefuse={refuse} />}
     </>
   );
@@ -56,7 +58,7 @@ function ConsentBanner({
 }) {
   return (
     <div
-      role="dialog"
+      role="region"
       aria-label="Consentement aux cookies"
       style={{
         position: 'fixed',

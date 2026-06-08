@@ -58,7 +58,7 @@ export function Footer() {
             {COMPANY.email}
           </a>
         </nav>
-        <p style={{ fontSize: 12.5, color: 'var(--text-secondary)', margin: 0 }}>
+        <p style={{ fontSize: 12.5, color: 'var(--text-body)', margin: 0 }}>
           © 2026 BoumRank. Tous droits réservés.
         </p>
       </div>

@@ -30,7 +30,7 @@ let gaInited = false;
 let metaInited = false;
 let tiktokInited = false;
 
-/** GA4 (gtag.js) : chargé seulement après consentement. */
+/** GA4 (gtag.js) : chargé seulement après consentement, avec Consent Mode v2. */
 export function initGA(gaId?: string): void {
   if (gaInited || !gaId || typeof window === 'undefined') return;
   const w = window as any;
@@ -39,6 +39,28 @@ export function initGA(gaId?: string): void {
     w.dataLayer.push(arguments);
   }
   w.gtag = w.gtag || gtag;
+
+  // Consent Mode v2 : défaut refusé puis mis à jour selon le choix stocké.
+  // (initGA n'est appelé qu'après consentement, mais on pose les deux signaux
+  // pour que Google reçoive l'état réel et active le conversion modeling.)
+  const c = readConsent();
+  w.gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    security_storage: 'granted',
+  });
+  w.gtag('consent', 'update', {
+    ad_storage: c.ads === 'granted' ? 'granted' : 'denied',
+    ad_user_data: c.ads === 'granted' ? 'granted' : 'denied',
+    ad_personalization: c.ads === 'granted' ? 'granted' : 'denied',
+    analytics_storage: c.analytics === 'granted' ? 'granted' : 'denied',
+    functionality_storage: c.functional === 'granted' ? 'granted' : 'denied',
+    security_storage: 'granted',
+  });
+
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
@@ -141,10 +163,29 @@ export function enableCampagneTracking(): void {
 }
 
 /**
- * Conversion : clic sur un CTA de réservation d'appel.
- * GA4 via Consent Mode (gating automatique), Meta + TikTok seulement si init.
+ * Intention : ouverture de la popup d'offre. Signal intermédiaire pour aider
+ * l'algo Meta/TikTok à apprendre (plus fréquent que le clic cal.com final).
+ * N'envoie aux pixels que s'ils sont initialisés (donc consentement donné).
+ */
+export function trackOfferView(source: string): void {
+  track('offer_open', { source });
+  if (typeof window === 'undefined') return;
+  const w = window as any;
+  if (metaInited && typeof w.fbq === 'function') {
+    w.fbq('track', 'ViewContent', { content_name: 'offre_mois_offert', source });
+  }
+  if (tiktokInited && typeof w.ttq?.track === 'function') {
+    w.ttq.track('ViewContent', { content_name: 'offre_mois_offert', source });
+  }
+}
+
+/**
+ * Conversion : clic sur le bouton cal.com (dans la popup). On (ré)active le
+ * tracking en tête pour couvrir le cas "consentement + clic quasi simultané"
+ * (init idempotente, évite de perdre le Lead par condition de course).
  */
 export function trackBookCall(source: string): void {
+  enableCampagneTracking();
   track('book_call_click', { source });
   if (typeof window === 'undefined') return;
   const w = window as any;

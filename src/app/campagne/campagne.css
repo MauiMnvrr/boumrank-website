@@ -115,7 +115,7 @@
 .cmp-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(44px);
   opacity: 0.55;
 }
 .cmp-blob-1 {

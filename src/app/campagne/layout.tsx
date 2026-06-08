@@ -15,19 +15,19 @@ const plusJakarta = Plus_Jakarta_Sans({
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
-  weight: ['500', '700'],
+  weight: ['700'],
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'BoumRank : transformez vos clients en avis 5 étoiles et en habitués',
+  title: { absolute: 'BoumRank : avis Google 5★ et clients fidèles' },
   description:
     'Un QR code, un mini-jeu, un avis Google, une récompense en boutique. BoumRank fait jouer vos clients et les fait revenir. Réservez un appel de 15 minutes.',
   robots: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description:
       'Un QR code, un jeu, un avis Google, une récompense en boutique. Setup en 5 minutes, sans engagement.',
     url: `${SITE_URL}/campagne`,
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.png', width: 1024, height: 1024 }],
   },
   twitter: { card: 'summary_large_image' },
 };

@@ -11,8 +11,7 @@ import {
 } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CAL_URL } from '@/lib/constants';
-import { track } from '@/lib/analytics';
-import { trackBookCall } from './tracking';
+import { trackBookCall, trackOfferView } from './tracking';
 import { ArrowIcon, Reassurance } from './primitives';
 
 /* ============================================================================
@@ -31,7 +30,7 @@ export function OfferProvider({ children }: { children: ReactNode }) {
 
   const open = (s = 'campagne') => {
     setSource(s);
-    track('offer_open', { source: s });
+    trackOfferView(s);
   };
   const close = () => setSource(null);
 
@@ -53,22 +52,61 @@ function OfferModalCard({
   onClose: () => void;
 }) {
   const calRef = useRef<HTMLAnchorElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    // mémorise l'élément qui a ouvert la modale pour y rendre le focus à la fermeture
+    const trigger = document.activeElement as HTMLElement | null;
+
+    const focusables = () =>
+      dialogRef.current
+        ? Array.from(
+            dialogRef.current.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )
+          )
+        : [];
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (e.key === 'Tab') {
+        const f = focusables();
+        if (f.length === 0) return;
+        const first = f[0];
+        const last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
+
     document.addEventListener('keydown', onKey);
-    // focus le bouton principal pour l'accessibilité clavier
     calRef.current?.focus();
-    // bloque le scroll de fond
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = prev;
+      trigger?.focus?.();
     };
   }, [onClose]);
+
+  const calHref = (() => {
+    try {
+      const u = new URL(CAL_URL);
+      u.searchParams.set('utm_source', `${source}_popup`);
+      return u.toString();
+    } catch {
+      return CAL_URL;
+    }
+  })();
 
   return (
     <motion.div
@@ -91,6 +129,7 @@ function OfferModalCard({
       }}
     >
       <motion.div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="offer-title"
@@ -178,7 +217,7 @@ function OfferModalCard({
 
           <a
             ref={calRef}
-            href={`${CAL_URL}?utm_source=${source}_popup`}
+            href={calHref}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackBookCall(`${source}_popup`)}

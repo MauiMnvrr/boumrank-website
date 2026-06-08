@@ -15,23 +15,19 @@ export function Hero() {
 
       <div className="cmp-container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="cmp-hero-grid">
-          {/* Colonne texte */}
+          {/* Colonne texte — statique (peinte au 1er rendu pour un LCP rapide) */}
           <div>
-            <Reveal>
-              <h1 className="cmp-h1">
-                Transformez chaque client en{' '}
-                <span className="cmp-grad-text">avis 5★</span>.
-              </h1>
-            </Reveal>
+            <h1 className="cmp-h1">
+              Transformez chaque client en{' '}
+              <span className="cmp-grad-text">avis 5★</span>.
+            </h1>
 
-            <Reveal delay={0.1}>
-              <div style={{ marginTop: 28 }}>
-                <OfferButton size="lg" pulse source="campagne_hero">
-                  Débloquer mon mois offert
-                </OfferButton>
-                <Reassurance />
-              </div>
-            </Reveal>
+            <div style={{ marginTop: 28 }}>
+              <OfferButton size="lg" pulse source="campagne_hero">
+                Débloquer mon mois offert
+              </OfferButton>
+              <Reassurance />
+            </div>
           </div>
 
           {/* Colonne visuel */}
@@ -146,7 +142,7 @@ function HeroWheelScreen() {
         style={{
           height: 46,
           borderRadius: 9999,
-          background: 'var(--accent-purple)',
+          background: '#6741D9',
           color: '#fff',
           fontFamily: 'var(--font-plus-jakarta), sans-serif',
           fontWeight: 800,
@@ -159,7 +155,7 @@ function HeroWheelScreen() {
           gap: 8,
           border: 'none',
           cursor: spinning ? 'default' : 'pointer',
-          boxShadow: '0 8px 20px rgba(124, 92, 252, 0.4)',
+          boxShadow: '0 8px 20px rgba(103, 65, 217, 0.4)',
           textShadow: '0 1px 2px rgba(0,0,0,0.25)',
           opacity: spinning ? 0.9 : 1,
           transition: 'opacity 0.2s',
