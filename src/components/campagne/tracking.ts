@@ -18,6 +18,14 @@
 
 import { track, readConsent } from '@/lib/analytics';
 
+/**
+ * ID du pixel TikTok de la campagne. Public (présent dans le HTML de la page),
+ * donc défini en dur par défaut pour fonctionner sans config Vercel.
+ * Surchargé par NEXT_PUBLIC_TIKTOK_PIXEL_ID si défini.
+ */
+const TIKTOK_PIXEL_ID =
+  process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || 'D8J9QEJC77UDLID6AKI0';
+
 let gaInited = false;
 let metaInited = false;
 let tiktokInited = false;
@@ -128,7 +136,7 @@ export function enableCampagneTracking(): void {
   if (c.analytics === 'granted') initGA(process.env.NEXT_PUBLIC_GA_ID);
   if (c.ads === 'granted') {
     initMetaPixel(process.env.NEXT_PUBLIC_META_PIXEL_ID);
-    initTikTokPixel(process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID);
+    initTikTokPixel(TIKTOK_PIXEL_ID);
   }
 }
 
