@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Reveal, Stars, PhoneFrame, GoogleGlyph } from './primitives';
+import { Reveal, Stars, PhoneFrame, GoogleGlyph, Reassurance } from './primitives';
 import { OfferButton } from './OfferModal';
 
 export function Hero() {
@@ -20,8 +20,7 @@ export function Hero() {
             <Reveal>
               <h1 className="cmp-h1">
                 Transformez chaque client en{' '}
-                <span className="cmp-grad-text">avis 5★</span> et en{' '}
-                <span className="cmp-grad-text">habitué</span>.
+                <span className="cmp-grad-text">avis 5★</span>.
               </h1>
             </Reveal>
 
@@ -30,6 +29,7 @@ export function Hero() {
                 <OfferButton size="lg" pulse source="campagne_hero">
                   Débloquer mon mois offert
                 </OfferButton>
+                <Reassurance />
               </div>
             </Reveal>
           </div>

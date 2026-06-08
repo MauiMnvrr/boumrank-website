@@ -66,8 +66,7 @@ export function Benefits() {
               Devenez la référence
             </h3>
             <p style={pStyle}>
-              88% des consommateurs consultent les avis Google avant de choisir un
-              établissement.
+              Avant de choisir, 88% des consommateurs consultent les avis Google.
             </p>
           </motion.div>
 
@@ -85,7 +84,7 @@ export function Benefits() {
               className="cmp-data"
               style={{ fontSize: 34, color: 'var(--secondary-orange)' }}
             >
-              +$
+              Win-win
             </span>
             <h3 className="cmp-h3" style={{ marginTop: 10 }}>
               Ça s’auto-finance

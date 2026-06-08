@@ -1,9 +1,7 @@
 'use client';
 
-import { Reveal, CheckIcon } from './primitives';
+import { Reveal, Reassurance } from './primitives';
 import { OfferButton } from './OfferModal';
-
-const reassure = ['15 minutes', 'Sans engagement', 'On vous montre tout en direct'];
 
 export function FinalCta() {
   return (
@@ -54,8 +52,8 @@ export function FinalCta() {
                 maxWidth: 540,
               }}
             >
-              Réservez un appel de 15 minutes. On vous montre BoumRank en direct, sans
-              engagement.
+              Réservez un appel de 15 minutes. On vous aide à paramétrer votre essai en
+              15 min.
             </p>
           </Reveal>
 
@@ -68,36 +66,9 @@ export function FinalCta() {
           </Reveal>
 
           <Reveal delay={0.22}>
-            <ul
-              style={{
-                marginTop: 24,
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                gap: '10px 22px',
-                listStyle: 'none',
-                padding: 0,
-              }}
-            >
-              {reassure.map((r) => (
-                <li
-                  key={r}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 7,
-                    fontSize: 13.5,
-                    fontWeight: 600,
-                    color: 'rgba(255,255,255,0.95)',
-                  }}
-                >
-                  <span style={{ display: 'inline-flex' }}>
-                    <CheckIcon size={15} />
-                  </span>
-                  {r}
-                </li>
-              ))}
-            </ul>
+            <div style={{ marginTop: 18 }}>
+              <Reassurance tone="light" center />
+            </div>
           </Reveal>
         </div>
       </div>

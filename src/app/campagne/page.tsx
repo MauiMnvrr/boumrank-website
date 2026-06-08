@@ -5,7 +5,7 @@ import { Benefits } from '@/components/campagne/Benefits';
 import { Sectors } from '@/components/campagne/Sectors';
 import { FinalCta } from '@/components/campagne/FinalCta';
 import { Footer } from '@/components/campagne/Footer';
-import { MotionProvider } from '@/components/campagne/primitives';
+import { MotionProvider, Reassurance } from '@/components/campagne/primitives';
 import { OfferProvider, OfferButton } from '@/components/campagne/OfferModal';
 
 export default function CampagnePage() {
@@ -23,6 +23,7 @@ export default function CampagnePage() {
             <OfferButton size="lg" pulse source="campagne_mid">
               Débloquer mon mois offert
             </OfferButton>
+            <Reassurance center />
           </section>
 
           <Sectors />

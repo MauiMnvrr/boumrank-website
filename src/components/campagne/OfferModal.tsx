@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { CAL_URL } from '@/lib/constants';
 import { track } from '@/lib/analytics';
 import { trackBookCall } from './tracking';
-import { ArrowIcon } from './primitives';
+import { ArrowIcon, Reassurance } from './primitives';
 
 /* ============================================================================
    Popup d'offre : le CTA "Débloquer mon mois offert" ouvre cette modale, qui
@@ -190,15 +190,9 @@ function OfferModalCard({
             <span className="cmp-sr-only"> (ouvre un nouvel onglet)</span>
           </a>
 
-          <p
-            style={{
-              marginTop: 14,
-              fontSize: 12.5,
-              color: 'var(--text-secondary)',
-            }}
-          >
-            Sans engagement. 15 minutes en visio.
-          </p>
+          <div style={{ marginTop: 14, display: 'flex', justifyContent: 'center' }}>
+            <Reassurance center />
+          </div>
         </div>
       </motion.div>
     </motion.div>

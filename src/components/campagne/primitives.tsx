@@ -62,6 +62,52 @@ export function CalCta({
   );
 }
 
+/* Ligne de réassurance sous les CTA (sans engagement, aucune CB requise). */
+export function Reassurance({
+  tone = 'dark',
+  center = false,
+}: {
+  tone?: 'dark' | 'light';
+  center?: boolean;
+}) {
+  const items = ['Sans engagement', 'Aucune CB requise'];
+  const textColor = tone === 'light' ? 'rgba(255,255,255,0.95)' : 'var(--text-body)';
+  const checkColor =
+    tone === 'light' ? 'rgba(255,255,255,0.95)' : 'var(--primary-green)';
+  return (
+    <ul
+      style={{
+        marginTop: 16,
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: center ? 'center' : 'flex-start',
+        gap: '8px 20px',
+        listStyle: 'none',
+        padding: 0,
+      }}
+    >
+      {items.map((t) => (
+        <li
+          key={t}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 7,
+            fontSize: 13.5,
+            fontWeight: 600,
+            color: textColor,
+          }}
+        >
+          <span style={{ display: 'inline-flex', color: checkColor }}>
+            <CheckIcon size={15} />
+          </span>
+          {t}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 /* ============================================================================
    Reveal — entrée au scroll (Framer Motion)
    ============================================================================ */
