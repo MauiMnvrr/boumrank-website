@@ -55,5 +55,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: enUrl, lastModified, alternates });
   }
 
+  // Landing de campagne (route standalone, non localisée)
+  entries.push({
+    url: `${SITE_URL}/campagne`,
+    lastModified,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  });
+
   return entries;
 }

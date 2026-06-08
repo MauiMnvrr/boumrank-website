@@ -4,6 +4,7 @@ import { type ReactNode, type CSSProperties } from 'react';
 import { motion, MotionConfig, type Variants } from 'framer-motion';
 import { CAL_URL } from '@/lib/constants';
 import { fadeUp, inViewOnce, EASE } from '@/lib/motion';
+import { trackBookCall } from './tracking';
 
 /* ============================================================================
    Provider Motion — respecte prefers-reduced-motion pour TOUTES les animations
@@ -50,6 +51,7 @@ export function CalCta({
       target="_blank"
       rel="noopener noreferrer"
       data-cta={source}
+      onClick={() => trackBookCall(source)}
       className={`cmp-cta cmp-cta-${size} ${variant === 'invert' ? 'cmp-cta-invert' : ''} ${pulse ? 'cmp-cta-pulse' : ''} ${className}`}
       style={style}
     >

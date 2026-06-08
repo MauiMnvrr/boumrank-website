@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Plus_Jakarta_Sans, Inter, Space_Grotesk } from 'next/font/google';
 import { SITE_URL } from '@/lib/constants';
+import { CampagneTracking } from '@/components/campagne/CampagneTracking';
 import './campagne.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -30,10 +31,11 @@ export const metadata: Metadata = {
   description:
     'Un QR code, un mini-jeu, un avis Google, une récompense en boutique. BoumRank fait jouer vos clients et les fait revenir. Réservez un appel de 15 minutes.',
   robots: {
-    index: false,
+    index: true,
     follow: true,
-    nocache: true,
-    googleBot: { index: false, follow: true },
+  },
+  alternates: {
+    canonical: `${SITE_URL}/campagne`,
   },
   openGraph: {
     type: 'website',
@@ -58,6 +60,7 @@ export default function CampagneLayout({ children }: { children: ReactNode }) {
         style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
       >
         {children}
+        <CampagneTracking />
       </body>
     </html>
   );
