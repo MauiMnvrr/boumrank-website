@@ -2,7 +2,6 @@ import { Header } from '@/components/campagne/Header';
 import { Hero } from '@/components/campagne/Hero';
 import { Loop } from '@/components/campagne/Loop';
 import { Benefits } from '@/components/campagne/Benefits';
-import { Showcase } from '@/components/campagne/Showcase';
 import { Sectors } from '@/components/campagne/Sectors';
 import { FinalCta } from '@/components/campagne/FinalCta';
 import { Footer } from '@/components/campagne/Footer';
@@ -16,7 +15,6 @@ export default function CampagnePage() {
         <Hero />
         <Loop />
         <Benefits />
-        <Showcase />
 
         {/* CTA mi-parcours : capter les leads convaincus avant le bas de page */}
         <section style={{ padding: '4px 16px 28px', textAlign: 'center' }}>

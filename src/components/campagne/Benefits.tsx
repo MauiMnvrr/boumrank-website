@@ -13,12 +13,7 @@ export function Benefits() {
       <div className="cmp-container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 44px' }}>
           <Reveal>
-            <span className="cmp-eyebrow">Pourquoi ça marche</span>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <h2 className="cmp-h2" style={{ marginTop: 16 }}>
-              Plus de visibilité. Plus de clients fidèles.
-            </h2>
+            <h2 className="cmp-h2">Plus de visibilité. Plus de clients fidèles.</h2>
           </Reveal>
         </div>
 

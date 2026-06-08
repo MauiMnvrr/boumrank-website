@@ -50,14 +50,9 @@ export function Loop() {
       <div className="cmp-container">
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 44px' }}>
           <Reveal>
-            <span className="cmp-eyebrow">Comment ça marche</span>
+            <h2 className="cmp-h2">COMMENT ÇA MARCHE ?</h2>
           </Reveal>
-          <Reveal delay={0.06}>
-            <h2 className="cmp-h2" style={{ marginTop: 16 }}>
-              Une boucle qui tourne toute seule.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.12}>
+          <Reveal delay={0.08}>
             <p className="cmp-lead" style={{ marginTop: 14 }}>
               Quatre étapes, zéro friction. Vos clients jouent, vous récoltez.
             </p>

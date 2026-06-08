@@ -6,11 +6,8 @@ import {
   Stars,
   PhoneFrame,
   GoogleGlyph,
-  CheckIcon,
   screenCtaStyle,
 } from './primitives';
-
-const trust = ['Sans engagement', 'Installation en 5 min', 'Sans appli à installer'];
 
 export function Hero() {
   return (
@@ -26,62 +23,19 @@ export function Hero() {
           {/* Colonne texte */}
           <div>
             <Reveal>
-              <span className="cmp-eyebrow">Restos · Boutiques · Salons</span>
-            </Reveal>
-
-            <Reveal delay={0.06}>
-              <h1 className="cmp-h1" style={{ marginTop: 18 }}>
+              <h1 className="cmp-h1">
                 Transformez chaque client en{' '}
                 <span className="cmp-grad-text">avis 5★</span> et en{' '}
                 <span className="cmp-grad-text">habitué</span>.
               </h1>
             </Reveal>
 
-            <Reveal delay={0.12}>
-              <p className="cmp-lead" style={{ marginTop: 18, maxWidth: 520 }}>
-                Un QR code. Un mini-jeu. Un avis Google. Une récompense à récupérer en
-                boutique.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.18}>
-              <div style={{ marginTop: 30 }}>
+            <Reveal delay={0.1}>
+              <div style={{ marginTop: 28 }}>
                 <CalCta size="lg" pulse source="campagne_hero">
                   Réserver mon appel de 15 min
                 </CalCta>
               </div>
-            </Reveal>
-
-            <Reveal delay={0.24}>
-              <ul
-                style={{
-                  marginTop: 22,
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '10px 18px',
-                  listStyle: 'none',
-                  padding: 0,
-                }}
-              >
-                {trust.map((t) => (
-                  <li
-                    key={t}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 7,
-                      fontSize: 13.5,
-                      fontWeight: 600,
-                      color: 'var(--text-body)',
-                    }}
-                  >
-                    <span style={{ color: 'var(--primary-green)', display: 'inline-flex' }}>
-                      <CheckIcon size={15} />
-                    </span>
-                    {t}
-                  </li>
-                ))}
-              </ul>
             </Reveal>
           </div>
 
