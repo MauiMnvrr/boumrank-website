@@ -25,6 +25,7 @@ export const FinalCTA = () => {
   return (
     <section
       ref={ref}
+      data-section="final_cta"
       className="relative py-24 md:py-32 overflow-hidden bg-[var(--bg-primary)]"
     >
       <motion.div

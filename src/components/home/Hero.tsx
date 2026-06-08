@@ -257,7 +257,7 @@ export const Hero = () => {
   }, [screens.length]);
 
   return (
-    <section className="relative min-h-[100dvh] pt-24 pb-16 overflow-hidden flex items-center bg-[var(--bg-primary)]">
+    <section data-section="hero" className="relative min-h-[100dvh] pt-24 pb-16 overflow-hidden flex items-center bg-[var(--bg-primary)]">
       {/* Signature aurora background — replaces previous radial gradient + emoji rain */}
       <AuroraBackground variant="auto" intensity="medium" />
 

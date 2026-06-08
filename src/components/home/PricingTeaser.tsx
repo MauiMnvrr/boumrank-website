@@ -120,6 +120,7 @@ export const PricingTeaser = () => {
   return (
     <section
       id="tarifs-teaser"
+      data-section="pricing"
       className="relative py-24 md:py-32 bg-[var(--bg-elevated)] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(46,174,109,0.08),transparent_70%)]" />

@@ -26,6 +26,7 @@ export const FAQ = () => {
   return (
     <section
       id="faq"
+      data-section="faq"
       className="relative py-24 md:py-32 bg-[var(--bg-elevated)] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(27,111,194,0.06),transparent_60%)]" />

@@ -42,6 +42,7 @@ export const HowItWorks = () => {
     <section
       ref={containerRef}
       id="comment-ca-marche"
+      data-section="how_it_works"
       className="relative py-24 md:py-32 bg-[var(--bg-primary)] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(27,111,194,0.06),transparent_60%)]" />

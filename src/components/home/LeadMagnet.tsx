@@ -67,6 +67,7 @@ export const LeadMagnet = () => {
   return (
     <section
       id="lead-magnet"
+      data-section="lead_magnet"
       className="relative py-24 md:py-32 bg-[var(--bg-primary)] overflow-hidden"
     >
       {/* Background decorative */}

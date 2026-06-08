@@ -119,7 +119,7 @@ export const TarifsPlansDetail = () => {
   const t = useTranslations('pricing.plans');
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 bg-[var(--bg-elevated)] overflow-hidden">
+    <section data-section="tarifs_plans" className="relative pt-32 pb-20 md:pt-40 md:pb-24 bg-[var(--bg-elevated)] overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(27,111,194,0.06),transparent_60%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">

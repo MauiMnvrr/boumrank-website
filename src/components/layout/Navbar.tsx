@@ -104,6 +104,8 @@ export const Navbar: React.FC = () => {
             href={AUTH_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-cta="login"
+            data-cta-location="navbar"
             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-display font-bold text-[13px] uppercase tracking-wider transition-colors flex items-center gap-1.5"
           >
             {tCommon('clientPortal')}
@@ -120,7 +122,7 @@ export const Navbar: React.FC = () => {
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
-          <Button onClick={openModal} variant="gradient" size="sm">
+          <Button onClick={openModal} variant="gradient" size="sm" data-cta="signup" data-cta-location="navbar">
             {tCommon('tryFree')}
           </Button>
         </div>
@@ -204,6 +206,8 @@ export const Navbar: React.FC = () => {
                 href={AUTH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-cta="login"
+                data-cta-location="navbar"
                 className="flex items-center gap-2 text-[var(--text-secondary)] font-display font-bold text-lg uppercase tracking-widest"
               >
                 {tCommon('clientPortal')}
@@ -233,6 +237,8 @@ export const Navbar: React.FC = () => {
                   variant="gradient"
                   size="lg"
                   className="w-full"
+                  data-cta="signup"
+                  data-cta-location="navbar"
                 >
                   {tCommon('tryFree')}
                 </Button>
