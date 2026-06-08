@@ -125,7 +125,7 @@ export const Features = () => {
     {
       icon: PieChart,
       title: "Real-Time Stats",
-      description: "All-in-one control: track loyalty, validate proof, configure games \u2014 from one dashboard."
+      description: "All-in-one control: track loyalty, manage rewards, configure games \u2014 from one dashboard."
     }
   ] : [
     {
@@ -141,7 +141,7 @@ export const Features = () => {
     {
       icon: PieChart,
       title: "Stats en Temps R\u00e9el",
-      description: "Pilotage tout-en-un : Suivi de la fid\u00e9lisation, validation des preuves et configuration des jeux."
+      description: "Pilotage tout-en-un : suivi de la fid\u00e9lisation, gestion des r\u00e9compenses et configuration des jeux."
     }
   ];
 

@@ -176,7 +176,7 @@ export const HowItWorks = () => {
             {tCommon('configureMyStore')}
           </Button>
           <Link
-            href="/comment-ca-marche"
+            href="/fonctionnalites"
             className="text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] font-display font-bold text-sm transition-colors underline underline-offset-4 decoration-2 decoration-[var(--primary-blue)]/30 hover:decoration-[var(--primary-blue)]"
           >
             {tCommon('seeFeatures')} →

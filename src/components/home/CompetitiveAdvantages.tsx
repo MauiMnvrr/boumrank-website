@@ -72,7 +72,7 @@ export const CompetitiveAdvantages = () => {
     {
       icon: Bot,
       title: "Full Automation",
-      advantage: "Your staff checks nothing. Our AI engine validates proof instantly, 24/7.",
+      advantage: "Your staff handles nothing. The whole journey, from scan to reward, runs on autopilot 24/7.",
       result: "A loyalty campaign that runs itself without slowing down your service."
     },
     {
@@ -84,7 +84,7 @@ export const CompetitiveAdvantages = () => {
     {
       icon: ShieldCheck,
       title: "Anti-Fraud Shield",
-      advantage: "Automatic detection of duplicates, edits, and invalid proof.",
+      advantage: "Single-use physical coupons, redeemed in-store. No reusable codes, no duplicates.",
       result: "You only give out rewards to real customers who actually visited."
     },
     {
@@ -109,7 +109,7 @@ export const CompetitiveAdvantages = () => {
     {
       icon: Bot,
       title: "Automatisation Totale",
-      advantage: "Votre staff ne v\u00e9rifie rien. Notre moteur IA valide les preuves instantan\u00e9ment 24/7.",
+      advantage: "Votre staff ne g\u00e8re rien. Tout le parcours, du scan \u00e0 la r\u00e9compense, tourne en autonomie 24/7.",
       result: "Une campagne de fid\u00e9lit\u00e9 autonome qui ne ralentit pas votre service."
     },
     {
@@ -121,7 +121,7 @@ export const CompetitiveAdvantages = () => {
     {
       icon: ShieldCheck,
       title: "S\u00e9curit\u00e9 Anti-Fraude",
-      advantage: "D\u00e9tection automatique des doublons, des montages et des preuves invalides.",
+      advantage: "Coupons physiques \u00e0 usage unique, valid\u00e9s en boutique. Pas de codes r\u00e9utilisables, pas de doublons.",
       result: "Vous ne distribuez des cadeaux qu\u2019aux vrais clients qui ont consomm\u00e9."
     },
     {

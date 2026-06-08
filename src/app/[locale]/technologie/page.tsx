@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { SchemaOrg, softwareApplicationSchema } from '@/components/seo/SchemaOrg';
-import { AIValidation } from '@/components/home/AIValidation';
 import { PerformanceTracking } from '@/components/home/PerformanceTracking';
 import { CTA } from '@/components/home/CTA';
 import { SITE_URL } from '@/lib/constants';
@@ -53,7 +52,7 @@ export default async function TechnologiePage({
 
           <div className="text-center mt-12 mb-4">
             <span className="text-[#1E9DAA] font-bold uppercase tracking-widest text-sm">
-              {isEn ? 'Artificial intelligence' : 'Intelligence artificielle'}
+              {isEn ? 'Our platform' : 'Notre plateforme'}
             </span>
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase mt-4 mb-6 leading-[1.05] text-[var(--text-primary)]">
               {isEn ? 'Our ' : 'Notre '}
@@ -63,14 +62,13 @@ export default async function TechnologiePage({
             </h1>
             <p className="text-lg text-[var(--text-body)] max-w-2xl mx-auto leading-relaxed">
               {isEn
-                ? 'A proprietary AI that validates customer proofs in under 3 seconds, paired with real-time analytics to drive your growth.'
-                : 'Une IA propriétaire qui valide les preuves clients en moins de 3 secondes, couplée à des analytics en temps réel pour piloter votre croissance.'}
+                ? 'A platform built for speed: instant rewards, real-time analytics, and a dashboard that turns every scan into actionable insight to drive your growth.'
+                : 'Une plateforme pensée pour la vitesse : récompenses instantanées, analytics en temps réel et un dashboard qui transforme chaque scan en données concrètes pour piloter votre croissance.'}
             </p>
           </div>
         </div>
       </section>
 
-      <AIValidation />
       <PerformanceTracking />
       <CTA />
     </>

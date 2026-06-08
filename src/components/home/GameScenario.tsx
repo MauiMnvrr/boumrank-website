@@ -74,8 +74,8 @@ export const GameScenario = () => {
     },
     {
       icon: ScanEye,
-      title: isEn ? "The Magic Validation" : "La Validation Magique",
-      desc: isEn ? "They upload their proof and our AI validates it instantly (zero cheating possible!)." : "Il uploade sa preuve et notre IA la valide instantanément (Aucune triche possible!).",
+      title: isEn ? "The Proof" : "La Preuve",
+      desc: isEn ? "They submit proof the mission is done, a screenshot of their review, and unlock their win." : "Il envoie la preuve que la mission est faite, une capture de son avis, et débloque son gain.",
       visual: (
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="w-40 h-24 bg-[var(--bg-surface)] dark:bg-[#161B22] border border-[#1B6FC2] rounded-lg relative overflow-hidden flex items-center justify-center">

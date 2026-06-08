@@ -221,7 +221,7 @@ export const Differentiators = () => {
                 : "BoumRank a été pensé pour les commerçants qui veulent du concret, vite, sans devoir devenir ingénieur marketing."}
             </p>
             <Link
-              href="/#comparatif-concurrents"
+              href="/tarifs"
               className="inline-flex items-center gap-2 font-display font-bold text-sm uppercase tracking-wider text-[var(--primary-blue)] hover:text-[var(--primary-blue-dark)] transition-colors"
             >
               {isEn ? 'See the full comparison' : 'Voir le comparatif détaillé'}

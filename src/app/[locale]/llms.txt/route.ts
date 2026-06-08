@@ -9,7 +9,7 @@ export async function GET(
 > SaaS gamification platform for local businesses. Turns customer reviews into games and rewards.
 
 ## What is BoumRank?
-BoumRank is a platform that helps local businesses (restaurants, salons, hotels, retail) collect more Google reviews, retain customers, and grow revenue through gamification. Customers scan a QR code, play mini-games (slot machine, fortune wheel, blackjack) and earn rewards in exchange for a review or a social media action. An AI auto-validates proofs in under 3 seconds.
+BoumRank is a platform that helps local businesses (restaurants, salons, hotels, retail) collect more Google reviews, retain customers, and grow revenue through gamification. Customers scan a QR code, play mini-games (slot machine, fortune wheel, blackjack) and earn rewards in exchange for a review or a social media action.
 
 ## Main pages
 - [Home](https://www.boumrank.com/en) - Platform overview
@@ -21,11 +21,10 @@ BoumRank is a platform that helps local businesses (restaurants, salons, hotels,
 
 ## Key features
 - Customizable mini-games (Slot Machine, Fortune Wheel, Blackjack)
-- AI auto-validation (99.8% accuracy)
 - QR code, no app to download
 - Real-time performance dashboard
 - 100% custom branding
-- Anti-fraud (duplicates and photo composites detection)
+- Single-use physical coupons redeemed in-store
 - GDPR-compliant marketing data collection
 
 ## Pricing
@@ -46,7 +45,7 @@ Single BoumRank service, all features included from day 1 (3 games, 100% custom 
 > Plateforme SaaS de gamification pour les commerces locaux. Transforme les avis clients en jeux et récompenses.
 
 ## Qu'est-ce que BoumRank ?
-BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, hôtels, retail) à collecter plus d'avis Google, fidéliser leurs clients et augmenter leur chiffre d'affaires grâce à la gamification. Les clients scannent un QR code, jouent à des mini-jeux (machine à sous, roue de la fortune, blackjack) et gagnent des récompenses en échange d'un avis ou d'une action sur les réseaux sociaux. Une IA valide automatiquement les preuves en moins de 3 secondes.
+BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, hôtels, retail) à collecter plus d'avis Google, fidéliser leurs clients et augmenter leur chiffre d'affaires grâce à la gamification. Les clients scannent un QR code, jouent à des mini-jeux (machine à sous, roue de la fortune, blackjack) et gagnent des récompenses en échange d'un avis ou d'une action sur les réseaux sociaux.
 
 ## Pages principales
 - [Accueil](https://www.boumrank.com) — Présentation de la plateforme
@@ -58,11 +57,10 @@ BoumRank est une plateforme qui aide les commerces locaux (restaurants, salons, 
 
 ## Fonctionnalités clés
 - Mini-jeux personnalisables (Machine à Sous, Roue de la Fortune, Blackjack)
-- Validation automatique par IA (précision 99,8 %)
 - QR code sans application à télécharger
 - Dashboard de performance en temps réel
 - Branding 100 % personnalisable aux couleurs du commerce
-- Anti-fraude (détection de doublons et de montages photo)
+- Coupons physiques à usage unique, validés en boutique
 - Collecte de données marketing conforme RGPD
 
 ## Tarification

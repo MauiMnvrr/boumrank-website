@@ -40,52 +40,52 @@ export const SECTORS: SectorData[] = [
     fr: {
       name: 'Restaurants & bars',
       heroTitle: 'Transformez la fin du repas en ',
-      heroHighlight: 'machine a avis Google',
+      heroHighlight: 'machine à avis Google',
       heroSubtitle:
-        'Bistros, pizzerias, brasseries, food trucks : vos clients scannent le QR code, jouent, laissent un avis et reviennent pour leur recompense.',
+        'Bistros, pizzerias, brasseries, food trucks : vos clients scannent le QR code, jouent, laissent un avis et reviennent pour leur récompense.',
       problemTitle: 'Ce que vivent les restaurateurs',
       problems: [
         'Les clients satisfaits partent sans laisser d\'avis',
-        'Les flyers et cartes de fidelite finissent a la poubelle',
-        'Impossible de rivaliser en visibilite locale avec les chaines',
-        'Le bouche-a-oreille reste invisible sur Google',
+        'Les flyers et cartes de fidélité finissent à la poubelle',
+        'Impossible de rivaliser en visibilité locale avec les chaînes',
+        'Le bouche-à-oreille reste invisible sur Google',
       ],
-      solutionTitle: 'Comment BoumRank resout ca',
+      solutionTitle: 'Comment BoumRank résout ça',
       solutions: [
         {
           title: 'QR code sur table ou addition',
-          body: 'Le client scanne en fin de repas, quand la satisfaction est au sommet. Zero app a telecharger.',
+          body: 'Le client scanne en fin de repas, quand la satisfaction est au sommet. Zéro app à télécharger.',
         },
         {
           title: 'Mini-jeu (roue, slots, blackjack)',
-          body: 'Le jeu declenche un pic d\'endorphine qui mene naturellement a l\'avis Google.',
+          body: 'Le jeu déclenche un pic d\'endorphine qui mène naturellement à l\'avis Google.',
         },
         {
-          title: 'Recompense a recuperer en boutique',
-          body: 'Cafe offert, dessert, reduction : le client revient sous 7 jours pour l\'encaisser.',
+          title: 'Récompense à récupérer en boutique',
+          body: 'Café offert, dessert, réduction : le client revient sous 7 jours pour l\'encaisser.',
         },
         {
-          title: 'Dashboard temps reel',
-          body: 'Suivez vos avis, votre note moyenne et votre taux de retour depuis un seul ecran.',
+          title: 'Dashboard temps réel',
+          body: 'Suivez vos avis, votre note moyenne et votre taux de retour depuis un seul écran.',
         },
       ],
       stats: [
         { value: '+47', label: 'avis Google en 6 semaines' },
-        { value: '25%', label: 'de taux de retour' },
-        { value: '4.7', label: 'note moyenne atteinte' },
+        { value: '25%', label: 'de clients qui reviennent' },
+        { value: '4.7', label: 'note Google moyenne' },
       ],
       testimonial: {
         quote:
-          'On est passe de 3 avis par mois a 12 par semaine. Les clients adorent jouer en attendant l\'addition.',
+          'On est passé de 3 avis par mois à 12 par semaine. Les clients adorent jouer en attendant l\'addition.',
         author: 'Marco T.',
-        role: 'Gerant de pizzeria, Marseille',
+        role: 'Gérant de pizzeria, Marseille',
       },
-      ctaTitle: 'Remplissez votre salle grace a Google',
+      ctaTitle: 'Remplissez votre salle grâce à Google',
       ctaSubtitle: 'Essai gratuit 14 jours, setup en 5 minutes, sans carte bancaire.',
       seo: {
-        title: 'BoumRank pour restaurants | Avis Google et fidelisation par le jeu',
+        title: 'BoumRank pour restaurants | Avis Google et fidélisation par le jeu',
         description:
-          'Transformez chaque fin de repas en avis Google et en client fidele. QR code, mini-jeu, recompense : +47 avis en 6 semaines pour votre restaurant.',
+          'Transformez chaque fin de repas en avis Google et en client fidèle. QR code, mini-jeu, récompense : +47 avis en 6 semaines pour votre restaurant.',
       },
     },
     en: {
@@ -122,8 +122,8 @@ export const SECTORS: SectorData[] = [
       ],
       stats: [
         { value: '+47', label: 'Google reviews in 6 weeks' },
-        { value: '25%', label: 'return rate' },
-        { value: '4.7', label: 'average rating reached' },
+        { value: '25%', label: 'of customers who return' },
+        { value: '4.7', label: 'average Google rating' },
       ],
       testimonial: {
         quote:
@@ -146,54 +146,54 @@ export const SECTORS: SectorData[] = [
     gradient: 'linear-gradient(135deg, #E84393 0%, #7C5CFC 100%)',
     accent: '#E84393',
     fr: {
-      name: 'Salons & beaute',
+      name: 'Salons & beauté',
       heroTitle: 'Capturez l\'avis de la cliente heureuse ',
       heroHighlight: 'avant qu\'elle repasse la porte',
       heroSubtitle:
-        'Coiffure, barbier, esthetique, onglerie : activez vos clientes en sortie de prestation, au pic de satisfaction.',
-      problemTitle: 'Ce que vivent les gerants de salons',
+        'Coiffure, barbier, esthétique, onglerie : activez vos clientes en sortie de prestation, au pic de satisfaction.',
+      problemTitle: 'Ce que vivent les gérants de salons',
       problems: [
         'Les clientes satisfaites oublient de laisser un avis',
-        'Les rappels SMS/email sont ignores ou juges intrusifs',
+        'Les rappels SMS/email sont ignorés ou jugés intrusifs',
         'La concurrence locale joue sur le volume d\'avis',
-        'Les no-shows coutent cher sans levier de fidelisation',
+        'Les no-shows coûtent cher sans levier de fidélisation',
       ],
-      solutionTitle: 'Comment BoumRank resout ca',
+      solutionTitle: 'Comment BoumRank résout ça',
       solutions: [
         {
-          title: 'QR code au miroir ou a l\'accueil',
-          body: 'La cliente scanne en sortie de fauteuil, cheveux parfaits, sourire aux levres. Timing ideal.',
+          title: 'QR code au miroir ou à l\'accueil',
+          body: 'La cliente scanne en sortie de fauteuil, cheveux parfaits, sourire aux lèvres. Timing idéal.',
         },
         {
           title: 'Mini-jeu fun et rapide',
           body: 'Un tour de roue de 15 secondes qui transforme l\'attente du rendu en moment de plaisir.',
         },
         {
-          title: 'Recompense personnalisable',
-          body: 'Soin offert, reduction prochaine visite, produit : vous choisissez ce qui fait revenir.',
+          title: 'Récompense personnalisable',
+          body: 'Soin offert, réduction prochaine visite, produit : vous choisissez ce qui fait revenir.',
         },
         {
-          title: 'Boost Instagram integre',
-          body: 'Les clientes partagent leur gain sur Insta, vos followers decollent organiquement.',
+          title: 'Boost Instagram intégré',
+          body: 'Les clientes partagent leur gain sur Insta, vos followers décollent organiquement.',
         },
       ],
       stats: [
         { value: '+38', label: 'avis Google en 8 semaines' },
-        { value: '+1', label: 'prestation supplementaire par mois' },
+        { value: '+1', label: 'prestation supplémentaire par mois' },
         { value: '2x', label: 'followers Instagram' },
       ],
       testimonial: {
         quote:
-          'Mes clientes jouent en attendant que la couleur pose. Resultat : 5 etoiles et elles reviennent 10 jours plus tot.',
+          'Mes clientes jouent en attendant que la couleur pose. Résultat : 5 étoiles et elles reviennent 10 jours plus tôt.',
         author: 'Sarah M.',
         role: 'Gérante de salon, Lyon',
       },
-      ctaTitle: 'Remplissez votre agenda grace aux avis',
+      ctaTitle: 'Remplissez votre agenda grâce aux avis',
       ctaSubtitle: 'Essai gratuit 14 jours, setup en 5 minutes, sans carte bancaire.',
       seo: {
-        title: 'BoumRank pour salons de beaute | Avis Google et fidelisation gamifiee',
+        title: 'BoumRank pour salons de beauté | Avis Google et fidélisation gamifiée',
         description:
-          'Capturez l\'avis de vos clientes au pic de satisfaction. QR code, mini-jeu, recompense : +38 avis en 8 semaines pour votre salon.',
+          'Capturez l\'avis de vos clientes au pic de satisfaction. QR code, mini-jeu, récompense : +38 avis en 8 semaines pour votre salon.',
       },
     },
     en: {
@@ -255,53 +255,53 @@ export const SECTORS: SectorData[] = [
     accent: '#2EAE6D',
     fr: {
       name: 'Boutiques & retail',
-      heroTitle: 'Remplacez la carte de fidelite par un ',
+      heroTitle: 'Remplacez la carte de fidélité par un ',
       heroHighlight: 'jackpot qui fait revenir',
       heroSubtitle:
-        'Concept store, caviste, fleuriste, librairie, deco : gamifiez la fidelite et doublez votre liste d\'abonnes en 6 semaines.',
-      problemTitle: 'Ce que vivent les commercants',
+        'Concept store, caviste, fleuriste, librairie, déco : gamifiez la fidélité et doublez votre liste d\'abonnés en 6 semaines.',
+      problemTitle: 'Ce que vivent les commerçants',
       problems: [
-        'Les cartes de fidelite papier sont perdues ou oubliees',
-        'Le client achete une fois et ne revient pas',
-        'Pas de visibilite en ligne face aux pure players',
-        'Le programme fidelite digital coute cher et demande du dev',
+        'Les cartes de fidélité papier sont perdues ou oubliées',
+        'Le client achète une fois et ne revient pas',
+        'Pas de visibilité en ligne face aux pure players',
+        'Le programme fidélité digital coûte cher et demande du dev',
       ],
-      solutionTitle: 'Comment BoumRank resout ca',
+      solutionTitle: 'Comment BoumRank résout ça',
       solutions: [
         {
           title: 'QR code en caisse ou sur le sac',
-          body: 'Le client scanne apres l\'achat, quand il est content de sa trouvaille. Natural et fluide.',
+          body: 'Le client scanne après l\'achat, quand il est content de sa trouvaille. Naturel et fluide.',
         },
         {
           title: 'Mini-jeu addictif',
-          body: 'Roue, slots ou blackjack : le client parle de son gain a ses amis, qui viennent essayer.',
+          body: 'Roue, slots ou blackjack : le client parle de son gain à ses amis, qui viennent essayer.',
         },
         {
-          title: 'Recompense physique',
-          body: 'Bon d\'achat, article offert, acces vente privee : le client revient dans la semaine.',
+          title: 'Récompense physique',
+          body: 'Bon d\'achat, article offert, accès vente privée : le client revient dans la semaine.',
         },
         {
           title: 'Croissance organique',
-          body: 'Chaque partie generee = un avis Google + un potentiel partage sur les reseaux.',
+          body: 'Chaque partie générée = un avis Google + un potentiel partage sur les réseaux.',
         },
       ],
       stats: [
         { value: '+18%', label: 'de panier moyen' },
-        { value: '2x', label: 'abonnes Insta en 6 semaines' },
+        { value: '2x', label: 'abonnés Insta en 6 semaines' },
         { value: '+32', label: 'avis Google en 2 mois' },
       ],
       testimonial: {
         quote:
-          'La carte de fidelite, personne ne la sortait. Le jeu BoumRank, tout le monde le demande.',
+          'La carte de fidélité, personne ne la sortait. Le jeu BoumRank, tout le monde le demande.',
         author: 'Julie R.',
-        role: 'Gerante concept store, Aix-en-Provence',
+        role: 'Gérante concept store, Aix-en-Provence',
       },
-      ctaTitle: 'Fidelisez sans carte, avec du jeu',
+      ctaTitle: 'Fidélisez sans carte, avec du jeu',
       ctaSubtitle: 'Essai gratuit 14 jours, setup en 5 minutes, sans carte bancaire.',
       seo: {
-        title: 'BoumRank pour boutiques | Fidelisation gamifiee et avis Google',
+        title: 'BoumRank pour boutiques | Fidélisation gamifiée et avis Google',
         description:
-          'Remplacez la carte de fidelite par un mini-jeu qui fait revenir vos clients. +18% de panier moyen, +32 avis Google en 2 mois.',
+          'Remplacez la carte de fidélité par un mini-jeu qui fait revenir vos clients. +18% de panier moyen, +32 avis Google en 2 mois.',
       },
     },
     en: {

@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
     { labelKey: 'columns.solutions.multisite', href: '/contact' },
     {
       labelKey: 'columns.solutions.network',
-      href: '/#vision',
+      href: '/a-propos',
       badgeKey: 'badges.soon',
     },
   ];
@@ -118,16 +118,6 @@ export const Footer: React.FC = () => {
   const resourcesLinks: (FooterLink | AnchorFooterLink)[] = [
     { labelKey: 'columns.resources.blog', href: '/blog' },
     { labelKey: 'columns.resources.faq', href: '/#faq' },
-    {
-      labelKey: 'columns.resources.guide',
-      href: '/#lead-magnet',
-      badgeKey: 'badges.pdf',
-    },
-    {
-      labelKey: 'columns.resources.qrGenerator',
-      href: '/generateur-qr-demo',
-      badgeKey: 'badges.free',
-    },
     {
       labelKey: 'columns.resources.presentation',
       href: '/presentation',
@@ -152,7 +142,7 @@ export const Footer: React.FC = () => {
   const renderLink = (link: FooterLink | AnchorFooterLink) => {
     const label = t(link.labelKey);
     const badge = link.badgeKey ? t(link.badgeKey) : null;
-    const isHash = link.href.startsWith('/#') || link.href.startsWith('/generateur') || link.href.startsWith('/secteurs/');
+    const isHash = link.href.startsWith('/#') || link.href.startsWith('/secteurs/');
 
     const content = (
       <>

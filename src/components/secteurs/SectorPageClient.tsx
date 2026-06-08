@@ -96,6 +96,11 @@ export function SectorPageClient({ sector, locale }: Props) {
               </motion.div>
             ))}
           </div>
+          <p className="text-[11px] md:text-xs text-[var(--text-muted)] text-center max-w-2xl mx-auto mt-6 leading-relaxed">
+            {isEn
+              ? 'Figures observed with our first businesses. Every shop is unique, these are an order of magnitude, not a promise.'
+              : 'Chiffres observés chez nos premiers commerces. Chaque enseigne reste unique, ces estimations donnent un ordre d\'idée, pas une promesse.'}
+          </p>
         </div>
       </section>
 
