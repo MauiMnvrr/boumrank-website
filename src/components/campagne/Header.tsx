@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { CalCta } from './primitives';
+import { OfferButton } from './OfferModal';
 
 export function Header() {
   return (
@@ -30,10 +30,10 @@ export function Header() {
             style={{ height: 30, width: 'auto' }}
           />
         </a>
-        <CalCta size="md" source="campagne_header">
-          <span className="cmp-hide-sm">Réserver un appel</span>
-          <span className="cmp-only-sm">Réserver</span>
-        </CalCta>
+        <OfferButton size="md" source="campagne_header">
+          <span className="cmp-hide-sm">Débloquer mon mois offert</span>
+          <span className="cmp-only-sm">Mois offert</span>
+        </OfferButton>
       </div>
     </header>
   );

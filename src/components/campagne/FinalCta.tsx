@@ -1,6 +1,7 @@
 'use client';
 
-import { Reveal, CalCta, CheckIcon } from './primitives';
+import { Reveal, CheckIcon } from './primitives';
+import { OfferButton } from './OfferModal';
 
 const reassure = ['15 minutes', 'Sans engagement', 'On vous montre tout en direct'];
 
@@ -60,9 +61,9 @@ export function FinalCta() {
 
           <Reveal delay={0.16}>
             <div style={{ marginTop: 32 }}>
-              <CalCta size="lg" variant="invert" pulse source="campagne_final">
-                Réserver mon appel de 15 min
-              </CalCta>
+              <OfferButton size="lg" variant="invert" pulse source="campagne_final">
+                Débloquer mon mois offert
+              </OfferButton>
             </div>
           </Reveal>
 

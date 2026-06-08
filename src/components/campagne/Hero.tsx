@@ -1,13 +1,8 @@
 'use client';
 
-import {
-  Reveal,
-  CalCta,
-  Stars,
-  PhoneFrame,
-  GoogleGlyph,
-  screenCtaStyle,
-} from './primitives';
+import { useState } from 'react';
+import { Reveal, Stars, PhoneFrame, GoogleGlyph } from './primitives';
+import { OfferButton } from './OfferModal';
 
 export function Hero() {
   return (
@@ -32,9 +27,9 @@ export function Hero() {
 
             <Reveal delay={0.1}>
               <div style={{ marginTop: 28 }}>
-                <CalCta size="lg" pulse source="campagne_hero">
-                  Réserver mon appel de 15 min
-                </CalCta>
+                <OfferButton size="lg" pulse source="campagne_hero">
+                  Débloquer mon mois offert
+                </OfferButton>
               </div>
             </Reveal>
           </div>
@@ -70,8 +65,17 @@ export function Hero() {
   );
 }
 
-/* Écran téléphone : roue */
+/* Écran téléphone : roue interactive (tourne au clic) */
 function HeroWheelScreen() {
+  const [rotation, setRotation] = useState(0);
+  const [spinning, setSpinning] = useState(false);
+
+  const spin = () => {
+    if (spinning) return;
+    setSpinning(true);
+    setRotation((r) => r + 360 * 4 + Math.floor(Math.random() * 360));
+  };
+
   return (
     <div
       style={{
@@ -123,11 +127,46 @@ function HeroWheelScreen() {
 
       <div className="cmp-wheel" style={{ margin: '8px auto 16px' }} aria-hidden>
         <span className="cmp-wheel-arrow" />
-        <span className="cmp-wheel-disc" />
+        <span
+          className="cmp-wheel-disc"
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            transition: 'transform 3.4s cubic-bezier(0.16, 1, 0.3, 1)',
+            animation: 'none',
+          }}
+          onTransitionEnd={() => setSpinning(false)}
+        />
         <span className="cmp-wheel-hub">🎁</span>
       </div>
 
-      <div style={screenCtaStyle}>Je tente ma chance</div>
+      <button
+        type="button"
+        onClick={spin}
+        disabled={spinning}
+        style={{
+          height: 46,
+          borderRadius: 9999,
+          background: 'var(--accent-purple)',
+          color: '#fff',
+          fontFamily: 'var(--font-plus-jakarta), sans-serif',
+          fontWeight: 800,
+          fontSize: 14,
+          letterSpacing: '0.03em',
+          textTransform: 'uppercase',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 8,
+          border: 'none',
+          cursor: spinning ? 'default' : 'pointer',
+          boxShadow: '0 8px 20px rgba(124, 92, 252, 0.4)',
+          textShadow: '0 1px 2px rgba(0,0,0,0.25)',
+          opacity: spinning ? 0.9 : 1,
+          transition: 'opacity 0.2s',
+        }}
+      >
+        {spinning ? 'Ça tourne…' : 'Je tente ma chance'}
+      </button>
 
       <div
         style={{

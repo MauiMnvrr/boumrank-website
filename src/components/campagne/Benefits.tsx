@@ -13,12 +13,12 @@ export function Benefits() {
       <div className="cmp-container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 44px' }}>
           <Reveal>
-            <h2 className="cmp-h2">Plus de visibilité. Plus de clients fidèles.</h2>
+            <h2 className="cmp-h2">Ce que vous y gagnez</h2>
           </Reveal>
         </div>
 
         <Stagger className="cmp-bento">
-          {/* Note Google */}
+          {/* Avis Google */}
           <motion.div
             variants={staggerItem}
             className="cmp-card"
@@ -33,7 +33,7 @@ export function Benefits() {
                 className="cmp-data"
                 style={{ fontSize: 34, color: 'var(--primary-blue)' }}
               >
-                5,0
+                5/5
               </span>
               <Stars size={18} />
             </div>
@@ -41,12 +41,12 @@ export function Benefits() {
               Votre note qui grimpe
             </h3>
             <p style={pStyle}>
-              Chaque partie peut générer un avis 5★. Vous remontez dans les recherches
+              Chaque joueur génère des avis. Hissez-vous sur le podium des recherches
               locales.
             </p>
           </motion.div>
 
-          {/* Fidélité */}
+          {/* Référence locale */}
           <motion.div
             variants={staggerItem}
             className="cmp-card"
@@ -54,28 +54,24 @@ export function Benefits() {
           >
             <AccentBar from="var(--primary-teal)" to="var(--primary-green)" />
             <div style={iconWrap('rgba(46,174,109,0.12)')}>
-              <LoopIcon />
+              <PodiumIcon />
             </div>
             <span
-              style={{
-                fontFamily: 'var(--font-plus-jakarta), sans-serif',
-                fontWeight: 800,
-                fontSize: 30,
-                color: 'var(--primary-green)',
-                lineHeight: 1,
-              }}
+              className="cmp-data"
+              style={{ fontSize: 34, color: 'var(--primary-green)' }}
             >
-              + de visites
+              Top 1
             </span>
             <h3 className="cmp-h3" style={{ marginTop: 10 }}>
-              Ils reviennent
+              Devenez la référence
             </h3>
             <p style={pStyle}>
-              La récompense à récupérer sur place fait revenir vos clients en boutique.
+              88% des consommateurs consultent les avis Google avant de choisir un
+              établissement.
             </p>
           </motion.div>
 
-          {/* Zéro friction */}
+          {/* Auto-financement */}
           <motion.div
             variants={staggerItem}
             className="cmp-card"
@@ -83,19 +79,20 @@ export function Benefits() {
           >
             <AccentBar from="var(--secondary-orange)" to="var(--secondary-orange-light)" />
             <div style={iconWrap('rgba(242,140,40,0.12)')}>
-              <BoltIcon />
+              <CycleIcon color="var(--secondary-orange)" />
             </div>
             <span
               className="cmp-data"
               style={{ fontSize: 34, color: 'var(--secondary-orange)' }}
             >
-              5 sec
+              +$
             </span>
             <h3 className="cmp-h3" style={{ marginTop: 10 }}>
-              Sans appli, sans compte
+              Ça s’auto-finance
             </h3>
             <p style={pStyle}>
-              On scanne, on joue. Rien à installer pour le client, rien à gérer pour vous.
+              Pour récupérer sa récompense, le client doit consommer sous minimum
+              d’achat.
             </p>
           </motion.div>
         </Stagger>
@@ -148,21 +145,26 @@ function AccentBar({ from, to }: { from: string; to: string }) {
   );
 }
 
-function LoopIcon() {
+/* Podium (classement local) */
+function PodiumIcon() {
   return (
-    <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke="var(--primary-green)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M17 2.1 21 6l-4 3.9" />
-      <path d="M3 11V9.5A3.5 3.5 0 0 1 6.5 6H21" />
-      <path d="M7 21.9 3 18l4-3.9" />
-      <path d="M21 13v1.5a3.5 3.5 0 0 1-3.5 3.5H3" />
+    <svg width={26} height={26} viewBox="0 0 24 24" fill="var(--primary-green)" aria-hidden>
+      <rect x="2.5" y="12.5" width="5.5" height="8.5" rx="1.2" />
+      <rect x="9.25" y="6.5" width="5.5" height="14.5" rx="1.2" />
+      <rect x="16" y="15" width="5.5" height="6" rx="1.2" />
+      <path d="M12 1.3l.85 1.75 1.93.28-1.4 1.36.33 1.92L12 5.64l-1.71.95.33-1.92-1.4-1.36 1.93-.28z" />
     </svg>
   );
 }
 
-function BoltIcon() {
+/* Cycle / boucle (auto-financement) */
+function CycleIcon({ color = 'var(--primary-green)' }: { color?: string }) {
   return (
-    <svg width={26} height={26} viewBox="0 0 24 24" fill="var(--secondary-orange)" aria-hidden>
-      <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z" />
+    <svg width={26} height={26} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M17 2.1 21 6l-4 3.9" />
+      <path d="M3 11V9.5A3.5 3.5 0 0 1 6.5 6H21" />
+      <path d="M7 21.9 3 18l4-3.9" />
+      <path d="M21 13v1.5a3.5 3.5 0 0 1-3.5 3.5H3" />
     </svg>
   );
 }

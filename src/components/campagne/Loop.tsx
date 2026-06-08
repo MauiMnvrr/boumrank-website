@@ -26,20 +26,20 @@ const steps: Step[] = [
   },
   {
     n: 2,
-    title: 'Il joue pour gagner',
-    text: 'Roue, machine à sous ou blackjack. C’est fun, il veut gagner.',
-    visual: <MiniWheel />,
-  },
-  {
-    n: 3,
     title: 'Il laisse un avis 5★',
     text: 'Pour jouer, il poste un avis Google. Votre note locale grimpe.',
     visual: <ReviewBubble />,
   },
   {
+    n: 3,
+    title: 'Il joue',
+    text: 'Il tente de gagner une récompense.',
+    visual: <MiniWheel />,
+  },
+  {
     n: 4,
-    title: 'Il revient le chercher',
-    text: 'Sa récompense l’attend en boutique. Il revient, il consomme.',
+    title: 'Il revient',
+    text: 'Sa récompense est disponible dès le lendemain.',
     visual: <CouponMini />,
   },
 ];
@@ -51,11 +51,6 @@ export function Loop() {
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 44px' }}>
           <Reveal>
             <h2 className="cmp-h2">COMMENT ÇA MARCHE ?</h2>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="cmp-lead" style={{ marginTop: 14 }}>
-              Quatre étapes, zéro friction. Vos clients jouent, vous récoltez.
-            </p>
           </Reveal>
         </div>
 
