@@ -23,6 +23,8 @@
   }
   if (!adsGranted) return;
 
+  if (window.ttq) return;
+
   // Snippet officiel TikTok Pixel
   !(function (w, d, t) {
     w.TiktokAnalyticsObject = t;
