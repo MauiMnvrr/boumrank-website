@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { readConsent, type ConsentState } from '@/lib/analytics';
+import { readConsent, isInternalTraffic, type ConsentState } from '@/lib/analytics';
 
 /**
  * Charge Microsoft Clarity et LinkedIn Insight UNIQUEMENT après consentement.
@@ -25,16 +25,19 @@ export function ConsentGatedTrackers({
   metricoolHash?: string;
 }) {
   const [consent, setConsent] = useState<ConsentState | null>(null);
+  const [internal, setInternal] = useState(false);
 
   useEffect(() => {
     setConsent(readConsent());
+    setInternal(isInternalTraffic());
     const handler = () => setConsent(readConsent());
     window.addEventListener('boumrank-consent-update', handler);
     return () => window.removeEventListener('boumrank-consent-update', handler);
   }, []);
 
-  const analyticsGranted = consent?.analytics === 'granted';
-  const adsGranted = consent?.ads === 'granted';
+  // Appareils internes (admins) : on ne charge AUCUN traceur.
+  const analyticsGranted = consent?.analytics === 'granted' && !internal;
+  const adsGranted = consent?.ads === 'granted' && !internal;
 
   return (
     <>

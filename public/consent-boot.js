@@ -6,12 +6,50 @@
  * tracking event is buffered or discarded according to the default-denied
  * consent state.
  *
- * 1. Initialises `dataLayer` (GTM)
- * 2. Defines `gtag()`
- * 3. Sets default consent = denied (EU requirement since March 2024)
- * 4. Replays any stored consent choice synchronously to not lose events on reload
+ * Gère aussi l'EXCLUSION DES APPAREILS INTERNES (admins) :
+ *   - visiter ?interne=1 marque durablement cet appareil (localStorage)
+ *   - visiter ?interne=0 le réactive
+ * Un appareil marqué est exclu de GA4 (drapeau ga-disable), et les pixels
+ * Meta/TikTok ne se chargent pas (voir *-pixel-boot.js), et track()/trackMeta()/
+ * trackTikTok() sont no-op (voir lib/analytics.ts).
+ *
+ * 1. Gère le drapeau "interne" + désactive GA4 si interne
+ * 2. Initialise `dataLayer` (GTM)
+ * 3. Définit `gtag()`
+ * 4. Pose le consentement par défaut = refusé (exigence UE depuis mars 2024)
+ * 5. Rejoue le choix de consentement stocké pour ne pas perdre d'événements
  */
 (function () {
+  // --- Exclusion des appareils internes (admins) ---
+  try {
+    var qs = window.location.search || '';
+    if (qs.indexOf('interne=1') !== -1) {
+      localStorage.setItem('boumrank_internal', 'true');
+      alert('Cet appareil ne sera plus compté dans les statistiques BoumRank.');
+    } else if (qs.indexOf('interne=0') !== -1) {
+      localStorage.removeItem('boumrank_internal');
+      alert('Cet appareil est de nouveau compté dans les statistiques BoumRank.');
+    }
+  } catch (e) {
+    // localStorage indisponible — on continue normalement
+  }
+
+  var isInternal = false;
+  try {
+    isInternal = localStorage.getItem('boumrank_internal') === 'true';
+  } catch (e) {}
+
+  // Désactive complètement GA4 pour cet appareil (drapeau natif gtag).
+  if (isInternal) {
+    try {
+      var bootTag = document.getElementById('consent-boot');
+      var gaId = bootTag && bootTag.getAttribute('data-ga-id');
+      if (gaId) {
+        window['ga-disable-' + gaId] = true;
+      }
+    } catch (e) {}
+  }
+
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     window.dataLayer.push(arguments);

@@ -12,6 +12,7 @@ export function ConsentBoot() {
       id="consent-boot"
       src="/consent-boot.js"
       strategy="beforeInteractive"
+      data-ga-id={process.env.NEXT_PUBLIC_GA_ID}
     />
   );
 }

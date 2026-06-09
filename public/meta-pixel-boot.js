@@ -15,6 +15,11 @@
   if (!pixelId) return;
   pixelId = pixelId.trim();
 
+  // Appareil interne (admin) → ne pas charger le pixel.
+  try {
+    if (localStorage.getItem('boumrank_internal') === 'true') return;
+  } catch (e) {}
+
   function adsGranted() {
     try {
       var raw = localStorage.getItem('boumrank_consent_v1');

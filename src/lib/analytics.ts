@@ -94,12 +94,26 @@ export function hasChosenConsent(): boolean {
 }
 
 /**
+ * Appareil marqué "interne" (admin) → exclu de toute mesure (GA4 + Meta + TikTok).
+ * Activé en visitant ?interne=1 (voir public/consent-boot.js), stocké en localStorage.
+ */
+export function isInternalTraffic(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return window.localStorage.getItem('boumrank_internal') === 'true';
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Fire an event through gtag + dataLayer. Safe to call server-side (no-op).
  * Consent Mode handles gating : GA4 buffers events while denied and
  * discards ad-related data. No extra check needed here.
  */
 export function track(name: string, payload: Record<string, unknown> = {}): void {
   if (typeof window === 'undefined') return;
+  if (isInternalTraffic()) return;
   const w = window as any;
   if (typeof w.gtag === 'function') {
     w.gtag('event', name, payload);
@@ -112,6 +126,7 @@ export function track(name: string, payload: Record<string, unknown> = {}): void
 /** Meta Pixel event (Lead, CompleteRegistration, etc). Consent-gated manually. */
 export function trackMeta(name: string, payload: Record<string, unknown> = {}): void {
   if (typeof window === 'undefined') return;
+  if (isInternalTraffic()) return;
   const consent = readConsent();
   if (consent.ads !== 'granted') return;
   const w = window as any;
@@ -123,6 +138,7 @@ export function trackMeta(name: string, payload: Record<string, unknown> = {}): 
 /** TikTok Pixel event (Contact, ViewContent, SubmitForm…). Consent-gated manually. */
 export function trackTikTok(name: string, payload: Record<string, unknown> = {}): void {
   if (typeof window === 'undefined') return;
+  if (isInternalTraffic()) return;
   const consent = readConsent();
   if (consent.ads !== 'granted') return;
   const w = window as any;
