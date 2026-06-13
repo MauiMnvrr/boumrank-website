@@ -280,9 +280,7 @@ export const Hero = () => {
           {/* LEFT — Copy & CTAs */}
           <motion.div
             style={{ y: yText }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={false}
             className="text-left"
           >
             {/* H1 — punchline avec mots-cles en gradient */}
@@ -317,11 +315,9 @@ export const Hero = () => {
             </motion.h1>
 
             {/* Sub-headline */}
-            <RevealOnScroll mode="fade" delay={0.25}>
-              <p className="text-[var(--text-body)] text-base sm:text-lg md:text-xl mb-7 max-w-xl leading-relaxed">
-                {t('subhead')}
-              </p>
-            </RevealOnScroll>
+            <p className="text-[var(--text-body)] text-base sm:text-lg md:text-xl mb-7 max-w-xl leading-relaxed">
+              {t('subhead')}
+            </p>
 
             {/* CTA */}
             <RevealOnScroll mode="fade" delay={0.35}>
