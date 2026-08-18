@@ -266,10 +266,21 @@ export default async function MentionsLegalesPage({
             </p>
           </div>
 
+          {/* Conception et développement */}
+          <div>
+            <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
+              8. Conception et d&eacute;veloppement
+            </h2>
+            <p>
+              Le site {SITE_NAME} a &eacute;t&eacute; con&ccedil;u et d&eacute;velopp&eacute; par{' '}
+              <strong>Iaora Labs</strong>.
+            </p>
+          </div>
+
           {/* Contact */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              8. Contact
+              9. Contact
             </h2>
             <p>
               Pour toute question relative aux mentions l&eacute;gales du site,

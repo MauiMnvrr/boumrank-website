@@ -225,7 +225,10 @@ export const Footer: React.FC = () => {
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[var(--border-default)]">
           <p className="text-[var(--text-muted)] text-xs uppercase font-display font-bold tracking-wider text-center md:text-left">
-            {t('copyright', { year })}
+            {t('copyright', { year })}{' '}
+            {t('incorporation') && (
+              <span className="normal-case font-normal tracking-normal">{t('incorporation')}</span>
+            )}
           </p>
           <div className="flex items-center gap-3">
             {COMPANY.socials.twitter && (

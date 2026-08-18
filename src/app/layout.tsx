@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     default: SITE_NAME,
   },
   description: SITE_DESCRIPTION,
+  authors: [{ name: 'Iaora Labs' }],
   robots: {
     index: true,
     follow: true,
