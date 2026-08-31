@@ -273,7 +273,22 @@ export default async function MentionsLegalesPage({
             </h2>
             <p>
               Le site {SITE_NAME} a &eacute;t&eacute; con&ccedil;u et d&eacute;velopp&eacute; par{' '}
-              <strong>Iaora Labs</strong>.
+              <a
+                href="https://iaoralabs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#1B6FC2] hover:underline"
+              >
+                Iaora Labs
+              </a>{' '}
+              (<a
+                href="https://iaoralabs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#1B6FC2] hover:underline"
+              >
+                iaoralabs.com
+              </a>).
             </p>
           </div>
 
