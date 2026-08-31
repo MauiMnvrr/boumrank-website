@@ -229,6 +229,17 @@ export const Footer: React.FC = () => {
             {t('incorporation') && (
               <span className="normal-case font-normal tracking-normal">{t('incorporation')}</span>
             )}
+            <span className="block mt-1 normal-case font-normal tracking-normal">
+              {t('credits')}{' '}
+              <a
+                href="https://iaoralabs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary-blue)] transition-colors"
+              >
+                Iaora Labs
+              </a>
+            </span>
           </p>
           <div className="flex items-center gap-3">
             {COMPANY.socials.twitter && (

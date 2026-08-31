@@ -140,6 +140,9 @@ function buildEmailHtml(pdfUrl: string): string {
         <p style="margin:16px 0 0;color:#9AA8B8;font-size:12px;">
           BoumRank — Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université
         </p>
+        <p style="margin:6px 0 0;color:#9AA8B8;font-size:12px;">
+          Conçu et développé par <a href="https://iaoralabs.com" style="color:#9AA8B8;text-decoration:underline;">Iaora Labs</a>
+        </p>
       </td>
     </tr>
   </table>
@@ -175,5 +178,6 @@ Télécharger le PDF : ${pdfUrl}
 
 On vous écrira tous les 15 jours avec une idée concrète pour booster vos avis Google — sans spam, juste du concret.
 
-BoumRank — Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université`;
+BoumRank — Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université
+Conçu et développé par Iaora Labs — https://iaoralabs.com`;
 }
