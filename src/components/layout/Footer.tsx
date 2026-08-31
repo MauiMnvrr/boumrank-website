@@ -235,6 +235,17 @@ export const Footer: React.FC = () => {
           <p className="text-[var(--text-muted)] text-xs uppercase font-display font-bold tracking-wider text-center md:text-left">
             {t('copyright', { year })}{' '}
             <span className="text-[var(--text-secondary)]">{t('incorporation')}</span>
+            <span className="block mt-1 normal-case tracking-normal font-normal">
+              {t('credits')}{' '}
+              <a
+                href="https://iaoralabs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary-blue)] transition-colors"
+              >
+                Iaora Labs
+              </a>
+            </span>
           </p>
           <div className="flex items-center gap-3">
             <a

@@ -140,6 +140,9 @@ function buildEmailHtml(pdfUrl: string): string {
         <p style="margin:16px 0 0;color:#9AA8B8;font-size:12px;">
           BoumRank — Conçu à Marseille · Propulsé par Pépite Aix-Marseille Université
         </p>
+        <p style="margin:6px 0 0;color:#9AA8B8;font-size:12px;">
+          Conçu et développé par <a href="https://iaoralabs.com" style="color:#9AA8B8;text-decoration:underline;">Iaora Labs</a>
+        </p>
       </td>
     </tr>
   </table>

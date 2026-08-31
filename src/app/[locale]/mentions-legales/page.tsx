@@ -174,10 +174,44 @@ export default async function MentionsLegalesPage({
             </div>
           </div>
 
+          {/* Conception et r&eacute;alisation */}
+          <div>
+            <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
+              3. Conception et r&eacute;alisation
+            </h2>
+            <div className="bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-2xl p-6 space-y-3">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    Con&ccedil;u et d&eacute;velopp&eacute; par
+                  </span>
+                  <p className="text-[var(--text-primary)] font-medium">
+                    Iaora Labs
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    Site web
+                  </span>
+                  <p className="text-[var(--text-primary)] font-medium">
+                    <a
+                      href="https://iaoralabs.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1B6FC2] hover:underline"
+                    >
+                      iaoralabs.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Propri&eacute;t&eacute; intellectuelle */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              3. Propri&eacute;t&eacute; intellectuelle
+              4. Propri&eacute;t&eacute; intellectuelle
             </h2>
             <p>
               L&apos;ensemble du contenu du site {SITE_NAME} (textes, images,
@@ -197,7 +231,7 @@ export default async function MentionsLegalesPage({
           {/* Limitation de responsabilit&eacute; */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              4. Limitation de responsabilit&eacute;
+              5. Limitation de responsabilit&eacute;
             </h2>
             <p>
               {SITE_NAME} s&apos;efforce de fournir sur le site des informations
@@ -215,7 +249,7 @@ export default async function MentionsLegalesPage({
           {/* Liens hypertextes */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              5. Liens hypertextes
+              6. Liens hypertextes
             </h2>
             <p>
               Le site {SITE_NAME} peut contenir des liens hypertextes vers
@@ -229,7 +263,7 @@ export default async function MentionsLegalesPage({
           {/* Cookies */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              6. Cookies
+              7. Cookies
             </h2>
             <p>
               Le site {SITE_NAME} peut &ecirc;tre amen&eacute; &agrave; utiliser des
@@ -248,7 +282,7 @@ export default async function MentionsLegalesPage({
           {/* Droit applicable */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              7. Droit applicable et juridiction
+              8. Droit applicable et juridiction
             </h2>
             <p>
               Les pr&eacute;sentes mentions l&eacute;gales sont r&eacute;gies par le
@@ -261,7 +295,7 @@ export default async function MentionsLegalesPage({
           {/* Contact */}
           <div>
             <h2 className="text-2xl font-extrabold uppercase text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border-default)]">
-              8. Contact
+              9. Contact
             </h2>
             <p>
               Pour toute question relative aux mentions l&eacute;gales du site,
