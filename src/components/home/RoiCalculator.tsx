@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Users, TrendingUp, Euro, ArrowRight } from 'lucide-react';
+import { Star, Users, MousePointerClick, FlaskConical, ArrowRight } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useOnboarding } from '@/components/ui/OnboardingProvider';
-import { cn } from '@/lib/utils';
 
 function AnimatedCounter({
   value,
@@ -50,37 +49,16 @@ function AnimatedCounter({
   );
 }
 
+// Chiffres mesurés dans le mémoire Kedge de Maui (pilote de Marseille, janvier à août 2026,
+// différence de différences face à 10 restaurants voisins) : environ +12 avis par mois et par
+// restaurant pendant l'utilisation, environ 4 avis de plus pour 10 clics sur le bouton avis.
+// Remplace l'ancien simulateur (clients/jour ÷ 5 × 24), qui affichait 288 avis pour 60 clients/jour.
+const MEASURED_EXTRA_REVIEWS_PER_MONTH = 12;
+
 export const RoiCalculator = () => {
   const { openModal } = useOnboarding();
   const t = useTranslations('home.roi');
   const locale = useLocale();
-  const [customersPerDay, setCustomersPerDay] = useState(60);
-  const [avgTicket, setAvgTicket] = useState(18);
-
-  const formatLocale = t('currencyLocale');
-  const currency = t('currencyCode');
-
-  const formatEUR = (n: number) =>
-    new Intl.NumberFormat(formatLocale, {
-      style: 'currency',
-      currency,
-      maximumFractionDigits: 0,
-    }).format(Math.max(0, Math.round(n)));
-
-  const formatInt = (n: number) =>
-    new Intl.NumberFormat(formatLocale).format(Math.max(0, Math.round(n)));
-
-  const { newReviewsPerMonth, returningCustomers, extraRevenue } = useMemo(() => {
-    const reviews = (customersPerDay / 5) * 24;
-    const returners = reviews / 10;
-    const revenue = returners * avgTicket;
-
-    return {
-      newReviewsPerMonth: Math.round(reviews),
-      returningCustomers: Math.round(returners),
-      extraRevenue: revenue,
-    };
-  }, [customersPerDay, avgTicket]);
 
   return (
     <section
@@ -114,37 +92,16 @@ export const RoiCalculator = () => {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5 }}
           >
-            <Card variant="solid" padding="lg" className="h-full flex flex-col gap-7">
-              <h3 className="font-display font-bold text-xl text-[var(--text-primary)]">
-                {t('yourStore')}
+            <Card variant="solid" padding="lg" className="h-full flex flex-col gap-5">
+              <h3 className="flex items-center gap-2 font-display font-bold text-xl text-[var(--text-primary)]">
+                <span className="text-[var(--primary-blue)]"><FlaskConical size={20} /></span>
+                {t('methodTitle')}
               </h3>
-
-              <SliderInput
-                label={t('customersLabel')}
-                value={customersPerDay}
-                setValue={setCustomersPerDay}
-                min={5}
-                max={300}
-                step={5}
-                suffix={t('customersSuffix')}
-                accent="#1B6FC2"
-                icon={<Users size={18} />}
-              />
-
-              <SliderInput
-                label={t('ticketLabel')}
-                value={avgTicket}
-                setValue={setAvgTicket}
-                min={5}
-                max={150}
-                step={1}
-                suffix={t('ticketSuffix')}
-                accent="#1E9DAA"
-                icon={<Euro size={18} />}
-              />
-
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed italic pt-2 border-t border-[var(--border-default)]">
-                {t('disclaimer')}
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                {t('methodBody')}
+              </p>
+              <p className="text-xs text-[var(--text-muted)] leading-relaxed italic pt-4 mt-auto border-t border-[var(--border-default)]">
+                {t('methodNote')}
               </p>
             </Card>
           </motion.div>
@@ -163,7 +120,7 @@ export const RoiCalculator = () => {
                     {t('newReviewsLabel')}
                   </div>
                   <div className="font-display font-extrabold text-5xl md:text-6xl text-transparent bg-clip-text bg-[linear-gradient(135deg,#1B6FC2_0%,#2EAE6D_100%)] leading-none mb-2">
-                    +<AnimatedCounter value={newReviewsPerMonth} format={formatInt} />
+                    +<AnimatedCounter value={MEASURED_EXTRA_REVIEWS_PER_MONTH} format={(n) => String(Math.round(n))} />
                   </div>
                   <p className="text-sm text-[var(--text-secondary)]">
                     {t('newReviewsCaption')}
@@ -179,36 +136,34 @@ export const RoiCalculator = () => {
               <Card variant="solid" padding="md">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-lg bg-[linear-gradient(135deg,#1E9DAA_0%,#177A85_100%)] flex items-center justify-center text-white">
-                    <Users size={18} />
+                    <MousePointerClick size={18} />
                   </div>
                   <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold">
-                    {t('returnsLabel')}
+                    {t('clicksLabel')}
                   </div>
                 </div>
                 <div className="font-display font-extrabold text-3xl text-[var(--text-primary)]">
-                  <AnimatedCounter value={returningCustomers} format={formatInt} />
-                  <span className="text-sm font-semibold text-[var(--text-muted)]">{t('returnsPerMonth')}</span>
+                  {t('clicksValue')}
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] mt-1">
-                  {t('returnsCaption')}
+                  {t('clicksCaption')}
                 </p>
               </Card>
 
               <Card variant="solid" padding="md">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-lg bg-[linear-gradient(135deg,#2EAE6D_0%,#1E8A52_100%)] flex items-center justify-center text-white">
-                    <TrendingUp size={18} />
+                    <Users size={18} />
                   </div>
                   <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] font-display font-bold">
-                    {t('revenueLabel')}
+                    {t('panelLabel')}
                   </div>
                 </div>
                 <div className="font-display font-extrabold text-3xl text-[var(--text-primary)]">
-                  <AnimatedCounter value={extraRevenue} format={formatEUR} />
-                  <span className="text-sm font-semibold text-[var(--text-muted)]">{t('returnsPerMonth')}</span>
+                  {t('panelValue')}
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] mt-1">
-                  {t('revenueCaption')}
+                  {t('panelCaption')}
                 </p>
               </Card>
             </div>
@@ -229,60 +184,3 @@ export const RoiCalculator = () => {
     </section>
   );
 };
-
-type SliderInputProps = {
-  label: string;
-  value: number;
-  setValue: (n: number) => void;
-  min: number;
-  max: number;
-  step: number;
-  suffix?: string;
-  accent: string;
-  icon: React.ReactNode;
-};
-
-function SliderInput({ label, value, setValue, min, max, step, suffix = '', accent, icon }: SliderInputProps) {
-  const percent = ((value - min) / (max - min)) * 100;
-
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-3">
-        <label className="flex items-center gap-2 text-sm font-display font-bold text-[var(--text-primary)]">
-          <span style={{ color: accent }}>{icon}</span>
-          {label}
-        </label>
-        <span
-          className="font-display font-extrabold text-lg"
-          style={{ color: accent }}
-        >
-          {value}
-          {suffix}
-        </span>
-      </div>
-
-      <div className="relative h-11 flex items-center touch-none">
-        <div className="absolute left-0 right-0 h-2 bg-[var(--bg-elevated)] rounded-full top-1/2 -translate-y-1/2" />
-        <div
-          className={cn('absolute left-0 h-2 rounded-full transition-none top-1/2 -translate-y-1/2')}
-          style={{ width: `${percent}%`, background: `linear-gradient(90deg, ${accent}DD, ${accent})` }}
-        />
-        <input
-          type="range"
-          min={min}
-          max={max}
-          step={step}
-          value={value}
-          onChange={(e) => setValue(Number(e.target.value))}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          style={{ touchAction: 'none' }}
-          aria-label={label}
-        />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white border-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] pointer-events-none transition-none"
-          style={{ left: `calc(${percent}% - 12px)`, borderColor: accent }}
-        />
-      </div>
-    </div>
-  );
-}
